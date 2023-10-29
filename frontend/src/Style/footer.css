@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&family=Orelega+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --font-family-1: "Open Sans";
+  --font-family: "Orelega One",serif;
+  --color-orange: #f5b800;
+  --color-orange-foncé: #fb8500;
+  --color-bleu-inter: #219ebc;
+  --color-bleu-clair: #99c9e6;
+  --color-bleu-foncé: #112f47;
+  --color-background-gris: #efefef;
+  --color-text: #122529;
+  --color-text-clair: #f8f9fa;
+}
+
+.footer {
+  background-color: var(--color-bleu-foncé);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 15;
+}
+
+.paragraphs {
+  display: flex;
+  flex-direction: row;
+}
+.logo {
+  padding-left: 50px;
+  padding-top: 40px;
+}
+.logo > h1 {
+  color: var(--color-bleu-inter);
+  font-family: var(--font-family);
+}
+
+.logo > h1 > span {
+  color: var(--color-orange);
+  font-family: var(--font-family);
+}
+.nosOffres,
+.aPropos {
+  color: var(--color-text-clair);
+  font-family: var(--font-family-1);
+  padding: 50px;
+}
+.nosOffres > h2 {
+  font-size: 20px;
+  font-weight: bolder;
+  padding-bottom: 5px;
+}
+.nosOffres > p {
+  font-size: 14px;
+  padding-top: 7px;
+}
+.aPropos > h2 {
+  font-size: 20px;
+  font-weight: bolder;
+  padding-bottom: 5px;
+}
+.aPropos> p {
+  font-size: 14px;
+  padding-top: 7px;
+}
