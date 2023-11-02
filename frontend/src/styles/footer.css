@@ -25,6 +25,7 @@
   .logo > h1 > span {
     color: var(--color-orange);
   }
+
 .nosOffres,
 .aPropos {
   color: var(--color-text-clair);
@@ -153,7 +154,5 @@
   .divNewsLetter > p {
     font-size: 0.70rem ;
   }
+}
 
-
-
-  }

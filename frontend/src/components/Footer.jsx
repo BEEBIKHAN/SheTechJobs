@@ -1,6 +1,6 @@
 import "../styles/footer.css";
-import "../styles/App.css";
 import Newsletter from "./Newsletter";
+import "../styles/app.css";
 
 export default function Footer() {
   return (
