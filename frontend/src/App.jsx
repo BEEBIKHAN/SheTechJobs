@@ -1,3 +1,4 @@
+import Home from "./pages/Home";
 import "./styles/app.css";
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
