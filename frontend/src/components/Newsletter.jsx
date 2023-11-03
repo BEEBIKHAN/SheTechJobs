@@ -1,5 +1,5 @@
 import "../styles/footer.css";
-import "../styles/App.css";
+import "../styles/app.css";
 
 import { useState } from "react";
 
