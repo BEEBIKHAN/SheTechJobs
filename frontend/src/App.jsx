@@ -1,4 +1,3 @@
-import Home from "./pages/Home";
 import "./styles/app.css";
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -12,7 +11,7 @@ function App() {
       <SearchBar />
       <Content />
       <Footer />
-      <p>We got this y'all !!!</p>
+      {/* <p>We got this y'all !!!</p> */}
     </div>
   );
 }
