@@ -42,7 +42,7 @@ export default function MonEspace() {
       !inputData.email ||
       !inputData.telephone
     ) {
-      alert("Tous les champs sont obligatoires");
+      console.error("Tous les champs sont obligatoires");
     } else {
       console.info("Image File:", imageFile);
       setInputData(data);
