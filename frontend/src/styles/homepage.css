@@ -1,0 +1,86 @@
+.bodyGeneral {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Title > p {
+    margin-top: 15px;
+    font-size:20px ;
+}
+.iconsContainer {
+    width: 90%;
+margin: 0 auto;
+}
+
+
+.loop {
+    margin:30px;
+    background-color: var(--color-background-gris);
+    width: 80%;
+    text-align: center;
+    padding: 20px;
+}
+.loop > h3 {
+    padding-bottom: 10px;
+}
+.loop > figure img {
+   width:100px; 
+   padding-bottom: 30px;
+}
+.loop > h4 {
+   color: var( --color-bleu-inter);
+   padding: 10px;
+ }
+
+ .rocket {
+    margin:30px;
+    background-color: var(--color-background-gris);
+    width: 80%;
+    text-align: center;
+    padding: 20px;
+}
+.rocket > h3 {
+    padding-bottom: 10px;
+}
+.rocket > figure img {
+   width:100px; 
+   padding-bottom: 30px;
+}
+.rocket > h4 {
+   color: var( --color-bleu-inter);
+   padding: 10px;
+ }
+
+ .girl {
+    margin:30px;
+    background-color: var(--color-background-gris);
+    width: 80%;
+    text-align: center;
+    padding: 20px;
+}
+.girl > h3 {
+    padding-bottom: 10px;
+}
+.girl > figure img {
+   width:100px; 
+   padding-bottom: 30px;
+}
+.girl > h4 {
+   color: var( --color-bleu-inter);
+   padding: 10px;
+ }
+
+
+ @media (min-width: 620px) {
+    .iconsContainer {
+        display: flex;
+        flex-direction: row; 
+    }
+
+    .bodyGeneral {
+       background-color: var(--color-background-gris);
+    }
+
+ }
