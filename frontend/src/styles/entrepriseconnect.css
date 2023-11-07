@@ -1,0 +1,97 @@
+.ConnectEntreprise{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var( --font-family-1);
+}
+
+.laughing > figure >img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.boConnectEntreprise {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color:var(--color-background-gris) ;
+  width:80%;
+  height: 270px;
+}
+.boConnectEntreprise > h2 {
+ margin: 0 auto;
+ padding: 1.3rem;
+font-size: 1.3rem;
+font-weight: extra-bolder;
+}
+
+.boConnectEntreprise > form{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  gap: 15px;
+}
+.boConnectEntreprise > form > input{
+padding: 5px;
+border: none;
+font-style: italic;
+}
+
+.boConnectEntreprise > form > p{
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 0.8rem;
+  margin-bottom: 3rem;
+}
+.boConnectEntreprise > form > p > span{
+color: var( --color-bleu-inter);
+}
+
+.boConnectEntreprise > form > button {
+ background-color: var( --color-orange);
+ color: var(--color-text);
+ font-weight: bolder;
+ border-radius: 20px;
+ padding: 5px;
+ border: none;
+}
+
+@media (min-width: 620px) {
+.ConnectEntreprise{
+  position: relative;
+}
+
+.boConnectEntreprise {
+  position: absolute;
+  width: 30%;
+  height: 55%;
+top: 45%;
+left: 76%;
+transform: translate(-40%, -70%);
+z-index: 1;
+}
+.boConnectEntreprise > h2 {
+  margin: 0 auto;
+  padding: 1.3rem;
+font-size: 1.3rem;
+}
+.boConnectEntreprise > form{
+gap: 25px;
+}
+.boConnectEntreprise > form > input{
+padding: 10px;
+}
+
+.boConnectEntreprise > form > button {
+padding: 10px;
+}
+
+.boConnectEntreprise > h2 {
+margin-top: 1.5rem;
+}
+
+}
