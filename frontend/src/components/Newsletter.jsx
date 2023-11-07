@@ -1,3 +1,6 @@
+import "../styles/footer.css";
+import "../styles/app.css";
+
 import { useState } from "react";
 
 export default function Newsletter() {
