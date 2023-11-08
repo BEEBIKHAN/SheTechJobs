@@ -1,7 +1,12 @@
+CREATE DATABASE shetechjobs;
+
+USE shetechjobs;
+
 CREATE TABLE `adminclient` (
   `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(150) NOT NULL,
   `prénom` VARCHAR(150) NOT NULL,
+
   `téléphone` INT,
   `email` VARCHAR(255) NOT NULL,
   `mot_de_passe` VARCHAR(12) NOT NULL
