@@ -1,6 +1,394 @@
-CREATE TABLE item (
-  id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  title varchar(255) NOT NULL
+CREATE TABLE `adminclient` (
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `nom` VARCHAR(150) NOT NULL,
+  `prénom` VARCHAR(150) NOT NULL,
+  `téléphone` INT,
+  `email` VARCHAR(255) NOT NULL,
+  `mot_de_passe` VARCHAR(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO item (title) VALUES ('Stuff'), ('Doodads');
+INSERT INTO `adminclient` (`nom`, `prénom`, `téléphone`, `email`, `mot_de_passe`) 
+VALUES
+('Wild', 'Jean', 0625304056, 'j.wild@gmail.com', 'word123');
+
+
+CREATE TABLE `entreprise` (
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nom` VARCHAR(150) NOT NULL,
+`logo` BLOB NOT NULL, 
+`SIRET` BIGINT (14) NOT NULL,
+`adresse` VARCHAR(255) NULL,
+`code_postal` VARCHAR(5) NULL,
+`ville` VARCHAR(250) NULL,
+`email` VARCHAR(150) NOT NULL,
+`telephone` INT,
+`mot_de_passe` VARCHAR(12) NOT NULL,
+`description_entreprise` TEXT(255) NOT NULL,
+`adminclient_id`INT NOT NULL,
+KEY `adminclient_id` (`adminclient_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `entreprise`
+  ADD CONSTRAINT `fk_entreprise_adminclient` FOREIGN KEY (`adminclient_id`) REFERENCES `adminclient`(`id`);
+
+INSERT INTO `entreprise` (`nom`, `logo`, `SIRET`, `adresse`, `code_postal`, `ville`, `email`, `telephone`, `mot_de_passe`, `description_entreprise`, `adminclient_id`) 
+VALUES
+('WildCodeSchool', 'wilcodeschool.png', 	79492606300247, '123 rue bidon', '75020', 'PARIS 20', 'wildcode@school.com', 0123454056, 'hellolawild', 'La Wild Code School est une école innovante et un réseau européen de campus qui forment aux métiers tech des spécialistes adaptables. Elle est une marque de la société InnovEduc. Avec la WCS vous aurez les codes !', 1);
+
+
+
+CREATE TABLE `candidate` (
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nom` VARCHAR(150) NOT NULL,
+`prénom` VARCHAR(150) NOT NULL,
+`image_profil` BLOB NULL,
+`adresse` VARCHAR(255) NULL,
+`code_postal` VARCHAR(5) NULL,
+`ville` VARCHAR(255),
+`telephone` INT,
+`email` VARCHAR(255) NOT NULL,
+`mot_de_passe` BINARY(60) NOT NULL,
+`motivations` TEXT(260) NULL,
+`adminclient_id`INT NOT NULL,
+KEY `adminclient_id` (`adminclient_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `candidate`
+  ADD CONSTRAINT `fk_candidate_adminclient`FOREIGN KEY (`adminclient_id`) REFERENCES `adminclient`(`id`);
+
+
+CREATE TABLE cv (
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nom` VARCHAR(150) NOT NULL,
+`prenom` VARCHAR(150) NOT NULL,
+`titre`  VARCHAR(150) NOT NULL,
+`image_profil` BLOB NULL,
+`lien_site` VARCHAR(150) NULL, 
+`lien_linkedin` VARCHAR(150) NULL,
+`candidate_id` INT NOT NULL,
+KEY `candidate_id` (`candidate_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `cv`
+  ADD CONSTRAINT `fk_cv_candidate` FOREIGN KEY (`candidate_id`) REFERENCES `candidate`(`id`);
+
+CREATE TABLE `formation` (
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nom` VARCHAR(150) NOT NULL,
+`date_debut` DATE NOT NULL,
+`date_fin` DATE NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `formation` (`nom`, `date_debut`, `date_fin`) VALUES
+('Développement web et web mobile', '2023-06-26', '2023-12-15');
+
+CREATE TABLE `experience` (
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nom` VARCHAR(150) NOT NULL,
+`date_debut` DATE NOT NULL,
+`date_fin` DATE NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `experience` (`nom`, `date_debut`, `date_fin`) VALUES
+('Formatrice full stack à W3', '2019-06-26', '2022-12-15');
+
+CREATE TABLE `competencetechnique` (
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nom` VARCHAR(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `competencetechnique` (`nom`) VALUES
+('JavaScript'),
+('Figma');
+
+
+CREATE TABLE `competencetransversale` (
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nom` VARCHAR(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `competencetransversale` (`nom`) VALUES
+('creative'),
+('organised');
+
+CREATE TABLE `langue` (
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nom` VARCHAR(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `langue` (`nom`) VALUES
+('français'),
+('anglais');
+
+CREATE TABLE `loisir` (
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nom` VARCHAR(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `loisir` (`nom`) VALUES
+('film'),
+('lecture');
+
+CREATE TABLE `metier` (
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nom` VARCHAR(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `metier` (`nom`) VALUES
+('Administratrise de base de données'),
+('Architecte big data'),
+('Architecte big data'),
+('Architecte de solutions Blockchain'),
+('Business analyst'),
+('Cheffe de projet informatique'),
+('Conceptrice de Data Visualisation'),
+('Data analyst'),
+('Data scientist'),
+('Data miner'),
+('Data protection officer'),
+('Designer web'),
+('Développeuse Blockchain'),
+('Développeuse mobile'),
+('Développeuse web back-end'),
+('Développeuse web front-end'),
+('Développeuse web full-stack'),
+('Développeuse DevOps'),
+('Experte en réseaux informatiques'),
+('Ingénieure en cybersécurité'),
+('Ingénieure en intelligence artificielle'),
+('Ingénieure logiciels'),
+('Ingénieur solution Cloud'),
+('No code'),
+('Spécialiste du cloud');
+
+CREATE TABLE `localisation` (
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nom` VARCHAR(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `localisation` (`nom`) VALUES
+('Ain'),
+('Aisne'),
+('Allier'),
+('Alpes-de-Haute-Provence'),
+('Hautes-Alpes'),
+('Alpes-Maritimes'),
+('Ardèche'),
+('Ardennes'),
+('Ariège'),
+('Aube'),
+('Aude'),
+('Aveyron'),
+('Bouches-du-Rhône'),
+('Calvados'),
+('Cantal'),
+('Charente'),
+('Charente-Maritime'),
+('Cher'),
+('Corrèze'),
+('Corse-du-Sud'),
+('Haute-Corse'),
+('Côte-d Or'),
+('Côtes-d Armor'),
+('Creuse'),
+('Dordogne'),
+('Doubs'),
+('Drôme'),
+('Eure'),
+('Eure-et-Loir'),
+('Finistère'),
+('Gard'),
+('Haute-Garonne'),
+('Gers'),
+('Gironde'),
+('Hérault'),
+('Ille-et-Vilaine'),
+('Indre'),
+('Indre-et-Loire'),
+('Isère'),
+('Jura'),
+('Landes'),
+('Loir-et-Cher'),
+('Loire'),
+('Haute-Loire'),
+('Loire-Atlantique'),
+('Loiret'),
+('Lot'),
+('Lot-et-Garonne'),
+('Lozère'),
+('Maine-et-Loire'),
+('Manche'),
+('Marne'),
+('Haute-Marne'),
+('Mayenne'),
+('Meurthe-et-Moselle'),
+('Meuse'),
+('Morbihan'),
+('Moselle'),
+('Nièvre'),
+('Nord'),
+('Oise'),
+('Orne'),
+('Pas-de-Calais'),
+('Puy-de-Dôme'),
+('Pyrénées-Atlantiques'),
+('Hautes-Pyrénées'),
+('Pyrénées-Orientales'),
+('Bas-Rhin'),
+('Haut-Rhin'),
+('Rhône'),
+('Haute-Saône'),
+('Saône-et-Loire'),
+('Sarthe'),
+('Savoie'),
+('Haute-Savoie'),
+('Paris'),
+('Seine-Maritime'),
+('Seine-et-Marne'),
+('Yvelines'),
+('Deux-Sèvres'),
+('Somme'),
+('Tarn'),
+('Tarn-et-Garonne'),
+('Var'),
+('Vaucluse'),
+('Vendée'),
+('Vienne'),
+('Haute-Vienne'),
+('Vosges'),
+('Yonne'),
+('Territoire de Belfort'),
+('Essonne'),
+('Hauts-de-Seine'),
+('Seine-Saint-Denis'),
+('Val-de-Marne'),
+('Val-d Oise');
+
+
+CREATE TABLE `contrat` (
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nom` VARCHAR(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `contrat` (`nom`) VALUES
+('CDI'),
+('CDD'),
+('Alternance / pro'),
+('Stage');
+
+CREATE TABLE `annonce`(
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`date_de_publication` DATE NOT NULL,
+`description_entreprise` TEXT(255) NOT NULL,
+`description_mission` TEXT(255) NOT NULL,
+`profil_recherche` TEXT(255) NOT NULL,
+`entreprise_id` INT NOT NULL, 
+`metier_id` INT NOT NULL,
+`localisation_id` INT NOT NULL,
+`contrat_id` INT NOT NULL,
+`adminclient_id`INT NOT NULL,
+KEY `entreprise_id` (`entreprise_id`),
+KEY `metier_id` (`metier_id`),
+KEY `localisation_id` (`localisation_id`),
+KEY `contrat_id` (`contrat_id`),
+KEY `adminclient_id` (`adminclient_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `annonce`
+  ADD CONSTRAINT `fk_annonce_adminclient` FOREIGN KEY (`adminclient_id`) REFERENCES `adminclient`(`id`),
+  ADD CONSTRAINT `fk_annonce_entreprise_id` FOREIGN KEY (`entreprise_id`) REFERENCES `entreprise`(`id`),
+  ADD CONSTRAINT `fk_annonce_metier_id` FOREIGN KEY (`metier_id`) REFERENCES `metier`(`id`),
+  ADD CONSTRAINT `fk_annonce_localisation_id` FOREIGN KEY (`localisation_id`) REFERENCES `localisation`(`id`),
+  ADD CONSTRAINT `fk_annonce_contrat_id` FOREIGN KEY (`contrat_id`) REFERENCES `contrat`(`id`);
+
+CREATE TABLE `newsletter` (
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`email` VARCHAR(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `candidature`(
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`annonce_id` INT NOT NULL,
+`candidate_id`INT NOT NULL,
+KEY `annonce_id` (`annonce_id`),
+KEY `candidate_id` (`candidate_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `candidature`
+  ADD CONSTRAINT `fk_candidature_annonce_id` FOREIGN KEY (`annonce_id`) REFERENCES `annonce`(`id`),
+  ADD CONSTRAINT `fk_candidature_candidate_id` FOREIGN KEY (`candidate_id`) REFERENCES `candidate`(`id`);
+
+
+CREATE TABLE `competencetransversale_cv`(
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`competencetransversale_id` INT NOT NULL,
+`cv_id`INT NOT NULL,
+KEY `competencetransversale_id` (`competencetransversale_id`),
+KEY `cv_id` (`cv_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `competencetransversale_cv`
+  ADD CONSTRAINT `fk_competencetransversale_cv_competencetransversale_id` FOREIGN KEY (`competencetransversale_id`) REFERENCES `competencetransversale`(`id`),
+  ADD CONSTRAINT `fk_competencetransversale_cv_cv_id` FOREIGN KEY (`cv_id`) REFERENCES `cv`(`id`);
+
+CREATE TABLE `competencetechnique_cv`(
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`competencetechnique_id` INT NOT NULL,
+`cv_id`INT NOT NULL,
+KEY `competencetechnique_id` (`competencetechnique_id`),
+KEY `cv_id` (`cv_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `competencetechnique_cv`
+  ADD CONSTRAINT `fk_competencetechnique_cv_competencetechnique_id` FOREIGN KEY (`competencetechnique_id`) REFERENCES `competencetechnique`(`id`),
+  ADD CONSTRAINT `fk_competencetechnique_cv_cv_id` FOREIGN KEY (`cv_id`) REFERENCES `cv`(`id`);
+
+CREATE TABLE `experience_cv`(
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`experience_id` INT NOT NULL,
+`cv_id`INT NOT NULL,
+KEY `experience_id` (`experience_id`),
+KEY `cv_id` (`cv_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `experience_cv`
+  ADD CONSTRAINT `fk_experience_cv_experience_id` FOREIGN KEY (`experience_id`) REFERENCES `experience`(`id`),
+  ADD CONSTRAINT `fk_experience_cv_cv_id` FOREIGN KEY (`cv_id`) REFERENCES `cv`(`id`);
+
+
+CREATE TABLE `formation_cv`(
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`formation_id` INT NOT NULL,
+`cv_id`INT NOT NULL,
+KEY `formation_id` (`formation_id`),
+KEY `cv_id` (`cv_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `formation_cv`
+  ADD CONSTRAINT `fk_formation_cv_formation_id` FOREIGN KEY (`formation_id`) REFERENCES `formation`(`id`),
+  ADD CONSTRAINT `fk_formation_cv_cv_id` FOREIGN KEY (`cv_id`) REFERENCES `cv`(`id`);
+
+CREATE TABLE `langue_cv`(
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`langue_id` INT NOT NULL,
+`cv_id`INT NOT NULL,
+KEY `langue_id` (`langue_id`),
+KEY `cv_id` (`cv_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `langue_cv`
+  ADD CONSTRAINT `fk_langue_cv_formation_id` FOREIGN KEY (`langue_id`) REFERENCES `langue`(`id`),
+  ADD CONSTRAINT `fk_langue_cv_cv_id` FOREIGN KEY (`cv_id`) REFERENCES `cv`(`id`);  
+
+
+CREATE TABLE `loisir_cv`(
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`loisir_id` INT NOT NULL,
+`cv_id`INT NOT NULL,
+KEY `loisir_id` (`loisir_id`),
+KEY `cv_id` (`cv_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `loisir_cv`
+  ADD CONSTRAINT `fk_loisir_cv_formation_id` FOREIGN KEY (`loisir_id`) REFERENCES `loisir`(`id`),
+  ADD CONSTRAINT `fk_loisir_cv_cv_id` FOREIGN KEY (`cv_id`) REFERENCES `cv`(`id`);  
