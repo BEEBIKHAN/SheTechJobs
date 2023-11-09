@@ -2,10 +2,10 @@ const models = require("../models");
 
 const postCompany = (req, res) => {
   console.info("C'est ici qu'on va créer une entreprise");
-  const { companyName, email, password, siret } = req.body;
+  const { companyName, email, hashedPassword, siret } = req.body;
 
   models.company
-    .insert(companyName, email, password, siret)
+    .insert(companyName, email, hashedPassword, siret)
     .then(([result]) => {
       console.info(result);
       res
@@ -15,6 +15,7 @@ const postCompany = (req, res) => {
     .catch((err) => {
       console.error(err);
       res.status(500).json({
+        Source: "controller",
         Erreur: "Erreur lors de l'inscription de l'entreprise",
         Raison: err.sqlMessage,
       });

@@ -1,6 +1,7 @@
 const express = require("express");
 
 const router = express.Router();
+const auth = require("./middlewares/auth");
 
 const itemControllers = require("./controllers/itemControllers");
 const companyControllers = require("./controllers/companyControllers");
@@ -28,7 +29,12 @@ router.get("/application", applicationControllers.application);
 
 // Les routes POST :
 router.post("/items", itemControllers.add);
-router.post("/company", companyControllers.postCompany);
+router.post(
+  "/company",
+  auth.validateCompany,
+  auth.hashPassword,
+  companyControllers.postCompany
+);
 
 // Les routes PUT :
 router.put("/items/:id", itemControllers.edit);
