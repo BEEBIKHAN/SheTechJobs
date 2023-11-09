@@ -76,3 +76,4 @@ CREATE TABLE `application` (
  FOREIGN KEY (candidate_id) REFERENCES candidate(id),
  FOREIGN KEY (offer_id) REFERENCES offer(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
