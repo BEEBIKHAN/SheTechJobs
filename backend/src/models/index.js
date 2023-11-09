@@ -34,10 +34,10 @@ const ItemManager = require("./ItemManager");
 models.item = new ItemManager();
 models.item.setDatabase(pool);
 
-const EntrepriseManager = require("./EntrepriseManager");
+const CompanyManager = require("./CompanyManager");
 
-models.entreprise = new EntrepriseManager();
-models.entreprise.setDatabase(pool);
+models.company = new CompanyManager();
+models.company.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model

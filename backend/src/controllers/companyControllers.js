@@ -1,35 +1,11 @@
 const models = require("../models");
 
-const postEntreprise = (req, res) => {
+const postCompany = (req, res) => {
   console.info("C'est ici qu'on va créer une entreprise");
-  const {
-    companyName,
-    logo,
-    siret,
-    address,
-    postcode,
-    city,
-    email,
-    phoneNumber,
-    password,
-    companyDescription,
-    adminClientId,
-  } = req.body;
+  const { companyName, email, password, siret } = req.body;
 
-  models.entreprise
-    .insert(
-      companyName,
-      logo,
-      siret,
-      address,
-      postcode,
-      city,
-      email,
-      phoneNumber,
-      password,
-      companyDescription,
-      adminClientId
-    )
+  models.company
+    .insert(companyName, email, password, siret)
     .then(([result]) => {
       console.info(result);
       res
@@ -60,5 +36,5 @@ const postEntreprise = (req, res) => {
 // };
 
 module.exports = {
-  postEntreprise,
+  postCompany,
 };
