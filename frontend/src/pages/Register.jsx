@@ -29,7 +29,7 @@ export default function Register() {
   const sendRegisterData = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:6001/company", {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/company`, {
         companyName,
         email,
         password,
