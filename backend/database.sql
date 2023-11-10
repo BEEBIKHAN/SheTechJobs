@@ -1,388 +1,125 @@
-CREATE TABLE `adminclient` (
+CREATE TABLE `admin` (
   `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `nom` VARCHAR(150) NOT NULL,
-  `prénom` VARCHAR(150) NOT NULL,
-  `téléphone` INT,
   `email` VARCHAR(255) NOT NULL,
-  `mot_de_passe` VARCHAR(12) NOT NULL
+  `password` VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `adminclient` (`nom`, `prénom`, `téléphone`, `email`, `mot_de_passe`) 
-VALUES
-('Wild', 'Jean', 0625304056, 'j.wild@gmail.com', 'word123');
-
-
-CREATE TABLE `entreprise` (
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`nom` VARCHAR(150) NOT NULL,
-`logo` BLOB NOT NULL, 
-`SIRET` INT (14) NOT NULL,
-`adresse` VARCHAR(255) NULL,
-`code_postal` VARCHAR(5) NULL,
-`ville` VARCHAR(250) NULL,
-`email` VARCHAR(150) NOT NULL,
-`telephone` INT,
-`mot_de_passe` VARCHAR(12) NOT NULL,
-`description_entreprise` TEXT(255) NOT NULL,
-`adminclient_id`INT NOT NULL,
-KEY `adminclient_id` (`adminclient_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-ALTER TABLE `entreprise`
-  ADD CONSTRAINT `fk_entreprise_adminclient` FOREIGN KEY (`adminclient_id`) REFERENCES `adminclient`(`id`);
-
-CREATE TABLE `candidate` (
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`nom` VARCHAR(150) NOT NULL,
-`prénom` VARCHAR(150) NOT NULL,
-`image_profil` BLOB NULL,
-`adresse` VARCHAR(255) NULL,
-`code_postal` VARCHAR(5) NULL,
-`ville` VARCHAR(255),
-`telephone` INT,
-`email` VARCHAR(255) NOT NULL,
-`mot_de_passe` BINARY(60) NOT NULL,
-`motivations` TEXT(260) NULL,
-`adminclient_id`INT NOT NULL,
-KEY `adminclient_id` (`adminclient_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-ALTER TABLE `candidate`
-  ADD CONSTRAINT `fk_candidate_adminclient`FOREIGN KEY (`adminclient_id`) REFERENCES `adminclient`(`id`);
-
-
-CREATE TABLE cv (
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`nom` VARCHAR(150) NOT NULL,
-`prenom` VARCHAR(150) NOT NULL,
-`titre`  VARCHAR(150) NOT NULL,
-`image_profil` BLOB NULL,
-`lien_site` VARCHAR(150) NULL, 
-`lien_linkedin` VARCHAR(150) NULL,
-`candidate_id` INT NOT NULL,
-KEY `candidate_id` (`candidate_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-ALTER TABLE `cv`
-  ADD CONSTRAINT `fk_cv_candidate` FOREIGN KEY (`candidate_id`) REFERENCES `candidate`(`id`);
-
-CREATE TABLE `formation` (
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`nom` VARCHAR(150) NOT NULL,
-`date_debut` DATE NOT NULL,
-`date_fin` DATE NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `formation` (`nom`, `date_debut`, `date_fin`) VALUES
-('Développement web et web mobile', '2023-06-26', '2023-12-15');
-
-CREATE TABLE `experience` (
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`nom` VARCHAR(150) NOT NULL,
-`date_debut` DATE NOT NULL,
-`date_fin` DATE NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `experience` (`nom`, `date_debut`, `date_fin`) VALUES
-('Formatrice full stack à W3', '2019-06-26', '2022-12-15');
-
-CREATE TABLE `competencetechnique` (
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`nom` VARCHAR(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `competencetechnique` (`nom`) VALUES
-('JavaScript'),
-('Figma');
-
-
-CREATE TABLE `competencetransversale` (
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`nom` VARCHAR(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `competencetransversale` (`nom`) VALUES
-('creative'),
-('organised');
-
-CREATE TABLE `langue` (
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`nom` VARCHAR(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `langue` (`nom`) VALUES
-('français'),
-('anglais');
-
-CREATE TABLE `loisir` (
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`nom` VARCHAR(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `loisir` (`nom`) VALUES
-('film'),
-('lecture');
-
-CREATE TABLE `metier` (
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`nom` VARCHAR(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `metier` (`nom`) VALUES
-('Administratrise de base de données'),
-('Architecte big data'),
-('Architecte big data'),
-('Architecte de solutions Blockchain'),
-('Business analyst'),
-('Cheffe de projet informatique'),
-('Conceptrice de Data Visualisation'),
-('Data analyst'),
-('Data scientist'),
-('Data miner'),
-('Data protection officer'),
-('Designer web'),
-('Développeuse Blockchain'),
-('Développeuse mobile'),
-('Développeuse web back-end'),
-('Développeuse web front-end'),
-('Développeuse web full-stack'),
-('Développeuse DevOps'),
-('Experte en réseaux informatiques'),
-('Ingénieure en cybersécurité'),
-('Ingénieure en intelligence artificielle'),
-('Ingénieure logiciels'),
-('Ingénieur solution Cloud'),
-('No code'),
-('Spécialiste du cloud');
-
-CREATE TABLE `localisation` (
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`nom` VARCHAR(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `localisation` (`nom`) VALUES
-('Ain'),
-('Aisne'),
-('Allier'),
-('Alpes-de-Haute-Provence'),
-('Hautes-Alpes'),
-('Alpes-Maritimes'),
-('Ardèche'),
-('Ardennes'),
-('Ariège'),
-('Aube'),
-('Aude'),
-('Aveyron'),
-('Bouches-du-Rhône'),
-('Calvados'),
-('Cantal'),
-('Charente'),
-('Charente-Maritime'),
-('Cher'),
-('Corrèze'),
-('Corse-du-Sud'),
-('Haute-Corse'),
-('Côte-d Or'),
-('Côtes-d Armor'),
-('Creuse'),
-('Dordogne'),
-('Doubs'),
-('Drôme'),
-('Eure'),
-('Eure-et-Loir'),
-('Finistère'),
-('Gard'),
-('Haute-Garonne'),
-('Gers'),
-('Gironde'),
-('Hérault'),
-('Ille-et-Vilaine'),
-('Indre'),
-('Indre-et-Loire'),
-('Isère'),
-('Jura'),
-('Landes'),
-('Loir-et-Cher'),
-('Loire'),
-('Haute-Loire'),
-('Loire-Atlantique'),
-('Loiret'),
-('Lot'),
-('Lot-et-Garonne'),
-('Lozère'),
-('Maine-et-Loire'),
-('Manche'),
-('Marne'),
-('Haute-Marne'),
-('Mayenne'),
-('Meurthe-et-Moselle'),
-('Meuse'),
-('Morbihan'),
-('Moselle'),
-('Nièvre'),
-('Nord'),
-('Oise'),
-('Orne'),
-('Pas-de-Calais'),
-('Puy-de-Dôme'),
-('Pyrénées-Atlantiques'),
-('Hautes-Pyrénées'),
-('Pyrénées-Orientales'),
-('Bas-Rhin'),
-('Haut-Rhin'),
-('Rhône'),
-('Haute-Saône'),
-('Saône-et-Loire'),
-('Sarthe'),
-('Savoie'),
-('Haute-Savoie'),
-('Paris'),
-('Seine-Maritime'),
-('Seine-et-Marne'),
-('Yvelines'),
-('Deux-Sèvres'),
-('Somme'),
-('Tarn'),
-('Tarn-et-Garonne'),
-('Var'),
-('Vaucluse'),
-('Vendée'),
-('Vienne'),
-('Haute-Vienne'),
-('Vosges'),
-('Yonne'),
-('Territoire de Belfort'),
-('Essonne'),
-('Hauts-de-Seine'),
-('Seine-Saint-Denis'),
-('Val-de-Marne'),
-('Val-d Oise');
-
-
-CREATE TABLE `contrat` (
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`nom` VARCHAR(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `contrat` (`nom`) VALUES
-('CDI'),
-('CDD'),
-('Alternance / pro'),
-('Stage');
-
-CREATE TABLE `annonce`(
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`date_de_publication` DATE NOT NULL,
-`description_entreprise` TEXT(255) NOT NULL,
-`description_mission` TEXT(255) NOT NULL,
-`profil_recherche` TEXT(255) NOT NULL,
-`entreprise_id` INT NOT NULL, 
-`metier_id` INT NOT NULL,
-`localisation_id` INT NOT NULL,
-`contrat_id` INT NOT NULL,
-`adminclient_id`INT NOT NULL,
-KEY `entreprise_id` (`entreprise_id`),
-KEY `metier_id` (`metier_id`),
-KEY `localisation_id` (`localisation_id`),
-KEY `contrat_id` (`contrat_id`),
-KEY `adminclient_id` (`adminclient_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-ALTER TABLE `annonce`
-  ADD CONSTRAINT `fk_annonce_adminclient` FOREIGN KEY (`adminclient_id`) REFERENCES `adminclient`(`id`),
-  ADD CONSTRAINT `fk_annonce_entreprise_id` FOREIGN KEY (`entreprise_id`) REFERENCES `entreprise`(`id`),
-  ADD CONSTRAINT `fk_annonce_metier_id` FOREIGN KEY (`metier_id`) REFERENCES `metier`(`id`),
-  ADD CONSTRAINT `fk_annonce_localisation_id` FOREIGN KEY (`localisation_id`) REFERENCES `localisation`(`id`),
-  ADD CONSTRAINT `fk_annonce_contrat_id` FOREIGN KEY (`contrat_id`) REFERENCES `contrat`(`id`);
 
 CREATE TABLE `newsletter` (
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`email` VARCHAR(150) NOT NULL
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `candidature`(
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`annonce_id` INT NOT NULL,
-`candidate_id`INT NOT NULL,
-KEY `annonce_id` (`annonce_id`),
-KEY `candidate_id` (`candidate_id`)
+CREATE TABLE `company` (
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `siret` BIGINT(14) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `candidature`
-  ADD CONSTRAINT `fk_candidature_annonce_id` FOREIGN KEY (`annonce_id`) REFERENCES `annonce`(`id`),
-  ADD CONSTRAINT `fk_candidature_candidate_id` FOREIGN KEY (`candidate_id`) REFERENCES `candidate`(`id`);
-
-
-CREATE TABLE `competencetransversale_cv`(
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`competencetransversale_id` INT NOT NULL,
-`cv_id`INT NOT NULL,
-KEY `competencetransversale_id` (`competencetransversale_id`),
-KEY `cv_id` (`cv_id`)
+CREATE TABLE `candidate` (
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `firstname` VARCHAR(255) NOT NULL,
+  `lastname` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `cv_link` VARCHAR(255)  
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `competencetransversale_cv`
-  ADD CONSTRAINT `fk_competencetransversale_cv_competencetransversale_id` FOREIGN KEY (`competencetransversale_id`) REFERENCES `competencetransversale`(`id`),
-  ADD CONSTRAINT `fk_competencetransversale_cv_cv_id` FOREIGN KEY (`cv_id`) REFERENCES `cv`(`id`);
-
-CREATE TABLE `competencetechnique_cv`(
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`competencetechnique_id` INT NOT NULL,
-`cv_id`INT NOT NULL,
-KEY `competencetechnique_id` (`competencetechnique_id`),
-KEY `cv_id` (`cv_id`)
+CREATE TABLE `contract` (
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `competencetechnique_cv`
-  ADD CONSTRAINT `fk_competencetechnique_cv_competencetechnique_id` FOREIGN KEY (`competencetechnique_id`) REFERENCES `competencetechnique`(`id`),
-  ADD CONSTRAINT `fk_competencetechnique_cv_cv_id` FOREIGN KEY (`cv_id`) REFERENCES `cv`(`id`);
-
-CREATE TABLE `experience_cv`(
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`experience_id` INT NOT NULL,
-`cv_id`INT NOT NULL,
-KEY `experience_id` (`experience_id`),
-KEY `cv_id` (`cv_id`)
+CREATE TABLE `departement` (
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `experience_cv`
-  ADD CONSTRAINT `fk_experience_cv_experience_id` FOREIGN KEY (`experience_id`) REFERENCES `experience`(`id`),
-  ADD CONSTRAINT `fk_experience_cv_cv_id` FOREIGN KEY (`cv_id`) REFERENCES `cv`(`id`);
-
-
-CREATE TABLE `formation_cv`(
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`formation_id` INT NOT NULL,
-`cv_id`INT NOT NULL,
-KEY `formation_id` (`formation_id`),
-KEY `cv_id` (`cv_id`)
+CREATE TABLE `job` (
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `formation_cv`
-  ADD CONSTRAINT `fk_formation_cv_formation_id` FOREIGN KEY (`formation_id`) REFERENCES `formation`(`id`),
-  ADD CONSTRAINT `fk_formation_cv_cv_id` FOREIGN KEY (`cv_id`) REFERENCES `cv`(`id`);
-
-CREATE TABLE `langue_cv`(
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`langue_id` INT NOT NULL,
-`cv_id`INT NOT NULL,
-KEY `langue_id` (`langue_id`),
-KEY `cv_id` (`cv_id`)
+CREATE TABLE `offer` (
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255) NOT NULL,
+  `company_description` TEXT NOT NULL,
+  `job_description` TEXT NOT NULL,
+  `profile_required` TEXT NOT NULL,
+  `status` TINYINT(1) NOT NULL, 
+  `date` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `contract_id` INT NOT NULL,
+  `departement_id` INT NOT NULL,
+  `job_id` INT NOT NULL,
+  `company_id` INT NOT NULL,
+  FOREIGN KEY (contract_id) REFERENCES contract(id),
+  FOREIGN KEY (departement_id) REFERENCES departement(id),
+  FOREIGN KEY (job_id) REFERENCES job(id),
+  FOREIGN KEY (company_id) REFERENCES company(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `langue_cv`
-  ADD CONSTRAINT `fk_langue_cv_formation_id` FOREIGN KEY (`langue_id`) REFERENCES `langue`(`id`),
-  ADD CONSTRAINT `fk_langue_cv_cv_id` FOREIGN KEY (`cv_id`) REFERENCES `cv`(`id`);  
-
-
-CREATE TABLE `loisir_cv`(
-`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`loisir_id` INT NOT NULL,
-`cv_id`INT NOT NULL,
-KEY `loisir_id` (`loisir_id`),
-KEY `cv_id` (`cv_id`)
+CREATE TABLE `application` (
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `date` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `status` TINYINT(1) NOT NULL,
+  `candidate_id` INT NOT NULL, 
+  `offer_id` INT NOT NULL,
+  FOREIGN KEY (candidate_id) REFERENCES candidate(id),
+  FOREIGN KEY (offer_id) REFERENCES offer(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `loisir_cv`
-  ADD CONSTRAINT `fk_loisir_cv_formation_id` FOREIGN KEY (`loisir_id`) REFERENCES `loisir`(`id`),
-  ADD CONSTRAINT `fk_loisir_cv_cv_id` FOREIGN KEY (`cv_id`) REFERENCES `cv`(`id`);  
+
+
+-- Inserts pour la table admin
+INSERT INTO admin (email, password) VALUES ('admin@example.com', 'adminpass');
+INSERT INTO admin (email, password) VALUES ('manager@example.com', 'managerpass');
+INSERT INTO admin (email, password) VALUES ('support@example.com', 'supportpass');
+
+-- Inserts pour la table newsletter
+INSERT INTO newsletter (email) VALUES ('user1@example.com');
+INSERT INTO newsletter (email) VALUES ('user2@example.com');
+INSERT INTO newsletter (email) VALUES ('user3@example.com');
+
+-- Inserts pour la table company
+INSERT INTO company (name, email, password, siret) VALUES ('Company A', 'contact@companya.com', 'companypass', 12345678901234);
+INSERT INTO company (name, email, password, siret) VALUES ('Company B', 'contact@companyb.com', 'companypass', 23456789012345);
+INSERT INTO company (name, email, password, siret) VALUES ('Company C', 'contact@companyc.com', 'companypass', 34567890123456);
+
+-- Inserts pour la table candidate
+INSERT INTO candidate (firstname, lastname, email, password, cv_link) VALUES ('John', 'Doe', 'johndoe@example.com', 'johndoe123', 'http://example.com/cv/johndoe.pdf');
+INSERT INTO candidate (firstname, lastname, email, password, cv_link) VALUES ('Jane', 'Smith', 'janesmith@example.com', 'janesmith123', 'http://example.com/cv/janesmith.pdf');
+INSERT INTO candidate (firstname, lastname, email, password, cv_link) VALUES ('William', 'Johnson', 'willjohnson@example.com', 'willjohnson123', 'http://example.com/cv/willjohnson.pdf');
+
+-- Inserts pour la table contract
+INSERT INTO contract (type) VALUES ('Full-time');
+INSERT INTO contract (type) VALUES ('Part-time');
+INSERT INTO contract (type) VALUES ('Internship');
+
+-- Inserts pour la table departement
+INSERT INTO departement (name) VALUES ('Marketing');
+INSERT INTO departement (name) VALUES ('Sales');
+INSERT INTO departement (name) VALUES ('IT');
+
+-- Inserts pour la table job
+INSERT INTO job (name) VALUES ('Software Developer');
+INSERT INTO job (name) VALUES ('Sales Representative');
+INSERT INTO job (name) VALUES ('Marketing Manager');
+
+-- Les inserts pour les offres et applications nécessiteraient que les tables référencées aient déjà des données.
+-- Par exemple, pour insérer une offre, vous devez avoir des identifiants valides de company, contract, departement et job.
+-- Supposons que les ID nécessaires soient déjà en place :
+
+-- Inserts pour la table offer
+INSERT INTO offer (title, company_description, job_description, profile_required, status, company_id, contract_id, departement_id, job_id) VALUES ('Developer Needed', 'Company A is a leading software company...', 'Responsibilities include...', 'Looking for skilled Java developer...', 1, 1, 1, 1, 1);
+INSERT INTO offer (title, company_description, job_description, profile_required, status, company_id, contract_id, departement_id, job_id) VALUES ('Sales Star', 'Company B is expanding its sales force...', 'You will drive sales...', 'Proven sales track record...', 1, 2, 2, 2, 2);
+INSERT INTO offer (title, company_description, job_description, profile_required, status, company_id, contract_id, departement_id, job_id) VALUES ('Marketing Guru', 'Company C is looking for a marketing manager...', 'Devise marketing strategies...', 'Expert in digital marketing...', 1, 3, 3, 3, 3);
+
+-- Inserts pour la table application
+INSERT INTO application (candidate_id, offer_id, status) VALUES (1, 1, 1);
+INSERT INTO application (candidate_id, offer_id, status) VALUES (2, 2, 1);
+INSERT INTO application (candidate_id, offer_id, status) VALUES (3, 3, 1);
+
+-- Notez que pour les tables offer et application, les valeurs pour company_id, contract_id, departement_id, job_id, candidate_id et offer_id doivent correspondre à des ID valides déjà présents dans les tables company, contract, departement, job, candidate et offer respectivement.
+
+
