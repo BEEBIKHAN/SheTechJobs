@@ -18,7 +18,7 @@ const applicationControllers = require("./controllers/applicationControllers");
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
 
-// router.get("/company", companyControllers.company);
+router.get("/company", companyControllers.getAllCompanies);
 router.get("/candidate", candidateControllers.candidate);
 router.get("/offer", offerControllers.offer);
 router.get("/contrat", contratControllers.typeDeContrat);
@@ -36,10 +36,10 @@ router.post(
   companyControllers.postCompany
 );
 
-// Les routes PUT :
+// Les routes UPDATE :
 router.put("/items/:id", itemControllers.edit);
 
-// Les routes DELETE :
+// Les routes DESTROY :
 router.delete("/items/:id", itemControllers.destroy);
 
 module.exports = router;
