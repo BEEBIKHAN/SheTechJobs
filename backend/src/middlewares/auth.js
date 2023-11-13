@@ -1,18 +1,6 @@
 const argon2 = require("argon2");
 const Joi = require("joi");
 
-const checkIfGoodCandidate = (req, res, next) => {
-  const { email, password } = req.query;
-
-  if (email === "admin@gmail.com" && password === "secret") {
-    next();
-  } else {
-    res
-      .status(403)
-      .send(`Désolé ! Vous n'êtes pas autorisé à accéder à cette route...`);
-  }
-};
-
 const hashingOptions = {
   type: argon2.argon2id,
   memoryCost: 2 ** 16,
@@ -41,13 +29,20 @@ const hashPassword = (req, res, next) => {
 };
 
 const candidateSchema = Joi.object({
-  firstname: Joi.string().min(3).required(),
-  lastname: Joi.string().min(3).required(),
+  firstname: Joi.string().min(1).required(),
+  lastname: Joi.string().min(1).required(),
   email: Joi.string().email().required(),
   password: Joi.string().min(8).required(),
 });
 
-const validateCandidate = (req, res, next) => {
+const companySchema = Joi.object({
+  companyName: Joi.string().min(3).required(),
+  email: Joi.string().email().required(),
+  password: Joi.string().min(8).required(),
+  siret: Joi.number().integer().min(14).required(),
+});
+  
+  const validateCandidate = (req, res, next) => {
   const { error } = candidateSchema.validate(req.body);
 
   if (error) {
@@ -57,4 +52,13 @@ const validateCandidate = (req, res, next) => {
   }
 };
 
-module.exports = { checkIfGoodCandidate, hashPassword, validateCandidate };
+const validateCompany = (req, res, next) => {
+  const { error } = companySchema.validate(req.body);
+  if (error) {
+    res.status(400).json({ error: error.details[0].message });
+  } else {
+    next();
+  }
+};
+
+module.exports = { checkIfGoodCandidate, hashPassword, validateCandidate, validateCompany };
