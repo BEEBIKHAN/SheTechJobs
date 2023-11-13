@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.annonceTitle {
+    display: flex;
+    flex-direction: column;
+    background-color: #EBAF00;
+    width: 100%;
+    height: 6rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0;
+}
+
+.annonceDetails {
+    margin: 2rem;
+    /* border: 1px solid red; */
+    width: 90%;
+}
+
+h1,h2, img {
+    margin: 8px 0;
+    width: 100%;
+}
+
+p {
+    margin-bottom: 24px;
+    width: 90%;
+}
+
+.motivationText {
+    width: 100%;
+    height: 38rem;
+    margin: 40px auto 25px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    text-align: center;
+    background-color: #EFEFEF;
+}
+
+h3, #offre, #optionnel {
+    margin: 12px;
+}
+
+#optionnel {
+    font-size: 12px;
+    text-align: start;
+}
+
+@media (min-width: 620px) {
+    h1 {
+        font-size: 40px;
+    }
+    .annonceDetails {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 8px;
+    }
+
+    .partA {
+        display: flex;
+        flex-direction: column;
+        margin: 0 200px 0 30px;
+    }
+
+    .motivationText {
+        margin-right: 50px;
+    }
+}
