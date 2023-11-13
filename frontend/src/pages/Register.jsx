@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import entrepreneurs from "../assets/images/inscription_entreprise.png";
 import "../styles/register.css";
 
 export default function Register() {
@@ -98,26 +99,66 @@ export default function Register() {
 
   return (
     <>
-      <h1>Page d'enregistrement</h1>
-      <form className="register_form" onSubmit={sendRegisterData}>
-        <p>Nom de l'entreprise</p>
-        <input type="text" onChange={handleChangeCompanyName} />
-        <p>Addresse mail</p>
-        <input type="text" onChange={handleChangeEmail} />
-        <p>Mot de passe</p>
-        <input type="text" onChange={handleChangePassword} />
-        <p>Numéro Siret</p>
-        <input type="text" onChange={handleChangesiret} />
-        <input
-          style={{
-            backgroundColor: "black",
-            color: "white",
-            padding: "1rem 0",
-          }}
-          type="submit"
-          value="S'enregistrer"
+      <div className="espace_connexion">
+        <img
+          src={entrepreneurs}
+          alt="Beautiful entrepreuneurs chatting and walking down the street while smiling"
         />
-      </form>
+        <form className="register_form" onSubmit={sendRegisterData}>
+          <h2>Créer un compte</h2>
+          <input
+            type="text"
+            placeholder="Nom de l'entreprise"
+            onChange={handleChangeCompanyName}
+          />
+          <input
+            type="text"
+            placeholder="Addresse mail"
+            onChange={handleChangeEmail}
+          />
+          <input
+            type="password"
+            placeholder="Mot de passe"
+            onChange={handleChangePassword}
+          />
+          <input
+            type="password"
+            placeholder="Confirmation du mot de passe"
+            onChange={handleChangePassword}
+          />
+          <input
+            type="text"
+            placeholder="Numéro de Siret"
+            onChange={handleChangesiret}
+          />
+          <input
+            style={{
+              backgroundColor: "#EBAF00",
+              color: "#112F47",
+              borderRadius: "24px",
+              padding: "1rem 0",
+              fontWeight: "bolder",
+              fontSize: "16px",
+              margin: "16px 0px",
+            }}
+            className="btn"
+            type="submit"
+            value="Créer un compte"
+          />
+          <p>
+            Déjà membre ?{" "}
+            <a href="#Se connecter" id="seConnecter">
+              Se connecter
+            </a>
+          </p>
+          <p>
+            En cliquant sur "Créer un compte", vous acceptez les
+            <span className="CGU"> CGU</span> ainsi que notre notre
+            <span className="CGU"> politique de confidentialité</span> décrivant
+            la finalité des traitements de vos données personnelles.
+          </p>
+        </form>
+      </div>
       {success ? <p>{success}</p> : ""}
       {error ? <p>{error}</p> : ""}
     </>
