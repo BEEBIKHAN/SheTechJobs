@@ -34,6 +34,11 @@ const ItemManager = require("./ItemManager");
 models.item = new ItemManager();
 models.item.setDatabase(pool);
 
+const CandidateManager = require("./CandidateManager");
+
+models.candidate = new CandidateManager();
+models.candidate.setDatabase(pool);
+
 const CompanyManager = require("./CompanyManager");
 
 models.company = new CompanyManager();
