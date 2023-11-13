@@ -3,15 +3,14 @@
   flex-direction: column;
   align-items: center;
   font-family: var(--font-family-1);
-    }
+}
 
-.imgRegisterWoman{
+.imgRegisterWoman {
   background-image: url(../assets/images/woman.png);
   background-size: cover;
   height: 200px;
   width: 100%;
-  }
-  
+}
 
 .formRegisterCandidate {
   display: flex;
@@ -38,9 +37,9 @@
 }
 
 .formRegisterCandidate > form > label {
-font-size: 0.80rem;
-font-weight: bold;
-margin-bottom: 5px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .formRegisterCandidate > form > input {
@@ -55,7 +54,7 @@ margin-bottom: 5px;
   font-size: 0.8rem;
   margin: 0 auto;
   text-align: center;
-  margin-bottom: 0.70rem;
+  margin-bottom: 0.7rem;
 }
 
 .formRegisterCandidate > form > p > span {
@@ -76,27 +75,24 @@ margin-bottom: 5px;
   font-weight: bolder;
 }
 
-
 @media (min-width: 620px) {
-
-.registerCandidate {
-background-image: url(../assets/images/woman.png);
-height:600px;
-display: flex;
-flex-direction: row; 
-}
-
-.imgRegisterWoman {
-  background-image: none;
+  .registerCandidate {
+    background-image: url(../assets/images/woman.png);
+    height: 600px;
+    display: flex;
+    flex-direction: row;
   }
 
-.formRegisterCandidate {
-width: 50%;
-margin-right: 10rem;
-}
+  .imgRegisterWoman {
+    background-image: none;
+  }
+
+  .formRegisterCandidate {
+    width: 50%;
+    margin-right: 10rem;
+  }
 
   .formRegisterCandidate > form > button {
-   padding: 10px;
+    padding: 10px;
   }
-
 }
