@@ -3,28 +3,23 @@ const express = require("express");
 const router = express.Router();
 const auth = require("./middlewares/auth");
 
-
 const candidateControllers = require("./controllers/candidateControllers");
-
-const auth = require("./middlewares/auth");
 
 const itemControllers = require("./controllers/itemControllers");
-const entrepriseControllers = require("./controllers/entrepriseControllers");
-const annonceControllers = require("./controllers/annonceControllers");
-const contratControllers = require("./controllers/contratControllers");
-const cvControllers = require("./controllers/cvControllers");
-const localisationControllers = require("./controllers/localisationControllers");
-const metierControllers = require("./controllers/metierControllers");
+// const entrepriseControllers = require("./controllers/entrepriseControllers");
+// const annonceControllers = require("./controllers/annonceControllers");
+// const contratControllers = require("./controllers/contratControllers");
+// const cvControllers = require("./controllers/cvControllers");
+// const localisationControllers = require("./controllers/localisationControllers");
+// const metierControllers = require("./controllers/metierControllers");
 const companyControllers = require("./controllers/companyControllers");
-const candidateControllers = require("./controllers/candidateControllers");
-const offerControllers = require("./controllers/offerControllers");
-const newsletterControllers = require("./controllers/newsletterController");
-const departementControllers = require("./controllers/departementControllers");
-const jobControllers = require("./controllers/jobControllers");
-const applicationControllers = require("./controllers/applicationControllers");
+// const offerControllers = require("./controllers/offerControllers");
+// const newsletterControllers = require("./controllers/newsletterController");
+// const departementControllers = require("./controllers/departementControllers");
+// const jobControllers = require("./controllers/jobControllers");
+// const applicationControllers = require("./controllers/applicationControllers");
 
 // Les routes GET :
-
 
 /* router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
