@@ -3,6 +3,7 @@ import Homepage from "../pages/Homepage";
 import SearchResult from "../pages/SearchResult";
 import AnnonceDetails from "../pages/AnnonceDetails";
 import RegisterCandidate from "../pages/RegisterCandidate";
+import Connexion from "../pages/Connexion";
 
 export default function Content() {
   return (
@@ -12,6 +13,7 @@ export default function Content() {
         <Route path="/search/:userResearch" element={<SearchResult />} />
         <Route path="/annonceDetails" element={<AnnonceDetails />} />
         <Route path="/registercandidate" element={<RegisterCandidate />} />
+        <Route path="/connexion" element={<Connexion />} />
       </Routes>
     </section>
   );

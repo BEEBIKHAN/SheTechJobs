@@ -1,0 +1,101 @@
+.connexion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-family-1);
+      }
+  
+  .imgConnexion{
+    background-image: url(../assets/images/laughing.png);
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+    }
+    
+  
+  .formConnexion {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: var(--color-background-gris);
+    width: 80%;
+  
+  }
+  .formConnexion > h2 {
+    margin: 0 auto;
+    padding: 1.3rem;
+    font-size: 1.5rem;
+    font-weight: 1200;
+  }
+  
+  .formConnexion > form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+  
+  }
+  .formConnexion > form > label {
+  font-size: 0.80rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  }
+  
+  .formConnexion > form > input {
+    padding: 10px;
+    border: none;
+    font-style: italic;
+    margin-bottom: 25px;
+    border: 1px solid var(--color-orange);
+  }
+  
+  .formConnexion > form > p {
+    font-size: 0.8rem;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 0.70rem;
+  }
+  
+  .formConnexion > form > p > span {
+    color: var(--color-bleu-inter);
+    font-weight: bold;
+  }
+  
+  .formConnexion> form > button {
+    background-color: var(--color-orange);
+    color: var(--color-text);
+    font-weight: bolder;
+    border-radius: 20px;
+    padding: 10px;
+    border: none;
+    margin-bottom: 20px;
+  }
+  .messages {
+    font-weight: bolder;
+  }
+  
+
+@media (min-width: 620px) {
+.connexion {
+  background-image: url(../assets/images/laughing.png);
+  height:600px;
+  display: flex;
+  flex-direction: row; 
+  }
+  
+  .imgConnexion{
+    background-image: none;
+    }
+  
+    .formConnexion {
+      width: 50%;
+    margin-right: 15rem;
+    padding: 40px 0;
+    }
+    .formConnexion > form > button {
+      padding: 10px;
+    }
+  
+  }
