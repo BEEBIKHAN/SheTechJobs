@@ -41,8 +41,8 @@ const companySchema = Joi.object({
   password: Joi.string().min(8).required(),
   siret: Joi.number().integer().min(14).required(),
 });
-  
-  const validateCandidate = (req, res, next) => {
+
+const validateCandidate = (req, res, next) => {
   const { error } = candidateSchema.validate(req.body);
 
   if (error) {
@@ -61,4 +61,4 @@ const validateCompany = (req, res, next) => {
   }
 };
 
-module.exports = { checkIfGoodCandidate, hashPassword, validateCandidate, validateCompany };
+module.exports = { hashPassword, validateCandidate, validateCompany };
