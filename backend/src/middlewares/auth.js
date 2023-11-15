@@ -74,7 +74,7 @@ const validateCompany = (req, res, next) => {
     next();
   }
 };
-const checkEmailIfExist = (req, res, next) => {
+const checkEmailCandidateIfExists = (req, res, next) => {
   const { email } = req.body;
 
   models.candidate.searchByEmail(email).then(([candidate]) => {
@@ -112,7 +112,7 @@ module.exports = {
   hashPassword,
   validateCandidate,
   checkIfGoodCandidate,
-  checkEmailIfExist,
+  checkEmailCandidateIfExists,
   checkIfIsAllowed,
   validateCompany,
 };

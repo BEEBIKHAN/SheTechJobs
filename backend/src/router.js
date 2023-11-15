@@ -47,7 +47,7 @@ router.put(
 );
 router.post(
   "/login",
-  auth.checkEmailIfExist,
+  auth.checkEmailCandidateIfExists,
   candidateControllers.verifyPassword
 );
 
