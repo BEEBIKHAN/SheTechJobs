@@ -34,7 +34,6 @@ h2 {
     width: 85%;
     height: 50px;
     border: none;
-    /* text-align: center; */
     padding: 15px 20px;
 }
 
@@ -53,7 +52,7 @@ p {
 }
 
 @media (min-width: 620px) {
-    .espace_connexion {
+    .espace_connexion_entreprise {
         min-height: 100vh;
         background-image: url(../assets/images/inscription_entreprise.png);
         display: flex;
