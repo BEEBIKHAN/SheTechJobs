@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   FaBars,
   FaTimes,
@@ -29,29 +30,34 @@ function Navbar() {
       </div>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         <li className="nav-item">
-          <a href="/" />
-          <FaHome className="icon" />
-          Homepage
+          <Link to="/">
+            <FaHome className="icon" />
+            Homepage
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="/" />
-          <FaFileAlt className="icon" />
-          Mon CV
+          <Link to="/mycv">
+            <FaFileAlt className="icon" />
+            Mon CV
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="/" />
-          <FaBriefcase className="icon" />
-          Mes annonces
+          <Link to="/mypostings">
+            <FaBriefcase className="icon" />
+            Mes annonces
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="/" />
-          <FaBell className="icon" />
-          Mes alertes
+          <Link to="/myalerts">
+            <FaBell className="icon" />
+            Mes alertes
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="/" />
-          <FaUser className="icon" />
-          Mon espace
+          <Link to="/login">
+            <FaUser className="icon" />
+            Mon espace
+          </Link>
         </li>
       </ul>
       <div className="hamburger" onClick={handleClick}>
