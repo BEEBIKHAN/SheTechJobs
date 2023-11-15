@@ -5,6 +5,7 @@ import App from "./App";
 import "./styles/homepage.css";
 import "./styles/footer.css";
 import "./styles/app.css";
+import "./styles/registercandidate.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

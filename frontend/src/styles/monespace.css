@@ -1,22 +1,21 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.principal_monespace{
+.principal_monespace {
   display: flex;
 }
 .deux_form {
- margin: 40px;
- flex-direction: column;
+  margin: 40px;
+  flex-direction: column;
 }
 .fboutons {
-display:none;
+  display: none;
 }
 .fmonespace {
-  margin: 20px; 
-  padding:10px;
+  margin: 20px;
+  padding: 10px;
   text-align: left;
   background-color: #efefef;
 }
@@ -26,64 +25,69 @@ display:none;
   border: none;
   background-color: white;
 }
-.dash_icons{
+.dash_icons {
   display: flex;
   padding: 1rem;
   justify-content: space-between;
-  background-color:  #efefef;
+  background-color: #efefef;
 }
 .dash_icons img {
-  width: 30px; 
-  height: 30px; 
+  width: 30px;
+  height: 30px;
 }
- .Nom, .Prenom, .email, .location, .linkedin, .telephone, .site {
+.Nom,
+.Prenom,
+.email,
+.location,
+.linkedin,
+.telephone,
+.site {
   margin-bottom: 20px;
 }
-.photo{
+.photo {
   text-align: center;
   padding: 1rem;
 }
-.btn_monespace{
-background-color: #f5b800;
-border-radius: 20px;
-padding: 5px;
+.btn_monespace {
+  background-color: #f5b800;
+  border-radius: 20px;
+  padding: 5px;
 }
-.button_monespace{
+.button_monespace {
   display: flex;
   justify-content: center;
 }
 .photo input {
-  display: none; 
+  display: none;
 }
 .photo label {
- margin: auto;
-  width: 100px; 
+  margin: auto;
+  width: 100px;
   height: 100px;
-  border: 2px dashed white; 
+  border: 2px dashed white;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
-@media (min-width:620px) {
+@media (min-width: 620px) {
   .principal_monespace {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    
+    justify-content: center;
+    align-items: center;
   }
-  .dash_icons{
+  .dash_icons {
     display: none;
   }
   .fboutons {
     gap: 10px; /* Space between buttons */
-    margin-right: 20px; 
+    margin-right: 20px;
     display: flex;
     flex-direction: column;
     margin: 20px;
-    padding: 40px; 
+    padding: 40px;
     margin-right: 20px;
-    background-color:#efefef;
+    background-color: #efefef;
   }
   .fmonespace {
     flex: 1;
@@ -91,33 +95,31 @@ padding: 5px;
     flex-direction: column;
     gap: 15px;
     margin: 20px;
-    padding: 40px; 
+    padding: 40px;
     background-color: #efefef;
-    width: 600px; 
+    width: 600px;
   }
   .btn_monespace {
     background-color: #f5b800;
     border-radius: 20px;
-    padding: 10px; 
-    width: 50%; 
+    padding: 10px;
+    width: 50%;
   }
   .fboutons button {
     padding: 5px;
     border-radius: 20px;
     border: none;
     margin-bottom: 80px;
-    background-color: #FFD700;
+    background-color: #ffd700;
     cursor: pointer;
-   
-}
-.fcontainer{
-  display: flex;
-  flex-direction: row; 
-  padding: 20px;
-}
-.button_monespace{
-  display: flex;
-  justify-content: left;
-}
-
+  }
+  .fcontainer {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+  }
+  .button_monespace {
+    display: flex;
+    justify-content: left;
+  }
 }
