@@ -1,5 +1,7 @@
 const argon2 = require("argon2");
 const Joi = require("joi");
+// const jwt = require("jsonwebtoken");
+const models = require("../models");
 
 const hashingOptions = {
   type: argon2.argon2id,
@@ -61,4 +63,46 @@ const validateCompany = (req, res, next) => {
   }
 };
 
-module.exports = { hashPassword, validateCandidate, validateCompany };
+const checkEmailIfExist = (req, res, next) => {
+  const { email } = req.body;
+
+  models.company.searchByEmail(email).then(([company]) => {
+    if (company.length !== 0) {
+      // eslint-disable-next-line prefer-destructuring
+      req.company = company[0];
+      // console.info("req.company : ", req.company);
+      next();
+    } else {
+      res.sendStatus(401);
+    }
+  });
+};
+
+// eslint-disable-next-line consistent-return
+// const checkIfIsAllowed = (req, res, next) => {
+//   try {
+//     const { authToken } = req.cookies;
+//     console.info("token de CheckIfIsAllowed: ", authToken);
+
+//     if (!authToken) {
+//       return res.sendStatus(401);
+//     }
+
+//     const payload = jwt.verify(authToken, process.env.JWT_SECRET);
+
+//     req.company = payload;
+//     console.info(payload);
+
+//     return next();
+//   } catch {
+//     res.sendStatus(401);
+//   }
+// };
+
+module.exports = {
+  hashPassword,
+  validateCandidate,
+  validateCompany,
+  checkEmailIfExist,
+  // checkIfIsAllowed,
+};
