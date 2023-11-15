@@ -45,6 +45,16 @@ router.post(
   auth.hashPassword,
   companyControllers.postCompany
 );
+router.put(
+  "/candidate/:id",
+  auth.hashPassword,
+  candidateControllers.updateCandidate
+);
+router.post(
+  "/login",
+  auth.checkEmailCandidateIfExists,
+  candidateControllers.verifyPassword
+);
 
 router.put("/company/:id", auth.hashPassword, companyControllers.updateCompany);
 

@@ -1,6 +1,6 @@
 const argon2 = require("argon2");
 const Joi = require("joi");
-// const jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 const models = require("../models");
 
 const hashingOptions = {
@@ -63,6 +63,21 @@ const validateCompany = (req, res, next) => {
   }
 };
 
+const checkEmailCandidateIfExists = (req, res, next) => {
+  const { email } = req.body;
+
+  models.candidate.searchByEmail(email).then(([candidate]) => {
+    if (candidate.length !== 0) {
+      // eslint-disable-next-line prefer-destructuring
+      req.candidate = candidate[0];
+      console.info("req.candidate : ", req.candidate);
+      next();
+    } else {
+      res.sendStatus(401);
+    }
+  });
+};
+
 const checkEmailIfExist = (req, res, next) => {
   const { email } = req.body;
 
@@ -78,31 +93,32 @@ const checkEmailIfExist = (req, res, next) => {
   });
 };
 
-// eslint-disable-next-line consistent-return
-// const checkIfIsAllowed = (req, res, next) => {
-//   try {
-//     const { authToken } = req.cookies;
-//     console.info("token de CheckIfIsAllowed: ", authToken);
+const checkIfIsAllowed = (req, res, next) => {
+  try {
+    const { authToken } = req.cookies;
+    console.info("token de checkIfIsAllowed: ", authToken);
 
-//     if (!authToken) {
-//       return res.sendStatus(401);
-//     }
+    if (!authToken) {
+      return res.sendStatus(401);
+    }
 
-//     const payload = jwt.verify(authToken, process.env.JWT_SECRET);
+    const payload = jwt.verify(authToken, process.env.JWT_SECRET);
 
-//     req.company = payload;
-//     console.info(payload);
+    req.candidate = payload;
+    console.info(payload);
 
-//     return next();
-//   } catch {
-//     res.sendStatus(401);
-//   }
-// };
+    return next();
+  } catch {
+    return res.sendStatus(401);
+  }
+};
 
 module.exports = {
   hashPassword,
   validateCandidate,
-  validateCompany,
+  checkIfGoodCandidate,
+  checkEmailCandidateIfExists,
+  checkIfIsAllowed,
   checkEmailIfExist,
-  // checkIfIsAllowed,
+  validateCompany,
 };

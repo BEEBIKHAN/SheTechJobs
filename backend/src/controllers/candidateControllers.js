@@ -1,3 +1,5 @@
+const argon2 = require("argon2");
+const jwt = require("jsonwebtoken");
 const models = require("../models");
 
 const getAllCandidates = (req, res) => {
@@ -59,4 +61,32 @@ const updateCandidate = (req, res) => {
     });
 };
 
-module.exports = { getAllCandidates, postCandidate, updateCandidate };
+const verifyPassword = (req, res) => {
+  argon2
+    .verify(req.candidate.hashedPassword, req.body.password)
+    .then((isVerified) => {
+      if (isVerified) {
+        const payload = {
+          sub: req.candidate.id,
+          email: req.candidate.email,
+        };
+
+        const token = jwt.sign(payload, process.env.JWT_SECRET, {
+          expiresIn: "1h",
+        });
+
+        res.cookie("authToken", token);
+
+        res.status(200).send("Connexion réussie");
+      } else {
+        res.sendStatus(401);
+      }
+    });
+};
+
+module.exports = {
+  getAllCandidates,
+  postCandidate,
+  updateCandidate,
+  verifyPassword,
+};
