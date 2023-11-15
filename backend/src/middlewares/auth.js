@@ -3,18 +3,6 @@ const Joi = require("joi");
 const jwt = require("jsonwebtoken");
 const models = require("../models");
 
-const checkIfGoodCandidate = (req, res, next) => {
-  const { email, password } = req.query;
-
-  if (email === "admin@gmail.com" && password === "secret") {
-    next();
-  } else {
-    res
-      .status(403)
-      .send(`Désolé ! Vous n'êtes pas autorisé à accéder à cette route...`);
-  }
-};
-
 const hashingOptions = {
   type: argon2.argon2id,
   memoryCost: 2 ** 16,
@@ -74,6 +62,7 @@ const validateCompany = (req, res, next) => {
     next();
   }
 };
+
 const checkEmailCandidateIfExists = (req, res, next) => {
   const { email } = req.body;
 
@@ -88,6 +77,22 @@ const checkEmailCandidateIfExists = (req, res, next) => {
     }
   });
 };
+
+const checkEmailIfExist = (req, res, next) => {
+  const { email } = req.body;
+
+  models.company.searchByEmail(email).then(([company]) => {
+    if (company.length !== 0) {
+      // eslint-disable-next-line prefer-destructuring
+      req.company = company[0];
+      // console.info("req.company : ", req.company);
+      next();
+    } else {
+      res.sendStatus(401);
+    }
+  });
+};
+
 const checkIfIsAllowed = (req, res, next) => {
   try {
     const { authToken } = req.cookies;
@@ -114,5 +119,6 @@ module.exports = {
   checkIfGoodCandidate,
   checkEmailCandidateIfExists,
   checkIfIsAllowed,
+  checkEmailIfExist,
   validateCompany,
 };

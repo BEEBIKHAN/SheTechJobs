@@ -1,4 +1,18 @@
+const argon2 = require("argon2");
+const jwt = require("jsonwebtoken");
 const models = require("../models");
+
+const getAllCompanies = (req, res) => {
+  models.company
+    .findAll()
+    .then(([rows]) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
 
 const postCompany = (req, res) => {
   console.info("C'est ici qu'on va créer une entreprise");
@@ -22,6 +36,59 @@ const postCompany = (req, res) => {
     });
 };
 
+const updateCompany = (req, res) => {
+  const { id } = req.params;
+  console.info("ID qui est dans mes params :", id);
+  const { companyName, email, hashedPassword, siret } = req.body;
+  console.info("companyName :", companyName);
+  console.info("Email :", email);
+  console.info("hashedPassword :", hashedPassword);
+  console.info("siret :", siret);
+
+  models.company
+    .update(companyName, email, hashedPassword, siret, id)
+    .then(([result]) => {
+      console.info(result);
+      res
+        .status(200)
+        .json({
+          Message: "L'entreprise a été modifiée avec succès",
+        })
+        .catch((err) => {
+          console.info(err);
+          res.status(500).json({
+            Message: "Erreur lors de la modification",
+          });
+        });
+    });
+};
+
+const verifyPassword = (req, res) => {
+  // console.info("req.company depuis le controller : ", req.company.password);
+  // console.info("req.body.password : ", req.body.password);
+  argon2.verify(req.company.password, req.body.password).then((isVerified) => {
+    if (isVerified) {
+      const payload = {
+        sub: req.company.id,
+        email: req.company.email,
+      };
+
+      const token = jwt.sign(payload, process.env.JWT_SECRET, {
+        expiresIn: "1h",
+      });
+
+      res.cookie("authToken: ", token);
+
+      res.status(200).send("Connexion réussie");
+    } else {
+      res.sendStatus(401);
+    }
+  });
+};
+
 module.exports = {
+  getAllCompanies,
   postCompany,
+  updateCompany,
+  verifyPassword,
 };

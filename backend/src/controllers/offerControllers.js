@@ -1,3 +1,17 @@
+const models = require("../models");
+
+const getAllOffers = (req, res) => {
+  models.company
+    .findAll()
+    .then(([rows]) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const offer = (req, res) => {
   res.status(200).json({
     id: "1",
@@ -17,5 +31,6 @@ const offer = (req, res) => {
 };
 
 module.exports = {
+  getAllOffers,
   offer,
 };
