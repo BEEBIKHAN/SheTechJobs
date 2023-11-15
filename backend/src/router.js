@@ -40,5 +40,15 @@ router.post(
   auth.hashPassword,
   companyControllers.postCompany
 );
+router.put(
+  "/candidate/:id",
+  auth.hashPassword,
+  candidateControllers.updateCandidate
+);
+router.post(
+  "/login",
+  auth.checkEmailIfExist,
+  candidateControllers.verifyPassword
+);
 
 module.exports = router;

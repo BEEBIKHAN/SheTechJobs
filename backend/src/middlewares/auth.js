@@ -1,5 +1,19 @@
 const argon2 = require("argon2");
 const Joi = require("joi");
+const jwt = require("jsonwebtoken");
+const models = require("../models");
+
+const checkIfGoodCandidate = (req, res, next) => {
+  const { email, password } = req.query;
+
+  if (email === "admin@gmail.com" && password === "secret") {
+    next();
+  } else {
+    res
+      .status(403)
+      .send(`Désolé ! Vous n'êtes pas autorisé à accéder à cette route...`);
+  }
+};
 
 const hashingOptions = {
   type: argon2.argon2id,
@@ -60,5 +74,45 @@ const validateCompany = (req, res, next) => {
     next();
   }
 };
+const checkEmailIfExist = (req, res, next) => {
+  const { email } = req.body;
 
-module.exports = { hashPassword, validateCandidate, validateCompany };
+  models.candidate.searchByEmail(email).then(([candidate]) => {
+    if (candidate.length !== 0) {
+      // eslint-disable-next-line prefer-destructuring
+      req.candidate = candidate[0];
+      console.info("req.candidate : ", req.candidate);
+      next();
+    } else {
+      res.sendStatus(401);
+    }
+  });
+};
+const checkIfIsAllowed = (req, res, next) => {
+  try {
+    const { authToken } = req.cookies;
+    console.info("token de checkIfIsAllowed: ", authToken);
+
+    if (!authToken) {
+      return res.sendStatus(401);
+    }
+
+    const payload = jwt.verify(authToken, process.env.JWT_SECRET);
+
+    req.candidate = payload;
+    console.info(payload);
+
+    return next();
+  } catch {
+    return res.sendStatus(401);
+  }
+};
+
+module.exports = {
+  hashPassword,
+  validateCandidate,
+  checkIfGoodCandidate,
+  checkEmailIfExist,
+  checkIfIsAllowed,
+  validateCompany,
+};

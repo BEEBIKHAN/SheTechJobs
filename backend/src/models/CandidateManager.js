@@ -20,6 +20,11 @@ class CandidateManager extends AbstractManager {
       [firstname, lastname, email, hashedPassword, id]
     );
   }
-}
 
+  searchByEmail(email) {
+    return this.database.query(`SELECT * FROM candidate WHERE email = ?`, [
+      email,
+    ]);
+  }
+}
 module.exports = CandidateManager;
