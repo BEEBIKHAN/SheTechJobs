@@ -15,6 +15,8 @@ const applicationControllers = require("./controllers/applicationControllers");
 // Les routes GET :
 router.get("/typeDeContrat", contratControllers.typeDeContrat);
 
+router.get("/company", companyControllers.getAllCompanies);
+
 router.get("/offer", offerControllers.offer);
 router.get("/contrat", contratControllers.typeDeContrat);
 router.get("/departement", departementControllers.departement);
