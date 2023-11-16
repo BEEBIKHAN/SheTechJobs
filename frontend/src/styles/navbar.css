@@ -24,7 +24,7 @@ ul {
     justify-content: center;
     background-color: #8ECAE6;
     width: 100%;
-    height: 70%;
+    height: 100%;
     text-align:center;
     transition: 0.4s;
 
@@ -46,6 +46,8 @@ ul {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding: 20px 20px;
+
 }
 
 .nav-itembottom {
@@ -80,13 +82,14 @@ ul {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    height: 55%;
+    padding-top: 30px;
 }
 
 
   @media (min-width: 620px) {
 
     .navbar {
-        /* position: fixed; */
         padding: 0;
         background-color: white;
     }
@@ -131,6 +134,7 @@ ul {
         flex-direction: row;
         align-items: flex-start;
         width: 0;
+        margin-top: 20px;
     }
 
     .logo > img {    
@@ -147,12 +151,16 @@ ul {
     }
     
 
-    .blueline {
-        display: flex;
-        height: 60%;
-        margin-right: 30px;
-        margin-left: 20px;
-    }
+   .blueline
+   {
+    display: block;
+    width: 2px;
+    height: 40px;
+    background-color: var(--color-blue-line);
+    margin-right: 30px;
+    margin-left: 20px;
+
+   }
 
     .navbarbottom {
         display: flex;

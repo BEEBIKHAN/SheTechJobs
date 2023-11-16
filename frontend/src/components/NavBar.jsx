@@ -7,7 +7,6 @@ import myspace from "../assets/images/myspace.png";
 import cv from "../assets/images/cv.png";
 import annonce from "../assets/images/annonce.png";
 import alerte from "../assets/images/alerte.png";
-import linenavbar1 from "../assets/images/linenavbar1.png";
 import "../styles/navbar.css";
 
 function Navbar() {
@@ -25,17 +24,17 @@ function Navbar() {
             <img className="imageiconCV" src={cv} alt="" />
             Mon CV
           </li>
-          <img className="blueline" src={linenavbar1} alt="" />
+          <div className="blueline" />
           <li className="nav-itemtop">
             <img className="imageicon" src={annonce} alt="" />
             Mes annonces
           </li>
-          <img className="blueline" src={linenavbar1} alt="" />
+          <div className="blueline" />
           <li className="nav-itemtop">
             <img className="imageicon" src={alerte} alt="" />
             Mes alertes
           </li>
-          <img className="blueline" src={linenavbar1} alt="" />
+          <div className="blueline" />
           <li className="nav-itemtop">
             <img className="imageicon" src={myspace} alt="" />
             Mon espace
