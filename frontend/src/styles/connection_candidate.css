@@ -1,0 +1,101 @@
+.connectionCandidate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-family-1);
+}
+
+.imgConnectionWoman {
+  background-image: url(../assets/images/woman.png);
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+}
+
+.formConnectionCandidate {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: var(--color-background-gris);
+  width: 80%;
+}
+
+.formConnectionCandidate > h2 {
+  margin: 0 auto;
+  padding: 1.3rem;
+  font-size: 1.5rem;
+  font-weight: 1200;
+}
+
+.formConnectionCandidate > form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.formConnectionCandidate > form > label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.formConnectionCandidate > form > input {
+  padding: 10px;
+  border: none;
+  font-style: italic;
+  margin-bottom: 25px;
+  border: 1px solid var(--color-orange);
+}
+
+.formConnectionCandidate > form > p {
+  font-size: 0.8rem;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 0.7rem;
+}
+
+.formConnectionCandidate > form > p > span {
+  color: var(--color-bleu-inter);
+}
+
+.formConnectionCandidate > form > button {
+  background-color: var(--color-orange);
+  color: var(--color-text);
+  font-weight: bolder;
+  border-radius: 20px;
+  padding: 10px;
+  border: none;
+  margin-bottom: 20px;
+}
+.formConnectionCandidate > form > label {
+  padding-left: 5px;
+}
+.messages {
+  font-weight: bolder;
+}
+
+@media (min-width: 620px) {
+  .connectionCandidate {
+    background-image: url(../assets/images/woman.png);
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .imgConnectionWoman{   
+    background-image: none;
+  }
+
+  .formConnectionrCandidate {
+    width: 50%;
+    margin-right: 10rem;
+  }
+
+  .formConnectionCandidate > form > button {
+    padding: 10px;
+  }
+}
+

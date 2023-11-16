@@ -1,29 +1,63 @@
 const express = require("express");
 
 const router = express.Router();
+const auth = require("./middlewares/auth");
 
-const itemControllers = require("./controllers/itemControllers");
-const entrepriseControllers = require("./controllers/entrepriseControllers");
 const candidateControllers = require("./controllers/candidateControllers");
-const annonceControllers = require("./controllers/annonceControllers");
+
 const contratControllers = require("./controllers/contratControllers");
-const cvControllers = require("./controllers/cvControllers");
-const localisationControllers = require("./controllers/localisationControllers");
-const metierControllers = require("./controllers/metierControllers");
+const companyControllers = require("./controllers/companyControllers");
+const departementControllers = require("./controllers/departementControllers");
+const jobControllers = require("./controllers/jobControllers");
+const applicationControllers = require("./controllers/applicationControllers");
 
-router.get("/items", itemControllers.browse);
-router.get("/items/:id", itemControllers.read);
-
-router.get("/entreprise", entrepriseControllers.entreprise);
-router.get("/candidate", candidateControllers.candidate);
-router.get("/annonce", annonceControllers.annonce);
+// Les routes GET :
 router.get("/typeDeContrat", contratControllers.typeDeContrat);
-router.get("/cv", cvControllers.cv);
-router.get("/localisation", localisationControllers.localisation);
-router.get("/metier", metierControllers.metier);
 
-router.put("/items/:id", itemControllers.edit);
-router.post("/items", itemControllers.add);
-router.delete("/items/:id", itemControllers.destroy);
+router.get("/contrat", contratControllers.typeDeContrat);
+router.get("/departement", departementControllers.departement);
+router.get("/job", jobControllers.job);
+router.get("/application", applicationControllers.application);
+
+// ---------------CANDIDATE -------------//
+router.get("/candidate", candidateControllers.getAllCandidates);
+router.post(
+  "/candidate",
+  auth.validateCandidate,
+  auth.hashPassword,
+  candidateControllers.postCandidate
+);
+router.put(
+  "/candidate/:id",
+  auth.hashPassword,
+  candidateControllers.updateCandidate
+);
+
+// ---------------- COMPANY --------------//
+router.get("/company", companyControllers.getAllCompanies);
+router.post(
+  "/company",
+  auth.validateCompany,
+  auth.hashPassword,
+  companyControllers.postCompany
+);
+router.put(
+  "/candidate/:id",
+  auth.hashPassword,
+  candidateControllers.updateCandidate
+);
+router.post(
+  "/login",
+  auth.checkEmailCandidateIfExists,
+  candidateControllers.verifyPassword
+);
+
+router.put("/company/:id", auth.hashPassword, companyControllers.updateCompany);
+
+router.post(
+  "/login-company",
+  auth.checkEmailIfExist,
+  companyControllers.verifyPassword
+);
 
 module.exports = router;
