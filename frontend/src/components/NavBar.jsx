@@ -1,64 +1,53 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable jsx-a11y/anchor-has-content */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import {
-  FaBars,
-  FaTimes,
-  FaBell,
-  FaBriefcase,
-  FaFileAlt,
-  FaUser,
-  FaHome,
-} from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import LOGO from "../assets/images/LOGO.png";
-import "../styles/navbar_top.css";
-
-// ------------- Navbar top--------------------//
+import myspace from "../assets/images/myspace.png";
+import cv from "../assets/images/cv.png";
+import annonce from "../assets/images/annonce.png";
+import alerte from "../assets/images/alerte.png";
+import "../styles/navbar.css";
 
 function Navbar() {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
-
   return (
     <div className="navbar">
       <div className="logo">
         <img src={LOGO} alt="" />
       </div>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
-        <li className="nav-item">
-          <Link to="/">
-            <FaHome className="icon" />
-            Homepage
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/mycv">
-            <FaFileAlt className="icon" />
+        <div className="navbartop">
+          <li className="nav-itemtop">
+            <img className="imageiconCV" src={cv} alt="" />
             Mon CV
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/mypostings">
-            <FaBriefcase className="icon" />
+          </li>
+          <div className="blueline" />
+          <li className="nav-itemtop">
+            <img className="imageicon" src={annonce} alt="" />
             Mes annonces
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/myalerts">
-            <FaBell className="icon" />
+          </li>
+          <div className="blueline" />
+          <li className="nav-itemtop">
+            <img className="imageicon" src={alerte} alt="" />
             Mes alertes
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/Mon-Espace">
-            <FaUser className="icon" />
+          </li>
+          <div className="blueline" />
+          <li className="nav-itemtop">
+            <img className="imageicon" src={myspace} alt="" />
             Mon espace
-          </Link>
-        </li>
+          </li>
+        </div>
+        <div className="navbarbottom">
+          <ul className="nav2">
+            <li className="nav-itembottom">Emplois en CDI</li>
+            <li className="nav-itembottom"> Emplois en CDD</li>
+            <li className="nav-itembottom">Contrats pro / alternance</li>
+            <li className="nav-itembottom">Stages</li>
+          </ul>
+        </div>
       </ul>
       <div className="hamburger" onClick={handleClick}>
         {click ? <FaTimes size={30} /> : <FaBars size={30} />}
@@ -66,5 +55,4 @@ function Navbar() {
     </div>
   );
 }
-
 export default Navbar;
