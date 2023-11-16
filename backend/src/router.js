@@ -7,7 +7,6 @@ const candidateControllers = require("./controllers/candidateControllers");
 
 const contratControllers = require("./controllers/contratControllers");
 const companyControllers = require("./controllers/companyControllers");
-const offerControllers = require("./controllers/offerControllers");
 const departementControllers = require("./controllers/departementControllers");
 const jobControllers = require("./controllers/jobControllers");
 const applicationControllers = require("./controllers/applicationControllers");
@@ -15,9 +14,6 @@ const applicationControllers = require("./controllers/applicationControllers");
 // Les routes GET :
 router.get("/typeDeContrat", contratControllers.typeDeContrat);
 
-// router.get("/offer", auth.checkIfIsAllowed, offerControllers.getAllOffers);
-
-router.get("/offer", offerControllers.offer);
 router.get("/contrat", contratControllers.typeDeContrat);
 router.get("/departement", departementControllers.departement);
 router.get("/job", jobControllers.job);
