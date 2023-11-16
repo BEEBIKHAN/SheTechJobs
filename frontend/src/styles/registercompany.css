@@ -7,7 +7,7 @@
 .register_form {
   gap: 0.5rem;
   display: flex;
-  background-color: #efefef;
+  background-color: #EFEFEF;
   text-align: center;
   width: 90%;
   height: 45rem;
@@ -34,7 +34,6 @@ h2 {
   width: 85%;
   height: 50px;
   border: none;
-  /* text-align: center; */
   padding: 15px 20px;
 }
 
@@ -44,34 +43,35 @@ p {
 }
 
 #seConnecter {
-  color: #479dbc;
+  color: #479DBC;
   font-weight: bold;
 }
 
 .CGU {
-  color: #479dbc;
+  color: #479DBC;
 }
 
 @media (min-width: 620px) {
-  .espace_connexion {
-    min-height: 100vh;
-    background-image: url(../assets/images/inscription_entreprise.png);
-    display: flex;
-    background-size: cover;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0 50px;
+  .espace_connexion_entreprise {
+      min-height: 100vh;
+      background-image: url(../assets/images/inscription_entreprise.png);
+      display: flex;
+      background-size: cover;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 50px;
   }
 
   .register_form {
-    max-width: 35rem;
+      max-width: 35rem;
   }
 
+
   .register_form input {
-    width: 80%;
+      width: 80%;
   }
 
   img {
-    display: none;
+      display: none;
   }
 }
