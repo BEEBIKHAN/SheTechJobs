@@ -1,18 +1,18 @@
-.registerCandidate {
+.connectionCandidate {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: var(--font-family-1);
 }
 
-.imgRegisterWoman {
+.imgConnectionWoman {
   background-image: url(../assets/images/woman.png);
   background-size: cover;
   height: 200px;
   width: 100%;
 }
 
-.formRegisterCandidate {
+.formConnectionCandidate {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -22,27 +22,27 @@
   width: 80%;
 }
 
-.formRegisterCandidate > h2 {
+.formConnectionCandidate > h2 {
   margin: 0 auto;
   padding: 1.3rem;
   font-size: 1.5rem;
   font-weight: 1200;
 }
 
-.formRegisterCandidate > form {
+.formConnectionCandidate > form {
   display: flex;
   flex-direction: column;
   width: 80%;
   margin: 0 auto;
 }
 
-.formRegisterCandidate > form > label {
+.formConnectionCandidate > form > label {
   font-size: 0.8rem;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.formRegisterCandidate > form > input {
+.formConnectionCandidate > form > input {
   padding: 10px;
   border: none;
   font-style: italic;
@@ -50,18 +50,18 @@
   border: 1px solid var(--color-orange);
 }
 
-.formRegisterCandidate > form > p {
+.formConnectionCandidate > form > p {
   font-size: 0.8rem;
   margin: 0 auto;
   text-align: center;
   margin-bottom: 0.7rem;
 }
 
-.formRegisterCandidate > form > p > span {
+.formConnectionCandidate > form > p > span {
   color: var(--color-bleu-inter);
 }
 
-.formRegisterCandidate > form > button {
+.formConnectionCandidate > form > button {
   background-color: var(--color-orange);
   color: var(--color-text);
   font-weight: bolder;
@@ -70,7 +70,7 @@
   border: none;
   margin-bottom: 20px;
 }
-.formRegisterCandidate > form > label {
+.formConnectionCandidate > form > label {
   padding-left: 5px;
 }
 .messages {
@@ -78,23 +78,24 @@
 }
 
 @media (min-width: 620px) {
-  .registerCandidate {
+  .connectionCandidate {
     background-image: url(../assets/images/woman.png);
     height: 600px;
     display: flex;
     flex-direction: row;
   }
 
-  .imgRegisterWoman {
+  .imgConnectionWoman{   
     background-image: none;
   }
 
-  .formRegisterCandidate {
+  .formConnectionrCandidate {
     width: 50%;
     margin-right: 10rem;
   }
 
-  .formRegisterCandidate > form > button {
+  .formConnectionCandidate > form > button {
     padding: 10px;
   }
 }
+
