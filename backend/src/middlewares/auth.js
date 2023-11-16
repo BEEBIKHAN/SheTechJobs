@@ -116,7 +116,6 @@ const checkIfIsAllowed = (req, res, next) => {
 module.exports = {
   hashPassword,
   validateCandidate,
-  checkIfGoodCandidate,
   checkEmailCandidateIfExists,
   checkIfIsAllowed,
   checkEmailIfExist,
