@@ -6,6 +6,7 @@ import "./styles/homepage.css";
 import "./styles/footer.css";
 import "./styles/app.css";
 import "./styles/registercandidate.css";
+import "./styles/connection_candidate.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
