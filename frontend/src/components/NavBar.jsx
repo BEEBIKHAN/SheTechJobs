@@ -7,7 +7,6 @@ import myspace from "../assets/images/myspace.png";
 import cv from "../assets/images/cv.png";
 import annonce from "../assets/images/annonce.png";
 import alerte from "../assets/images/alerte.png";
-import "../styles/navbar.css";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -15,8 +14,8 @@ function Navbar() {
   const handleClick = () => setClick(!click);
   return (
     <div className="navbar">
-      <div className="logo">
-        <img src={LOGO} alt="" />
+      <div className="logonavbar">
+        <img className="logoSTJ" src={LOGO} alt="" />
       </div>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         <div className="navbartop">
@@ -47,6 +46,12 @@ function Navbar() {
             <li className="nav-itembottom">Contrats pro / alternance</li>
             <li className="nav-itembottom">Stages</li>
           </ul>
+          <div className="btn">
+            <button type="button" className="btnEspaceEntreprise">
+              {" "}
+              Espace entreprises{" "}
+            </button>
+          </div>
         </div>
       </ul>
       <div className="hamburger" onClick={handleClick}>
