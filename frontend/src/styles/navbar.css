@@ -4,9 +4,7 @@
     padding: 0;
 }
 
-ul {
-    list-style-type: none;
-}
+
 
 
 .navbar {
@@ -35,7 +33,7 @@ ul {
 }
 
 
-.logo > img {
+.logonavbar > .logoSTJ {
     width: 130px;
     padding-top: 6px;
     margin: 6px;
@@ -47,6 +45,7 @@ ul {
     justify-content: space-between;
     align-items: center;
     padding: 20px 20px;
+    padding: 70px 20px;
 
 }
 
@@ -60,6 +59,10 @@ ul {
     padding: 10px 0px 10px;
     font-size: 1rem;
     margin: 6px;
+}
+
+li.nav-itemtop {
+    list-style-type: none;
 }
 
 .imageicon {
@@ -82,9 +85,21 @@ ul {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 55%;
-    padding-top: 30px;
+    padding: 70px;
 }
+
+.nav2 {
+    list-style-type: none;
+}
+
+.btnEspaceEntreprise {
+    background-color: var(--color-bleu-foncé);
+    color: var(--color-text-clair);
+    padding: 0.7rem;
+    margin: 15px;
+    width: 150px;
+    text-align: center;
+  }
 
 
   @media (min-width: 620px) {
@@ -129,7 +144,7 @@ ul {
             margin-bottom: 5px;
         }
     
-    .logo {
+    .logonavbar {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
@@ -137,7 +152,7 @@ ul {
         margin-top: 20px;
     }
 
-    .logo > img {    
+    .logonavbar > .logoSTJ {    
         margin-left: 50px;
         margin-top: 16px;
         padding-top: 6px;
@@ -147,7 +162,8 @@ ul {
     .navbartop {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;  
+        justify-content: flex-end;
+        padding: 20px 20px;
     }
     
 
@@ -178,5 +194,5 @@ ul {
     .hamburger {
         display: none;
     }
-}
 
+}
