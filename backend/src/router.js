@@ -14,10 +14,6 @@ const applicationControllers = require("./controllers/applicationControllers");
 
 // Les routes GET :
 router.get("/typeDeContrat", contratControllers.typeDeContrat);
-
-// router.get("/offer", auth.checkIfIsAllowed, offerControllers.getAllOffers);
-
-router.get("/offer", offerControllers.offer);
 router.get("/contrat", contratControllers.typeDeContrat);
 router.get("/departement", departementControllers.departement);
 router.get("/job", jobControllers.job);
@@ -31,6 +27,13 @@ router.post(
   auth.hashPassword,
   candidateControllers.postCandidate
 );
+
+router.post(
+  "/login",
+  auth.checkEmailCandidateIfExists,
+  candidateControllers.verifyPassword
+);
+
 router.put(
   "/candidate/:id",
   auth.hashPassword,
@@ -45,23 +48,18 @@ router.post(
   auth.hashPassword,
   companyControllers.postCompany
 );
-router.put(
-  "/candidate/:id",
-  auth.hashPassword,
-  candidateControllers.updateCandidate
-);
-router.post(
-  "/login",
-  auth.checkEmailCandidateIfExists,
-  candidateControllers.verifyPassword
-);
 
 router.put("/company/:id", auth.hashPassword, companyControllers.updateCompany);
 
 router.post(
   "/login-company",
-  auth.checkEmailIfExist,
+  auth.checkEmailCompanyIfExist,
   companyControllers.verifyPassword
 );
+
+// -----------------ANNONCES (offer)----------------//
+
+router.get("/offer", offerControllers.getAllOffers);
+router.post("/offers", offerControllers.addOffer);
 
 module.exports = router;
