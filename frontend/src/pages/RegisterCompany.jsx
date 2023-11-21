@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 import entrepreneurs from "../assets/images/inscription_entreprise.png";
+import "../styles/registercompany.css";
 
-export default function Register() {
+export default function RegisterCompany() {
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +25,8 @@ export default function Register() {
 
   const handleChangesiret = (event) => {
     setSiret(event.target.value);
-  }
+  };
+
   const sendRegisterData = (event) => {
     event.preventDefault();
     axios
@@ -97,7 +99,7 @@ export default function Register() {
 
   return (
     <>
-      <div className="espace_connexion">
+      <div className="espace_connexion_entreprise">
         <img
           src={entrepreneurs}
           alt="Beautiful entrepreuneurs chatting and walking down the street while smiling"
@@ -145,7 +147,7 @@ export default function Register() {
           />
           <p>
             Déjà membre ?{" "}
-            <a href="#Se connecter" id="seConnecter">
+            <a href="/logincompany" id="seConnecter">
               Se connecter
             </a>
           </p>

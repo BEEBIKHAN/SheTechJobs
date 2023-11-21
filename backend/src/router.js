@@ -4,19 +4,15 @@ const router = express.Router();
 const auth = require("./middlewares/auth");
 
 const candidateControllers = require("./controllers/candidateControllers");
-
+const offerControllers = require("./controllers/offerControllers");
 const contratControllers = require("./controllers/contratControllers");
 const companyControllers = require("./controllers/companyControllers");
-// const offerControllers = require("./controllers/offerControllers");
 const departementControllers = require("./controllers/departementControllers");
 const jobControllers = require("./controllers/jobControllers");
 const applicationControllers = require("./controllers/applicationControllers");
 
 // Les routes GET :
 router.get("/typeDeContrat", contratControllers.typeDeContrat);
-
-// router.get("/offer", auth.checkIfIsAllowed, offerControllers.getAllOffers);
-
 router.get("/contrat", contratControllers.typeDeContrat);
 router.get("/departement", departementControllers.departement);
 router.get("/job", jobControllers.job);
@@ -30,6 +26,13 @@ router.post(
   auth.hashPassword,
   candidateControllers.postCandidate
 );
+
+router.post(
+  "/login",
+  auth.checkEmailCandidateIfExists,
+  candidateControllers.verifyPassword
+);
+
 router.put(
   "/candidate/:id",
   auth.hashPassword,
@@ -44,23 +47,18 @@ router.post(
   auth.hashPassword,
   companyControllers.postCompany
 );
-router.put(
-  "/candidate/:id",
-  auth.hashPassword,
-  candidateControllers.updateCandidate
-);
-router.post(
-  "/login",
-  auth.checkEmailCandidateIfExists,
-  candidateControllers.verifyPassword
-);
 
 router.put("/company/:id", auth.hashPassword, companyControllers.updateCompany);
 
 router.post(
   "/login-company",
-  auth.checkEmailIfExist,
+  auth.checkEmailCompanyIfExist,
   companyControllers.verifyPassword
 );
+
+// -----------------ANNONCES (offer)----------------//
+
+router.get("/offer", offerControllers.getAllOffers);
+router.post("/offers", offerControllers.addOffer);
 
 module.exports = router;
