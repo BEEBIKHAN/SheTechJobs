@@ -147,7 +147,7 @@ export default function RegisterCompany() {
           />
           <p>
             Déjà membre ?{" "}
-            <a href="#/logincompany" id="seConnecter">
+            <a href="/logincompany" id="seConnecter">
               Se connecter
             </a>
           </p>
