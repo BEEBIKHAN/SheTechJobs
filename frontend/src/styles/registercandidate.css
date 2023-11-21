@@ -20,6 +20,7 @@
   margin-bottom: 30px;
   background-color: var(--color-background-gris);
   width: 80%;
+  
 }
 
 .formRegisterCandidate > h2 {
@@ -90,7 +91,7 @@
 
   .formRegisterCandidate {
     width: 50%;
-    margin-right: 10rem;
+    margin-right: 8rem;
   }
 
   .formRegisterCandidate > form > button {

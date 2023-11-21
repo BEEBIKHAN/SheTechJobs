@@ -78,7 +78,7 @@ const checkEmailCandidateIfExists = (req, res, next) => {
   });
 };
 
-const checkEmailIfExist = (req, res, next) => {
+const checkEmailCompanyIfExist = (req, res, next) => {
   const { email } = req.body;
 
   models.company.searchByEmail(email).then(([company]) => {
@@ -93,7 +93,7 @@ const checkEmailIfExist = (req, res, next) => {
   });
 };
 
-const checkIfIsAllowed = (req, res, next) => {
+const checkIfCandidateIsAllowed = (req, res, next) => {
   try {
     const { authToken } = req.cookies;
     console.info("token de checkIfIsAllowed: ", authToken);
@@ -117,7 +117,7 @@ module.exports = {
   hashPassword,
   validateCandidate,
   checkEmailCandidateIfExists,
-  checkIfIsAllowed,
-  checkEmailIfExist,
+  checkIfCandidateIsAllowed,
+  checkEmailCompanyIfExist,
   validateCompany,
 };

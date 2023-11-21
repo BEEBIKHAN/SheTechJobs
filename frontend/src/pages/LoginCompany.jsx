@@ -82,7 +82,7 @@ export default function LoginCompany() {
           </p>
         </form>
       </div>
-      {error ? "Email ou password incorrects" : ""}
+      {error ? "Email ou mot de passe incorrect" : ""}
     </>
   );
 }
