@@ -17,7 +17,6 @@ router.get("/typeDeContrat", contratControllers.typeDeContrat);
 
 // router.get("/offer", auth.checkIfIsAllowed, offerControllers.getAllOffers);
 
-router.get("/offer", offerControllers.offer);
 router.get("/contrat", contratControllers.typeDeContrat);
 router.get("/departement", departementControllers.departement);
 router.get("/job", jobControllers.job);

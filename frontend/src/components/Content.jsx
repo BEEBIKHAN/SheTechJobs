@@ -4,6 +4,7 @@ import SearchResult from "../pages/SearchResult";
 import AnnonceDetails from "../pages/AnnonceDetails";
 import Register from "../pages/Register";
 import RegisterCandidate from "../pages/RegisterCandidate";
+import DashbordCompany from "../pages/DashbordCompany";
 
 export default function Content() {
   return (
@@ -14,6 +15,7 @@ export default function Content() {
         <Route path="/annonceDetails" element={<AnnonceDetails />} />
         <Route path="/register" element={<Register />} />
         <Route path="/registercandidate" element={<RegisterCandidate />} />
+        <Route path="/dashbordcompany" element={<DashbordCompany />} />
       </Routes>
     </section>
   );

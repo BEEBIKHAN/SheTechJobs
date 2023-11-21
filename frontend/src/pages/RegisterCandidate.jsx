@@ -45,7 +45,6 @@ export default function RegisterCandidate() {
         .then((response) => {
           setSuccess("Vous êtes enregistrée !!!");
           setError(false);
-          console.info("JE suis ICI");
           console.info(response);
         })
         .catch((err) => {

@@ -20,6 +20,7 @@
   margin-bottom: 30px;
   background-color: var(--color-background-gris);
   width: 80%;
+  
 }
 
 .formRegisterCandidate > h2 {
@@ -80,7 +81,6 @@ font-weight: bolder;
 @media (min-width: 620px) {
   .registerCandidate {
     background-image: url(../assets/images/woman.png);
-    height: 600px;
     display: flex;
     flex-direction: row;
   }
@@ -91,7 +91,7 @@ font-weight: bolder;
 
   .formRegisterCandidate {
     width: 50%;
-    margin-right: 10rem;
+    margin-right: 8rem;
   }
 
   .formRegisterCandidate > form > button {

@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import entrepreneurs from "../assets/images/inscription_entreprise.png";
-import "../styles/register.css";
 
 export default function Register() {
   const [companyName, setCompanyName] = useState("");
@@ -25,8 +24,7 @@ export default function Register() {
 
   const handleChangesiret = (event) => {
     setSiret(event.target.value);
-  };
-
+  }
   const sendRegisterData = (event) => {
     event.preventDefault();
     axios
