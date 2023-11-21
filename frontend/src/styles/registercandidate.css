@@ -80,7 +80,6 @@
 @media (min-width: 620px) {
   .registerCandidate {
     background-image: url(../assets/images/woman.png);
-    height: 600px;
     display: flex;
     flex-direction: row;
   }
