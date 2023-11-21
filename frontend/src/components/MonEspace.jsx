@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "../styles/monespace.css";
-import "../styles/app.css";
 import bag from "../assets/images/bag.png";
 import bell from "../assets/images/bell-icon.png";
 import cv from "../assets/images/cv-icon.png";

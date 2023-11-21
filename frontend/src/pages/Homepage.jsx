@@ -3,7 +3,6 @@ import loop from "../assets/icons/loop.png";
 import rocket from "../assets/icons/rocket.png";
 import girl from "../assets/icons/girl.png";
 import frame from "../assets/images/frame.png";
-import "../styles/homepage.css";
 
 export default function Homepage() {
   const items = [
