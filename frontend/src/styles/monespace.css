@@ -6,88 +6,83 @@
 .principal_monespace {
   display: flex;
 }
-.deux_form {
-  margin: 40px;
-  flex-direction: column;
-}
-.fboutons {
-  display: none;
-}
 .fmonespace {
-  margin: 20px;
+  margin: 50px;
   padding: 10px;
   text-align: left;
   background-color: #efefef;
 }
 .fmonespace input {
   width: 100%;
-  padding: 5px;
+  padding: 10px;
   border: none;
   background-color: white;
-}
-.dash_icons {
-  display: flex;
-  padding: 1rem;
-  justify-content: space-between;
-  background-color: #efefef;
-}
-.dash_icons img {
-  width: 30px;
-  height: 30px;
 }
 .Nom,
 .Prenom,
 .email,
-.location,
-.linkedin,
-.telephone,
-.site {
+.localisation,
+.telephone {
   margin-bottom: 20px;
 }
 .photo {
+  position: relative;
   text-align: center;
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .btn_monespace {
   background-color: #f5b800;
   border-radius: 20px;
-  padding: 5px;
+  padding: 10px 20px;
+  width: auto;
 }
 .button_monespace {
   display: flex;
   justify-content: center;
 }
+.photo input[type="file"] {
+  margin-bottom: 10px;
+}
+
 .photo input {
   display: none;
 }
 .photo label {
-  margin: auto;
+  display: block;
+  margin-bottom: 10px;
+
+  /*margin: auto;
   width: 100px;
   height: 100px;
   border: 2px dashed white;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  cursor: pointer;*/
 }
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-row > div {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.form-row > div:last-child {
+  margin-right: 0;
+}
+
+
 @media (min-width: 620px) {
   .principal_monespace {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .dash_icons {
-    display: none;
-  }
-  .fboutons {
-    gap: 10px; /* Space between buttons */
-    margin-right: 20px;
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    padding: 40px;
-    margin-right: 20px;
-    background-color: #efefef;
   }
   .fmonespace {
     flex: 1;
@@ -105,21 +100,20 @@
     padding: 10px;
     width: 50%;
   }
-  .fboutons button {
-    padding: 5px;
-    border-radius: 20px;
-    border: none;
-    margin-bottom: 80px;
-    background-color: #ffd700;
-    cursor: pointer;
-  }
-  .fcontainer {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-  }
   .button_monespace {
     display: flex;
     justify-content: left;
   }
+
+
+.Nom,
+.Prenom {
+  margin-bottom: 20px;
+  width: calc(50% - 10px); 
+}
+
+.Prenom {
+  margin-left: 12rem; 
+}
+
 }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-export default function ConnectionCandidate() {
+export default function LoginCandidate() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
