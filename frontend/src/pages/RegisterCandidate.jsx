@@ -41,7 +41,6 @@ export default function RegisterCandidate() {
           email,
           password,
         })
-
         .then((response) => {
           setSuccess("Vous êtes enregistrée !!!");
           setError(false);
