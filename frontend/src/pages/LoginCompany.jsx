@@ -38,6 +38,11 @@ export default function LoginCompany() {
       )
       .then((response) => {
         console.info(response);
+        localStorage.setItem("Rôle", response.data.role);
+        localStorage.setItem("Nom de l'entreprise", response.data.companyName);
+        localStorage.setItem("Email", response.data.email);
+        localStorage.setItem("Siret", response.data.siret);
+        localStorage.setItem("id", response.data.id);
         setError(false);
         navigateToHomepage();
       })

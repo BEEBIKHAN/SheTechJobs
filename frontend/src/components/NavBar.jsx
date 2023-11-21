@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import ExportContext from "../contexts/ContextCompany";
 import LOGO from "../assets/images/LOGO.png";
 import myspace from "../assets/images/myspace.png";
 import cv from "../assets/images/cv.png";
@@ -10,6 +11,9 @@ import alerte from "../assets/images/alerte.png";
 
 function Navbar() {
   const [click, setClick] = useState(false);
+
+  const { infoCompany } = useContext(ExportContext.Context);
+  console.info("Info company du context :", infoCompany);
 
   const handleClick = () => setClick(!click);
   return (
