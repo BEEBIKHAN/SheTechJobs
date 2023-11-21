@@ -3,6 +3,7 @@
 import React, { useState, useContext } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import ExportContext from "../contexts/ContextCompany";
+import { Link } from "react-router-dom";
 import LOGO from "../assets/images/LOGO.png";
 import myspace from "../assets/images/myspace.png";
 import cv from "../assets/images/cv.png";
@@ -39,8 +40,10 @@ function Navbar() {
           </li>
           <div className="blueline" />
           <li className="nav-itemtop">
-            <img className="imageicon" src={myspace} alt="" />
-            Mon espace
+            <Link to="/registercandidate" className="navbar-link">
+              <img className="imageicon" src={myspace} alt="" />
+              Mon espace
+            </Link>
           </li>
         </div>
         <div className="navbarbottom">
@@ -51,10 +54,12 @@ function Navbar() {
             <li className="nav-itembottom">Stages</li>
           </ul>
           <div className="btn">
-            <button type="button" className="btnEspaceEntreprise">
-              {" "}
-              Espace entreprises{" "}
-            </button>
+            <Link to="/registercompany" className="nav-link">
+              <button type="button" className="btnEspaceEntreprise">
+                {" "}
+                Espace Entreprises{" "}
+              </button>
+            </Link>
           </div>
         </div>
       </ul>

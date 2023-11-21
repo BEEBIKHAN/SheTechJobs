@@ -31,15 +31,24 @@
     font-weight: bold;
 }
 
+
+.imglogincompany {
+    width: 100%;
+    height: auto;
+  }
+
 @media (min-width: 620px) {
     .login_form {
         max-width: 35rem;
         height: 40rem;
-        margin-top: 32px;
     }
 
 
     .login_form input {
         width: 80%;
+    }
+
+    .imglogincompany {
+        display: none;
     }
 }

@@ -4,6 +4,7 @@ import SearchResult from "../pages/SearchResult";
 import AnnonceDetails from "../pages/AnnonceDetails";
 import RegisterCompany from "../pages/RegisterCompany";
 import RegisterCandidate from "../pages/RegisterCandidate";
+import DashbordCompany from "../pages/DashbordCompany";
 import ConnectionCandidate from "../pages/ConnectionCandidate";
 import LoginCompany from "../pages/LoginCompany";
 
@@ -16,6 +17,7 @@ export default function Content() {
         <Route path="/annonceDetails" element={<AnnonceDetails />} />
         <Route path="/registercompany" element={<RegisterCompany />} />
         <Route path="/registercandidate" element={<RegisterCandidate />} />
+        <Route path="/dashbordcompany" element={<DashbordCompany />} />
         <Route path="/connectioncandidate" element={<ConnectionCandidate />} />
         <Route path="/logincompany" element={<LoginCompany />} />
       </Routes>
