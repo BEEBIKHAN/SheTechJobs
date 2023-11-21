@@ -51,6 +51,7 @@ export default function LoginCompany() {
     <>
       <div className="espace_connexion_entreprise">
         <img
+          className="imglogincompany"
           src={entrepreneurs}
           alt="Beautiful entrepreuneurs chatting and walking down the street while smiling"
         />
