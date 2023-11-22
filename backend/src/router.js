@@ -4,7 +4,7 @@ const router = express.Router();
 const auth = require("./middlewares/auth");
 
 const candidateControllers = require("./controllers/candidateControllers");
-
+const offerControllers = require("./controllers/offerControllers");
 const contratControllers = require("./controllers/contratControllers");
 const companyControllers = require("./controllers/companyControllers");
 const departementControllers = require("./controllers/departementControllers");

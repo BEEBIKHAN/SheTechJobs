@@ -10,7 +10,6 @@ import alerte from "../assets/images/alerte.png";
 
 function Navbar() {
   const [click, setClick] = useState(false);
-
   const handleClick = () => setClick(!click);
   return (
     <div className="navbar">

@@ -69,6 +69,8 @@ const verifyPassword = (req, res) => {
         const payload = {
           sub: req.candidate.id,
           email: req.candidate.email,
+          role: req.candidate.role,
+          id: req.candidate.id,
         };
 
         const token = jwt.sign(payload, process.env.JWT_SECRET, {
@@ -77,7 +79,14 @@ const verifyPassword = (req, res) => {
 
         res.cookie("authToken", token);
 
-        res.status(200).send("Connexion réussie");
+        res.status(200).json({
+          message: "Connexion réussie",
+          id: req.candidate.id,
+          email: req.candidate.email,
+          role: "candidate",
+          firstname: req.candidate.firstname,
+          lastname: req.candidate.lastname,
+        });
       } else {
         res.sendStatus(401);
       }
