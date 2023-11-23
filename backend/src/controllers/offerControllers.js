@@ -27,6 +27,19 @@ const addOffer = (req, res) => {
     });
 };
 
+const listPublishedOffers = (req, res) => {
+  const { title, name, profileRequired } = req.params;
+
+  models.offer
+    .listOffers(title, name, profileRequired)
+    .then(([result]) => {
+      res.status(200).json({ result });
+    })
+    .catch((err) => {
+      res.status(401).json(err);
+    });
+};
+
 // const offer = (req, res) => {
 //   res.status(200).json({
 //     id: "1",
@@ -47,6 +60,6 @@ const addOffer = (req, res) => {
 
 module.exports = {
   getAllOffers,
-  // offer,
   addOffer,
+  listPublishedOffers,
 };

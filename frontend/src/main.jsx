@@ -11,6 +11,7 @@ import "./styles/navdashbordcompany.css";
 import "./styles/publishoffer.css";
 import "./styles/connection_candidate.css";
 import "./styles/navbar.css";
+import "./styles/annoncecard.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

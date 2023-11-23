@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  
 }
 
 .content_publish_offer {
@@ -42,7 +41,6 @@
   border: none;
   font-style: italic;
   padding-bottom: 5px;
-  
 }
 
 .publish_form_label .big_label {
@@ -83,7 +81,6 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 12px;
- 
   }
 
   .input_wrapper {
@@ -95,9 +92,6 @@
     display: block;
     margin-bottom: 5px;
   }
-
-
-  
 
   .input_wrapper > select {
     width: 75%;

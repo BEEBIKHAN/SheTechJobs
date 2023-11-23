@@ -65,5 +65,6 @@ router.post(
 
 router.get("/offer", offerControllers.getAllOffers);
 router.post("/offers", offerControllers.addOffer);
+router.get("/offersList", offerControllers.listPublishedOffers);
 
 module.exports = router;
