@@ -30,7 +30,7 @@ export default function PublishOffer() {
 
   const getTypeDeContrat = () => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/typeDeContrat`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/contract`)
       .then((response) => {
         console.info(response.data);
         setTypeDeContrat(response.data || []);
@@ -49,7 +49,7 @@ export default function PublishOffer() {
         setDepartement(response.data || []);
       })
       .catch((error) => {
-        console.error("Error type contract:", error);
+        console.error("Error de département:", error);
         setDepartement([]);
       });
   };
@@ -57,17 +57,14 @@ export default function PublishOffer() {
   useEffect(() => {
     getSelectJob();
   }, []);
-  console.info(Object.values(selectedJob)[1]);
 
   useEffect(() => {
     getTypeDeContrat();
   }, []);
-  console.info(Object.values(typeDeContrat)[1]);
 
   useEffect(() => {
     getDepartement();
   }, []);
-  console.info(Object.values(departement)[1]);
 
   useEffect(() => {
     console.info("Qui sommes nous ?", whoWeAre);
@@ -94,9 +91,9 @@ export default function PublishOffer() {
             <label htmlFor="name"> Sélection Métier *</label>
             <select>
               <option value="">.</option>
-              {Object.values(selectedJob).map((value) => (
-                <option key={0} value={value}>
-                  {value}
+              {selectedJob.map((job) => (
+                <option key={job.name} value={job.name}>
+                  {job.name}
                 </option>
               ))}
             </select>
@@ -106,9 +103,9 @@ export default function PublishOffer() {
             <label htmlFor="name">Type de contrat *</label>
             <select>
               <option value="">.</option>
-              {Object.values(typeDeContrat).map((value) => (
-                <option key={0} value={value}>
-                  {value}
+              {typeDeContrat.map((contract) => (
+                <option key={contract.type} value={contract.type}>
+                  {contract.type}
                 </option>
               ))}
             </select>
@@ -118,9 +115,9 @@ export default function PublishOffer() {
             <label htmlFor="name">Localisation du poste *</label>
             <select>
               <option value="">.</option>
-              {Object.values(departement).map((value) => (
-                <option key={0} value={value}>
-                  {value}
+              {departement.map((lieu) => (
+                <option key={lieu.name} value={lieu.name}>
+                  {lieu.name}
                 </option>
               ))}
             </select>
