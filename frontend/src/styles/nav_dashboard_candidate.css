@@ -1,10 +1,10 @@
-.nav_dashbord_company {
+.dashboard_Candidate {
   display: flex;
-  background-color: var(--color-background-gris);
+  background-color: #efefef;/*var(--color-background-gris);*/
   width: 100%;
 }
 
-.ul_dashbord_company {
+.nav_candidate {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -15,55 +15,55 @@
   line-height: 40px;
 }
 
-.ul_dashbord_company a {
-  color: var(--color-text);
+.nav_candidate a {
+  color:  #122529;/*var(--color-text);*/
   padding: 5px;
   line-height: 10px;
 }
 
-.ul_dashbord_company a:hover {
+.nav_candidate a:hover {
   font-weight: bolder;
-  color: var(--color-text);
+  color:  #122529;/*var(--color-text)*/
 }
 
-.middle:hover {
+.option:hover {
   position: relative;
 }
 
-.middle:hover::after {
+.option:hover::after {
   content: "";
   position: absolute;
   bottom: -3px;
   right: 70%;
   width: 30%;
-  border-bottom: 3px solid var(--color-orange-foncé);
+  border-bottom: 3px solid  #fb8500;/*var(--color-orange-foncé);*/
 }
 
 @media (min-width: 620px) {
-  .nav_dashbord_company {
+  .dashboard_Candidate {
     justify-content: center;
     margin: 30px;
     width: 30%;
   }
 
-  .ul_dashbord_company {
+  .nav_candidate {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background-color: var(--color-background-gris);
+    background-color: #efefef;/*var(--color-background-gris);*/
     height: 95vh;
     width: 100%;
   }
-  .espace_entreprise {
+  .mon_espace {
     padding-bottom: 50px;
   }
-  .gerer_son_compte {
+  .gerer_compte {
     margin-top: 50px;
   }
-  .middle:hover {
-    border-left: 3px solid var(--color-orange-foncé);
+  .option:hover {
+    border-left: 3px solid #fb8500;/*var(--color-orange-foncé);*/
   }
-  .middle:hover::after {
+  .option:hover::after {
     border-bottom: none;
   }
 }

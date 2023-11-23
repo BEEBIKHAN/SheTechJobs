@@ -11,8 +11,6 @@ export default function MonEspace() {
     email: "",
     telephone: "",
     location: "",
-    sportfolio: "",
-    linkedin: "",
   };
   const [inputData, setInputData] = useState(data);
   const [imageFile, setImageFile] = useState(null);
@@ -129,24 +127,6 @@ export default function MonEspace() {
                   placeholder="Location"
                   name="location"
                   value={inputData.location}
-                  onChange={handleData}
-                />
-              </div>
-              <div className="site">
-                <input
-                  type="url"
-                  placeholder="Site/Portfolio"
-                  name="sportfolio"
-                  value={inputData.sportfolio}
-                  onChange={handleData}
-                />
-              </div>
-              <div className="linkedin">
-                <input
-                  type="url"
-                  placeholder="LinkedIn"
-                  name="linkedin"
-                  value={inputData.linkedin}
                   onChange={handleData}
                 />
               </div>

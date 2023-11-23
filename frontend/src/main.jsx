@@ -8,6 +8,7 @@ import "./styles/footer.css";
 import "./styles/app.css";
 import "./styles/registercandidate.css";
 import "./styles/navdashbordcompany.css";
+import "./styles/nav_dashboard_candidate.css";
 import "./styles/publishoffer.css";
 import "./styles/connection_candidate.css";
 import "./styles/navbar.css";
