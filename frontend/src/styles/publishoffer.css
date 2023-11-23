@@ -3,15 +3,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  
+  width: 100%;  
 }
 
 .content_publish_offer {
   flex-direction: column;
   display: flex;
   background-color: var(--color-background-gris);
-  margin: 30px;
+  margin: 30px 15px 15px 15px;
   width: 90%;
 }
 .publish_form_input {
@@ -73,9 +72,11 @@
     flex-direction: row;
   }
   .content_publish_offer {
-    width: 70%;
-    height: 95vh;
+    width: 100vh;
+    height: 100vh;
     padding: 30px;
+    margin: 30px 30px 0px 0px;
+
   }
   .publish_form_input {
     display: flex;
@@ -106,7 +107,7 @@
   }
 
   .publish_form_label > button {
-    margin-top: 20px;
+    margin-top: 3px;
     height: 2rem;
     width: 30%;
   }
