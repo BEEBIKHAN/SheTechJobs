@@ -182,12 +182,9 @@ li.nav-itemtop {
     display: none;
   }
 
-
-    .navbar-link {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-    }
+  .navbar-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
-
