@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import ExportContext from "../contexts/ContextCompany";
-import { Link } from "react-router-dom";
 import LOGO from "../assets/images/LOGO.png";
 import myspace from "../assets/images/myspace.png";
 import cv from "../assets/images/cv.png";
