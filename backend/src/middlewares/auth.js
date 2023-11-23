@@ -93,19 +93,19 @@ const checkEmailCompanyIfExist = (req, res, next) => {
   });
 };
 
-const checkIfCandidateIsAllowed = (req, res, next) => {
+const checkIfIsAllowed = (req, res, next) => {
   try {
     const { authToken } = req.cookies;
-    console.info("token de checkIfIsAllowed: ", authToken);
 
     if (!authToken) {
-      return res.sendStatus(401);
+      return res
+        .status(401)
+        .send("Désolé, mais tu n'es pas autorisée à y accéder !");
     }
 
     const payload = jwt.verify(authToken, process.env.JWT_SECRET);
 
-    req.candidate = payload;
-    console.info(payload);
+    req.user = payload;
 
     return next();
   } catch {
@@ -113,11 +113,32 @@ const checkIfCandidateIsAllowed = (req, res, next) => {
   }
 };
 
+// const checkIfCandidateIsAllowed = (req, res, next) => {
+//   try {
+//     const { authToken } = req.cookies;
+//     console.info("token de checkIfIsAllowed: ", authToken);
+
+//     if (!authToken) {
+//       return res.sendStatus(401);
+//     }
+
+//     const payload = jwt.verify(authToken, process.env.JWT_SECRET);
+
+//     req.candidate = payload;
+//     console.info(payload);
+
+//     return next();
+//   } catch {
+//     return res.sendStatus(401);
+//   }
+// };
+
 module.exports = {
   hashPassword,
   validateCandidate,
   checkEmailCandidateIfExists,
-  checkIfCandidateIsAllowed,
+  // checkIfCandidateIsAllowed,
   checkEmailCompanyIfExist,
   validateCompany,
+  checkIfIsAllowed,
 };

@@ -101,11 +101,12 @@ export default function RegisterCompany() {
     <>
       <div className="espace_connexion_entreprise">
         <img
+          className="imgregistercompany"
           src={entrepreneurs}
           alt="Beautiful entrepreuneurs chatting and walking down the street while smiling"
         />
         <form className="register_form" onSubmit={sendRegisterData}>
-          <h2>Créer un compte</h2>
+          <h2 className="h2registercompany">Créer un compte</h2>
           <input
             type="text"
             placeholder="Nom de l'entreprise"
@@ -145,7 +146,7 @@ export default function RegisterCompany() {
             type="submit"
             value="Créer un compte"
           />
-          <p>
+          <p className="pregistercompany">
             Déjà membre ?{" "}
             <a href="/logincompany" id="seConnecter">
               Se connecter

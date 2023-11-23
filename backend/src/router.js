@@ -40,7 +40,11 @@ router.put(
 );
 
 // ---------------- COMPANY --------------//
-router.get("/company", companyControllers.getAllCompanies);
+router.get(
+  "/company",
+  auth.checkIfIsAllowed,
+  companyControllers.getAllCompanies
+);
 router.post(
   "/company",
   auth.validateCompany,
@@ -52,6 +56,7 @@ router.put("/company/:id", auth.hashPassword, companyControllers.updateCompany);
 
 router.post(
   "/login-company",
+  // auth.checkIfIsAllowed,
   auth.checkEmailCompanyIfExist,
   companyControllers.verifyPassword
 );
