@@ -2,6 +2,7 @@
   display: flex;
   background-color: var(--color-background-gris);
   width: 100%;
+  list-style: none;
 }
 
 .ul_dashbord_company {
@@ -13,12 +14,18 @@
   height: 100px;
   padding: 40px 0;
   line-height: 40px;
+  list-style: none;
 }
 
 .ul_dashbord_company a {
   color: var(--color-text);
   padding: 5px;
   line-height: 10px;
+  text-decoration: none;
+}
+
+.middle{
+  list-style: none;
 }
 
 .ul_dashbord_company a:hover {
