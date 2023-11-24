@@ -6,47 +6,24 @@
 .principal_monespace {
   display: flex;
 }
-.deux_form {
-  margin: 40px;
-  flex-direction: column;
-}
-.fboutons {
-  display: none;
-}
 .fmonespace {
   margin: 20px;
   padding: 10px;
+  width: 100%;
   text-align: left;
   background-color: #efefef;
 }
 .fmonespace input {
-  width: 100%;
   padding: 5px;
   border: none;
+  margin-top: 2rem;
   background-color: white;
-}
-.dash_icons {
-  display: flex;
-  padding: 1rem;
-  justify-content: space-between;
-  background-color: #efefef;
-}
-.dash_icons img {
-  width: 30px;
-  height: 30px;
 }
 .Nom,
 .Prenom,
 .email,
-.location,
-.linkedin,
-.telephone,
-.site {
+.telephone .localisation {
   margin-bottom: 20px;
-}
-.photo {
-  text-align: center;
-  padding: 1rem;
 }
 .btn_monespace {
   background-color: #f5b800;
@@ -55,20 +32,8 @@
 }
 .button_monespace {
   display: flex;
-  justify-content: center;
-}
-.photo input {
-  display: none;
-}
-.photo label {
-  margin: auto;
-  width: 100px;
-  height: 100px;
-  border: 2px dashed white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  justify-content: left;
+  margin-top: 10px;
 }
 @media (min-width: 620px) {
   .principal_monespace {
@@ -76,50 +41,46 @@
     justify-content: center;
     align-items: center;
   }
-  .dash_icons {
-    display: none;
-  }
-  .fboutons {
-    gap: 10px; /* Space between buttons */
-    margin-right: 20px;
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    padding: 40px;
-    margin-right: 20px;
-    background-color: #efefef;
-  }
   .fmonespace {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin: 20px;
-    padding: 40px;
     background-color: #efefef;
-    width: 600px;
+    width: 150%;
+    height: 95vh;
+    padding: 20px;
+  }
+  .fmonespace input {
+    padding: 15px;
+    width: 80%;
+    border: none;
+
+    background-color: white;
+    border-radius: 8px;
+  }
+  .comb_nom {
+    display: flex;
+    justify-content: space-between;
+  }
+  .Nom {
+    width: 70%;
+  }
+  .Prenom {
+    width: 70%;
   }
   .btn_monespace {
     background-color: #f5b800;
     border-radius: 20px;
     padding: 10px;
-    width: 50%;
-  }
-  .fboutons button {
-    padding: 5px;
-    border-radius: 20px;
-    border: none;
-    margin-bottom: 80px;
-    background-color: #ffd700;
-    cursor: pointer;
+    margin-top: 3rem;
+    width: 30%;
   }
   .fcontainer {
     display: flex;
     flex-direction: row;
-    padding: 20px;
   }
   .button_monespace {
     display: flex;
     justify-content: left;
+    border-radius: 20px;
   }
 }
