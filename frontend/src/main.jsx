@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import ExportContext from "./contexts/Context";
+
 import "./styles/homepage.css";
 import "./styles/footer.css";
 import "./styles/app.css";
@@ -17,7 +19,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <ExportContext.Provider>
+        <App />
+      </ExportContext.Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

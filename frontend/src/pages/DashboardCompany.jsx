@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PublishOffer from "../components/PublishOffer";
 import SpaceCompany from "../components/SpaceCompany";
 
-export default function DashbordCompany() {
+export default function DashboardCompany() {
   const [displaySpaceCompany, setDisplaySpaceCompany] = useState(1);
   const [displayPublishOffer, setDisplayPublishOffer] = useState(false);
 

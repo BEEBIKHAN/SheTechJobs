@@ -71,6 +71,9 @@ const verifyPassword = (req, res) => {
       const payload = {
         sub: req.company.id,
         email: req.company.email,
+        role: req.company.role,
+        id: req.company.id,
+        companyName: req.company.name,
       };
 
       const token = jwt.sign(payload, process.env.JWT_SECRET, {
@@ -79,7 +82,14 @@ const verifyPassword = (req, res) => {
 
       res.cookie("authToken: ", token);
 
-      res.status(200).send("Connexion réussie");
+      res.status(200).json({
+        message: "Connexion réussie",
+        id: req.company.id,
+        email: req.company.email,
+        role: "company",
+        siret: req.company.siret,
+        companyName: req.company.name,
+      });
     } else {
       res.sendStatus(401);
     }
