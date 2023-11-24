@@ -22,31 +22,17 @@ class OfferManager extends AbstractManager {
     );
   }
 
-  listOffers(title, departement, profileRequired) {
+  findAllOffers() {
     return this.database.query(
-      `
-        SELECT
-        offer.*,
-        offer.title AS title,
-        offer.profile_required AS profileRequired,
-        departement.name AS departement,
-        contract.type AS type_of_contract,
-        job.name AS job_name
-        FROM
-        offer
-        JOIN
-            departement AS departement ON offer.departement_id = departement.id
-        JOIN
-            contract AS contract ON offer.contract_id = contract.id
-        JOIN
-            job AS job ON offer.job_id = job.id
+      `SELECT  o.title, o.company_description, o.job_description, o.profile_required, o.status, o.date, contract.type, departement.name AS localisation, job.name AS métier FROM offer AS o JOIN contract ON o.contract_id = contract.id JOIN departement ON o.departement_id = departement.id JOIN job ON o.job_id = job.id ORDER BY o.date ASC`,
+      []
+    );
+  }
 
-        WHERE
-        (offer.departement_id = ? AND offer.contract_id = ? AND offer.job_id = ?)
-        ORDER BY
-         offer.date ASC;
-        `,
-      [title, departement, profileRequired]
+  findAllOffersById(id) {
+    return this.database.query(
+      `SELECT  o.title, o.company_description, o.job_description, o.profile_required, o.status, o.date, contract.type, departement.name AS localisation, job.name AS métier FROM offer AS o JOIN contract ON o.contract_id = contract.id JOIN departement ON o.departement_id = departement.id JOIN job ON o.job_id = job.id WHERE o.id = ? ORDER BY o.date ASC`,
+      [id]
     );
   }
 }

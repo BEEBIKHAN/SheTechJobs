@@ -1,30 +1,32 @@
-import PropTypes from "prop-types";
+/* eslint-disable react/prop-types */
+/* eslint-disable react/button-has-type */
+// import PropTypes from "prop-types";
 
-export default function AnnonceCard({ details }) {
+export default function AnnonceCard({ snippet }) {
   return (
-    details && (
+    snippet && (
       <div className="annonce_card">
-        <div className="annonce_title">
-          <h2>{details.title}</h2>
-        </div>
-        <div className="annonce_details">
-          <div className="company_description">
-            {details.company_description}
+        <div className="annonce_snippet">
+          <div className="annonce_title">
+            <h2>{snippet.title}</h2>
           </div>
-          <div className="job_description">{details.job_description}</div>
-          <div className="profil_required">{details.profile_required}</div>
-          {/* <div className="candidate_motivations"></div> */}
+          <div className="annonce_localisation">{snippet.localisation}</div>
+          <div className="annonce_date">Publiée le {snippet.date}</div>
+          <div className="profil_required">{snippet.profile_required}</div>
         </div>
+        <button>VOIR L'ANNONCE</button>
       </div>
     )
   );
 }
 
-AnnonceCard.propTypes = {
-  details: PropTypes.shape({
-    title: PropTypes.string,
-    company_description: PropTypes.string,
-    job_description: PropTypes.string,
-    profile_required: PropTypes.string,
-  }).isRequired,
-};
+// AnnonceCard.propTypes = {
+//   snippet: PropTypes.shape({
+//     title: PropTypes.string,
+//     localisation: PropTypes.string,
+//     date: PropTypes.instanceOf(Date),
+//     company_description: PropTypes.string,
+//     job_description: PropTypes.string,
+//     profile_required: PropTypes.string,
+//   }).isRequired,
+// };
