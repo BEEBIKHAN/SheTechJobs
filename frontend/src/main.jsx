@@ -8,11 +8,13 @@ import "./styles/homepage.css";
 import "./styles/footer.css";
 import "./styles/app.css";
 import "./styles/registercandidate.css";
+import "./styles/dashboardcandidate.css";
 import "./styles/dashboardcompany.css";
 import "./styles/spacecompany.css";
 import "./styles/publishoffer.css";
 import "./styles/connection_candidate.css";
 import "./styles/navbar.css";
+import "./styles/monespace.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
