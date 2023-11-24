@@ -44,6 +44,21 @@ const OfferManager = require("./OfferManager");
 models.offer = new OfferManager();
 models.offer.setDatabase(pool);
 
+const DepartementManager = require("./DepartementManager");
+
+models.departement = new DepartementManager();
+models.departement.setDatabase(pool);
+
+const ContractManager = require("./ContractManager");
+
+models.contract = new ContractManager();
+models.contract.setDatabase(pool);
+
+const JobManager = require("./JobManager");
+
+models.job = new JobManager();
+models.job.setDatabase(pool);
+
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
