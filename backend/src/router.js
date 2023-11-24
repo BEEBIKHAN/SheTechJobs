@@ -51,10 +51,10 @@ router.post(
   auth.checkEmailCompanyIfExist,
   companyControllers.verifyPassword
 );
+router.get("/offers", offerControllers.getAllOffers);
+router.get("/offers/:id", offerControllers.getAllOffersById);
 
-router.get("/offer", offerControllers.getAllOffers);
-
-router.post("/offers", offerControllers.addOffer);
+router.post("/offer", offerControllers.addOffer);
 
 router.get("/departement", departementControllers.getAllDepartement);
 
