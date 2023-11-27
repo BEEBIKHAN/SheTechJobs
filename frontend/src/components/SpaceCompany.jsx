@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import ExportContext from "../contexts/Context";
+
 export default function SpaceCompany() {
+  const { info } = useContext(ExportContext.Context);
+  console.info("Etat de mon context", info.companyName);
   return (
     <div className="contentspacecompany">
       <form action="">
