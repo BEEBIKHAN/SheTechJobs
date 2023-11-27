@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function MonCV() {
+export default function MonCV() {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (event) => {
@@ -13,26 +13,6 @@ function MonCV() {
       // eslint-disable-next-line no-alert
       alert("Please select a file to upload");
     }
-    // const formData = new FormData();
-    // formData.append("cv", file);
-
-    // try {
-    // const response = await fetch("/api/upload-cv", {
-    // method: "POST",
-    // body: formData,
-    // });
-    // if (response.ok) {
-    // eslint-disable-next-line no-alert
-    // alert("CV uploaded successfully");
-    // } else {
-    // eslint-disable-next-line no-alert
-    // alert("Failed to upload CV");
-    // }
-    // } catch (error) {
-    // eslint-disable-next-line no-alert
-    // alert("Error while uploading CV");
-    // console.error(error);
-    // }
   };
 
   return (
@@ -68,5 +48,3 @@ function MonCV() {
     </div>
   );
 }
-
-export default MonCV;
