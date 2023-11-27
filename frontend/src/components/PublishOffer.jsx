@@ -3,9 +3,12 @@ import { useState, useEffect } from "react";
 
 export default function PublishOffer() {
   const [titlePoste, setTitlePoste] = useState("");
-  const [selectedJob, setSelectedJob] = useState([]);
-  const [typeDeContrat, setTypeDeContrat] = useState([]);
-  const [departement, setDepartement] = useState([]);
+  const [allJob, setAllJob] = useState([]);
+  const [jobSelect, setJobSelect] = useState("");
+  const [allContract, setAllContract] = useState([]);
+  const [typeDeContrat, setTypeDeContrat] = useState("");
+  const [allDepartement, setAllDepartement] = useState([]);
+  const [oneDepartement, setOneDepartement] = useState("");
   const [whoWeAre, setwhoWeAre] = useState("");
   const [descriptionPoste, setDescriptionPoste] = useState("");
   const [requiredProfil, setRequiredProfil] = useState("");
@@ -13,31 +16,56 @@ export default function PublishOffer() {
   const handleChangeTitlePoste = (event) => {
     setTitlePoste(event.target.value);
   };
-  console.info("titlePoste:", titlePoste);
 
   const getSelectJob = () => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/job`)
       .then((response) => {
         console.info(response.data);
-        setSelectedJob(response.data || []);
+        setAllJob(response.data || []);
       })
       .catch((error) => {
         console.error("Error fetching jobs:", error);
-        setSelectedJob([]);
+        setAllJob([]);
       });
   };
+
+  /*   addOfer  */
+
+  const addOffer = (e) => {
+    e.preventDefault();
+    axios
+      .post(`${import.meta.env.VITE_BACKEND_URL}/offers`, {
+        title: titlePoste,
+        company_description: whoWeAre,
+        job_description: descriptionPoste,
+        profile_required: requiredProfil,
+        status: 1,
+        contract_id: 1,
+        departement_id: 1,
+        job_id: 1,
+        company_id: 1,
+      })
+      .then((response) => {
+        console.info(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  /*    addOffer    */
 
   const getTypeDeContrat = () => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/contract`)
       .then((response) => {
         console.info(response.data);
-        setTypeDeContrat(response.data || []);
+        setAllContract(response.data || []);
       })
       .catch((error) => {
         console.error("Error type contract:", error);
-        setTypeDeContrat([]);
+        setAllContract([]);
       });
   };
 
@@ -46,11 +74,11 @@ export default function PublishOffer() {
       .get(`${import.meta.env.VITE_BACKEND_URL}/departement`)
       .then((response) => {
         console.info(response.data);
-        setDepartement(response.data || []);
+        setAllDepartement(response.data || []);
       })
       .catch((error) => {
         console.error("Error de département:", error);
-        setDepartement([]);
+        setAllDepartement([]);
       });
   };
 
@@ -78,21 +106,32 @@ export default function PublishOffer() {
     console.info("Profil recherché", requiredProfil);
   }, [requiredProfil]);
 
+  console.info("titre du poste:", titlePoste);
+  console.info("métier selectionné:", jobSelect);
+  console.info("Type de contract:", typeDeContrat);
+
   return (
     <div className="content_publish_offer">
-      <form action="">
+      <form onSubmit={addOffer}>
         <div className="publish_form_input" action="">
           <div className="input_wrapper">
             <label htmlFor="name">Titre du poste *</label>
-            <input type="text" onChange={handleChangeTitlePoste} />
+            <input
+              type="text"
+              value={titlePoste}
+              onChange={handleChangeTitlePoste}
+            />
           </div>
 
           <div className="input_wrapper">
             <label htmlFor="name"> Sélection Métier *</label>
-            <select>
+            <select
+              onChange={(event) => setJobSelect(event.target.value)}
+              value={jobSelect}
+            >
               <option value="">.</option>
-              {selectedJob.map((job) => (
-                <option key={job.name} value={job.name}>
+              {allJob.map((job) => (
+                <option key={job.id} value={job.id}>
                   {job.name}
                 </option>
               ))}
@@ -101,10 +140,13 @@ export default function PublishOffer() {
 
           <div className="input_wrapper">
             <label htmlFor="name">Type de contrat *</label>
-            <select>
+            <select
+              onChange={(event) => setTypeDeContrat(event.target.value)}
+              value={typeDeContrat}
+            >
               <option value="">.</option>
-              {typeDeContrat.map((contract) => (
-                <option key={contract.type} value={contract.type}>
+              {allContract.map((contract) => (
+                <option key={contract.id} value={contract.id}>
                   {contract.type}
                 </option>
               ))}
@@ -113,10 +155,13 @@ export default function PublishOffer() {
 
           <div className="input_wrapper">
             <label htmlFor="name">Localisation du poste *</label>
-            <select>
+            <select
+              onChange={(event) => setOneDepartement(event.target.value)}
+              value={oneDepartement}
+            >
               <option value="">.</option>
-              {departement.map((lieu) => (
-                <option key={lieu.name} value={lieu.name}>
+              {allDepartement.map((lieu) => (
+                <option key={lieu.id} value={lieu.id}>
                   {lieu.name}
                 </option>
               ))}

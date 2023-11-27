@@ -75,13 +75,6 @@ export default function RegisterCandidate() {
       setError("Les mots de passe ne correspondent pas");
       console.error("Les mots de passe ne correspondent pas ;(");
     }
-
-    /* setSuccess("Vous êtes enregistrée !!!");
-      console.info("Vous êtes enregistrée !!!");
-    } else {
-      setError("Les mots de passe ne sont pas les mêmes ;(");
-      console.error("Les mots de passe ne sont pas identiques");
-    } */
   };
 
   console.info(
