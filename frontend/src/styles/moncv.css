@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.mon-cv-container {
+  display: flex;
+  margin: 30px 15px 15px 15px;
+  width: 90%;
+}
+.file-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px 0 0 20px;
+  font-style: italic;
+  text-align: left;
+  background-color: #efefef;
+}
+.file-input-container input {
+  padding: 5px;
+  border: none;
+  margin-top: 2rem;
+  background-color: white;
+}
+.btn_cv {
+  background-color: #f5b800;
+  border-radius: 20px;
+  padding: 5px;
+}
+.btn_upload {
+  background-color: #f5b800;
+  border-radius: 20px;
+  padding: 5px;
+}
+.buttoncv {
+  display: flex;
+  justify-content: left;
+  margin-top: 40%;
+}
+.buttonupload {
+  display: flex;
+  justify-content: left;
+  margin-top: 20%;
+}
+
+@media (min-width: 620px) {
+  .mon-cv-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .file-input-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #efefef;
+    width: 150%;
+    height: 95vh;
+    padding: 20px;
+  }
+}
