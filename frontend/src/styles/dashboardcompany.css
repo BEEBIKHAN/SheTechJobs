@@ -65,8 +65,10 @@
     margin: 30px;
     width: 30%;
     height: 100vh;
+    border: 2px solid greenyellow;
   }
 
+  
   .ul_dashboard_company {
     display: flex;
     flex-direction: column;
@@ -74,6 +76,11 @@
     background-color: var(--color-background-gris);
     height: 95vh;
     width: 100%;
+  }
+
+  .contentspacecompany {
+    border: 2px solid aqua;
+ 
   }
   .espace_entreprise {
     padding-bottom: 50px;
