@@ -1,20 +1,14 @@
+.dashboardcompany {
 
-.dashbord_company {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-background-color: aqua;
 }
 
 .contentspacecompany {
-  flex-direction: column;
-  display: flex;
   background-color: var(--color-background-gris);
-  margin-top: 30px;
-  padding: 5%;
-  margin: 30px 15px 15px 15px;
+  width: 90%;
+  margin: 0 auto;
+
 }
 
 .publish_form_input {
@@ -23,6 +17,7 @@ background-color: aqua;
   width: 100%;
   padding: 20px 0 0 20px;
   font-style: italic;
+  border: 2px solid black;
 }
 
 .btnSpaceCompany {
@@ -38,7 +33,6 @@ background-color: aqua;
   .dashbordcompany {
     display: flex;
     flex-direction: row;
-    
   }
   .contentspacecompany {
     padding-top: 100px;
