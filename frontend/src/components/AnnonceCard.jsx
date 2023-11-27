@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/button-has-type */
-// import PropTypes from "prop-types";
 
 export default function AnnonceCard({ snippet }) {
   return (
@@ -14,19 +13,8 @@ export default function AnnonceCard({ snippet }) {
           <div className="annonce_date">Publiée le {snippet.date}</div>
           <div className="profil_required">{snippet.profile_required}</div>
         </div>
-        <button>VOIR L'ANNONCE</button>
+        {/* <button>VOIR L'ANNONCE</button> */}
       </div>
     )
   );
 }
-
-// AnnonceCard.propTypes = {
-//   snippet: PropTypes.shape({
-//     title: PropTypes.string,
-//     localisation: PropTypes.string,
-//     date: PropTypes.instanceOf(Date),
-//     company_description: PropTypes.string,
-//     job_description: PropTypes.string,
-//     profile_required: PropTypes.string,
-//   }).isRequired,
-// };
