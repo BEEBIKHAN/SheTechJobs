@@ -34,12 +34,12 @@
 }
 
 .annonce_date {
-  color: #EBAF00;
+  color: #ebaf00;
 }
 
 .annonce_card > button {
-  background-color: #EBAF00;
-  color: #112F47;
+  background-color: #ebaf00;
+  color: #112f47;
   height: 32px;
   border-radius: 24px;
   padding: 6px 16px;
@@ -50,5 +50,4 @@
 }
 
 @media (min-width: 620px) {
-  
 }

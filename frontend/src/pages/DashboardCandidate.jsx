@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import MonEspace from "../components/MonEspace";
+import MonCv from "../components/MonCv";
 
 export default function DashboardCandidate() {
   const [displayMonespace, setDisplayMonespace] = useState(false);
-
+  const [displayMonCv, setDisplayMonCv] = useState(1);
   const handleButtonClick = (componentNumber) => {
     setDisplayMonespace(componentNumber === 1);
+    setDisplayMonCv(componentNumber === 2);
   };
   return (
     <div className="principal_dasboard">
@@ -21,7 +23,11 @@ export default function DashboardCandidate() {
             </button>
           </li>
           <li className="option">
-            <button type="button" className="btn_DashCandidate">
+            <button
+              type="button"
+              className="btn_DashCandidate"
+              onClick={() => handleButtonClick(2)}
+            >
               Mon CV
             </button>
           </li>
@@ -35,7 +41,7 @@ export default function DashboardCandidate() {
               Mes Alertes
             </button>
           </li>
-          <li className="gerer_compte">
+          <li className="option">
             <button type="button" className="btn_DashCandidate">
               Gerer mon compte
             </button>
@@ -45,6 +51,7 @@ export default function DashboardCandidate() {
 
       <div className="centered-dashcandidatecomponents">
         {displayMonespace && <MonEspace />}
+        {displayMonCv && <MonCv />}
       </div>
     </div>
   );

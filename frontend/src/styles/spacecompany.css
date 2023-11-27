@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 .dashbord_company {
   display: flex;
@@ -5,7 +10,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-background-color: aqua;
 }
 
 .contentspacecompany {
@@ -35,10 +39,9 @@ background-color: aqua;
 }
 
 @media (min-width: 620px) {
-  .dashbordcompany {
+  .dashbord_company {
     display: flex;
     flex-direction: row;
-    
   }
   .contentspacecompany {
     padding-top: 100px;
