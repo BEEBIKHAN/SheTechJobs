@@ -50,7 +50,6 @@ export default function DashboardCompany() {
           </li>
         </ul>
       </div>
-      {/* <SpaceCompany /> */}
       <div className="centered-dashcompanycomponents">
         {displaySpaceCompany && <SpaceCompany />}
         {displayPublishOffer && <PublishOffer />}

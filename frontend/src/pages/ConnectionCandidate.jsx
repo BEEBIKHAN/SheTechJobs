@@ -31,11 +31,11 @@ export default function ConnectionCandidate() {
         console.info("Connection Réussir");
         console.info(response);
 
-        localStorage.setItem("role", response.data.role);
+        localStorage.setItem("Role", response.data.role);
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("lastname", response.data.lastname);
         localStorage.setItem("firstname", response.data.firstname);
-        localStorage.setItem("email", response.data.email);
+        localStorage.setItem("Email", response.data.email);
       })
       .catch((err) => {
         console.error(err);
