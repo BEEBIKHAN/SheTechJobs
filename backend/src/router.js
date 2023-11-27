@@ -6,6 +6,9 @@ const auth = require("./middlewares/auth");
 const candidateControllers = require("./controllers/candidateControllers");
 const offerControllers = require("./controllers/offerControllers");
 const companyControllers = require("./controllers/companyControllers");
+const departementControllers = require("./controllers/departementControllers");
+const contractControllers = require("./controllers/contractControllers");
+const jobControllers = require("./controllers/jobControllers");
 
 router.get("/candidate", candidateControllers.getAllCandidates);
 
@@ -48,9 +51,15 @@ router.post(
   auth.checkEmailCompanyIfExist,
   companyControllers.verifyPassword
 );
+router.get("/offers", offerControllers.getAllOffers);
+router.get("/offers/:id", offerControllers.getAllOffersById);
 
-router.get("/offer", offerControllers.getAllOffers);
+router.post("/offer", offerControllers.addOffer);
 
-router.post("/offers", offerControllers.addOffer);
+router.get("/departement", departementControllers.getAllDepartement);
+
+router.get("/contract", contractControllers.getAllContract);
+
+router.get("/job", jobControllers.getAllJob);
 
 module.exports = router;

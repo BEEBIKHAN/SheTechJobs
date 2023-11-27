@@ -2,9 +2,25 @@ const models = require("../models");
 
 const getAllOffers = (req, res) => {
   models.offer
-    .findAll()
+    .findAllOffers()
     .then(([rows]) => {
       res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const getAllOffersById = (req, res) => {
+  models.offer
+    .findAllOffersById(req.params.id)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows[0]);
+      }
     })
     .catch((err) => {
       console.error(err);
@@ -26,7 +42,9 @@ const addOffer = (req, res) => {
       res.status(500).send("Erreur de sauvegarde");
     });
 };
+
 module.exports = {
   getAllOffers,
+  getAllOffersById,
   addOffer,
 };
