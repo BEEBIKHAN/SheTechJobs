@@ -21,10 +21,18 @@ class CandidateManager extends AbstractManager {
     );
   }
 
+  addCv(cv, id) {
+    return this.database.query(
+      `UPDATE candidate SET cv_link = ? WHERE id = ?`,
+      [cv, id]
+    );
+  }
+
   searchByEmail(email) {
     return this.database.query(`SELECT * FROM candidate WHERE email = ?`, [
       email,
     ]);
   }
 }
+
 module.exports = CandidateManager;

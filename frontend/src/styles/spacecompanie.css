@@ -1,5 +1,4 @@
 .dashboardcompany {
-
   display: flex;
   flex-direction: column;
 }
@@ -8,7 +7,6 @@
   background-color: var(--color-background-gris);
   width: 90%;
   margin: 0 auto;
-
 }
 
 .publish_form_input {

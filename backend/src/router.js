@@ -1,4 +1,5 @@
 const express = require("express");
+const uploadMiddleware = require("./middlewares/upload");
 
 const router = express.Router();
 const auth = require("./middlewares/auth");
@@ -8,7 +9,7 @@ const offerControllers = require("./controllers/offerControllers");
 const companyControllers = require("./controllers/companyControllers");
 const departementControllers = require("./controllers/departementControllers");
 const contractControllers = require("./controllers/contractControllers");
-const jobControllers = require("./controllers/JobControllers");
+const jobControllers = require("./controllers/jobControllers");
 
 router.get("/candidate", candidateControllers.getAllCandidates);
 
@@ -18,6 +19,7 @@ router.post(
   auth.hashPassword,
   candidateControllers.postCandidate
 );
+router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);
 
 router.post(
   "/login",
