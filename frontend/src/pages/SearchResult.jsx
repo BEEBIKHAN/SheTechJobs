@@ -1,37 +1,42 @@
-import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import AnnonceCard from "../components/AnnonceCard";
+import AnnonceCard from "../components/AnnonceCard";
 
 export default function SearchResult() {
   const { userResearch } = useParams();
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    axios.get(`${import.meta.env.VITE_BACKEND_URL}/offers`).then((response) => {
-      setData(response.data);
-    });
-  }, []);
-
-  // console.info("id", value);
-  console.info("data :", data);
-
-  /* useEffect(() => {
-    axios.get`${import.meta.env.VITE_BACKEND_URL}/offers/{userResearch}`.then(
-      (response) => {
+  const searchTitle = () => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/offers/search/${userResearch}`)
+      .then((response) => {
         setData(response.data);
-      }
-    );
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  useEffect(() => {
+    searchTitle();
   }, []);
-  console.log(data) */
+
+  console.info("Recherche : ", userResearch);
+  console.info("Résultat de la recherche : ", data);
 
   return (
-    <div className="searchResult">
+    <div>
       <h2>Ici sera afficher le Résultat de la recherche</h2>
       <p>{userResearch}</p>
-      {/* <div>
-        {data.map((result) => {AnnonceCard  key= {result.id details={result} />})}
-  </div> */}
+      <div>
+        {data.map((offer) => (
+          <Link to={`/annonceDetails/${offer.id}`}>
+            <AnnonceCard key={offer.id} snippet={offer} />
+            VOIR L'ANNONCE
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
