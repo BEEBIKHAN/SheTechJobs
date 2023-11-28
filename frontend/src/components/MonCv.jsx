@@ -2,28 +2,31 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function MonCV() {
-  const [setFile] = useState(null);
+  const [file, setFile] = useState(null);
 
-  const addCv = (event) => {
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
+
+  const handleSubmit = (event) => {
     event.preventDefault();
+
+    const formData = new FormData();
+    formData.append("cvLink", file);
+
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/moncv`)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/moncv`, formData)
       .then((response) => {
-        setFile(response.data);
         console.info(response);
       })
       .catch((error) => {
         console.error(error);
       });
   };
-  const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
-  };
-
   return (
     <div className="mon-cv-container">
       <div className="mcontainer">
-        <form onSubmit={addCv}>
+        <form onSubmit={handleSubmit}>
           <div className="file-input-container">
             <input
               type="text"
@@ -31,12 +34,14 @@ export default function MonCV() {
               className="file-name-input"
               required
             />
+
             <input
               type="file"
-              onChange={(event) => handleFileChange(event.target.files[0])}
+              onChange={handleFileChange}
               className="file-input"
               required
             />
+
             <div className="buttonupload">
               <button type="submit">Télécharger votre CV</button>
             </div>
