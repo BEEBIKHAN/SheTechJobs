@@ -3,6 +3,7 @@ import loop from "../assets/icons/loop.png";
 import rocket from "../assets/icons/rocket.png";
 import girl from "../assets/icons/girl.png";
 import frame from "../assets/images/frame.png";
+import SearchBar from "../components/SearchBar";
 
 export default function Homepage() {
   const items = [
@@ -56,7 +57,7 @@ export default function Homepage() {
             <img src={frame} alt="fille au clavier" />
           </div>
         </div>
-        <div className="search_bar">
+        {/* <div className="search_bar">
           <input
             id="search_input"
             type="search"
@@ -65,7 +66,8 @@ export default function Homepage() {
           <button id="search_btn" type="button">
             Rechercher
           </button>
-        </div>
+        </div> */}
+        <SearchBar />
       </section>
       <div className="bodyGeneral">
         <div className="Title">

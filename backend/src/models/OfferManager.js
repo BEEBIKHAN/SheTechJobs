@@ -35,5 +35,11 @@ class OfferManager extends AbstractManager {
       [id]
     );
   }
+
+  findOffersByWord(title) {
+    return this.database.query(`SELECT * FROM offer WHERE title LIKE ?`, [
+      `${title}%`,
+    ]);
+  }
 }
 module.exports = OfferManager;
