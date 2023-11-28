@@ -43,8 +43,40 @@ const addOffer = (req, res) => {
     });
 };
 
+const edit = (req, res) => {
+  const { id } = req.params;
+  const offer = req.body;
+
+  console.error("test", offer);
+
+  models.pokemon
+    .update(offer, id)
+    .then(([result]) => {
+      console.info(result);
+      res.status(200).send("L'offre' a bien été modifiée");
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Erreur lors de la modification");
+    });
+};
+
+const deleteOffer = (req, res) => {
+  const { id } = req.params;
+  console.info("ID DELETE: ", id);
+  models.offer.delete(id).then(([result]) => {
+    if (result.affectedRows === 0) {
+      res.status(404).send(result);
+    } else {
+      res.status(200).send("Offre supprimée avec succès");
+    }
+  });
+};
+
 module.exports = {
   getAllOffers,
   getAllOffersById,
   addOffer,
+  edit,
+  deleteOffer,
 };

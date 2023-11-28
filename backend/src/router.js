@@ -55,6 +55,7 @@ router.get("/offers", offerControllers.getAllOffers);
 router.get("/offers/:id", offerControllers.getAllOffersById);
 
 router.post("/offers", offerControllers.addOffer);
+router.delete("/offers/:id", offerControllers.deleteOffer);
 
 router.get("/departement", departementControllers.getAllDepartement);
 

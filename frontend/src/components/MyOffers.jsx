@@ -5,6 +5,14 @@ import AnnonceCard from "./AnnonceCard";
 
 export default function MyOffers() {
   const [data, setData] = useState([]);
+  const deleteOffer = (id) => {
+    axios
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/offers/${id}`)
+      .then((response) => {
+        console.info(response);
+      });
+    window.location.assign("/dashboardcompany");
+  };
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BACKEND_URL}/offers`).then((response) => {
@@ -20,7 +28,6 @@ export default function MyOffers() {
           <>
             <Link key={offer.id} to={`/annonceDetails/${offer.id}`}>
               <AnnonceCard key={offer.id} snippet={offer} />
-              VOIR L'ANNONCE
             </Link>
             <button type="submit" className="btnSpaceCompany">
               Modifier
@@ -28,7 +35,11 @@ export default function MyOffers() {
             <button type="submit" className="btnSpaceCompany">
               Clôturer
             </button>
-            <button type="submit" className="btnSpaceCompany">
+            <button
+              type="button"
+              onClick={() => deleteOffer(offer.id)}
+              className="btnSpaceCompany"
+            >
               Supprimer
             </button>
           </>
