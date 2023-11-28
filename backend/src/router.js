@@ -8,7 +8,7 @@ const offerControllers = require("./controllers/offerControllers");
 const companyControllers = require("./controllers/companyControllers");
 const departementControllers = require("./controllers/departementControllers");
 const contractControllers = require("./controllers/contractControllers");
-const jobControllers = require("./controllers/JobControllers");
+const jobControllers = require("./controllers/jobControllers");
 
 router.get("/candidate", candidateControllers.getAllCandidates);
 
