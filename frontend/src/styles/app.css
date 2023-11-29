@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
 }
+
 :root {
   --font-family-1: "Open Sans";
   --font-family: "Orelega One", serif;
@@ -18,4 +19,8 @@
   --color-text-clair: #f8f9fa;
   --color-background-gris-clair: #f2f2f2;
   --color-blue-line: #479dbc;
+}
+
+a {
+  text-decoration: none;
 }

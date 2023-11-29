@@ -1,0 +1,13 @@
+.filters, #annonce_h2 {
+    padding: 8px;
+}
+
+@media (min-width: 620px) {
+    .filters {
+        display: flex;
+    }
+
+    .filter {
+        padding: 8px;
+    }
+}

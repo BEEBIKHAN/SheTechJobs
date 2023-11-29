@@ -13,7 +13,7 @@ export default function AnnonceCard({ snippet }) {
           <div className="annonce_date">Publiée le {snippet.date}</div>
           <div className="profil_required">{snippet.profile_required}</div>
         </div>
-        {/* <button>VOIR L'ANNONCE</button> */}
+        <button type="button">VOIR L'ANNONCE</button>
       </div>
     )
   );
