@@ -90,31 +90,33 @@ export default function AnnonceResearch() {
 
   return (
     <>
-      <div className="contractFilter">
-        <select onChange={handleSelectContract}>
-          <option value="">--Type de contrat--</option>
-          {contracts.map((contract) => (
-            <option key={contract.id}>{contract.type}</option>
-          ))}
-        </select>
+      <div className="filters">
+        <div className="contractFilter filter">
+          <select onChange={handleSelectContract}>
+            <option value="">--Type de contrat--</option>
+            {contracts.map((contract) => (
+              <option key={contract.id}>{contract.type}</option>
+            ))}
+          </select>
+        </div>
+        <div className="departementFilter filter">
+          <select onChange={handleSelectDepartement}>
+            <option value="">--Localisation--</option>
+            {departements.map((departement) => (
+              <option key={departement.id}>{departement.name}</option>
+            ))}
+          </select>
+        </div>
+        <div className="jobFilter filter">
+          <select onChange={handleSelectJob}>
+            <option value="">--Métier--</option>
+            {jobs.map((job) => (
+              <option key={job.id}>{job.name}</option>
+            ))}
+          </select>
+        </div>
       </div>
-      <div className="departementFilter">
-        <select onChange={handleSelectDepartement}>
-          <option value="">--Localisation--</option>
-          {departements.map((departement) => (
-            <option key={departement.id}>{departement.name}</option>
-          ))}
-        </select>
-      </div>
-      <div className="jobFilter">
-        <select onChange={handleSelectJob}>
-          <option value="">--Métier--</option>
-          {jobs.map((job) => (
-            <option key={job.id}>{job.name}</option>
-          ))}
-        </select>
-      </div>
-      <h2>Liste des annonces</h2>
+      <h2 id="annonce_h2">Liste des annonces</h2>
       <div className="annonce_list">
         {data
           .filter((contract) => {
