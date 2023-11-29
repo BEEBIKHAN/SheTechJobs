@@ -23,25 +23,30 @@ export default function MyOffers() {
 
   return (
     <div className="contentmyoffers">
-      <div className="annonce_list">
+      <div className="annonce_listOffer">
         {data.map((offer) => (
           <>
-            <Link key={offer.id} to={`/annonceDetails/${offer.id}`}>
-              <AnnonceCard key={offer.id} snippet={offer} />
-            </Link>
-            <button type="submit" className="btnSpaceCompany">
-              Modifier
-            </button>
-            <button type="submit" className="btnSpaceCompany">
-              Clôturer
-            </button>
-            <button
-              type="button"
-              onClick={() => deleteOffer(offer.id)}
-              className="btnSpaceCompany"
-            >
-              Supprimer
-            </button>
+            <div className="EspaceEntrepriseCard">
+              <Link key={offer.id} to={`/annonceDetails/${offer.id}`}>
+                <AnnonceCard key={offer.id} snippet={offer} />
+              </Link>
+            </div>
+
+            <div className="boutonOffer">
+              <button type="submit" className="btnMyOffers">
+                Modifier
+              </button>
+              <button type="submit" className="btnMyOffers">
+                Clôturer
+              </button>
+              <button
+                type="button"
+                onClick={() => deleteOffer(offer.id)}
+                className="btnMyOffers"
+              >
+                Supprimer
+              </button>
+            </div>
           </>
         ))}
       </div>

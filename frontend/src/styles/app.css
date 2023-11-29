@@ -19,3 +19,7 @@
   --color-background-gris-clair: #f2f2f2;
   --color-blue-line: #479dbc;
 }
+
+a {
+  text-decoration: none;
+  }

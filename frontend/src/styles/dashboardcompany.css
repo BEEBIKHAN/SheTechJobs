@@ -64,7 +64,6 @@
     justify-content: center;
     margin: 30px;
     width: 30%;
-    height: 100vh;
   }
 
   
@@ -77,10 +76,6 @@
     width: 100%;
   }
 
-  .contentspacecompany {
-    border: 2px solid aqua;
- 
-  }
   .espace_entreprise {
     padding-bottom: 50px;
   }
