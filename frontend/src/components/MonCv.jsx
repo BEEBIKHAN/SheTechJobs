@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
+import ExportContext from "../contexts/Context";
 
 export default function MonCV() {
+  const { info } = useContext(ExportContext.Context);
+  console.info("Etat de mon context", info);
   const [file, setFile] = useState(null);
 
   const handleFileChange = (event) => {
@@ -10,10 +13,9 @@ export default function MonCV() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const formData = new FormData();
     formData.append("cvLink", file);
-
+    formData.append("id", info.id);
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/moncv`, formData)
       .then((response) => {
@@ -28,13 +30,6 @@ export default function MonCV() {
       <div className="mcontainer">
         <form onSubmit={handleSubmit}>
           <div className="file-input-container">
-            <input
-              type="text"
-              placeholder="Nom du fichier *"
-              className="file-name-input"
-              required
-            />
-
             <input
               type="file"
               onChange={handleFileChange}
