@@ -33,7 +33,6 @@ export default function SearchResult() {
         {data.map((offer) => (
           <Link to={`/annonceDetails/${offer.id}`}>
             <AnnonceCard key={offer.id} snippet={offer} />
-            VOIR L'ANNONCE
           </Link>
         ))}
       </div>

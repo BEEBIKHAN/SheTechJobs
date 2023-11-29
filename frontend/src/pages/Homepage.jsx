@@ -51,22 +51,18 @@ export default function Homepage() {
                 <option>Stage</option>
               </select>
             </div>
+            <div className="buttonSelect">
+              <button type="button">CDI</button>
+              <button type="button">CDD</button>
+              <button type="button">Contrat Pro/ Alternance</button>
+              <button type="button">Stage</button>
+            </div>
             <br />
           </div>
           <div className="img">
             <img src={frame} alt="fille au clavier" />
           </div>
         </div>
-        {/* <div className="search_bar">
-          <input
-            id="search_input"
-            type="search"
-            placeholder="Quel emploi recherchez-vous ?"
-          />
-          <button id="search_btn" type="button">
-            Rechercher
-          </button>
-        </div> */}
         <SearchBar />
       </section>
       <div className="bodyGeneral">

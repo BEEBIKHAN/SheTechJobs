@@ -22,7 +22,7 @@ export default function AnnonceResearch() {
           <div>
             <Link key={offer.id} to={`/annonceDetails/${offer.id}`}>
               <AnnonceCard key={offer.id} snippet={offer} />
-              VOIR L'ANNONCE
+              {/* VOIR L'ANNONCE */}
             </Link>
           </div>
         ))}
