@@ -5,11 +5,15 @@
 }
 .principal_monespace {
   display: flex;
+  margin: 30px 15px 15px 15px;
+  width: 90%;
 }
 .fmonespace {
-  margin: 20px;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  padding: 20px 0 0 20px;
+  font-style: italic;
   text-align: left;
   background-color: #efefef;
 }
@@ -50,7 +54,7 @@
     padding: 20px;
   }
   .fmonespace input {
-    padding: 15px;
+    padding: 10px;
     width: 80%;
     border: none;
 

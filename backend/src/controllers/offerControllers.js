@@ -19,7 +19,7 @@ const getAllOffersById = (req, res) => {
       if (rows[0] == null) {
         res.sendStatus(404);
       } else {
-        res.send(rows[0]);
+        res.send(rows);
       }
     })
     .catch((err) => {
@@ -42,9 +42,20 @@ const addOffer = (req, res) => {
       res.status(500).send("Erreur de sauvegarde");
     });
 };
+const searchOfferByWord = (req, res) => {
+  const { title } = req.params;
+  models.offer.findOffersByWord(title).then(([rows]) => {
+    if (rows[0] == null) {
+      res.sendStatus(404);
+    } else {
+      res.send(rows);
+    }
+  });
+};
 
 module.exports = {
   getAllOffers,
   getAllOffersById,
   addOffer,
+  searchOfferByWord,
 };
