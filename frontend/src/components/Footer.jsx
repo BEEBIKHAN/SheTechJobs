@@ -1,12 +1,11 @@
 import Newsletter from "./Newsletter";
+import LOGO from "../assets/images/LOGO.png";
 
 export default function Footer() {
   return (
     <div className="footer">
       <div className="logo">
-        <h1>
-          she<span>tech</span>jobs
-        </h1>
+        <img className="logoSTJ" src={LOGO} alt="Logo_SheTechJobs" />
       </div>
       <div className="paragraphs">
         <div className="footer_links">

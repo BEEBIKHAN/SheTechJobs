@@ -68,7 +68,6 @@
     border: 2px solid greenyellow;
   }
 
-  
   .ul_dashboard_company {
     display: flex;
     flex-direction: column;
@@ -80,7 +79,6 @@
 
   .contentspacecompany {
     border: 2px solid aqua;
- 
   }
   .espace_entreprise {
     padding-bottom: 50px;

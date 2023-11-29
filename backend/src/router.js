@@ -8,7 +8,7 @@ const offerControllers = require("./controllers/offerControllers");
 const companyControllers = require("./controllers/companyControllers");
 const departementControllers = require("./controllers/departementControllers");
 const contractControllers = require("./controllers/contractControllers");
-const jobControllers = require("./controllers/JobControllers");
+const jobControllers = require("./controllers/jobControllers");
 
 router.get("/candidate", candidateControllers.getAllCandidates);
 
@@ -53,6 +53,7 @@ router.post(
 );
 router.get("/offers", offerControllers.getAllOffers);
 router.get("/offers/:id", offerControllers.getAllOffersById);
+router.get("/offers/search/:title", offerControllers.searchOfferByWord);
 
 router.post("/offers", offerControllers.addOffer);
 
