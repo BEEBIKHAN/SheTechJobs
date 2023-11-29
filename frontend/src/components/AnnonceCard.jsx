@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/button-has-type */
-// import PropTypes from "prop-types";
 
 export default function AnnonceCard({ snippet }) {
   return (
@@ -19,14 +18,3 @@ export default function AnnonceCard({ snippet }) {
     )
   );
 }
-
-// AnnonceCard.propTypes = {
-//   snippet: PropTypes.shape({
-//     title: PropTypes.string,
-//     localisation: PropTypes.string,
-//     date: PropTypes.instanceOf(Date),
-//     company_description: PropTypes.string,
-//     job_description: PropTypes.string,
-//     profile_required: PropTypes.string,
-//   }).isRequired,
-// };
