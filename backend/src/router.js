@@ -1,4 +1,5 @@
 const express = require("express");
+const uploadMiddleware = require("./middlewares/upload");
 
 const router = express.Router();
 const auth = require("./middlewares/auth");
@@ -18,6 +19,7 @@ router.post(
   auth.hashPassword,
   candidateControllers.postCandidate
 );
+router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);
 
 router.post(
   "/login",

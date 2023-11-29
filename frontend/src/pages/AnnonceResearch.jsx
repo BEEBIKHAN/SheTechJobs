@@ -1,7 +1,6 @@
 /* eslint-disable react/button-has-type */
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import AnnonceCard from "../components/AnnonceCard";
 
 export default function AnnonceResearch() {
@@ -130,6 +129,7 @@ export default function AnnonceResearch() {
           })
           .map((offer) => (
             <AnnonceCard key={offer.id} snippet={offer} />
+          ))}
       </div>
     </>
   );
