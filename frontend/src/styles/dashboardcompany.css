@@ -66,7 +66,6 @@
     width: 30%;
   }
 
-  
   .ul_dashboard_company {
     display: flex;
     flex-direction: column;
@@ -76,15 +75,22 @@
     width: 100%;
   }
 
+  .contentspacecompany {
+    border: 2px solid aqua;
+  }
+
   .espace_entreprise {
     padding-bottom: 50px;
   }
+
   .gerer_son_compte {
     margin-top: 50px;
   }
+
   .middle:hover {
     border-left: 3px solid var(--color-orange-foncé);
   }
+
   .middle:hover::after {
     border-bottom: none;
   }

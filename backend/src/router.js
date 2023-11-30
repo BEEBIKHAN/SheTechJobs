@@ -1,4 +1,5 @@
 const express = require("express");
+const uploadMiddleware = require("./middlewares/upload");
 
 const router = express.Router();
 const auth = require("./middlewares/auth");
@@ -18,6 +19,7 @@ router.post(
   auth.hashPassword,
   candidateControllers.postCandidate
 );
+router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);
 
 router.post(
   "/login",
@@ -53,6 +55,7 @@ router.post(
 );
 router.get("/offers", offerControllers.getAllOffers);
 router.get("/offers/:id", offerControllers.getAllOffersById);
+router.get("/offers/search/:title", offerControllers.searchOfferByWord);
 
 router.post("/offers", offerControllers.addOffer);
 router.delete("/offers/:id", offerControllers.deleteOffer);

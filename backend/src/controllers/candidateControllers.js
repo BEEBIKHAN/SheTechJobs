@@ -61,6 +61,21 @@ const updateCandidate = (req, res) => {
     });
 };
 
+const sendCv = (req, res) => {
+  const { id } = req.body;
+  const cv = req.file.filename;
+  console.info(cv);
+  models.candidate
+    .addCv(cv, id)
+    .then(() => {
+      res.status(200).send("Fichier téléchargé");
+    })
+    .catch((error) => {
+      console.error("Error adding CV:", error);
+      res.status(500).send("Internal Server Error");
+    });
+};
+
 const verifyPassword = (req, res) => {
   argon2
     .verify(req.candidate.hashedPassword, req.body.password)
@@ -98,4 +113,5 @@ module.exports = {
   postCandidate,
   updateCandidate,
   verifyPassword,
+  sendCv,
 };

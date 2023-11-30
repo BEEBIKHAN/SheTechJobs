@@ -15,7 +15,7 @@
   padding: 20px 0 0 20px;
   font-style: italic;
   text-align: left;
-  background-color:var(--color-background-gris);
+  background-color: var(--color-background-gris);
 }
 .file-input-container input {
   padding: 5px;
@@ -29,7 +29,7 @@
   padding: 5px;
 }
 .btn_upload {
-  background-color:var(--color-orange);
+  background-color: var(--color-orange);
   border-radius: 20px;
   padding: 5px;
 }

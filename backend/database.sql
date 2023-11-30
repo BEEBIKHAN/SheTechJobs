@@ -184,7 +184,7 @@ INSERT INTO `departement` (`name`) VALUES
 
 
 INSERT INTO `job` (`name`) VALUES
-('Administratrise de base de données'),
+('Administratrice de base de données'),
 ('Architecte big data'),
 ('Architecte big data'),
 ('Architecte de solutions Blockchain'),
@@ -206,7 +206,7 @@ INSERT INTO `job` (`name`) VALUES
 ('Ingénieure en cybersécurité'),
 ('Ingénieure en intelligence artificielle'),
 ('Ingénieure logiciels'),
-('Ingénieur solution Cloud'),
+('Ingénieure solution Cloud'),
 ('No code'),
 ('Spécialiste du cloud');
 

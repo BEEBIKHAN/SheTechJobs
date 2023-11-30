@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 .Title > p {
@@ -75,7 +76,6 @@
   background-image: url("../assets/images/vague_jaune.png");
   background-position: top;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   max-width: 700px;
   background-size: 100% auto;
   display: flex;
@@ -85,9 +85,13 @@
 .left_side {
   display: flex;
   flex-direction: column;
-  margin: 2rem 0;
+  justify-content: flex-start;
+  margin: 0.7rem;
   width: 50%;
   height: 250px;
+}
+.buttonSelect {
+  display: none;
 }
 
 .title {
@@ -111,41 +115,34 @@
 
 #dropdown {
   width: 100%;
+  border-radius: 20px;
+  border: 2px solid var(--color-bleu-clair);
 }
 
 .search_bar {
   display: flex;
-  align-items: center;
-  background-color: lightgray;
-  border-radius: 300px;
-  padding: 1px 0;
-  width: 80%;
   justify-content: space-between;
-  margin: 16px auto;
+  align-items: center;
+  background-color: var(--color-background-gris);
+  border-radius: 20px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 #search_input {
   border: none;
-  background-image: none;
-  background-color: lightgray;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  padding: 11px 0px 11px 5px;
+  background-color: var(--color-background-gris);
+  border-radius: 20px;
   text-align: center;
-  margin: 8px 5px 8px 8px;
+  font-size: 12px;
+  color: var(--color-text);
 }
 
 #search_btn {
-  background: none;
-  color: #000000;
-  border: none;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  border-radius: 300px;
-  background-color: #99c9e6;
-  padding: 14px 24px;
+  color: var(--color-text);
+  border-radius: 20px;
+  background-color: var(--color-bleu-clair);
+  padding: 6px 14px;
   font-weight: 600;
   margin-right: 6px;
 }
@@ -155,6 +152,7 @@
     min-height: 80vh;
     max-width: 100%;
     background-size: 100%;
+    position: relative;
   }
 
   .left_side {
@@ -182,10 +180,6 @@
     margin: 0 50px;
   }
 
-  .search_bar {
-    width: 50%;
-  }
-
   .iconsContainer {
     display: flex;
     flex-direction: row;
@@ -193,5 +187,40 @@
 
   .bodyGeneral {
     background-color: var(--color-background-gris);
+    margin-top: 100px;
+  }
+  #dropdown {
+    display: none;
+  }
+  .buttonSelect > button {
+    border-radius: 20px;
+    border: 2px solid var(--color-bleu-clair);
+    margin: 0 20px;
+    padding: 5px 15px;
+    background-color: var(--color-text-clair);
+    flex-wrap: nowrap;
+  }
+  .buttonSelect {
+    display: block;
+  }
+  .search_bar {
+    display: flex;
+    justify-content: flex-start;
+    background-color: var(--color-background-gris);
+    border-radius: 30px;
+    padding: 10px 0;
+    width: 50%;
+    justify-content: space-between;
+    font-weight: 200;
+    margin: 0;
+    margin-left: 40px;
+    margin-bottom: 150px;
+    position: absolute;
+    top: 102%;
+  }
+
+  #search_input {
+    width: 90%;
+    padding: 10px;
   }
 }
