@@ -2,6 +2,17 @@
     padding: 8px;
 }
 
+.searchBar_offersResults {
+    background-color: #EBAF00;
+    padding: 1.2rem 1rem;
+}
+
+.searchBar_offersResults > .search_bar {
+    width: 70%;
+    padding: 2px 4px;
+    border-radius: 32px;
+}
+
 @media (min-width: 620px) {
     .filters {
         display: flex;
@@ -9,5 +20,21 @@
 
     .filter {
         padding: 8px;
+    }
+
+    .searchBar_offersResults {
+        padding: 3rem;
+    }
+
+    .searchBar_offersResults > .search_bar {
+        margin-top: -475px;
+        margin-left: -38px;
+        padding: 6px;
+        width: 40%;
+    }
+
+    .searchBar_offersResults > .search_bar > #search_btn {
+        margin-right: 0;
+        padding: 10px 16px;
     }
 }
