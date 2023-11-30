@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import PublishOffer from "../components/PublishOffer";
 import SpaceCompany from "../components/SpaceCompany";
+import MyOffers from "../components/MyOffers";
 
 export default function DashboardCompany() {
   const [displaySpaceCompany, setDisplaySpaceCompany] = useState(1);
   const [displayPublishOffer, setDisplayPublishOffer] = useState(false);
+  const [displayMyOffers, setDisplayMyOffers] = useState(false);
 
   const handleButtonClick = (componentNumber) => {
     setDisplaySpaceCompany(componentNumber === 1);
     setDisplayPublishOffer(componentNumber === 2);
+    setDisplayMyOffers(componentNumber === 3);
   };
 
   return (
@@ -34,7 +37,11 @@ export default function DashboardCompany() {
             </button>
           </li>
           <li className="middle">
-            <button type="button" className="btnDashCompany">
+            <button
+              type="button"
+              className="btnDashCompany"
+              onClick={() => handleButtonClick(3)}
+            >
               Mes annonces
             </button>
           </li>
@@ -53,6 +60,7 @@ export default function DashboardCompany() {
       <div className="centered-dashcompanycomponents">
         {displaySpaceCompany && <SpaceCompany />}
         {displayPublishOffer && <PublishOffer />}
+        {displayMyOffers && <MyOffers />}
       </div>
     </div>
   );
