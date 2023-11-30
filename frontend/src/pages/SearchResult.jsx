@@ -2,6 +2,7 @@ import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import AnnonceCard from "../components/AnnonceCard";
+import SearchBar from "../components/SearchBar";
 
 export default function SearchResult() {
   const { userResearch } = useParams();
@@ -113,6 +114,9 @@ export default function SearchResult() {
 
   return (
     <div>
+      <div className="searchBar_offersResults">
+        <SearchBar />
+      </div>
       <h3>Résultats de la recherche pour : {userResearch}</h3>
       <div className="filters">
         <div className="contractFilter filter">

@@ -28,13 +28,13 @@
 
     .searchBar_offersResults > .search_bar {
         margin-top: -475px;
-        margin-left: -38px;
+        margin-left: -20px;
         padding: 6px;
-        width: 40%;
+        width: 30%;
     }
 
     .searchBar_offersResults > .search_bar > #search_btn {
         margin-right: 0;
-        padding: 10px 16px;
+        padding: 10px 8px;
     }
 }
