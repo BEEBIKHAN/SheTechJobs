@@ -147,9 +147,6 @@
   margin-right: 6px;
 }
 
-
-
-
 @media (min-width: 620px) {
   .header_general {
     min-height: 80vh;
@@ -221,7 +218,6 @@
     position: absolute;
     top: 102%;
   }
-
 
   #search_input {
     width: 90%;

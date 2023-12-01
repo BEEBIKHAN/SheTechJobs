@@ -37,11 +37,6 @@ export default function MonCV() {
                 Télécharger votre CV
               </button>
             </div>
-            <div className="buttoncv">
-              <button type="submit" className="btn_cv">
-                Enregistrer les modifications
-              </button>
-            </div>
           </div>
         </form>
       </div>

@@ -11,8 +11,8 @@ function Provider({ children }) {
     companyName: localStorage.getItem("companyName"),
     email: localStorage.getItem("Email"),
     siret: localStorage.getItem("Siret"),
-    firstName: localStorage.getItem("firstName"),
-    lastName: localStorage.getItem("lastName"),
+    firstName: localStorage.getItem("firstname"),
+    lastName: localStorage.getItem("lastname"),
   });
 
   return (

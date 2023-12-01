@@ -47,6 +47,7 @@
   border: none;
   font-style: italic;
   margin-bottom: 25px;
+  background-color: var(--color-background-gris-clair);
   border: 1px solid var(--color-orange);
 }
 
@@ -74,6 +75,10 @@
   padding-left: 5px;
 }
 .messages {
+  font-weight: bolder;
+}
+.pregistercandidate > #spanSeconnecter {
+  color: var(--color-bleu-inter);
   font-weight: bolder;
 }
 

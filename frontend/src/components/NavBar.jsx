@@ -8,7 +8,6 @@ import LOGO from "../assets/images/LOGO.png";
 import myspace from "../assets/images/myspace.png";
 import cv from "../assets/images/cv.png";
 import annonce from "../assets/images/annonce.png";
-import alerte from "../assets/images/alerte.png";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -16,7 +15,36 @@ function Navbar() {
   const { infoCompany } = useContext(ExportContext.Context);
   console.info("Info company du context :", infoCompany);
 
+  const { info } = useContext(ExportContext.Context);
+
+  const displayLinkCandidate = () => {
+    if (info.Role === "candidate") {
+      return (
+        <Link to="/dashboardcandidate" className="navbar-link">
+          <img className="imageicon" src={myspace} alt="" />
+          Mon espace
+        </Link>
+      );
+    }
+    if (info.Role === "company") {
+      return (
+        <Link to="/dashboardcompany" className="navbar-link">
+          <img className="imageicon" src={myspace} alt="" />
+          Mon espace
+        </Link>
+      );
+    }
+    return (
+      <Link to="/registercandidate" className="navbar-link">
+        <img className="imageicon" src={myspace} alt="" />
+        Mon espace
+      </Link>
+    );
+  };
+  console.info(info);
+
   const handleClick = () => setClick(!click);
+
   return (
     <div className="navbar">
       <div className="logonavbar">
@@ -33,17 +61,23 @@ function Navbar() {
             <img className="imageicon" src={annonce} alt="" />
             Mes annonces
           </li>
+
           <div className="blueline" />
           <li className="nav-itemtop">
-            <img className="imageicon" src={alerte} alt="" />
-            Mes alertes
-          </li>
-          <div className="blueline" />
-          <li className="nav-itemtop">
-            <Link to="/registercandidate" className="navbar-link">
+            <li className="nav-itemtop">
+              {/* <Link
+                to={isLoggedIn ? "/dashboardcandidate" : "/registercandidate"}
+                className="navbar-link"
+              >
+                <img className="imageicon" src={myspace} alt="" />
+                Mon espace
+  </Link> */}
+              {displayLinkCandidate()}
+            </li>
+            {/* <Link to="/registercandidate" className="navbar-link">
               <img className="imageicon" src={myspace} alt="" />
               Mon espace
-            </Link>
+  </Link> */}
           </li>
         </div>
         <div className="navbarbottom">
