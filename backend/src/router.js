@@ -10,28 +10,32 @@ const companyControllers = require("./controllers/companyControllers");
 const departementControllers = require("./controllers/departementControllers");
 const contractControllers = require("./controllers/contractControllers");
 const jobControllers = require("./controllers/jobControllers");
+const applicationControllers = require("./controllers/applicationControllers");
 
+// candidate is here
 router.get("/candidate", candidateControllers.getAllCandidates);
-
 router.post(
   "/candidate",
   auth.validateCandidate,
   auth.hashPassword,
   candidateControllers.postCandidate
 );
-router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);
-
 router.post(
   "/login",
   auth.checkEmailCandidateIfExists,
   candidateControllers.verifyPassword
 );
-
 router.put(
   "/candidate/:id",
   auth.hashPassword,
   candidateControllers.updateCandidate
 );
+// cv is here
+router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);
+// application from here
+router.get("/application", applicationControllers.getAllApplications);
+router.get("/application/:id", applicationControllers.getAllApplicationsById);
+router.post("/application", applicationControllers.postApplications);
 
 router.get(
   "/company",

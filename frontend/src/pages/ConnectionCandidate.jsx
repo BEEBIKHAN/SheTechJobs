@@ -29,7 +29,7 @@ export default function ConnectionCandidate() {
       )
       .then((response) => {
         console.info("Connection Réussir");
-        console.info(response);
+        console.info(response.data);
 
         localStorage.setItem("Role", response.data.role);
         localStorage.setItem("id", response.data.id);
