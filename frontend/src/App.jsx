@@ -9,7 +9,6 @@ function App() {
       <Navbar />
       <Content />
       <Footer />
-      {/* <p>We got this y'all !!!</p> */}
     </div>
   );
 }

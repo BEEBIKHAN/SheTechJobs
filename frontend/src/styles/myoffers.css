@@ -12,7 +12,7 @@
   width: 100%;
 }
 
-.contentspacecompany {
+.contentmyoffers {
   flex-direction: column;
   display: flex;
   background-color: var(--color-background-gris);
@@ -20,39 +20,41 @@
   padding: 5%;
   margin: 30px 15px 15px 15px;
 }
-
-.publish_form_input {
+.boutonOffer {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 20px 0 0 20px;
-  font-style: italic;
+  justify-content: center;
+  /* flex-direction: column; */
 }
-
-.btnSpaceCompany {
+.btnMyOffers {
   background-color: var(--color-bleu-foncé);
   color: var(--color-text-clair);
   border-radius: 20px;
-  width: 70%;
+  width: 40%;
   height: 2rem;
-  margin: 15px 40px;
+  margin: 6px 6px;
 }
 
 @media (min-width: 620px) {
-  .dashbord_company {
+  .annonce_listOffer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
-  .contentspacecompany {
-    padding-top: 100px;
+
+  .contentmyoffers {
+    display: flex;
     width: 130vh;
-    height: 100vh;
+    padding: 3%;
     margin: 30px 30px 30px 0px;
   }
 
-  .btnSpaceCompany {
-    margin-top: 20px;
-    height: 2rem;
-    width: 40%;
+  .btnMyOffers {
+    display: flex;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 30px;
+  }
+  .boutonOffer {
+    margin: 10px;
   }
 }
