@@ -1,6 +1,7 @@
 /* eslint-disable react/button-has-type */
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import axios from "axios";
 import AnnonceCard from "../components/AnnonceCard";
 import SearchBar from "../components/SearchBar";
 
@@ -155,6 +156,7 @@ export default function AnnonceResearch() {
               <Link key={offer.id} to={`/annonceDetails/${offer.id}`}>
                 <AnnonceCard key={offer.id} snippet={offer} />
               </Link>
+            </div>
           ))}
       </div>
     </>
