@@ -70,7 +70,7 @@ CREATE TABLE `offer` (
 CREATE TABLE `application` (
  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
  `date` DATETIME DEFAULT CURRENT_TIMESTAMP,
- `status` TINYINT(1) NOT NULL,
+ `appstatus` TINYINT(1) NOT NULL,
  `candidate_id` INT NOT NULL,
  `offer_id` INT NOT NULL,
  FOREIGN KEY (candidate_id) REFERENCES candidate(id),
@@ -78,6 +78,8 @@ CREATE TABLE `application` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /****************SECTION INSERT INTO*************************/
+
+
 INSERT INTO `contract` (`type`) VALUES
 ('CDI'),
 ('CDD'),
