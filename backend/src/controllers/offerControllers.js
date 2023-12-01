@@ -54,9 +54,22 @@ const searchOfferByWord = (req, res) => {
   });
 };
 
+const deleteOffer = (req, res) => {
+  const { id } = req.params;
+  console.info("ID DELETE: ", id);
+  models.offer.delete(id).then(([result]) => {
+    if (result.affectedRows === 0) {
+      res.status(404).send(result);
+    } else {
+      res.status(200).send("Offre supprimée avec succès");
+    }
+  });
+};
+
 module.exports = {
   getAllOffers,
   getAllOffersById,
   addOffer,
+  deleteOffer,
   searchOfferByWord,
 };
