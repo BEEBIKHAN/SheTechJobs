@@ -23,13 +23,13 @@ const postCandidate = (req, res) => {
       console.info(result);
       res
         .status(200)
-        .json({ Message: "Utilisateur crée avec succès", Nom: firstname });
+        .json({ Message: "Utilisatrice crée avec succès", Nom: firstname });
     })
     .catch((err) => {
       console.error(err);
       res.status(500).json({
         Source: "controller",
-        Erreur: "Erreur lors de l'enregistrement de l'utilisateur",
+        Erreur: "Erreur lors de l'enregistrement de l'utilisatrice",
         Raison: err.sqlMessage,
       });
     });

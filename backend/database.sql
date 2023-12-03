@@ -70,7 +70,8 @@ CREATE TABLE `offer` (
 CREATE TABLE `application` (
  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
  `date` DATETIME DEFAULT CURRENT_TIMESTAMP,
- `status` TINYINT(1) NOT NULL,
+ `application_status` TINYINT(1) NOT NULL,
+ `motivations` TEXT,
  `candidate_id` INT NOT NULL,
  `offer_id` INT NOT NULL,
  FOREIGN KEY (candidate_id) REFERENCES candidate(id),
@@ -214,3 +215,14 @@ INSERT INTO `company` (`name`, `email`, `password`, `siret`)
 VALUES
 ('Ways up', 'waysup@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$CWamTLUMmddoJ72qFhGttg$DR0RRt38Mqs0RUt1uQqksDlAg/vNqVUagSBneOvNmG4', 64356909700544),
 ('Wild Code School', 'wcs@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$QltwaNxSn8XMDuZCKanrCw$1PNyH80lxpQ0sZxXXlDoLxNMSBsOzDeRuzX1osWlj2M', 64879909700544)
+
+-- INSERT INTO `candidate` (`firstname`, `lastname`, `email`, `hashedPassword`)
+-- VALUES 
+-- ('LeM', 'S', 'LeM@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$JwWcvuajHV12uaWJVE2/XQ$dVEuVeiFt/DHQE5soahtnqNZ3v4MANuOHvDfKSeRGgo')
+
+-- INSERT INTO `offer` (`title`, `company_description`, `job_description`, `profile_required`, `status`, `contract_id`, `departement_id`, `job_id`, `company_id`)
+-- VALUES 
+-- ('Experte réseaux', 'WAYSUP répond efficacement et professionnellement aux besoins de solutions de gestion modulaires et des ERP. De gestion de la relation client(CRM) et des analyses décisionnelle.', 'Tu seras amenée à travailler avec une équipe de 6 personnes sur la protection de notre infrastructure réseaux lors des différentes phases de déploiement des projets et de la refonte de notre architecture', 'Spécialiste de la cybersécurité avec des bonnes bases en programmation', 1, 3, 77, 19, 1)
+-- ('Développeuse Front End React', 'WAYSUP répond efficacement et professionnellement aux besoins de solutions de gestion modulaires et des ERP. De gestion de la relation client(CRM) et des analyses décisionnelle.', 'Tu seras amenée à travailler avec une équipe de 6 personnes sur le développement de la nouvelle interface de notre logiciel.', 'Spécialiste frontend avec des bonnes bases en Javascript et React', 1, 2, 75, 16, 1)
+-- ('Développeuse Full Stack Express/Java', 'Spécialisée dans la tech, la Wild Code School est une entreprise ou vous aurez les codes.', 'Tu seras amenée à travailler avec une équipe de 15 développeurs sur la création de notre nouveau logiciel pour le lancement du projet en cours.', 'Spécialiste fullstack, tu sais manier autant la stack technique front que back et la méthode SCRUM est ta philosophie de travail. Bonne bases en programmation.', 1, 1, 75, 17, 2)
+

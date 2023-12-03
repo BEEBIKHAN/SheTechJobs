@@ -59,6 +59,11 @@ const JobManager = require("./JobManager");
 models.job = new JobManager();
 models.job.setDatabase(pool);
 
+const ApplicationManager = require("./ApplicationManager");
+
+models.application = new ApplicationManager();
+models.application.setDatabase(pool);
+
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
