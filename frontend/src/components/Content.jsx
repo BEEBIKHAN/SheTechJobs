@@ -9,7 +9,6 @@ import ConnectionCandidate from "../pages/ConnectionCandidate";
 import LoginCompany from "../pages/LoginCompany";
 import AnnonceResearch from "../pages/AnnonceResearch";
 import SearchResult from "../pages/SearchResult";
-// import ApplicationCard from "./ApplicationCard";
 
 export default function Content() {
   return (
@@ -25,7 +24,6 @@ export default function Content() {
         <Route path="/connectioncandidate" element={<ConnectionCandidate />} />
         <Route path="/logincompany" element={<LoginCompany />} />
         <Route path="/annonces" element={<AnnonceResearch />} />
-        {/* <Route path="/application-motivations" element={<ApplicationCard />} /> */}
       </Routes>
     </section>
   );
