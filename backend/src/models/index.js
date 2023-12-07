@@ -34,11 +34,6 @@ const CandidateManager = require("./CandidateManager");
 models.candidate = new CandidateManager();
 models.candidate.setDatabase(pool);
 
-const ApplicationManager = require("./ApplicationManager");
-
-models.application = new ApplicationManager();
-models.application.setDatabase(pool);
-
 const CompanyManager = require("./CompanyManager");
 
 models.company = new CompanyManager();
@@ -63,6 +58,11 @@ const JobManager = require("./JobManager");
 
 models.job = new JobManager();
 models.job.setDatabase(pool);
+
+const ApplicationManager = require("./ApplicationManager");
+
+models.application = new ApplicationManager();
+models.application.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model

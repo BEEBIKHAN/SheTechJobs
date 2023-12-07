@@ -1,26 +1,54 @@
 /* eslint-disable camelcase */
 const models = require("../models");
 
-const postApplications = (req, res) => {
-  const { appstatus, candidate_id, offer_id } = req.body;
+const postApplication = (req, res) => {
+  const { application_status, candidate_id, offer_id } = req.body;
 
   models.application
-    .insert({ appstatus, candidate_id, offer_id })
+    .insert({ application_status, candidate_id, offer_id })
     .then(([result]) => {
       console.info(result);
       res
         .status(201)
-        .json({ Message: "Smile,,Application created successfully" });
+        .json({ Message: "La candidature a été ajoutée avec succès" });
     })
     .catch((err) => {
       console.error(err);
       res.status(500).json({
         Source: "controller",
-        Error: "there is a error",
+        Error: "Il y'a une erreur",
         Reason: err.sqlMessage,
       });
     });
 };
+
+const postApplicationWithMotivations = (req, res) => {
+  const { application_status, motivations, candidate_id, offer_id } = req.body;
+
+  models.application
+    .insertWithMotivations({
+      application_status,
+      motivations,
+      candidate_id,
+      offer_id,
+    })
+    .then(([result]) => {
+      console.info(result);
+      res.status(201).json({
+        Message:
+          "La candidature et les motivations ont été ajoutées avec succès",
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({
+        Source: "controller",
+        Error: "Il y'a une erreur",
+        Reason: err.sqlMessage,
+      });
+    });
+};
+
 const getAllApplications = (req, res) => {
   models.application
     .findAllApplications()
@@ -29,9 +57,10 @@ const getAllApplications = (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.sendStatus(500).send("error error error");
+      res.sendStatus(500).send("Erreur lors du chargement des candidatures");
     });
 };
+
 const getAllApplicationsById = (req, res) => {
   models.application
     .findAllApplicationsById(req.params.id)
@@ -44,12 +73,13 @@ const getAllApplicationsById = (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.sendStatus(500);
+      res.sendStatus(500).send("Erreur lors du chargemernt de la candidature");
     });
 };
 
 module.exports = {
-  postApplications,
+  postApplication,
+  postApplicationWithMotivations,
   getAllApplications,
   getAllApplicationsById,
 };

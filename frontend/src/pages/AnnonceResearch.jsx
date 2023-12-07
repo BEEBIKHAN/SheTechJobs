@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
 import axios from "axios";
+import { useParams, Link } from "react-router-dom";
 import AnnonceCard from "../components/AnnonceCard";
 import SearchBar from "../components/SearchBar";
 
@@ -86,10 +86,6 @@ export default function AnnonceResearch() {
     searchTitle();
   }, []);
 
-  // console.info("Les types de contrat", contracts);
-  // console.info("Les départements", departements);
-  // console.info("Les métiers", jobs);
-  // console.info("Recherche : ", userResearch);
   console.info("résultats de recherche", searchData);
 
   const handleSelectContract = (e) => {

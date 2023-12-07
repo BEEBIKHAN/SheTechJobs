@@ -9,15 +9,31 @@ class ApplicationManager extends AbstractManager {
 
   insert(application) {
     return this.database.query(
-      `INSERT INTO application(appstatus, candidate_id, offer_id) values (?, ?, ?)`,
-      [application.appstatus, application.candidate_id, application.offer_id]
+      `INSERT INTO application (application_status, candidate_id, offer_id) VALUES (?, ?, ?)`,
+      [
+        application.application_status,
+        application.candidate_id,
+        application.offer_id,
+      ]
+    );
+  }
+
+  insertWithMotivations(application) {
+    return this.database.query(
+      `INSERT INTO application (application_status, motivations, candidate_id, offer_id) VALUES (?, ?, ?, ?)`,
+      [
+        application.application_status,
+        application.motivations,
+        application.candidate_id,
+        application.offer_id,
+      ]
     );
   }
 
   findAllApplications() {
     return this.database.query(
       `SELECT 
-        app.id as application_id, app.date, app.appstatus, app.candidate_id, app.offer_id, 
+        app.id as application_id, app.date, app.application_status, app.motivations, app.candidate_id, app.offer_id, 
         cand.id as candidate_id, cand.firstname, cand.lastname, cand.email, cand.cv_link, 
         off.id as offer_id, off.title, off.company_description, off.job_description, off.profile_required, off.status, off.date as offer_date, off.contract_id, off.departement_id, off.job_id, off.company_id
       FROM application as app
@@ -37,4 +53,5 @@ class ApplicationManager extends AbstractManager {
     );
   }
 }
+
 module.exports = ApplicationManager;
