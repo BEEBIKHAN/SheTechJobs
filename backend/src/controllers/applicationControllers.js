@@ -60,6 +60,7 @@ const getAllApplications = (req, res) => {
       res.sendStatus(500).send("Erreur lors du chargement des candidatures");
     });
 };
+
 const getAllApplicationsById = (req, res) => {
   models.application
     .findAllApplicationsById(req.params.id)

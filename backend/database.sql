@@ -79,6 +79,8 @@ CREATE TABLE `application` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /****************SECTION INSERT INTO*************************/
+
+
 INSERT INTO `contract` (`type`) VALUES
 ('CDI'),
 ('CDD'),
