@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
-import axios from "axios";
 import AnnonceCard from "../components/AnnonceCard";
 import SearchBar from "../components/SearchBar";
 

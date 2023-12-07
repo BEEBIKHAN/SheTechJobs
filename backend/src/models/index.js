@@ -34,11 +34,6 @@ const CandidateManager = require("./CandidateManager");
 models.candidate = new CandidateManager();
 models.candidate.setDatabase(pool);
 
-const ApplicationManager = require("./ApplicationManager");
-
-models.application = new ApplicationManager();
-models.application.setDatabase(pool);
-
 const CompanyManager = require("./CompanyManager");
 
 models.company = new CompanyManager();
