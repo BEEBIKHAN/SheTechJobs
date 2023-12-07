@@ -13,8 +13,8 @@ const jobControllers = require("./controllers/jobControllers");
 const applicationControllers = require("./controllers/applicationControllers");
 
 // CANDIDATE :
-router.get("/candidate", candidateControllers.getAllCandidates);
 
+router.get("/candidate", candidateControllers.getAllCandidates);
 router.post(
   "/candidate",
   auth.validateCandidate,
@@ -27,12 +27,17 @@ router.post(
   auth.checkEmailCandidateIfExists,
   candidateControllers.verifyPassword
 );
-
 router.put(
   "/candidate/:id",
   auth.hashPassword,
   candidateControllers.updateCandidate
 );
+// cv is here
+router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);
+// application from here
+router.get("/application", applicationControllers.getAllApplications);
+router.get("/application/:id", applicationControllers.getAllApplicationsById);
+router.post("/application", applicationControllers.postApplications);
 
 // CV :
 router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);

@@ -1,3 +1,6 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-undef */
+
 const AbstractManager = require("./AbstractManager");
 
 class ApplicationManager extends AbstractManager {
@@ -25,6 +28,8 @@ class ApplicationManager extends AbstractManager {
         application.candidate_id,
         application.offer_id,
       ]
+      `INSERT INTO application(appstatus, candidate_id, offer_id) values (?, ?, ?)`,
+      [application.appstatus, application.candidate_id, application.offer_id]
     );
   }
 
