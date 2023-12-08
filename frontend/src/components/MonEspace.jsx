@@ -87,7 +87,7 @@ export default function MonEspace() {
             <div className="location">
               <input
                 type="text"
-                placeholder="Location"
+                placeholder="Localisation"
                 name="location"
                 value={inputData.location}
                 onChange={handleData}

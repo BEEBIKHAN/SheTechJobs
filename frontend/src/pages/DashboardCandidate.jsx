@@ -3,8 +3,8 @@ import MonEspace from "../components/MonEspace";
 import MonCv from "../components/MonCv";
 
 export default function DashboardCandidate() {
-  const [displayMonespace, setDisplayMonespace] = useState(false);
-  const [displayMonCv, setDisplayMonCv] = useState(1);
+  const [displayMonespace, setDisplayMonespace] = useState(1);
+  const [displayMonCv, setDisplayMonCv] = useState(false);
   const handleButtonClick = (componentNumber) => {
     setDisplayMonespace(componentNumber === 1);
     setDisplayMonCv(componentNumber === 2);
@@ -36,11 +36,7 @@ export default function DashboardCandidate() {
               Mes Candidatures
             </button>
           </li>
-          <li className="option">
-            <button type="button" className="btn_DashCandidate">
-              Mes Alertes
-            </button>
-          </li>
+
           <li className="option">
             <button type="button" className="btn_DashCandidate">
               Gerer mon compte
