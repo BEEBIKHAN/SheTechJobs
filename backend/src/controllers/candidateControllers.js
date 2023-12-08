@@ -23,13 +23,13 @@ const postCandidate = (req, res) => {
       console.info(result);
       res
         .status(200)
-        .json({ Message: "Utilisateur crée avec succès", Nom: firstname });
+        .json({ Message: "Utilisatrice crée avec succès", Nom: firstname });
     })
     .catch((err) => {
       console.error(err);
       res.status(500).json({
         Source: "controller",
-        Erreur: "Erreur lors de l'enregistrement de l'utilisateur",
+        Erreur: "Erreur lors de l'enregistrement de l'utilisatrice",
         Raison: err.sqlMessage,
       });
     });
@@ -58,6 +58,21 @@ const updateCandidate = (req, res) => {
             Message: "Erreur lors de la modification",
           });
         });
+    });
+};
+
+const sendCv = (req, res) => {
+  const { id } = req.body;
+  const cv = req.file.filename;
+  console.info(cv);
+  models.candidate
+    .addCv(cv, id)
+    .then(() => {
+      res.status(200).send("Fichier téléchargé");
+    })
+    .catch((error) => {
+      console.error("Error adding CV:", error);
+      res.status(500).send("Internal Server Error");
     });
 };
 
@@ -98,4 +113,5 @@ module.exports = {
   postCandidate,
   updateCandidate,
   verifyPassword,
+  sendCv,
 };

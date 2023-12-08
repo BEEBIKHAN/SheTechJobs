@@ -32,8 +32,6 @@ export default function ConnectionCandidate() {
         }
       )
       .then((response) => {
-        console.info(response);
-
         localStorage.setItem("Role", response.data.role);
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("lastname", response.data.lastname);

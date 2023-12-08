@@ -76,16 +76,18 @@
     width: 100%;
   }
 
-  
   .espace_entreprise {
     padding-bottom: 50px;
   }
+
   .gerer_son_compte {
     margin-top: 50px;
   }
+
   .middle:hover {
     border-left: 3px solid var(--color-orange-foncé);
   }
+
   .middle:hover::after {
     border-bottom: none;
   }

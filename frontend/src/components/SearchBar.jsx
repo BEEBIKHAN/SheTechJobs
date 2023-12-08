@@ -11,7 +11,7 @@ export default function SearchBar() {
 
   const handleSearch = (event) => {
     setUserResearch(event.target.value);
-    console.info(userResearch);
+    // console.info(userResearch);
   };
 
   return (
@@ -22,9 +22,22 @@ export default function SearchBar() {
         placeholder="Quel emploi recherchez-vous ?"
         onChange={handleSearch}
       />
-      <imput id="search_btn" type="submit" value="Rechercher">
-        Rechercher
-      </imput>
+      <input id="search_btn" type="submit" value="Rechercher" />
     </form>
   );
 }
+
+//   return (
+//     <form className="search_bar" onSubmit={handleSubmit}>
+//       <input
+//         id="search_input"
+//         type="text"
+//         placeholder="Quel emploi recherchez-vous ?"
+//         onChange={handleSearch}
+//       />
+//       <input id="search_btn" type="submit" value="Rechercher">
+//         Rechercher
+//       </input>
+//     </form>
+//   );
+// }

@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import Homepage from "../pages/Homepage";
-import SearchResult from "../pages/SearchResult";
 import AnnonceDetails from "../pages/AnnonceDetails";
 import RegisterCompany from "../pages/RegisterCompany";
 import RegisterCandidate from "../pages/RegisterCandidate";
@@ -9,6 +8,7 @@ import DashboardCompany from "../pages/DashboardCompany";
 import ConnectionCandidate from "../pages/ConnectionCandidate";
 import LoginCompany from "../pages/LoginCompany";
 import AnnonceResearch from "../pages/AnnonceResearch";
+import SearchResult from "../pages/SearchResult";
 
 export default function Content() {
   return (
