@@ -71,4 +71,10 @@
   .option:hover::after {
     border-bottom: none;
   }
+
+  .btn_DashCandidate:hover {
+    font-weight: bolder;
+    font-size: medium;
+    cursor: pointer;
+  }
 }

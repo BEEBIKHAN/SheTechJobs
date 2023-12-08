@@ -91,4 +91,10 @@
   .middle:hover::after {
     border-bottom: none;
   }
+
+  .btnDashCompany:hover {
+    font-weight: bolder;
+    font-size: medium;
+    cursor: pointer;
+  }
 }

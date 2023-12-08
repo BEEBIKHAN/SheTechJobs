@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 export default function PublishOffer() {
   const [titlePoste, setTitlePoste] = useState("");
@@ -12,6 +13,7 @@ export default function PublishOffer() {
   const [whoWeAre, setwhoWeAre] = useState("");
   const [descriptionPoste, setDescriptionPoste] = useState("");
   const [requiredProfil, setRequiredProfil] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const handleChangeTitlePoste = (event) => {
     setTitlePoste(event.target.value);
@@ -47,6 +49,8 @@ export default function PublishOffer() {
         company_id: 1,
       })
       .then((response) => {
+        setSuccess(console.info(response.data));
+        toast.success("L'annonce a bien été publiée !");
         console.info(response);
       })
       .catch((error) => {
@@ -196,6 +200,7 @@ export default function PublishOffer() {
           <button type="submit">Publier l'annonce</button>
         </div>
       </form>
+      {success ? <p>{success}</p> : ""}
     </div>
   );
 }

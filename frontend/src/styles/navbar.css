@@ -28,10 +28,11 @@
   left: 0;
 }
 
-.logonavbar > .logoSTJ {
+.logonavbar > a > .logoSTJ {
   width: 130px;
   padding-top: 6px;
   margin: 6px;
+  cursor: pointer;
 }
 
 .navbartop {
@@ -146,10 +147,11 @@ li.nav-itemtop {
     margin-top: 20px;
   }
 
-  .logonavbar > .logoSTJ {
+  .logonavbar > a > .logoSTJ {
     margin-left: 50px;
     margin-top: 16px;
     padding-top: 6px;
+    width: 350%;
   }
 
   .navbartop {

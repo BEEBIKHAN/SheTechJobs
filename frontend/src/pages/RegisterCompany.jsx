@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import entrepreneurs from "../assets/images/inscription_entreprise.png";
 import "../styles/registercompany.css";
 
@@ -9,7 +10,7 @@ export default function RegisterCompany() {
   const [password, setPassword] = useState("");
   const [siret, setSiret] = useState("");
   const [error, setError] = useState(false);
-  const [success, setSucces] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleChangeCompanyName = (event) => {
     setCompanyName(event.target.value);
@@ -37,7 +38,10 @@ export default function RegisterCompany() {
         siret,
       })
       .then((response) => {
-        setSucces(response.data.message);
+        setSuccess(console.info(response.data));
+        toast.success(
+          "L'entreprise a bien été enregistrée. Bienvenue à bord !"
+        );
         setError(false);
         console.info(response);
       })
@@ -82,86 +86,73 @@ export default function RegisterCompany() {
         } else {
           console.error(err.response.data.error);
         }
-        setSucces(false);
+        setSuccess(false);
       });
   };
 
-  console.info(
-    "Nom de l'entreprise: ",
-    companyName,
-    "Email de l'entreprise:",
-    email,
-    "Mot de passe:",
-    password,
-    "Numéro siret:",
-    siret
-  );
-
   return (
-    <>
-      <div className="espace_connexion_entreprise">
-        <img
-          className="imgregistercompany"
-          src={entrepreneurs}
-          alt="Beautiful entrepreuneurs chatting and walking down the street while smiling"
+    <div className="espace_connexion_entreprise">
+      <img
+        className="imgregistercompany"
+        src={entrepreneurs}
+        alt="Beautiful entrepreuneurs chatting and walking down the street while smiling"
+      />
+      <form className="register_form" onSubmit={sendRegisterData}>
+        <h2 className="h2registercompany">Créer un compte</h2>
+        <input
+          type="text"
+          placeholder="Nom de l'entreprise"
+          onChange={handleChangeCompanyName}
         />
-        <form className="register_form" onSubmit={sendRegisterData}>
-          <h2 className="h2registercompany">Créer un compte</h2>
-          <input
-            type="text"
-            placeholder="Nom de l'entreprise"
-            onChange={handleChangeCompanyName}
-          />
-          <input
-            type="text"
-            placeholder="Addresse mail"
-            onChange={handleChangeEmail}
-          />
-          <input
-            type="password"
-            placeholder="Mot de passe"
-            onChange={handleChangePassword}
-          />
-          <input
-            type="password"
-            placeholder="Confirmation du mot de passe"
-            onChange={handleChangePassword}
-          />
-          <input
-            type="text"
-            placeholder="Numéro de Siret"
-            onChange={handleChangesiret}
-          />
-          <input
-            style={{
-              backgroundColor: "#EBAF00",
-              color: "#112F47",
-              borderRadius: "24px",
-              padding: "1rem 0",
-              fontWeight: "bolder",
-              fontSize: "16px",
-              margin: "16px 0px",
-            }}
-            className="btn"
-            type="submit"
-            value="Créer un compte"
-          />
-          <p className="pregistercompany">
-            Déjà membre ?{" "}
-            <a href="/logincompany" id="seConnecter">
-              Se connecter
-            </a>
-          </p>
-          <p>
-            En cliquant sur "Créer un compte", vous acceptez les
-            <span className="CGU"> CGU</span> ainsi que notre notre
-            <span className="CGU"> politique de confidentialité</span> décrivant
-            la finalité des traitements de vos données personnelles.
-          </p>
-        </form>
-      </div>
-      {success ? <p>{success}</p> : ""}
-      {error ? <p>{error}</p> : ""}
-    </>
+        <input
+          type="text"
+          placeholder="Addresse mail"
+          onChange={handleChangeEmail}
+        />
+        <input
+          type="password"
+          placeholder="Mot de passe"
+          onChange={handleChangePassword}
+        />
+        <input
+          type="password"
+          placeholder="Confirmation du mot de passe"
+          onChange={handleChangePassword}
+        />
+        <input
+          type="text"
+          placeholder="Numéro de Siret"
+          onChange={handleChangesiret}
+        />
+        <input
+          style={{
+            backgroundColor: "#EBAF00",
+            color: "#112F47",
+            borderRadius: "24px",
+            padding: "1rem 0",
+            fontWeight: "bolder",
+            fontSize: "16px",
+            margin: "16px 0px",
+          }}
+          className="btn"
+          type="submit"
+          value="Créer un compte"
+        />
+        <p className="pregistercompany">
+          Déjà membre ?{" "}
+          <a href="/logincompany" id="seConnecter">
+            Se connecter
+          </a>
+        </p>
+        <p>
+          En cliquant sur "Créer un compte", vous acceptez les
+          <span className="CGU"> CGU</span> ainsi que notre notre
+          <span className="CGU"> politique de confidentialité</span> décrivant
+          la finalité des traitements de vos données personnelles.
+        </p>
+        {success ? <p>{success}</p> : ""}
+        {error ? <p>{error}</p> : ""}
+      </form>
+    </div>
   );
 }

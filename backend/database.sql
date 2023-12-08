@@ -215,12 +215,13 @@ INSERT INTO `job` (`name`) VALUES
 
 INSERT INTO `company` (`name`, `email`, `password`, `siret`) 
 VALUES
+('Entreprise1', 'entreprise1@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$x/5wqaowYpGsN4c9NF6S2Q$MZXm+kyyud3PPMxE3bA4iKdL/d7uClCSwh8Ta0fCNLA', 98765432198765)
 ('Ways up', 'waysup@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$CWamTLUMmddoJ72qFhGttg$DR0RRt38Mqs0RUt1uQqksDlAg/vNqVUagSBneOvNmG4', 64356909700544),
 ('Wild Code School', 'wcs@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$QltwaNxSn8XMDuZCKanrCw$1PNyH80lxpQ0sZxXXlDoLxNMSBsOzDeRuzX1osWlj2M', 64879909700544)
 
--- INSERT INTO `candidate` (`firstname`, `lastname`, `email`, `hashedPassword`)
--- VALUES 
--- ('LeM', 'S', 'LeM@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$JwWcvuajHV12uaWJVE2/XQ$dVEuVeiFt/DHQE5soahtnqNZ3v4MANuOHvDfKSeRGgo')
+INSERT INTO `candidate` (`firstname`, `lastname`, `email`, `hashedPassword`)
+VALUES 
+('Candidate1', 'C', 'candidate1@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$k272gonXDYZE/RvabSXRPA$OnZVbg9o9k8gDGV21zIZL6g2bKrcP8fMaphcy2Bv1wk')
 
 -- INSERT INTO `offer` (`title`, `company_description`, `job_description`, `profile_required`, `status`, `contract_id`, `departement_id`, `job_id`, `company_id`)
 -- VALUES 

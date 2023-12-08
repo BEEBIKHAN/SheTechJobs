@@ -29,26 +29,25 @@
   font-weight: 1200;
 }
 
-.formConnectionCandidate > form {
+.formConnectionCandidate > .login_form_candidate {
   display: flex;
   flex-direction: column;
   width: 80%;
   margin: 0 auto;
 }
 
-.formConnectionCandidate > form > label {
+.formConnectionCandidate > .login_form_candidate > label {
   font-size: 0.8rem;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.formConnectionCandidate > form > input {
+.formConnectionCandidate > .login_form_candidate > input {
   padding: 10px;
   border: none;
   font-style: italic;
   margin-bottom: 25px;
-  border: 1px solid var(--color-orange);
-  background-color: var( --color-text-clair);
+  background-color: white;
   color: var(--color-text);
 }
 
@@ -60,11 +59,11 @@
   margin-bottom: 0.7rem;
 }
 
-.formConnectionCandidate > form > p > span {
+.formConnectionCandidate > .login_form_candidate > p > span {
   color: var(--color-bleu-inter);
 }
 
-.formConnectionCandidate > form > button {
+.formConnectionCandidate > .login_form_candidate > button {
   background-color: var(--color-orange);
   color: var(--color-text);
   font-weight: bolder;
@@ -72,8 +71,9 @@
   padding: 10px;
   border: none;
   margin-bottom: 20px;
+  cursor: pointer;
 }
-.formConnectionCandidate > form > label {
+.formConnectionCandidate > .login_form_candidate > label {
   padding-left: 5px;
 }
 .messages {
@@ -96,7 +96,7 @@
     width: 50%;
   }
 
-  .formConnectionCandidate > form > button {
+  .formConnectionCandidate > .login_form_candidate > button {
     padding: 10px;
   }
 }

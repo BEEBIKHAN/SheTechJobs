@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import ExportContext from "../contexts/Context";
 
@@ -47,7 +48,10 @@ export default function RegisterCandidate() {
           password,
         })
         .then((response) => {
-          setSuccess("Vous êtes enregistrée !!!");
+          setSuccess(console.info(response.data));
+          toast.success(
+            "Vous êtes bien enregistrée. Bienvenue chez SheTechJobs !"
+          );
           setError(false);
           console.info(response);
         })
@@ -82,18 +86,6 @@ export default function RegisterCandidate() {
     }
   };
 
-  console.info(
-    "firstname :",
-    firstname,
-    "laststname :",
-    lastname,
-    "Email :",
-    email,
-    "Password :",
-    password,
-    "Password Vérifié:",
-    checkedPassword
-  );
   useEffect(() => {
     if (info.Role === "candidate") {
       navigate("/dashboardcandidate");
@@ -104,7 +96,7 @@ export default function RegisterCandidate() {
       <div className="imgRegisterWoman" />
       <div className="formRegisterCandidate">
         <h2>Créer un compte</h2>
-        <form onSubmit={sendCandidateData}>
+        <form className="register_form_candidate" onSubmit={sendCandidateData}>
           <label htmlFor="name">Prénom</label>
           <input
             type="text"
@@ -134,8 +126,7 @@ export default function RegisterCandidate() {
           <button type="submit">Créer un compte</button>
           <p className="pregistercandidate">
             Déjà membre ?{" "}
-            <a href="/connectionCandidate" id="spanSeconnecter">
-              {" "}
+            <a href="/logincandidate" id="spanSeconnecter">
               Se connecter
             </a>
           </p>

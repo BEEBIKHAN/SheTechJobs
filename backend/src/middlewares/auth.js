@@ -113,31 +113,10 @@ const checkIfIsAllowed = (req, res, next) => {
   }
 };
 
-// const checkIfCandidateIsAllowed = (req, res, next) => {
-//   try {
-//     const { authToken } = req.cookies;
-//     console.info("token de checkIfIsAllowed: ", authToken);
-
-//     if (!authToken) {
-//       return res.sendStatus(401);
-//     }
-
-//     const payload = jwt.verify(authToken, process.env.JWT_SECRET);
-
-//     req.candidate = payload;
-//     console.info(payload);
-
-//     return next();
-//   } catch {
-//     return res.sendStatus(401);
-//   }
-// };
-
 module.exports = {
   hashPassword,
   validateCandidate,
   checkEmailCandidateIfExists,
-  // checkIfCandidateIsAllowed,
   checkEmailCompanyIfExist,
   validateCompany,
   checkIfIsAllowed,

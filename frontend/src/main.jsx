@@ -12,7 +12,7 @@ import "./styles/dashboardcandidate.css";
 import "./styles/dashboardcompany.css";
 import "./styles/spacecompany.css";
 import "./styles/publishoffer.css";
-import "./styles/connection_candidate.css";
+import "./styles/logincandidate.css";
 import "./styles/navbar.css";
 import "./styles/annoncecard.css";
 import "./styles/annoncedetails.css";

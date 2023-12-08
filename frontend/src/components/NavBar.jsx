@@ -57,7 +57,9 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="logonavbar">
-        <img className="logoSTJ" src={LOGO} alt="" />
+        <a href="/">
+          <img className="logoSTJ" src={LOGO} alt="" />
+        </a>
       </div>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         <div className="navbartop">
@@ -72,9 +74,9 @@ function Navbar() {
           </li>
 
           <div className="blueline" />
-          <li className="nav-itemtop">
-            <li className="nav-itemtop">{displayLinkCandidate()}</li>
-          </li>
+          {/* <li className="nav-itemtop"> */}
+          <li className="nav-itemtop">{displayLinkCandidate()}</li>
+          {/* </li> */}
         </div>
         <div className="navbarbottom">
           <ul className="nav2">
