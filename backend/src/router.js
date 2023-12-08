@@ -75,7 +75,7 @@ router.post(
 // OFFERS :
 router.get("/offers", offerControllers.getAllOffers);
 router.get("/offers/:id", offerControllers.getAllOffersById);
-router.get("/offers/search/:title", offerControllers.searchOfferByWord);
+router.get("/offers/search/:title", offerControllers.findAllOffersByWord);
 
 router.post("/offers", offerControllers.addOffer);
 router.delete("/offers/:id", offerControllers.deleteOffer);

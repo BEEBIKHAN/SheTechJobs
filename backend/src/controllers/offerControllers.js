@@ -11,10 +11,26 @@ const getAllOffers = (req, res) => {
       res.sendStatus(500);
     });
 };
-
 const getAllOffersById = (req, res) => {
   models.offer
     .findAllOffersById(req.params.id)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const findAllOffersByWord = (req, res) => {
+  const { title } = req.params;
+  models.offer
+    .findAllOffersByWord(title)
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404);
@@ -43,17 +59,6 @@ const addOffer = (req, res) => {
     });
 };
 
-const searchOfferByWord = (req, res) => {
-  const { title } = req.params;
-  models.offer.findOffersByWord(title).then(([rows]) => {
-    if (rows[0] == null) {
-      res.sendStatus(404);
-    } else {
-      res.send(rows);
-    }
-  });
-};
-
 const deleteOffer = (req, res) => {
   const { id } = req.params;
   console.info("ID DELETE: ", id);
@@ -71,5 +76,5 @@ module.exports = {
   getAllOffersById,
   addOffer,
   deleteOffer,
-  searchOfferByWord,
+  findAllOffersByWord,
 };
