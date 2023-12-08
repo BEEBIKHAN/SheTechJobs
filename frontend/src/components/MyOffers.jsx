@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// import ExportContext from "../contexts/Context";
 import AnnonceByCompany from "./AnnonceByCompany";
 
 export default function MyOffers() {

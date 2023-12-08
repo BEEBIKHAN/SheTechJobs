@@ -74,9 +74,7 @@ function Navbar() {
           </li>
 
           <div className="blueline" />
-          {/* <li className="nav-itemtop"> */}
           <li className="nav-itemtop">{displayLinkCandidate()}</li>
-          {/* </li> */}
         </div>
         <div className="navbarbottom">
           <ul className="nav2">
