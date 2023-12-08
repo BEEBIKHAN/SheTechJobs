@@ -26,14 +26,6 @@ function Navbar() {
         </Link>
       );
     }
-    if (info.Role === "company") {
-      return (
-        <Link to="/dashboardcompany" className="navbar-link">
-          <img className="imageicon" src={myspace} alt="" />
-          Mon espace
-        </Link>
-      );
-    }
     return (
       <Link to="/registercandidate" className="navbar-link">
         <img className="imageicon" src={myspace} alt="" />
@@ -41,6 +33,23 @@ function Navbar() {
       </Link>
     );
   };
+
+  const displayLinkCompany = () => {
+    if (info.Role === "company") {
+      return (
+        <Link to="/dashboardcompany" className="navbar-link">
+          {" "}
+          Espace Entreprises
+        </Link>
+      );
+    }
+    return (
+      <Link to="/registercompany" className="navbar-link">
+        Espace Entreprises
+      </Link>
+    );
+  };
+
   console.info(info);
 
   const handleClick = () => setClick(!click);
@@ -64,20 +73,7 @@ function Navbar() {
 
           <div className="blueline" />
           <li className="nav-itemtop">
-            <li className="nav-itemtop">
-              {/* <Link
-                to={isLoggedIn ? "/dashboardcandidate" : "/registercandidate"}
-                className="navbar-link"
-              >
-                <img className="imageicon" src={myspace} alt="" />
-                Mon espace
-  </Link> */}
-              {displayLinkCandidate()}
-            </li>
-            {/* <Link to="/registercandidate" className="navbar-link">
-              <img className="imageicon" src={myspace} alt="" />
-              Mon espace
-  </Link> */}
+            <li className="nav-itemtop">{displayLinkCandidate()}</li>
           </li>
         </div>
         <div className="navbarbottom">
@@ -88,12 +84,9 @@ function Navbar() {
             <li className="nav-itembottom">Stages</li>
           </ul>
           <div className="btn">
-            <Link to="/registercompany" className="nav-link">
-              <button type="button" className="btnEspaceEntreprise">
-                {" "}
-                Espace Entreprises{" "}
-              </button>
-            </Link>
+            <button type="button" className="btnEspaceEntreprise">
+              {displayLinkCompany()}
+            </button>
           </div>
         </div>
       </ul>
