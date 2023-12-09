@@ -43,27 +43,13 @@ export default function Homepage() {
                 Votre talent <br /> au service <br /> de la tech
               </h3>
             </div>
-            <div className="dropdown_menu">
-              <select id="dropdown" onChange="selectOption()">
-                <option>CDD</option>
-                <option>CDI</option>
-                <option>Alternance contrat pro/apprentissage</option>
-                <option>Stage</option>
-              </select>
-            </div>
-            <div className="buttonSelect">
-              <button type="button">CDI</button>
-              <button type="button">CDD</button>
-              <button type="button">Contrat Pro/ Alternance</button>
-              <button type="button">Stage</button>
-            </div>
             <br />
           </div>
           <div className="img">
             <img src={frame} alt="fille au clavier" />
           </div>
+          <SearchBar />
         </div>
-        <SearchBar />
       </section>
       <div className="bodyGeneral">
         <div className="Title">

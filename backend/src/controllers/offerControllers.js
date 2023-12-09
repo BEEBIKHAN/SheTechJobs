@@ -44,6 +44,23 @@ const findAllOffersByWord = (req, res) => {
     });
 };
 
+const findAllOffersByContract = (req, res) => {
+  const { type } = req.params;
+  models.offer
+    .findAllOffersByContract(type)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const addOffer = (req, res) => {
   const offer = req.body;
 
@@ -77,4 +94,5 @@ module.exports = {
   addOffer,
   deleteOffer,
   findAllOffersByWord,
+  findAllOffersByContract,
 };

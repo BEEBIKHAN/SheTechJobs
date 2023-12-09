@@ -26,6 +26,19 @@ export default function SearchResult() {
       });
   };
 
+  const searchContract = () => {
+    axios
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/offers/search/type/${userResearch}`
+      )
+      .then((response) => {
+        setSearchData(response.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   // const getOffers = () => {
   //   axios
   //     .get(`${import.meta.env.VITE_BACKEND_URL}/offers/search/${userResearch}`)
@@ -72,6 +85,10 @@ export default function SearchResult() {
 
   useEffect(() => {
     searchTitle();
+  }, []);
+
+  useEffect(() => {
+    searchContract();
   }, []);
 
   // useEffect(() => {

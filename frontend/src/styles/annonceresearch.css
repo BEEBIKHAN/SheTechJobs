@@ -22,19 +22,37 @@
         padding: 8px;
     }
 
+
+
     .searchBar_offersResults {
         padding: 3rem;
+        display: flex;
     }
 
     .searchBar_offersResults > .search_bar {
-        margin-top: -475px;
+        margin-top: -460px;
         margin-left: -20px;
         padding: 6px;
-        width: 30%;
+        width: 40%;
+        /* position: absolute; */
+        padding: 0px;
+        /* border: solid 2px red; */
     }
 
+    .searchBar_offersResults > .search_bar > ::placeholder {
+        /* color: blue; */
+        font-size: 1em;
+        font-weight: lighter;
+        text-align: left;
+        padding: 10px;
+        
+      }
+
+
     .searchBar_offersResults > .search_bar > #search_btn {
-        margin-right: 0;
-        padding: 10px 8px;
+        margin: 6px;
+        width: 45%;
+        border: none;
+        font-size: 0.9rem;
     }
 }
