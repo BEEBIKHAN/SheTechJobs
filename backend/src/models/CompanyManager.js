@@ -24,6 +24,20 @@ class CompanyManager extends AbstractManager {
       email,
     ]);
   }
+
+  updateEmail(email, id) {
+    return this.database.query(`UPDATE company SET email = ? WHERE id = ?`, [
+      email,
+      id,
+    ]);
+  }
+
+  updatePassword(password, id) {
+    return this.database.query(`UPDATE company SET password = ? WHERE id = ?`, [
+      password,
+      id,
+    ]);
+  }
 }
 
 module.exports = CompanyManager;

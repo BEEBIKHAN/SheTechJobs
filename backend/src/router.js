@@ -32,6 +32,14 @@ router.put(
   auth.hashPassword,
   candidateControllers.updateCandidate
 );
+
+router.put("/candidate-email/:id", candidateControllers.UpdateEmailCandidate);
+router.put(
+  "/candidate-password/:id",
+  candidateControllers.UpdatePasswordCandidate
+);
+router.delete("/candidate/:id", candidateControllers.destroyCandidate);
+
 // cv is here
 router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);
 // application from here
@@ -71,6 +79,10 @@ router.post(
   auth.checkEmailCompanyIfExist,
   companyControllers.verifyPassword
 );
+
+router.put("/company-email/:id", companyControllers.UpdateEmailCompany);
+router.put("/company-password/:id", companyControllers.UpdatePasswordCompany);
+router.delete("/company/:id", companyControllers.destroyCompany);
 
 // OFFERS :
 router.get("/offers", offerControllers.getAllOffers);
