@@ -22,35 +22,14 @@ class OfferManager extends AbstractManager {
     );
   }
 
-  // update(offer, id) {
-  //   return this.database.query(
-  //     `UPDATE offer SET title = ?, company_description = ?, job_description = ?, profile_required = ?, status = ?, type = ?, localisation = ?, métier = ? WHERE id = ?`,
-  //     [
-  //       offer.title,
-  //       offer.company_description,
-  //       offer.job_description,
-  //       offer.profile_required,
-  //       offer.status,
-  //       offer.type,
-  //       offer.localisation,
-  //       offer.métier,
-  //       id,
-  //     ]
-  //   );
-  // }
-
   update(offer, id) {
     return this.database.query(
-      `UPDATE o SET o.title = ?, o.company_description = ?, o.job_description = ?, o.profile_required = ?, o.status = ?, contract.type = ? departement.name = ?, job.name = ? FROM offer AS o JOIN contract ON o.contract_id = contract.id JOIN departement ON o.departement_id = departement.id JOIN job ON o.job_id = job.id WHERE id = ?`,
+      `UPDATE offer SET title = ?, company_description = ?, job_description = ?, profile_required = ? WHERE id = ?`,
       [
         offer.title,
         offer.company_description,
         offer.job_description,
         offer.profile_required,
-        offer.status,
-        offer.type,
-        offer.departement,
-        offer.job,
         id,
       ]
     );
