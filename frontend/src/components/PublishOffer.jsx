@@ -13,6 +13,7 @@ export default function PublishOffer() {
   const [whoWeAre, setwhoWeAre] = useState("");
   const [descriptionPoste, setDescriptionPoste] = useState("");
   const [requiredProfil, setRequiredProfil] = useState("");
+  const companyId = localStorage.getItem("id");
   const [success, setSuccess] = useState(false);
 
   const handleChangeTitlePoste = (event) => {
@@ -43,10 +44,10 @@ export default function PublishOffer() {
         job_description: descriptionPoste,
         profile_required: requiredProfil,
         status: 1,
-        contract_id: 1,
-        departement_id: 1,
-        job_id: 1,
-        company_id: 1,
+        contract_id: typeDeContrat,
+        departement_id: oneDepartement,
+        job_id: jobSelect,
+        company_id: companyId,
       })
       .then((response) => {
         setSuccess(console.info(response.data));

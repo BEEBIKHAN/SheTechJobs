@@ -22,6 +22,7 @@ import "./styles/moncv.css";
 import "./styles/myoffers.css";
 import "./styles/companyaccountmanagement.css";
 import "./styles/candidateaccountmanagement.css";
+import "./styles/myapplications.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

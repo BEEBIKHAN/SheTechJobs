@@ -1,0 +1,18 @@
+.myapplicationscontent {
+    flex-direction: column;
+    display: flex;
+    background-color: var(--color-background-gris);
+    margin-top: 30px;
+    padding: 5%;
+    margin: 30px 15px 15px 15px;
+    font-style: italic;
+}
+
+@media screen and (min-width: 620px) {
+    .myapplicationscontent {
+        padding-top: 100px;
+        width: 130vh;
+        height: 100vh;
+        margin: 30px 30px 30px 0px;
+    }
+}
