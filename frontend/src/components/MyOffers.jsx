@@ -20,7 +20,7 @@ export default function MyOffers() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/offer/${companyId}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/offers-by-company/${companyId}`)
       .then((response) => {
         setData(response.data);
       });

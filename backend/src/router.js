@@ -52,6 +52,10 @@ router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);
 // APPLICATIONS :
 router.get("/applications", applicationControllers.getAllApplications);
 router.get("/application/:id", applicationControllers.getAllApplicationsById);
+router.get(
+  "/applications-by-candidate/:candidateId",
+  applicationControllers.getListApplicationsByCandidate
+);
 router.post("/application", applicationControllers.postApplication);
 router.post(
   "/application-motivations",
@@ -88,7 +92,10 @@ router.delete("/company/:id", companyControllers.destroyCompany);
 router.get("/offers", offerControllers.getAllOffers);
 router.get("/offers/:id", offerControllers.getAllOffersById);
 router.get("/offers/search/:title", offerControllers.searchOfferByWord);
-router.get("/offer/:companyId", offerControllers.getListOfferByCompany);
+router.get(
+  "/offers-by-company/:companyId",
+  offerControllers.getListOfferByCompany
+);
 
 router.post("/offers", offerControllers.addOffer);
 router.delete("/offers/:id", offerControllers.deleteOffer);
