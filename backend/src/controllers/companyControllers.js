@@ -15,7 +15,6 @@ const getAllCompanies = (req, res) => {
 };
 
 const postCompany = (req, res) => {
-  console.info("C'est ici qu'on va créer une entreprise");
   const { companyName, email, hashedPassword, siret } = req.body;
 
   models.company
@@ -96,9 +95,65 @@ const verifyPassword = (req, res) => {
   });
 };
 
+const UpdateEmailCompany = (req, res) => {
+  // const id = parseInt(req.params.id, 10);
+  const { id } = req.params;
+  const { email } = req.body;
+  console.info("Req.body de l'update email :", req.body);
+  models.company
+    .updateEmail(email, id)
+    .then(([result]) => {
+      console.info(result);
+      res.status(200).json({
+        Message: "L'email de l'entreprise a été modifié avec succès",
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+      res
+        .status(500)
+        .json({ Message: "Erreur lors de la modification de l'email" });
+    });
+};
+
+const UpdatePasswordCompany = (req, res) => {
+  const { id } = req.params;
+  const { password } = req.body;
+  console.info("Req.body du mot de passe :", req.body);
+  models.company
+    .updatePassword(password, id)
+    .then(([result]) => {
+      console.info(result);
+      res.status(200).json({
+        Message: "Le mot de passe de l'entreprise a été modifié avec succès",
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+      res
+        .status(500)
+        .json({ Message: "Erreur lors de la modification du mot de passe" });
+    });
+};
+
+const destroyCompany = (req, res) => {
+  const { id } = req.params;
+
+  models.company.delete(id).then(([result]) => {
+    if (result.affectedRows === 0) {
+      res.sendStatus(404);
+    } else {
+      res.status(200).send("Entreprise supprimée avec succès");
+    }
+  });
+};
+
 module.exports = {
   getAllCompanies,
   postCompany,
   updateCompany,
   verifyPassword,
+  UpdateEmailCompany,
+  UpdatePasswordCompany,
+  destroyCompany,
 };

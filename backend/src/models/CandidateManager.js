@@ -33,6 +33,20 @@ class CandidateManager extends AbstractManager {
       email,
     ]);
   }
+
+  updateEmail(email, id) {
+    return this.database.query(`UPDATE candidate SET email = ? WHERE id = ?`, [
+      email,
+      id,
+    ]);
+  }
+
+  updatePassword(hashedPassword, id) {
+    return this.database.query(
+      `UPDATE candidate SET hashedPassword = ? WHERE id = ?`,
+      [hashedPassword, id]
+    );
+  }
 }
 
 module.exports = CandidateManager;
