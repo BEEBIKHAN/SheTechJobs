@@ -57,12 +57,11 @@
 }
 
 @media (min-width: 620px) {
- 
   .annonce_snippet {
     flex-direction: row;
   }
-  .boxannonce{
-    width: 90%
+  .boxannonce {
+    width: 90%;
   }
   .btnAnnonce {
     width: 50%;

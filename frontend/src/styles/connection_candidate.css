@@ -48,10 +48,9 @@
   font-style: italic;
   margin-bottom: 25px;
   border: 1px solid var(--color-orange);
-  background-color: var( --color-text-clair);
+  background-color: var(--color-text-clair);
   color: var(--color-text);
 }
-
 
 .formConnectionCandidate > form > p {
   font-size: 0.8rem;

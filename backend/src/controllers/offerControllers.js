@@ -125,5 +125,5 @@ module.exports = {
   deleteOffer,
   findAllOffersByWord,
   findAllOffersByContract,
-  searchOfferByWord
+  searchOfferByWord,
 };
