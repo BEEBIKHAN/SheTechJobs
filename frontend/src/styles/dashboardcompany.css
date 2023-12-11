@@ -64,6 +64,7 @@
     justify-content: center;
     margin: 30px;
     width: 30%;
+    height: 100vh;
   }
 
   .ul_dashboard_company {
@@ -74,7 +75,7 @@
     height: 95vh;
     width: 100%;
   }
-  
+
   .espace_entreprise {
     padding-bottom: 50px;
   }

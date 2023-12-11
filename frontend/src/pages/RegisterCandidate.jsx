@@ -1,5 +1,7 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import ExportContext from "../contexts/Context";
 
 export default function RegisterCandidate() {
   const [firstname, setFirstname] = useState("");
@@ -9,6 +11,9 @@ export default function RegisterCandidate() {
   const [checkedPassword, setCheckedPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  const { info } = useContext(ExportContext.Context);
+  const navigate = useNavigate();
 
   const handleChangeFirstname = (event) => {
     setFirstname(event.target.value);
@@ -89,7 +94,11 @@ export default function RegisterCandidate() {
     "Password Vérifié:",
     checkedPassword
   );
-
+  useEffect(() => {
+    if (info.Role === "candidate") {
+      navigate("/dashboardcandidate");
+    }
+  }, []);
   return (
     <div className="registerCandidate">
       <div className="imgRegisterWoman" />
@@ -123,8 +132,12 @@ export default function RegisterCandidate() {
             onChange={handleChangeCheckedPassword}
           />
           <button type="submit">Créer un compte</button>
-          <p>
-            Déjà membre ?<span> Se connecter</span>
+          <p className="pregistercandidate">
+            Déjà membre ?{" "}
+            <a href="/connectionCandidate" id="spanSeconnecter">
+              {" "}
+              Se connecter
+            </a>
           </p>
           <p>
             En cliquant sur "Créer un compte", vous acceptez les

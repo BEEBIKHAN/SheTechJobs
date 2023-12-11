@@ -24,17 +24,12 @@ class OfferManager extends AbstractManager {
 
   update(offer, id) {
     return this.database.query(
-      `UPDATE offer SET title = ?, company_description = ?, job_description = ?, profile_required = ?, status = ?, contract_id = ?, department_id = ?, company_id = ? WHERE id = ?`,
+      `UPDATE offer SET title = ?, company_description = ?, job_description = ?, profile_required = ? WHERE id = ?`,
       [
         offer.title,
         offer.company_description,
         offer.job_description,
         offer.profile_required,
-        offer.status,
-        offer.contract_id,
-        offer.departement_id,
-        offer.job_id,
-        offer.company_id,
         id,
       ]
     );

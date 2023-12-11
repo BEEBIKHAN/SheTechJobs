@@ -76,6 +76,35 @@ const addOffer = (req, res) => {
     });
 };
 
+const searchOfferByWord = (req, res) => {
+  const { title } = req.params;
+  models.offer.findOffersByWord(title).then(([rows]) => {
+    if (rows[0] == null) {
+      res.sendStatus(404);
+    } else {
+      res.send(rows);
+    }
+  });
+};
+
+const editOffer = (req, res) => {
+  const { id } = req.params;
+  const offer = req.body;
+
+  console.error("test", offer);
+
+  models.offer
+    .update(offer, id)
+    .then(([result]) => {
+      console.info(result);
+      res.status(200).send("L'offre' a bien été modifiée");
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Erreur lors de la modification");
+    });
+};
+
 const deleteOffer = (req, res) => {
   const { id } = req.params;
   console.info("ID DELETE: ", id);
@@ -92,7 +121,9 @@ module.exports = {
   getAllOffers,
   getAllOffersById,
   addOffer,
+  editOffer,
   deleteOffer,
   findAllOffersByWord,
   findAllOffersByContract,
+  searchOfferByWord
 };

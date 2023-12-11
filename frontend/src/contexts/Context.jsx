@@ -13,6 +13,10 @@ function Provider({ children }) {
     siret: localStorage.getItem("Siret"),
     firstName: localStorage.getItem("firstName"),
     lastName: localStorage.getItem("lastName"),
+    offertitle: localStorage.getItem("title"),
+    company_description: localStorage.getItem("company_description"),
+    job_description: localStorage.getItem("job_description"),
+    profile_required: localStorage.getItem("profile_required"),
   });
 
   return (
