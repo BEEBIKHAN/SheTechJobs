@@ -22,7 +22,6 @@ export default function AnnonceDetails() {
     getAnnonceDetails();
   }, []);
 
-  // console.info("coucou c'est Maurane", data);
   return (
     <>
       <h1>Détails de l'annonce</h1>

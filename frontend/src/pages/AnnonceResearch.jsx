@@ -1,8 +1,9 @@
 /* eslint-disable react/button-has-type */
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import AnnonceCard from "../components/AnnonceCard";
+import SearchBar from "../components/SearchBar";
 
 export default function AnnonceResearch() {
   const [data, setData] = useState([]);
@@ -12,6 +13,8 @@ export default function AnnonceResearch() {
   const [selectDepartement, setSelectDepartement] = useState("");
   const [jobs, setJobs] = useState([]);
   const [selectJob, setSelectJob] = useState("");
+  const [searchData, setSearchData] = useState([]);
+  const { userResearch } = useParams();
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BACKEND_URL}/offers`).then((response) => {
@@ -56,6 +59,17 @@ export default function AnnonceResearch() {
     setJobs([]);
   };
 
+  const searchTitle = () => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/offers/search/${userResearch}`)
+      .then((response) => {
+        setSearchData(response.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   useEffect(() => {
     getContract();
   }, []);
@@ -68,9 +82,11 @@ export default function AnnonceResearch() {
     getJob();
   }, []);
 
-  console.info("Les types de contrat", contracts);
-  console.info("Les départements", departements);
-  console.info("Les métiers", jobs);
+  useEffect(() => {
+    searchTitle();
+  }, []);
+
+  console.info("résultats de recherche", searchData);
 
   const handleSelectContract = (e) => {
     // console.info(e.target.value);
@@ -90,6 +106,9 @@ export default function AnnonceResearch() {
 
   return (
     <>
+      <div className="searchBar_offersResults">
+        <SearchBar />
+      </div>
       <div className="filters">
         <div className="contractFilter filter">
           <select onChange={handleSelectContract}>
