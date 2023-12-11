@@ -34,9 +34,6 @@ router.put(
 );
 // cv is here
 router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);
-// application from here
-router.get("/application", applicationControllers.getAllApplications);
-router.get("/application/:id", applicationControllers.getAllApplicationsById);
 
 // CV :
 router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);
@@ -71,7 +68,10 @@ router.post(
   auth.checkEmailCompanyIfExist,
   companyControllers.verifyPassword
 );
-
+router.get(
+  "/applicationsbyoffer",
+  companyControllers.getListApplicationsByOffer
+);
 // OFFERS :
 router.get("/offers", offerControllers.getAllOffers);
 router.get("/offers/:id", offerControllers.getAllOffersById);

@@ -1,0 +1,64 @@
+.applicationCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.offertitle {
+  display: flex;
+  order: 1;
+  color: blue;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.jobname {
+  display: flex;
+  margin: 10px;
+  color: #fb8500;
+
+  order: 2;
+}
+
+.offerdate {
+  display: flex;
+  margin: 10px;
+  order: 3;
+}
+.contract_type {
+  display: flex;
+  margin: 10px;
+  order: 3;
+}
+
+.candidate {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  order: 4;
+}
+
+.departementname {
+  display: flex;
+
+  order: 3;
+}
+.logodept {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+.dateicon {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+.logocontract {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}

@@ -80,6 +80,20 @@ CREATE TABLE `application` (
 
 /****************SECTION INSERT INTO*************************/
 
+INSERT INTO `company` (`name`, `email`, `password`, `siret`) 
+VALUES
+('Ways up', 'waysup@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$CWamTLUMmddoJ72qFhGttg$DR0RRt38Mqs0RUt1uQqksDlAg/vNqVUagSBneOvNmG4', 64356909700544),
+('Wild Code School', 'wcs@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$QltwaNxSn8XMDuZCKanrCw$1PNyH80lxpQ0sZxXXlDoLxNMSBsOzDeRuzX1osWlj2M', 64879909700544);
+ 
+ 
+ INSERT INTO `candidate` (`firstname`, `lastname`, `email`, `hashedPassword`, `cv_link`)
+    VALUES
+    ('John', 'Doe', 'john.doe@email.com', '$argon2id$v=19$m=65536,t=5,p=1$JwWcvuajHV12uaWJVE2/XQ$dVEuVeiFt/DHQE5soahtnqNZ3v4MANuOHvDfKSeRGgo', 'cv_link_1'),
+     ('Jane', 'Smith', 'jane.smith@email.com', '$argon2id$v=19$m=65536,t=5,p=1$KwWcvuajHV12uaWJVE2/XQ$dVEuVeiFt/DHQE5soahtnqNZ3v4MANuOHvDfKSeRGgo', 'cv_link_2'),
+     ('Mike', 'Johnson', 'mike.johnson@email.com', '$argon2id$v=19$m=65536,t=5,p=1$LwWcvuajHV12uaWJVE2/XQ$dVEuVeiFt/DHQE5soahtnqNZ3v4MANuOHvDfKSeRGgo', 'cv_link_3');
+
+
+
 
 INSERT INTO `contract` (`type`) VALUES
 ('CDI'),
@@ -213,18 +227,15 @@ INSERT INTO `job` (`name`) VALUES
 ('No code'),
 ('Spécialiste du cloud');
 
-INSERT INTO `company` (`name`, `email`, `password`, `siret`) 
+
+INSERT INTO `offer` (`title`, `company_description`, `job_description`, `profile_required`, `status`,`date`, `contract_id`, `departement_id`, `job_id`, `company_id`)
 VALUES
-('Ways up', 'waysup@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$CWamTLUMmddoJ72qFhGttg$DR0RRt38Mqs0RUt1uQqksDlAg/vNqVUagSBneOvNmG4', 64356909700544),
-('Wild Code School', 'wcs@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$QltwaNxSn8XMDuZCKanrCw$1PNyH80lxpQ0sZxXXlDoLxNMSBsOzDeRuzX1osWlj2M', 64879909700544)
+('Software Engineer - Full-time Position','companydesc','web dev','profile1','1','2023-12-08 19:07:35','1','1','1','1'),
+('Junior Developpeuse','companydesc','Designer','Certifiée de REACT','1','2022-12-08 08:07:35','1','4','3','1');
 
--- INSERT INTO `candidate` (`firstname`, `lastname`, `email`, `hashedPassword`)
--- VALUES 
--- ('LeM', 'S', 'LeM@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$JwWcvuajHV12uaWJVE2/XQ$dVEuVeiFt/DHQE5soahtnqNZ3v4MANuOHvDfKSeRGgo')
 
--- INSERT INTO `offer` (`title`, `company_description`, `job_description`, `profile_required`, `status`, `contract_id`, `departement_id`, `job_id`, `company_id`)
--- VALUES 
--- ('Experte réseaux', 'WAYSUP répond efficacement et professionnellement aux besoins de solutions de gestion modulaires et des ERP. De gestion de la relation client(CRM) et des analyses décisionnelle.', 'Tu seras amenée à travailler avec une équipe de 6 personnes sur la protection de notre infrastructure réseaux lors des différentes phases de déploiement des projets et de la refonte de notre architecture', 'Spécialiste de la cybersécurité avec des bonnes bases en programmation', 1, 3, 77, 19, 1)
--- ('Développeuse Front End React', 'WAYSUP répond efficacement et professionnellement aux besoins de solutions de gestion modulaires et des ERP. De gestion de la relation client(CRM) et des analyses décisionnelle.', 'Tu seras amenée à travailler avec une équipe de 6 personnes sur le développement de la nouvelle interface de notre logiciel.', 'Spécialiste frontend avec des bonnes bases en Javascript et React', 1, 2, 75, 16, 1)
--- ('Développeuse Full Stack Express/Java', 'Spécialisée dans la tech, la Wild Code School est une entreprise ou vous aurez les codes.', 'Tu seras amenée à travailler avec une équipe de 15 développeurs sur la création de notre nouveau logiciel pour le lancement du projet en cours.', 'Spécialiste fullstack, tu sais manier autant la stack technique front que back et la méthode SCRUM est ta philosophie de travail. Bonne bases en programmation.', 1, 1, 75, 17, 2)
+INSERT INTO `application` (`date`, `application_status`, `motivations`, `candidate_id`, `offer_id`) 
+VALUES ('2022-10-06 06:07:25', '1', 'Je suis inspiré de votre annonce.', '1', '1'),
+('2023-12-08 08:07:35', '1', 'Developpeuse depuis 10 ans .', '2', '2');
+
 

@@ -124,7 +124,10 @@ export default function RegisterCandidate() {
           />
           <button type="submit">Créer un compte</button>
           <p>
-            Déjà membre ?<span> Se connecter</span>
+            Déjà membre ?{" "}
+            <a href="/connectioncandidate" id="seConnecter">
+              Se connecter
+            </a>
           </p>
           <p>
             En cliquant sur "Créer un compte", vous acceptez les

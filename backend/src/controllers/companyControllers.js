@@ -95,10 +95,29 @@ const verifyPassword = (req, res) => {
     }
   });
 };
+const getListApplicationsByOffer = (req, res) => {
+  console.info("applications by offer route ");
+  models.company
+    .findListApplicationsByOffer(req.params.id)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+        console.info("my query is passed");
+      } else {
+        res.send(rows);
+        console.info("Unfornately query isn't passed");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500).send("Erreur lors du chargemernt de la candidature");
+    });
+};
 
 module.exports = {
   getAllCompanies,
   postCompany,
   updateCompany,
   verifyPassword,
+  getListApplicationsByOffer,
 };
