@@ -6,10 +6,18 @@ import trait from "../assets/images/trait-jaune.png";
 
 export default function UpdateContentOffer({ annonce }) {
   const { id } = useParams();
-  const [updateTitleDescription, setUpdateTitleDescription] = useState("");
-  const [updateCompanyDescription, setUpdateCompanyDescription] = useState("");
-  const [updateJobDescription, setUpdateJobDescription] = useState("");
-  const [updateProfileDescription, setUpdateProfileDescription] = useState("");
+  const [updateTitleDescription, setUpdateTitleDescription] = useState(
+    annonce.title
+  );
+  const [updateCompanyDescription, setUpdateCompanyDescription] = useState(
+    annonce.company_description
+  );
+  const [updateJobDescription, setUpdateJobDescription] = useState(
+    annonce.job_description
+  );
+  const [updateProfileDescription, setUpdateProfileDescription] = useState(
+    annonce.profile_required
+  );
 
   const updateOffer = () => {
     axios
@@ -95,6 +103,7 @@ export default function UpdateContentOffer({ annonce }) {
         </div>
         <div className="annonce_details_date">{annonce.date}</div>
       </div>
+      coucou
       <div className="annonceDetailsBody">
         <div className="details">
           <h3>Qui sommes-nous?</h3>
