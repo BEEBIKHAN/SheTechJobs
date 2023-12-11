@@ -12,10 +12,8 @@ import annonce from "../assets/images/annonce.png";
 function Navbar() {
   const [click, setClick] = useState(false);
 
-  const { infoCompany } = useContext(ExportContext.Context);
-  console.info("Info company du context :", infoCompany);
-
   const { info } = useContext(ExportContext.Context);
+  console.info("Info du rôle depuis la navbar :", info.Role);
 
   const displayLinkCandidate = () => {
     if (info.Role === "candidate") {
@@ -62,20 +60,25 @@ function Navbar() {
         </a>
       </div>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
-        <div className="navbartop">
-          <li className="nav-itemtop">
-            <img className="imageiconCV" src={cv} alt="" />
-            Mon CV
-          </li>
-          <div className="blueline" />
-          <li className="nav-itemtop">
-            <img className="imageicon" src={annonce} alt="" />
-            Mes annonces
-          </li>
+        {info.Role === "candidate" || info.Role === null ? (
+          <div className="navbartop">
+            <li className="nav-itemtop">
+              <img className="imageiconCV" src={cv} alt="" />
+              Mon CV
+            </li>
+            <div className="blueline" />
+            <li className="nav-itemtop">
+              <img className="imageicon" src={annonce} alt="" />
+              Mes annonces
+            </li>
 
-          <div className="blueline" />
-          <li className="nav-itemtop">{displayLinkCandidate()}</li>
-        </div>
+            <div className="blueline" />
+            <li className="nav-itemtop">{displayLinkCandidate()}</li>
+          </div>
+        ) : (
+          ""
+        )}
+
         <div className="navbarbottom">
           <ul className="nav2">
             <li className="nav-itembottom">
@@ -91,13 +94,18 @@ function Navbar() {
               <a href="/search/type/stages"> Stages </a>
             </li>
           </ul>
-          <div className="btn">
-            <button type="button" className="btnEspaceEntreprise">
-              {displayLinkCompany()}
-            </button>
-          </div>
+          {info.Role === "company" || info.Role === null ? (
+            <div className="btn">
+              <button type="button" className="btnEspaceEntreprise">
+                {displayLinkCompany()}
+              </button>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </ul>
+
       <div className="hamburger" onClick={handleClick}>
         {click ? <FaTimes size={30} /> : <FaBars size={30} />}
       </div>

@@ -102,6 +102,7 @@ li.nav-itemtop {
   .navbar {
     padding: 0;
     background-color: white;
+    flex-direction: column;
   }
 
   .nav-menu {
@@ -147,10 +148,12 @@ li.nav-itemtop {
   }
 
   .logonavbar > a > .logoSTJ {
-    margin-left: 50px;
+    margin-left: 36px;
+    width: 20vh;
+    /* margin-left: 50px;
     margin-top: 16px;
     padding-top: 6px;
-    width: 350%;
+    width: 350%; */
   }
 
   .navbartop {
