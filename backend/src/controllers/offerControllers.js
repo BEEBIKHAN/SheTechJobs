@@ -11,10 +11,43 @@ const getAllOffers = (req, res) => {
       res.sendStatus(500);
     });
 };
-
 const getAllOffersById = (req, res) => {
   models.offer
     .findAllOffersById(req.params.id)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const findAllOffersByWord = (req, res) => {
+  const { title } = req.params;
+  models.offer
+    .findAllOffersByWord(title)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const findAllOffersByContract = (req, res) => {
+  const { type } = req.params;
+  models.offer
+    .findAllOffersByContract(type)
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404);
@@ -54,6 +87,24 @@ const searchOfferByWord = (req, res) => {
   });
 };
 
+const editOffer = (req, res) => {
+  const { id } = req.params;
+  const offer = req.body;
+
+  console.error("test", offer);
+
+  models.offer
+    .update(offer, id)
+    .then(([result]) => {
+      console.info(result);
+      res.status(200).send("L'offre' a bien été modifiée");
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Erreur lors de la modification");
+    });
+};
+
 const getListOfferByCompany = (req, res) => {
   const { companyId } = req.params;
   models.offer
@@ -87,7 +138,10 @@ module.exports = {
   getAllOffers,
   getAllOffersById,
   addOffer,
+  editOffer,
   deleteOffer,
+  findAllOffersByWord,
+  findAllOffersByContract,
   searchOfferByWord,
   getListOfferByCompany,
 };

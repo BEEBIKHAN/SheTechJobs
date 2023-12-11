@@ -78,10 +78,18 @@ function Navbar() {
         </div>
         <div className="navbarbottom">
           <ul className="nav2">
-            <li className="nav-itembottom">Emplois en CDI</li>
-            <li className="nav-itembottom"> Emplois en CDD</li>
-            <li className="nav-itembottom">Contrats pro / alternance</li>
-            <li className="nav-itembottom">Stages</li>
+            <li className="nav-itembottom">
+              <a href="/search/type/cdi">Emplois en CDI</a>
+            </li>
+            <li className="nav-itembottom">
+              <a href="/search/type/cdd"> Emplois en CDD </a>
+            </li>
+            <li className="nav-itembottom">
+              <a href="/search/type/alternance"> Contrats pro / alternance </a>
+            </li>
+            <li className="nav-itembottom">
+              <a href="/search/type/stages"> Stages </a>
+            </li>
           </ul>
           <div className="btn">
             <button type="button" className="btnEspaceEntreprise">

@@ -7,7 +7,7 @@ import SearchBar from "../components/SearchBar";
 export default function SearchResult() {
   const { userResearch } = useParams();
   const [searchData, setSearchData] = useState([]);
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const [contracts, setContracts] = useState([]);
   const [selectContract, setSelectContract] = useState("");
   const [departements, setDepartements] = useState([]);
@@ -26,16 +26,29 @@ export default function SearchResult() {
       });
   };
 
-  const getOffers = () => {
+  const searchContract = () => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/offers`)
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/offers/search/type/${userResearch}`
+      )
       .then((response) => {
-        setData(response.data);
+        setSearchData(response.data);
       })
       .catch((err) => {
         console.error(err);
       });
   };
+
+  // const getOffers = () => {
+  //   axios
+  //     .get(`${import.meta.env.VITE_BACKEND_URL}/offers/search/${userResearch}`)
+  //     .then((response) => {
+  //       setData(response.data);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // };
 
   const getContract = () => {
     axios
@@ -75,8 +88,12 @@ export default function SearchResult() {
   }, []);
 
   useEffect(() => {
-    getOffers();
+    searchContract();
   }, []);
+
+  // useEffect(() => {
+  //   getOffers();
+  // }, []);
 
   useEffect(() => {
     getContract();
@@ -110,7 +127,7 @@ export default function SearchResult() {
     setSelectJob(value);
   };
 
-  console.info("mes data:", data);
+  // console.info("mes data:", data);
 
   return (
     <div>
@@ -151,7 +168,7 @@ export default function SearchResult() {
         </div>
       </div>
       <div className="annonce_list">
-        {data
+        {searchData
           .filter((offer) => {
             return offer.type.includes(selectContract);
           })
@@ -162,17 +179,12 @@ export default function SearchResult() {
             return offer.métier.includes(selectJob);
           })
           .map((offer) => (
-            <option key={offer.id} value={offer.id}>
-              {/* {offer.title} */}
-            </option>
+            <div className="research_list">
+              <Link to={`/annonceDetails/${offer.id}`}>
+                <AnnonceCard key={offer.id} snippet={offer} />
+              </Link>
+            </div>
           ))}
-      </div>
-      <div className="research_list">
-        {searchData.map((searchedOffer) => (
-          <Link to={`/annonceDetails/${searchedOffer.id}`}>
-            <AnnonceCard key={searchedOffer.id} snippet={searchedOffer} />
-          </Link>
-        ))}
       </div>
     </div>
   );

@@ -38,6 +38,14 @@
   margin: 15px 40px;
 }
 
+.btnUpdateOffer {
+  background-color: var(--color-bleu-foncé);
+  color: var(--color-text-clair);
+  border-radius: 20px;
+  margin: 40px;
+  padding: 15px;
+}
+
 @media (min-width: 620px) {
   .dashbord_company {
     display: flex;

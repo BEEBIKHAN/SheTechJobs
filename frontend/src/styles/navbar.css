@@ -89,15 +89,14 @@ li.nav-itemtop {
 
 .btnEspaceEntreprise {
   background-color: var(--color-bleu-foncé);
- 
+
   padding: 0.7rem;
   margin: 15px;
   width: 150px;
   text-align: center;
 }
-.btnEspaceEntreprise >a {
- color: var(--color-background-gris-clair);
-
+.btnEspaceEntreprise > a {
+  color: var(--color-background-gris-clair);
 }
 @media (min-width: 620px) {
   .navbar {

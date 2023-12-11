@@ -75,10 +75,15 @@ router.post(
 // OFFERS :
 router.get("/offers", offerControllers.getAllOffers);
 router.get("/offers/:id", offerControllers.getAllOffersById);
-router.get("/offers/search/:title", offerControllers.searchOfferByWord);
 router.get("/offer/:companyId", offerControllers.getListOfferByCompany);
+router.get("/offers/search/:title", offerControllers.findAllOffersByWord);
+router.get(
+  "/offers/search/type/:type",
+  offerControllers.findAllOffersByContract
+);
 
 router.post("/offers", offerControllers.addOffer);
+router.put("/offers/:id", offerControllers.editOffer);
 router.delete("/offers/:id", offerControllers.deleteOffer);
 
 // DEPARTEMENTS, CONTRACTS AND JOBS :

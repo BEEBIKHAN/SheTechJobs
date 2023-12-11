@@ -40,11 +40,15 @@ export default function MyOffers() {
 
             <div className="boutonOffer">
               <button type="submit" className="btnMyOffers">
-                Modifier
+                <Link key={offer.id} to={`/updateoffer/${offer.id}`}>
+                  Modifier
+                </Link>
               </button>
+
               <button type="submit" className="btnMyOffers">
                 Clôturer
               </button>
+
               <button
                 type="button"
                 onClick={() => deleteOffer(offer.id)}

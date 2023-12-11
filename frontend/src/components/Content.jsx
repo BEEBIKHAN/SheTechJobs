@@ -8,6 +8,7 @@ import DashboardCompany from "../pages/DashboardCompany";
 import LoginCandidate from "../pages/LoginCandidate";
 import LoginCompany from "../pages/LoginCompany";
 import AnnonceResearch from "../pages/AnnonceResearch";
+import UpdateOffer from "../pages/UpdateOffer";
 import SearchResult from "../pages/SearchResult";
 
 export default function Content() {
@@ -16,6 +17,7 @@ export default function Content() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/search/:userResearch" element={<SearchResult />} />
+        <Route path="/search/type/:userResearch" element={<SearchResult />} />
         <Route path="/annonceDetails/:id" element={<AnnonceDetails />} />
         <Route path="/registercompany" element={<RegisterCompany />} />
         <Route path="/registercandidate" element={<RegisterCandidate />} />
@@ -24,6 +26,7 @@ export default function Content() {
         <Route path="/logincandidate" element={<LoginCandidate />} />
         <Route path="/logincompany" element={<LoginCompany />} />
         <Route path="/annonces" element={<AnnonceResearch />} />
+        <Route path="/updateoffer/:id" element={<UpdateOffer />} />
       </Routes>
     </section>
   );
