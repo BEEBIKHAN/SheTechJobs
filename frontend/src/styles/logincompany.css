@@ -24,7 +24,8 @@
   height: 50px;
   border: none;
   padding: 15px 20px;
-  color: black;
+  color: var(--color-text);
+  font-style: italic;
 }
 
 #register {

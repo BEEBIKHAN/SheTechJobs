@@ -39,7 +39,7 @@ export default function DashboardCandidate() {
 
           <li className="option">
             <button type="button" className="btn_DashCandidate">
-              Gerer mon compte
+              Gérer mon compte
             </button>
           </li>
         </ul>

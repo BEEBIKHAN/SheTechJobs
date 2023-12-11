@@ -62,6 +62,13 @@ class OfferManager extends AbstractManager {
       [`%${type}%`]
     );
   }
+
+  ListOffersByCompany(companyId) {
+    return this.database.query(
+      `SELECT o.id, o.title, o.company_description, o.job_description, o.profile_required, o.status, o.date, contract.type, departement.name AS localisation, job.name AS métier FROM offer AS o JOIN contract ON o.contract_id = contract.id JOIN departement ON o.departement_id = departement.id JOIN job ON o.job_id = job.id WHERE o.company_id = ? ORDER BY o.date ASC`,
+      [companyId]
+    );
+  }
 }
 
 module.exports = OfferManager;

@@ -105,6 +105,23 @@ const editOffer = (req, res) => {
     });
 };
 
+const getListOfferByCompany = (req, res) => {
+  const { companyId } = req.params;
+  models.offer
+    .ListOffersByCompany(companyId)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const deleteOffer = (req, res) => {
   const { id } = req.params;
   console.info("ID DELETE: ", id);
@@ -126,4 +143,5 @@ module.exports = {
   findAllOffersByWord,
   findAllOffersByContract,
   searchOfferByWord,
+  getListOfferByCompany,
 };

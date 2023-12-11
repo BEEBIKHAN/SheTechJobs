@@ -90,9 +90,6 @@
   width: 50%;
   height: 250px;
 }
-.buttonSelect {
-  display: none;
-}
 
 .title {
   font-size: large;
@@ -173,20 +170,7 @@
     background-color: var(--color-background-gris);
     margin-top: 100px;
   }
-  #dropdown {
-    display: none;
-  }
-  .buttonSelect > button {
-    border-radius: 20px;
-    border: 2px solid var(--color-bleu-clair);
-    margin: 0 20px;
-    padding: 5px 15px;
-    background-color: var(--color-text-clair);
-    flex-wrap: nowrap;
-  }
-  .buttonSelect {
-    display: block;
-  }
+
   .search_bar {
     /* border: solid saddlebrown 2px; */
     display: flex;

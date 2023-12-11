@@ -2,6 +2,7 @@
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 import ExportContext from "../contexts/Context";
 import trait from "../assets/images/trait-jaune.png";
 
@@ -9,6 +10,7 @@ export default function AnnonceContent({ annonce }) {
   const [motivations, setMotivations] = useState("");
   const { info } = useContext(ExportContext.Context);
   const { id } = useParams();
+  const [success, setSuccess] = useState(false);
   console.info("Ceci est l'id de la candidate", info.id);
   console.info("ceci est l'id de l'annonce", id);
 
@@ -21,7 +23,8 @@ export default function AnnonceContent({ annonce }) {
         offer_id: id,
       })
       .then((response) => {
-        console.info(response);
+        setSuccess(console.info(response.data));
+        toast.success("Candidature envoyée avec succès !");
       })
       .catch((err) => {
         console.error(err);
@@ -78,6 +81,7 @@ export default function AnnonceContent({ annonce }) {
           </form>
         </div>
       </div>
+      {success ? <p>{success}</p> : ""}
     </>
   );
 }

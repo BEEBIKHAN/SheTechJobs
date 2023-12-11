@@ -75,6 +75,7 @@ router.post(
 // OFFERS :
 router.get("/offers", offerControllers.getAllOffers);
 router.get("/offers/:id", offerControllers.getAllOffersById);
+router.get("/offer/:companyId", offerControllers.getListOfferByCompany);
 router.get("/offers/search/:title", offerControllers.findAllOffersByWord);
 router.get(
   "/offers/search/type/:type",

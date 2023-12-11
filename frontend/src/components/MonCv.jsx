@@ -31,13 +31,6 @@ export default function MonCV() {
         <form onSubmit={handleSubmit}>
           <div className="file-input-container">
             <input
-              type="text"
-              placeholder="Nom du fichier *"
-              className="file-name-input"
-              required
-            />
-
-            <input
               type="file"
               onChange={handleFileChange}
               className="file-input"

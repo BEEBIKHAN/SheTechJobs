@@ -1,11 +1,14 @@
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import ExportContext from "../contexts/Context";
 
-export default function ConnectionCandidate() {
+export default function LoginCandidate() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
   const { info } = useContext(ExportContext.Context);
   const navigate = useNavigate();
 
@@ -32,6 +35,8 @@ export default function ConnectionCandidate() {
         }
       )
       .then((response) => {
+        setSuccess(console.info(response.data));
+        toast.success("Connexion réussi. Hello! 👋");
         localStorage.setItem("Role", response.data.role);
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("lastname", response.data.lastname);
@@ -42,6 +47,7 @@ export default function ConnectionCandidate() {
 
       .catch((err) => {
         console.error(err);
+        setError(true);
       });
   };
 
@@ -56,7 +62,7 @@ export default function ConnectionCandidate() {
       <div className="imgConnectionWoman" />
       <div className="formConnectionCandidate">
         <h2>Se Connecter</h2>
-        <form onSubmit={sendCredentials}>
+        <form className="login_form_candidate" onSubmit={sendCredentials}>
           <label htmlFor="email">Email</label>
           <input type="text" placeholder="Email" onChange={handleChangeEmail} />
           <label htmlFor="password">Mot de passe</label>
@@ -67,6 +73,8 @@ export default function ConnectionCandidate() {
           />
 
           <button type="submit">Se connecter</button>
+          {success ? <p>{success}</p> : ""}
+          {error ? "Email ou mot de passe incorrect" : ""}
         </form>
       </div>
     </div>

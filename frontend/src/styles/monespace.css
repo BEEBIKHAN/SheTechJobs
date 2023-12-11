@@ -33,6 +33,7 @@
   background-color: #f5b800;
   border-radius: 20px;
   padding: 5px;
+  cursor: pointer;
 }
 .button_monespace {
   display: flex;
