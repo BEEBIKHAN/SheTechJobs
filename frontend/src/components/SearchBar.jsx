@@ -26,18 +26,3 @@ export default function SearchBar() {
     </form>
   );
 }
-
-//   return (
-//     <form className="search_bar" onSubmit={handleSubmit}>
-//       <input
-//         id="search_input"
-//         type="text"
-//         placeholder="Quel emploi recherchez-vous ?"
-//         onChange={handleSearch}
-//       />
-//       <input id="search_btn" type="submit" value="Rechercher">
-//         Rechercher
-//       </input>
-//     </form>
-//   );
-// }

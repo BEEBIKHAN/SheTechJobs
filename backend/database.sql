@@ -216,7 +216,12 @@ INSERT INTO `job` (`name`) VALUES
 INSERT INTO `company` (`name`, `email`, `password`, `siret`) 
 VALUES
 ('Ways up', 'waysup@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$CWamTLUMmddoJ72qFhGttg$DR0RRt38Mqs0RUt1uQqksDlAg/vNqVUagSBneOvNmG4', 64356909700544),
-('Wild Code School', 'wcs@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$QltwaNxSn8XMDuZCKanrCw$1PNyH80lxpQ0sZxXXlDoLxNMSBsOzDeRuzX1osWlj2M', 64879909700544)
+('Wild Code School', 'wcs@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$QltwaNxSn8XMDuZCKanrCw$1PNyH80lxpQ0sZxXXlDoLxNMSBsOzDeRuzX1osWlj2M', 64879909700544);
+
+INSERT INTO `offer` (`title`, `company_description`, `job_description`, `profile_required`, `status`, `date`, `contract_id`, `departement_id`, `job_id`, `company_id`) 
+VALUES
+("Développeuse full stack", "ATLAS est une société spécialisé dans l'IT et l'AI", "Tu seras amenée à travailler avec une équipe de 15 développeurs sur la création de notre nouveau logiciel pour le lancement du projet en cours." , "Nous recherchons une personne rigoureuse, + 5 ans expérience pour gérer notre site et notre team de lead et junior", 1, 20231208, 1, 75, 16, 1),
+("Experte réseaux", "ATLAS est une société spécialisé dans l'IT et l'AI", "Tu seras amenée à travailler avec une équipe de 6 personnes sur la protection de notre infrastructure réseaux lors des différentes phases de déploiement des projets et de la refonte de notre architecture", "Spécialiste de la cybersécurité avec des bonnes bases en programmation", 1, 20231208, 3, 77, 19, 1);
 
 -- INSERT INTO `candidate` (`firstname`, `lastname`, `email`, `hashedPassword`)
 -- VALUES 

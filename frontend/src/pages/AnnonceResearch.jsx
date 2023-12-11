@@ -1,11 +1,13 @@
 /* eslint-disable react/button-has-type */
-import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import AnnonceCard from "../components/AnnonceCard";
 import SearchBar from "../components/SearchBar";
 
 export default function AnnonceResearch() {
+  const { userResearch } = useParams();
+  const [searchData, setSearchData] = useState([]);
   const [data, setData] = useState([]);
   const [contracts, setContracts] = useState([]);
   const [selectContract, setSelectContract] = useState("");
@@ -13,8 +15,6 @@ export default function AnnonceResearch() {
   const [selectDepartement, setSelectDepartement] = useState("");
   const [jobs, setJobs] = useState([]);
   const [selectJob, setSelectJob] = useState("");
-  const [searchData, setSearchData] = useState([]);
-  const { userResearch } = useParams();
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BACKEND_URL}/offers`).then((response) => {

@@ -17,6 +17,7 @@ export default function Content() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/search/:userResearch" element={<SearchResult />} />
+        <Route path="/search/type/:userResearch" element={<SearchResult />} />
         <Route path="/annonceDetails/:id" element={<AnnonceDetails />} />
         <Route path="/registercompany" element={<RegisterCompany />} />
         <Route path="/registercandidate" element={<RegisterCandidate />} />
