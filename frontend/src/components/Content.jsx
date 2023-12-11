@@ -8,6 +8,7 @@ import DashboardCompany from "../pages/DashboardCompany";
 import ConnectionCandidate from "../pages/ConnectionCandidate";
 import LoginCompany from "../pages/LoginCompany";
 import AnnonceResearch from "../pages/AnnonceResearch";
+import UpdateOffer from "../pages/UpdateOffer";
 import SearchResult from "../pages/SearchResult";
 
 export default function Content() {
@@ -24,6 +25,7 @@ export default function Content() {
         <Route path="/connectioncandidate" element={<ConnectionCandidate />} />
         <Route path="/logincompany" element={<LoginCompany />} />
         <Route path="/annonces" element={<AnnonceResearch />} />
+        <Route path="/updateoffer/:id" element={<UpdateOffer />} />
       </Routes>
     </section>
   );

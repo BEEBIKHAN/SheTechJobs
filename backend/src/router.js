@@ -78,6 +78,7 @@ router.get("/offers/:id", offerControllers.getAllOffersById);
 router.get("/offers/search/:title", offerControllers.searchOfferByWord);
 
 router.post("/offers", offerControllers.addOffer);
+router.put("/offers/:id", offerControllers.editOffer);
 router.delete("/offers/:id", offerControllers.deleteOffer);
 
 // DEPARTEMENTS, CONTRACTS AND JOBS :
