@@ -22,14 +22,8 @@ export default function Newsletter() {
         toast.success(actualResponse.message);
       })
       .catch((err) => {
-        const actualError = err.response ? err.response.data : err;
-        if (actualError.error === '"email" is not allowed to be empty') {
-          toast.error("L'email ne peut pas être vide");
-        } else if (actualError.error === 1062) {
-          toast.error("L'email est déjà enregistré");
-        } else {
-          console.error(actualError.error);
-        }
+        const actualError = err.response.data;
+        toast.error(actualError.error);
       });
   };
 
