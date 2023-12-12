@@ -1,72 +1,92 @@
 .contentaccountcandidate {
-    flex-direction: column;
-    display: flex;
-    background-color: var(--color-background-gris);
-    margin-top: 30px;
-    padding: 5%;
-    margin: 30px 15px 15px 15px;
-    font-style: italic;
+  flex-direction: column;
+  display: flex;
+  background-color: var(--color-background-gris);
+  margin-top: 30px;
+  padding: 5%;
+  margin: 30px 15px 15px 15px;
+  font-style: italic;
 }
 
-.contentaccountcandidate > p, .candidatePasswordFormContent, .candidateEmailFormContent {
-    margin: 0 70px;
+.contentaccountcandidate > p,
+.candidatePasswordFormContent,
+.candidateEmailFormContent {
+  margin: 0 70px;
 }
 
 .candidateDeleteAccount > .btnAccountManagement {
-    margin: 10px 70px;
+  margin: 10px 70px;
 }
 
-.candidatePasswordFormContent, .candidateEmailFormContent, .actualEmailCandidate, .actualPasswordCandidate {
-    display: flex;
-    flex-direction: column;
-    margin-top: 16px;
+.candidatePasswordFormContent,
+.candidateEmailFormContent,
+.actualEmailCandidate,
+.actualPasswordCandidate {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
 }
 
-.newPasswordCandidate, .newEmailCandidate {
-    display: flex;
-    flex-direction: column;
+.newPasswordCandidate,
+.newEmailCandidate {
+  display: flex;
+  flex-direction: column;
 }
 
-.actualEmailCandidate > input, .newEmailCandidate > .newEmail > input,  .newEmailCandidate > .confirmNew > input, .actualPasswordCandidate > input, .newPasswordCandidate > .newPassword > input, .newPasswordCandidate > .confirmNew > input {
-    border: none;
-    padding: 6px 10px;
-    margin: 6px 0 10px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+.actualEmailCandidate > input,
+.newEmailCandidate > .newEmail > input,
+.newEmailCandidate > .confirmNew > input,
+.actualPasswordCandidate > input,
+.newPasswordCandidate > .newPassword > input,
+.newPasswordCandidate > .confirmNew > input {
+  border: none;
+  padding: 6px 10px;
+  margin: 6px 0 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
- .candidateEmailFormContent > .email_form > .btnAccountManagement,  .candidatePasswordFormContent > .password_form > .btnAccountManagement, .candidateDeleteAccount > .btnAccountManagement {
-    color: white;
-    background-color: #023047;
-    border-radius: 16px;
-    padding: 6px 32px;
-    margin-top: 20px;
-    cursor: pointer;
+.candidateEmailFormContent > .email_form > .btnAccountManagement,
+.candidatePasswordFormContent > .password_form > .btnAccountManagement,
+.candidateDeleteAccount > .btnAccountManagement {
+  color: white;
+  background-color: #023047;
+  border-radius: 16px;
+  padding: 6px 32px;
+  margin-top: 20px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 620px) {
-    .contentaccountcandidate {
-        padding-top: 100px;
-        width: 130vh;
-        height: 100vh;
-        margin: 30px 30px 30px 0px;
-    }
+  .contentaccountcandidate {
+    padding-top: 100px;
+    width: 130vh;
+    height: 100vh;
+    margin: 30px 30px 30px 0px;
+  }
 
-    .newEmailCandidate, .newPasswordCandidate {
-        flex-direction: row;
-    }
+  .newEmailCandidate,
+  .newPasswordCandidate {
+    flex-direction: row;
+  }
 
-    .actualEmailCandidate > input,.actualPasswordCandidate > input {
-        width: 40%;
-    }
+  .actualEmailCandidate > input,
+  .actualPasswordCandidate > input {
+    width: 40%;
+  }
 
-   .newEmailCandidate > .newEmail > input,  .newEmailCandidate > .confirmNew > input, .newPasswordCandidate > .newPassword > input, .newPasswordCandidate > .confirmNew > input {
-        width: 80%;
-    }
+  .newEmailCandidate > .newEmail > input,
+  .newEmailCandidate > .confirmNew > input,
+  .newPasswordCandidate > .newPassword > input,
+  .newPasswordCandidate > .confirmNew > input {
+    width: 80%;
+  }
 
-    .newEmailCandidate > .newEmail, .newEmailCandidate > .confirmNew, .newPasswordCandidate > .newPassword, .newPasswordCandidate > .confirmNew {
+  .newEmailCandidate > .newEmail,
+  .newEmailCandidate > .confirmNew,
+  .newPasswordCandidate > .newPassword,
+  .newPasswordCandidate > .confirmNew {
     width: 50%;
-    }
-    
+  }
 }
