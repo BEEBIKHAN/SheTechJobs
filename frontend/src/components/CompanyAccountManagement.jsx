@@ -1,5 +1,7 @@
 import { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 import ExportContext from "../contexts/Context";
 
 export default function CompanyAccountManagement() {
@@ -7,6 +9,7 @@ export default function CompanyAccountManagement() {
   const { info } = useContext(ExportContext.Context);
   const [updateEmail, setUpdateEmail] = useState("");
   const [updatePassword, setUpdatePassword] = useState("");
+  const navigate = useNavigate();
 
   const updateEmailCompany = () => {
     axios
@@ -14,6 +17,7 @@ export default function CompanyAccountManagement() {
         email: updateEmail,
       })
       .then((response) => {
+        toast.success("L'email a bien été modifié !");
         console.info("Email modifié avec succès:", response.data, updateEmail);
       })
       .catch((err) => {
@@ -38,6 +42,7 @@ export default function CompanyAccountManagement() {
         }
       )
       .then((response) => {
+        toast.success("Le mot de passe a bien été modifié.");
         console.info("Mot de passe modifié avec succès:", response.data);
       })
       .catch((err) => {
@@ -54,6 +59,7 @@ export default function CompanyAccountManagement() {
       .delete(`${import.meta.env.VITE_BACKEND_URL}/company/${companyId}`)
       .then((response) => {
         console.info(response);
+        navigate("/");
       });
   };
 

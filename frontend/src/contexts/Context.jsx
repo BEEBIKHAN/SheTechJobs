@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-no-constructed-context-values */
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const Context = createContext();
 
@@ -15,8 +15,31 @@ function Provider({ children }) {
     lastName: localStorage.getItem("lastname"),
   });
 
+  const resetInfo = () => {
+    setInfo({});
+    localStorage.setItem("id", null);
+    localStorage.setItem("Role", null);
+    localStorage.setItem("companyName");
+    localStorage.setItem("Email", null);
+    localStorage.setItem("Siret");
+    localStorage.setItem("firstname", null);
+    localStorage.setItem("lastname", null);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("id", info.id);
+    localStorage.setItem("Role", info.Role);
+    localStorage.setItem("companyName", info.companyName);
+    localStorage.setItem("Email", info.email);
+    localStorage.setItem("Siret", info.siret);
+    localStorage.setItem("firstname", info.firstName);
+    localStorage.setItem("lastname", info.lastName);
+  }, [info]);
+
   return (
-    <Context.Provider value={{ info, setInfo }}>{children}</Context.Provider>
+    <Context.Provider value={{ info, setInfo, resetInfo }}>
+      {children}
+    </Context.Provider>
   );
 }
 

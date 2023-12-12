@@ -127,6 +127,10 @@ li.nav-itemtop {
     align-items: center;
   }
 
+  .logoutBtn {
+    padding: 8px 16px;
+  }
+  
   .imageicon {
     margin-right: 9px;
     width: 20px;

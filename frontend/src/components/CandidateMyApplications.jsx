@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
 import axios from "axios";
 import ApplicationByCandidate from "./ApplicationByCandidate";
 
@@ -24,15 +23,13 @@ export default function CandidateMyApplications() {
 
   return (
     <div className="myapplicationscontent">
-      <div className="annonce_listOffer">
+      <div className="applicationList">
         {data.map((application) => (
           <div className="EspaceCandidateApplicationCard">
-            {/* <Link key={application.id} to={`/annonceDetails/${offer.id}`}> */}
             <ApplicationByCandidate
               key={application.id}
               applicationCard={application}
             />
-            {/* </Link> */}
           </div>
         ))}
       </div>

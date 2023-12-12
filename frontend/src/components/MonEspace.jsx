@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import ExportContext from "../contexts/Context";
 
 export default function MonEspace() {
+  const { info } = useContext(ExportContext.Context);
   const data = {
     Nom: "",
     Prenom: "",
     email: "",
-    telephone: "",
-    location: "",
   };
   const [inputData, setInputData] = useState(data);
 
   useEffect(() => {
-    console.info("Enregistrer");
+    console.info("", inputData);
   }, []);
 
   function handleData(e) {
@@ -19,20 +19,9 @@ export default function MonEspace() {
     console.info(inputData);
   }
 
-  function handleTelephone(e) {
-    const inputValue = e.target.value;
-    const numericValue = inputValue.replace(/[^0-9]/, "");
-    setInputData({ ...inputData, telephone: numericValue });
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
-    if (
-      !inputData.Nom ||
-      !inputData.Prenom ||
-      !inputData.email ||
-      !inputData.telephone
-    ) {
+    if (!inputData.Nom || !inputData.Prenom || !inputData.email) {
       // eslint-disable-next-line no-alert
       alert("Tous les champs sont obligatoires");
     } else {
@@ -43,6 +32,7 @@ export default function MonEspace() {
 
   return (
     <div className="principal_monespace">
+      <span> Hello👋 {info.firstname}</span>
       <div className="fcontainer">
         <form className="container" onSubmit={handleSubmit}>
           <div className="fmonespace">
@@ -72,24 +62,6 @@ export default function MonEspace() {
                 placeholder="E-mail*"
                 name="email"
                 value={inputData.email}
-                onChange={handleData}
-              />
-            </div>
-            <div className="telephone">
-              <input
-                type="tel"
-                placeholder="Telephone*"
-                name="telephone"
-                value={inputData.telephone}
-                onChange={handleTelephone}
-              />
-            </div>
-            <div className="location">
-              <input
-                type="text"
-                placeholder="Localisation"
-                name="location"
-                value={inputData.location}
                 onChange={handleData}
               />
             </div>

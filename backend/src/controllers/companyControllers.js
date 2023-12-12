@@ -74,12 +74,13 @@ const verifyPassword = (req, res) => {
         id: req.company.id,
         companyName: req.company.name,
       };
+      // const { companyName } = payload.companyName;
 
       const token = jwt.sign(payload, process.env.JWT_SECRET, {
         expiresIn: "1h",
       });
 
-      res.cookie("authToken: ", token);
+      res.cookie("authToken", token);
 
       res.status(200).json({
         message: "Connexion réussie",

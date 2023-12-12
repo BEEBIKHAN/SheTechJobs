@@ -1,10 +1,13 @@
+/* eslint-disable no-unused-expressions */
 import React, { useState } from "react";
 import PublishOffer from "../components/PublishOffer";
 import SpaceCompany from "../components/SpaceCompany";
 import MyOffers from "../components/MyOffers";
 import CompanyAccountManagement from "../components/CompanyAccountManagement";
+// import ExportContext from "../contexts/Context";
 
 export default function DashboardCompany() {
+  // const { info } = useContext(ExportContext.Context);
   const [displaySpaceCompany, setDisplaySpaceCompany] = useState(1);
   const [displayPublishOffer, setDisplayPublishOffer] = useState(false);
   const [displayMyOffers, setDisplayMyOffers] = useState(false);
@@ -17,6 +20,10 @@ export default function DashboardCompany() {
     setDisplayMyOffers(componentNumber === 3);
     setDisplayAccountManagement(componentNumber === 5);
   };
+
+  // useEffect(() => {
+  //   info.Role === "company" ? <h3>Welcome {info.companyName}</h3> : "";
+  // }, [displaySpaceCompany]);
 
   return (
     <div className="dashboardcompany">

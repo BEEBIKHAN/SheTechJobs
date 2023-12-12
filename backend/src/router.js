@@ -11,6 +11,7 @@ const departementControllers = require("./controllers/departementControllers");
 const contractControllers = require("./controllers/contractControllers");
 const jobControllers = require("./controllers/jobControllers");
 const applicationControllers = require("./controllers/applicationControllers");
+const authControllers = require("./controllers/authControllers");
 
 // CANDIDATE :
 
@@ -76,6 +77,8 @@ router.post(
   companyControllers.postCompany
 );
 
+router.post("/logout", authControllers.logout);
+
 router.put("/company/:id", auth.hashPassword, companyControllers.updateCompany);
 
 router.post(
@@ -106,5 +109,8 @@ router.get("/departement", departementControllers.getAllDepartement);
 router.get("/contract", contractControllers.getAllContract);
 
 router.get("/job", jobControllers.getAllJob);
+
+// LOGOUT :
+// router.post("/logout", authControllers.logout);
 
 module.exports = router;
