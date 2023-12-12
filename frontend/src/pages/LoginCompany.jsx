@@ -96,7 +96,7 @@ export default function LoginCompany() {
             S'inscrire
           </a>
         </p>
-        {success ? <p>{success}</p> : ""}
+        {success ? <p>{success} && </p> : ""}
         {error ? "Email ou mot de passe incorrect" : ""}
       </form>
     </div>

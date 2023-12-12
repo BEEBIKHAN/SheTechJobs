@@ -135,6 +135,26 @@ const deleteOffer = (req, res) => {
   });
 };
 
+const updateOfferStatus = (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+
+  console.error("test", status);
+
+  models.offer
+    .updateOfferStatus(status, id)
+    .then(([result]) => {
+      console.info(result);
+      res.status(200).send("Le statut de l'offre' a bien été modifiée");
+    })
+    .catch((err) => {
+      console.error(err);
+      res
+        .status(500)
+        .send("Erreur lors de la modification du statut de l'offre");
+    });
+};
+
 module.exports = {
   getAllOffers,
   getAllOffersById,
@@ -145,4 +165,5 @@ module.exports = {
   findAllOffersByContract,
   searchOfferByWord,
   getListOfferByCompany,
+  updateOfferStatus,
 };

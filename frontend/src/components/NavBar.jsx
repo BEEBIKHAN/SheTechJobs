@@ -75,7 +75,7 @@ function Navbar() {
             <div className="blueline" />
             <li className="nav-itemtop">
               <img className="imageicon" src={annonce} alt="" />
-              Mes annonces
+              Mes candidatures
             </li>
 
             <div className="blueline" />
