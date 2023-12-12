@@ -53,7 +53,13 @@ function Navbar() {
   const handleClick = () => setClick(!click);
 
   return (
-    <div className="navbar">
+    <div
+      className={
+        info.Role === "candidate" || info.Role === null
+          ? "navbar"
+          : "navbarCompany"
+      }
+    >
       <div className="logonavbar">
         <a href="/">
           <img className="logoSTJ" src={LOGO} alt="" />
@@ -78,7 +84,6 @@ function Navbar() {
         ) : (
           ""
         )}
-
         <div className="navbarbottom">
           <ul className="nav2">
             <li className="nav-itembottom">
