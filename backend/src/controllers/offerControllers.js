@@ -107,6 +107,7 @@ const editOffer = (req, res) => {
 
 const getListOfferByCompany = (req, res) => {
   const { companyId } = req.params;
+  console.info(companyId);
   models.offer
     .ListOffersByCompany(companyId)
     .then(([rows]) => {
