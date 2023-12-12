@@ -1,10 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
 
-
 #title {
   text-align: center;
   font-size: 40px;
- margin-top: 40px;
+  margin-top: 40px;
   margin-bottom: -40px;
   position: relative;
   color: #fff;
@@ -33,7 +32,7 @@
 
 .circles p {
   font-size: 100px;
-  color:var( --color-bleu-inter);
+  color: var(--color-bleu-inter);
   padding-top: 60px;
   position: relative;
   z-index: 9;
@@ -97,8 +96,6 @@
   font-size: 1.1rem;
   padding-bottom: 50px;
 }
-
-
 
 @-webkit-keyframes smallmove {
   0% {
@@ -267,7 +264,6 @@
 }
 
 @media (min-width: 620px) {
-
   .circles:after {
     content: "";
     display: inline-block;
@@ -280,5 +276,4 @@
     transform: skewY(-90deg);
     -webkit-transform: skewY(-90deg);
   }
-
 }
