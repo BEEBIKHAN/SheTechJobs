@@ -86,18 +86,30 @@ li.nav-itemtop {
   list-style-type: none;
 }
 
-.btnEspaceEntreprise {
+.btnEspaceEntreprise  {
   background-color: var(--color-bleu-foncé);
- 
   padding: 0.7rem;
   margin: 15px;
   width: 150px;
   text-align: center;
+   cursor: pointer;
+ outline: none;
+ box-shadow: 0 5px  #d8d6d6;
 }
-.btnEspaceEntreprise >a {
- color: var(--color-background-gris-clair);
 
-}
+.btnEspaceEntreprise:hover{
+  transform: translateY(3px);
+  box-shadow: 0 5px  #d8d6d6;
+ }
+ .btnEspaceEntreprise:active{
+   transform: translateY(4px);
+   box-shadow: 0 5px  #d8d6d6;
+ }
+
+ .btnEspaceEntreprise >a {
+  color: var(--color-background-gris-clair);
+ }
+
 @media (min-width: 620px) {
   .navbar {
     padding: 0;

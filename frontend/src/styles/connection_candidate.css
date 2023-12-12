@@ -72,7 +72,20 @@
   padding: 10px;
   border: none;
   margin-bottom: 20px;
+  cursor: pointer;
+  outline: none;
 }
+
+.formConnectionCandidate  > form > button:hover{
+  transform: translateY(3px);
+   box-shadow: 0 3.5px  #d8d6d6;
+ }
+
+ .formConnectionCandidate > form > button:active{
+  transform: translateY(4px);
+  box-shadow: 0 2px  #d8d6d6;
+}
+
 .formConnectionCandidate > form > label {
   padding-left: 5px;
 }
@@ -92,11 +105,14 @@
     background-image: none;
   }
 
-  .formConnectionrCandidate {
+  .formConnectionCandidate{
     width: 50%;
+    margin-right: 200px;
+    padding: 0;
   }
 
   .formConnectionCandidate > form > button {
     padding: 10px;
+  
   }
 }

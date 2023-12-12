@@ -1,18 +1,20 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import entrepreneurs from "../assets/images/inscription_entreprise.png";
 import "../styles/logincompany.css";
+import ExportContext from "../contexts/Context";
 
 export default function LoginCompany() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const { info } = useContext(ExportContext.Context);
 
   const navigate = useNavigate();
 
   const navigateToHomepage = () => {
-    navigate("/");
+    navigate("/dashboardcompany");
   };
 
   const handleChangeEmail = (event) => {
@@ -52,6 +54,12 @@ export default function LoginCompany() {
       });
   };
 
+  useEffect(() => {
+    if (info.Role === "company") {
+      navigate("/dashboardcompany");
+    }
+  }, []);
+
   return (
     <>
       <div className="espace_connexion_entreprise">
@@ -66,19 +74,10 @@ export default function LoginCompany() {
           <input type="text" onChange={handleChangeEmail} />
           <p>Mot de passe</p>
           <input type="password" onChange={handleChangePassword} />
-          <input
-            style={{
-              backgroundColor: "#EBAF00",
-              color: "#112F47",
-              borderRadius: "24px",
-              padding: "1rem 0",
-              fontWeight: "bolder",
-              fontSize: "16px",
-              margin: "16px 0px",
-            }}
-            type="submit"
-            value="Se connecter"
-          />
+
+          <button className="btnLogin" type="submit">
+            Se connecter
+          </button>
           <p>
             Pas encore membre ?{" "}
             <a href="/registercompany" id="register">

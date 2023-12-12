@@ -142,7 +142,7 @@ export default function RegisterCompany() {
               fontSize: "16px",
               margin: "16px 0px",
             }}
-            className="btn"
+            className="btnRegister"
             type="submit"
             value="Créer un compte"
           />

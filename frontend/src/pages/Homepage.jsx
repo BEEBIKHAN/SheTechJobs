@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import loop from "../assets/icons/loop.png";
 import rocket from "../assets/icons/rocket.png";
@@ -51,12 +52,7 @@ export default function Homepage() {
                 <option>Stage</option>
               </select>
             </div>
-            <div className="buttonSelect">
-              <button type="button">CDI</button>
-              <button type="button">CDD</button>
-              <button type="button">Contrat Pro/ Alternance</button>
-              <button type="button">Stage</button>
-            </div>
+
             <br />
           </div>
           <div className="img">
@@ -76,8 +72,23 @@ export default function Homepage() {
                 <img src={item.icon} alt={`Icons ${item.id}`} />
               </figure>
               <h3>{item.title}</h3>
+
               <p>{item.description}</p>
-              <h4>{item.action}</h4>
+              {item.action === "Accéder aux offres" && (
+                <Link to="/annonces" className="action-link">
+                  {item.action}
+                </Link>
+              )}
+              {item.action === "Déposer une annonce" && (
+                <Link to="/dashboardcompany" className="action-link">
+                  {item.action}
+                </Link>
+              )}
+              {item.action === "Enregistrez votre CV" && (
+                <Link to="/dashboardcandidate" className="action-link">
+                  {item.action}
+                </Link>
+              )}
             </div>
           ))}
         </div>

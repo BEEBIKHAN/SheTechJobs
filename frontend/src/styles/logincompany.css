@@ -37,6 +37,218 @@
   height: auto;
 }
 
+.nav_dashboard_company {
+  display: flex;
+  background-color: var(--color-background-gris);
+  width: 100%;
+  list-style: none;
+}
+
+.centered-dashcompanycomponents {
+  text-align: center;
+}
+
+.ul_dashboard_company {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  height: 100px;
+  padding: 40px 0;
+  line-height: 40px;
+  list-style-type: none;
+}
+
+.ul_dashboard_company a {
+  color: var(--color-text);
+  padding: 5px;
+  line-height: 10px;
+  text-decoration: none;
+}
+
+.middle {
+  list-style: none;
+}
+
+.ul_dashboard_company a:hover {
+  font-weight: bolder;
+  color: var(--color-text);
+}
+
+.middle:hover {
+  position: relative;
+}
+
+.middle:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  right: 70%;
+  width: 30%;
+  border-bottom: 3px solid var(--color-orange-foncé);
+}
+
+.btnDashCompany {
+  border: none;
+}
+
+@media (min-width: 620px) {
+  .dashboardcompany {
+    display: flex;
+    width: 100%;
+  }
+
+  .nav_dashboard_company {
+    justify-content: center;
+    margin: 30px;
+    width: 30%;
+    height: 100vh;
+  }
+
+  .ul_dashboard_company {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--color-background-gris);
+    height: 95vh;
+    width: 100%;
+  }
+
+  .espace_entreprise {
+    padding-bottom: 50px;
+  }
+
+  .gerer_son_compte {
+    margin-top: 50px;
+  }
+
+  .middle:hover {
+    border-left: 3px solid var(--color-orange-foncé);
+  }
+
+  .middle:hover::after {
+    border-bottom: none;
+  }
+}
+.nav_dashboard_company {
+  display: flex;
+  background-color: var(--color-background-gris);
+  width: 100%;
+  list-style: none;
+}
+
+.centered-dashcompanycomponents {
+  text-align: center;
+}
+
+.ul_dashboard_company {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  height: 100px;
+  padding: 40px 0;
+  line-height: 40px;
+  list-style-type: none;
+}
+
+.ul_dashboard_company a {
+  color: var(--color-text);
+  padding: 5px;
+  line-height: 10px;
+  text-decoration: none;
+}
+
+.middle {
+  list-style: none;
+}
+
+.ul_dashboard_company a:hover {
+  font-weight: bolder;
+  color: var(--color-text);
+}
+
+.middle:hover {
+  position: relative;
+}
+
+.middle:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  right: 70%;
+  width: 30%;
+  border-bottom: 3px solid var(--color-orange-foncé);
+}
+
+.btnDashCompany {
+  border: none;
+}
+
+@media (min-width: 620px) {
+  .dashboardcompany {
+    display: flex;
+    width: 100%;
+  }
+
+  .nav_dashboard_company {
+    justify-content: center;
+    margin: 30px;
+    width: 30%;
+    height: 100vh;
+  }
+
+  .ul_dashboard_company {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--color-background-gris);
+    height: 95vh;
+    width: 100%;
+  }
+
+  .espace_entreprise {
+    padding-bottom: 50px;
+  }
+
+  .gerer_son_compte {
+    margin-top: 50px;
+  }
+
+  .middle:hover {
+    border-left: 3px solid var(--color-orange-foncé);
+  }
+
+  .middle:hover::after {
+    border-bottom: none;
+  }
+}
+.btnLogin {
+  background-color: var( --color-orange);
+  color: var(--color-text);
+  border-radius: 20px;
+  padding: 10px ;
+  font-weight: bolder;
+  font-size: 16px;
+  width:80%;
+  border: none;
+  margin: 20px;
+  cursor: pointer;
+  box-shadow: 0 5px  #d8d6d6;
+  outline: none;
+}
+.btnLogin:hover{
+ transform: translateY(3px);
+  box-shadow: 0 3.5px  #d8d6d6;
+}
+.btnLogin:active{
+  transform: translateY(4px);
+  box-shadow: 0 2px  #d8d6d6;
+}
+
+
 @media (min-width: 620px) {
   .login_form {
     max-width: 35rem;
@@ -50,4 +262,6 @@
   .imglogincompany {
     display: none;
   }
+
+
 }

@@ -1,0 +1,128 @@
+
+
+  
+.content_detail_candidature {
+  flex-direction: column;
+  display: flex;
+  background-color: var(--color-background-gris);
+  margin-top: 30px;
+  padding: 5%;
+  margin: 30px 15px 15px 15px;
+}
+
+.developpeuse {
+  display: flex;
+  margin-left: 20px;
+  color: var(--color-bleu-inter);
+  font-size: 14px;
+}
+
+.div1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-top: 1px solid black;
+  margin: 5px 80px 20px 20px;
+  line-height: 30px;
+  padding-top: 5px;
+}
+.date {
+  color: var(--color-orange);
+}
+.div1 > p {
+  font-weight: bold;
+}
+.btnYellow > button {
+  background-color: var(--color-orange);
+  color: var(--color-text-clair);
+  border: none;
+  border-radius: 20px;
+  width: 45%;
+  height: 2rem;
+  margin: 6px 6px;
+  cursor: pointer;
+   outline: none;
+}
+
+.btnYellow > button:hover {
+    transform: translateY(3px);
+    box-shadow: 0 3.5px  #d8d6d6;
+}
+.btnYellow > button:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px  #d8d6d6;
+}
+
+.btnblue {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+ 
+}
+
+.btnblue > button{
+    border-radius: 20px;
+    width: 60%;
+    height: 2rem;
+    color: var(--color-text-clair);
+    border: none;
+    background-color: var( --color-bleu-foncé);
+   margin-top: 30px;
+   cursor: pointer;
+   outline: none;
+  }
+  .btnblue > button:hover{
+    transform: translateY(3px);
+    box-shadow: 0 3.5px  #d8d6d6;
+  }
+  .btnblue > button:active{
+  transform: translateY(4px);
+  box-shadow: 0 2px  #d8d6d6;
+  }
+
+
+  @media (min-width: 620px) {
+    .dashboard_company {
+        display: flex;
+        flex-direction: row;
+      }
+    
+    .content_detail_candidature{
+   width: 210%;
+   height: 93%;
+
+    }
+
+    .content_detail_candidature {
+        padding: 25%;
+  }
+
+
+  .btnYellow{
+    display: flex;
+    justify-content: flex-start;
+   
+  }
+  .btnYellow > button {
+    width:30%;
+    margin-right: 60px;
+  }
+
+  .btnblue {
+    margin-left: 10px;
+    margin-top: 150px;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .btnblue > button{
+    width:30%;
+    margin-right: 60px;
+  }
+  .div1 {
+    margin-bottom: 30px;
+  }
+
+}

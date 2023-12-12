@@ -1,17 +1,43 @@
 import { useState } from "react";
+import axios from "axios";
+/* import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; */
 
 export default function Newsletter() {
-  const [mail, setMail] = useState("");
-  function handleMail(e) {
-    const { value } = e.target;
-    setMail(value);
-    console.info(value);
-  }
+  const [email, setEmail] = useState("");
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.info(mail);
-  }
+  /* const notify = () =>
+    toast("Vous êtes bien enregistrée. Bienvenue chez SheTechJobs !"); */
+
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+    console.info(email);
+  };
+
+  const registerNewletter = () => {
+    axios
+      .post(`${import.meta.env.VITE_BACKEND_URL}/newsletter`, {
+        email,
+      })
+      .then((response) => {
+        console.info(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  /* const handleSubmit = (event) => {
+    event.preventDefault();
+    registerNewletter()
+      .then((response) => {
+        console.info(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    console.info(email);
+  }; */
 
   return (
     <div className="divNewsLetter">
@@ -20,15 +46,14 @@ export default function Newsletter() {
         Inscrivez-vous à la newsletter et recevez en exclusivité les offres les
         plus incroyables avant qu’elles ne soient publiées !
       </p>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={registerNewletter}>
         <input
           className="firstInput"
-          type="text"
+          type="email"
           placeholder="Saisissez votre adresse email"
-          value={mail}
-          onChange={handleMail}
+          onChange={handleEmail}
         />
-        <input className="valider" type="submit" value="Valider" />
+        <input type="submit" />
       </form>
     </div>
   );

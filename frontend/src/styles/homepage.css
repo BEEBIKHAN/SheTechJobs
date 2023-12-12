@@ -9,11 +9,13 @@
 .Title > p {
   margin-top: 15px;
   font-size: 20px;
+ padding-top: 60px;
 }
 .iconsContainer {
   width: 90%;
   margin: 0 auto;
 }
+
 
 .loop {
   margin: 30px;
@@ -33,7 +35,9 @@
   color: var(--color-bleu-inter);
   padding: 10px;
 }
-
+.loop > p {
+  margin-bottom: 20px;
+}
 .rocket {
   margin: 30px;
   background-color: var(--color-background-gris);
@@ -52,7 +56,9 @@
   color: var(--color-bleu-inter);
   padding: 10px;
 }
-
+.rocket > p {
+  margin-bottom: 20px;
+}
 .girl {
   margin: 30px;
   background-color: var(--color-background-gris);
@@ -71,13 +77,18 @@
   color: var(--color-bleu-inter);
   padding: 10px;
 }
+.girl > p {
+  margin-bottom: 20px;
+}
+
+
 
 .header_general {
   background-image: url("../assets/images/vague_jaune.png");
   background-position: top;
   background-repeat: no-repeat;
-  max-width: 700px;
-  background-size: 100% auto;
+  max-width: 500px;
+  background-size:100% auto;
   display: flex;
   margin: 0 8px;
 }
@@ -127,6 +138,7 @@
   border-radius: 20px;
   width: 90%;
   margin: 0 auto;
+  border: none;
 }
 
 #search_input {
@@ -148,11 +160,11 @@
 }
 
 @media (min-width: 620px) {
+
+
   .header_general {
     min-height: 80vh;
     max-width: 100%;
-    background-size: 100%;
-    position: relative;
   }
 
   .left_side {
@@ -160,7 +172,7 @@
   }
 
   .img {
-    width: 50%;
+    width: 40%;
   }
 
   .img > img {
@@ -170,9 +182,8 @@
   }
 
   .title > h3 {
-    height: 40vh;
-    font-size: xxx-large;
-    margin: 16px 32px 32px 56px;
+    font-family: var(--font-family-1);
+    font-weight: bolder;
   }
 
   #dropdown {
@@ -216,11 +227,27 @@
     margin-left: 40px;
     margin-bottom: 150px;
     position: absolute;
-    top: 102%;
+    top: 112%;
   }
 
   #search_input {
     width: 90%;
     padding: 10px;
   }
+
+.search_bar {
+ margin-left: 30px;
+}
+#search_btn {
+  width: 50%;
+}
+.title > h3 {
+  font-size: 60px;
+  margin-top: 40px;
+  margin-left: 40px;
+  font-family: var(--font-family-1);
+  font-weight:bolder;
+}
+
+  
 }

@@ -52,6 +52,29 @@
   color: #479dbc;
 }
 
+.btnRegister {
+  background-color: var( --color-orange);
+  color: var(--color-text);
+  border-radius: 20px;
+  padding: 10px ;
+  font-weight: bolder;
+  font-size: 16px;
+  width:80%;
+  border: none;
+  margin: 20px;
+  cursor: pointer;
+  box-shadow: 0 5px  #d8d6d6;
+  outline: none;
+}
+.btnRegister:hover{
+ transform: translateY(3px);
+  box-shadow: 0 3.5px  #d8d6d6;
+}
+.btnRegister:active{
+  transform: translateY(4px);
+  box-shadow: 0 2px  #d8d6d6;
+}
+
 @media (min-width: 620px) {
   .espace_connexion_entreprise {
     min-height: 100vh;

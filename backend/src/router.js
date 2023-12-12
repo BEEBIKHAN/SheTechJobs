@@ -11,6 +11,7 @@ const departementControllers = require("./controllers/departementControllers");
 const contractControllers = require("./controllers/contractControllers");
 const jobControllers = require("./controllers/jobControllers");
 const applicationControllers = require("./controllers/applicationControllers");
+const newsletterControllers = require("./controllers/newsletterControllers");
 
 // CANDIDATE :
 
@@ -87,4 +88,7 @@ router.get("/contract", contractControllers.getAllContract);
 
 router.get("/job", jobControllers.getAllJob);
 
+router.get("/newsletter", newsletterControllers.getUsers);
+router.post("/newsletter", newsletterControllers.registerUser);
+router.post("/send-newsletter", newsletterControllers.sendNewsletter);
 module.exports = router;

@@ -9,6 +9,9 @@ import ConnectionCandidate from "../pages/ConnectionCandidate";
 import LoginCompany from "../pages/LoginCompany";
 import AnnonceResearch from "../pages/AnnonceResearch";
 import SearchResult from "../pages/SearchResult";
+import Page404 from "../pages/Page404";
+import Candidature from "./Candidature";
+import DetailCandidature from "./DetailCandidature";
 
 export default function Content() {
   return (
@@ -24,6 +27,9 @@ export default function Content() {
         <Route path="/connectioncandidate" element={<ConnectionCandidate />} />
         <Route path="/logincompany" element={<LoginCompany />} />
         <Route path="/annonces" element={<AnnonceResearch />} />
+        <Route path="/page404" element={<Page404 />} />
+        <Route path="/candidature" element={<Candidature />} />
+        <Route path="/detailcandidature" element={<DetailCandidature />} />
       </Routes>
     </section>
   );

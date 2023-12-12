@@ -5,61 +5,70 @@
 }
 .principal_monespace {
   display: flex;
-  margin: 30px 15px 15px 15px;
+  margin:20px;
   width: 90%;
 }
+
 .fmonespace {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 20px 0 0 20px;
+  width: 180%;
+padding: 20px;
   font-style: italic;
   text-align: left;
-  background-color: #efefef;
+  background-color: var(  --color-background-gris);
 }
 .fmonespace input {
   padding: 5px;
   border: none;
   margin-top: 2rem;
-  background-color: white;
+  background-color:var( --white);
+width: 70%;
 }
-.Nom,
-.Prenom,
-.email,
-.telephone .localisation {
-  margin-bottom: 20px;
-}
+
 .btn_monespace {
-  background-color: #f5b800;
+  background-color:var( --color-orange);
   border-radius: 20px;
   padding: 5px;
+  border: none;
+  cursor: pointer;
+  outline: none;
 }
+.btn_monespace:hover{
+  transform: translateY(3px);
+  box-shadow: 0 3.5px  #d8d6d6;
+}
+.btn_monespace:active{
+  transform: translateY(4px);
+  box-shadow: 0 2px  #d8d6d6;
+}
+
+
 .button_monespace {
   display: flex;
   justify-content: left;
-  margin-top: 10px;
+  margin-top: 40px;
 }
 @media (min-width: 620px) {
   .principal_monespace {
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
   .fmonespace {
-    display: flex;
-    flex-direction: column;
-    background-color: #efefef;
-    width: 150%;
-    height: 95vh;
-    padding: 20px;
+  
+   width: 80vh;
+   height: 80vh;
+
   }
   .fmonespace input {
     padding: 10px;
     width: 80%;
     border: none;
-
-    background-color: white;
+    background-color:var(--white);
     border-radius: 8px;
+    margin-bottom: 30px;
   }
   .comb_nom {
     display: flex;
@@ -72,7 +81,7 @@
     width: 70%;
   }
   .btn_monespace {
-    background-color: #f5b800;
+    background-color:var(--color-orange);
     border-radius: 20px;
     padding: 10px;
     margin-top: 3rem;
@@ -86,5 +95,13 @@
     display: flex;
     justify-content: left;
     border-radius: 20px;
+  }
+  .centered-dashcandidatecomponents{
+    width: 70%;
+    padding-top: 80px;
+    width: 130vh;
+    height: 100vh;
+    margin: 30px 30px 30px 0px;
+    background-color:var(--color-background-gris) ;
   }
 }

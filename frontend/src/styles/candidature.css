@@ -1,0 +1,52 @@
+  
+.content_candidature {
+    flex-direction: column;
+    display: flex;
+    background-color: var(--color-background-gris);
+    margin-top: 30px;
+    padding: 5%;
+    margin: 30px 15px 15px 15px;
+  }
+
+  .titltDev{
+    display: flex;
+  margin-left: 20px;
+  color: var(--color-bleu-inter);
+  font-size: 14px;
+  margin-top: 30px;
+  }
+
+  .divDev{
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+  
+.date, .div1cand > p {
+    font-size: 12px;
+}
+.divDev > .div1cand{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 5px;
+    border-top: 1px solid rgb(186, 180, 180);
+    border-bottom: 1px solid rgb(186, 180, 180);
+    width:45%;  
+    margin: 7px;
+    line-height: 25px;
+}
+.div1cand > p {
+    font-weight: bold;
+  }
+  @media (min-width: 620px) {
+    
+    .content_candidature {
+      padding-top: 100px;
+      width: 130vh;
+      height: 100vh;
+      margin: 30px 30px 30px 0px;
+  }
+
+  }

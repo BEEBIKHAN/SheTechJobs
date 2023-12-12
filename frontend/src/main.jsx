@@ -20,6 +20,9 @@ import "./styles/monespace.css";
 import "./styles/annonceresearch.css";
 import "./styles/moncv.css";
 import "./styles/myoffers.css";
+import "./styles/detailcandidature.css";
+import "./styles/candidature.css";
+import "./styles/page404.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
