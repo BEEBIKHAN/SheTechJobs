@@ -1,72 +1,93 @@
 .contentaccountcompany {
-    flex-direction: column;
-    display: flex;
-    background-color: var(--color-background-gris);
-    margin-top: 30px;
-    padding: 5%;
-    margin: 30px 15px 15px 15px;
-    font-style: italic;
-    text-align: left;
+  flex-direction: column;
+  display: flex;
+  background-color: var(--color-background-gris);
+  margin-top: 30px;
+  padding: 5%;
+  margin: 30px 15px 15px 15px;
+  font-style: italic;
+  text-align: left;
 }
 
-.contentaccountcompany > p, .companyPasswordFormContent, .companyEmailFormContent {
-    margin: 0 70px;
+.contentaccountcompany > p,
+.companyPasswordFormContent,
+.companyEmailFormContent {
+  margin: 0 70px;
 }
 
 .companyDeleteAccount > .btnAccountManagement {
-    margin: 10px 70px;
+  margin: 10px 70px;
 }
 
-.companyPasswordFormContent, .companyEmailFormContent, .actualEmailCompany, .actualPasswordCompany {
-    display: flex;
-    flex-direction: column;
-    margin-top: 16px;
+.companyPasswordFormContent,
+.companyEmailFormContent,
+.actualEmailCompany,
+.actualPasswordCompany {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
 }
 
-.newPasswordCompany, .newEmailCompany {
-    display: flex;
-    flex-direction: column;
+.newPasswordCompany,
+.newEmailCompany {
+  display: flex;
+  flex-direction: column;
 }
 
-.actualEmailCompany > input, .newEmailCompany > .newEmail > input, .newEmailCompany > .confirmNew > input, .actualPasswordCompany > input, .newPasswordCompany > .newPassword > input, .newPasswordCompany > .confirmNew > input {
-    border: none;
-    padding: 6px 10px;
-    margin: 6px 0 10px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+.actualEmailCompany > input,
+.newEmailCompany > .newEmail > input,
+.newEmailCompany > .confirmNew > input,
+.actualPasswordCompany > input,
+.newPasswordCompany > .newPassword > input,
+.newPasswordCompany > .confirmNew > input {
+  border: none;
+  padding: 6px 10px;
+  margin: 6px 0 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-.companyEmailFormContent > .email_form > .btnAccountManagement,  .companyPasswordFormContent > .password_form > .btnAccountManagement, .companyDeleteAccount > .btnAccountManagement {
-    color: white;
-    background-color: #023047;
-    border-radius: 16px;
-    padding: 6px 32px;
-    cursor: pointer;
-    margin-top: 20px;
+.companyEmailFormContent > .email_form > .btnAccountManagement,
+.companyPasswordFormContent > .password_form > .btnAccountManagement,
+.companyDeleteAccount > .btnAccountManagement {
+  color: white;
+  background-color: #023047;
+  border-radius: 16px;
+  padding: 6px 32px;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
 @media screen and (min-width: 620px) {
-    .contentaccountcompany {
-        padding-top: 100px;
-        width: 130vh;
-        height: 100vh;
-        margin: 30px 30px 30px 0px;
-    }
+  .contentaccountcompany {
+    padding-top: 100px;
+    width: 130vh;
+    height: 100vh;
+    margin: 30px 30px 30px 0px;
+  }
 
-    .newEmailCompany, .newPasswordCompany {
-        flex-direction: row;
-    }
+  .newEmailCompany,
+  .newPasswordCompany {
+    flex-direction: row;
+  }
 
-    .actualEmailCompany > input, .actualPasswordCompany > input {
-        width: 40%;
-    }
+  .actualEmailCompany > input,
+  .actualPasswordCompany > input {
+    width: 40%;
+  }
 
-    .newEmailCompany > .newEmail > input, .newEmailCompany > .confirmNew > input, .newPasswordCompany > .newPassword > input, .newPasswordCompany > .corfirmNew > input {
-        width: 80%;
-    }
+  .newEmailCompany > .newEmail > input,
+  .newEmailCompany > .confirmNew > input,
+  .newPasswordCompany > .newPassword > input,
+  .newPasswordCompany > .corfirmNew > input {
+    width: 80%;
+  }
 
-    .newEmailCompany > .newEmail, .newEmailCompany > .confirmNew, .newPasswordCompany > .newPassword, .newPasswordCompany > .confirmNew {
-        width: 50%;
-        }
+  .newEmailCompany > .newEmail,
+  .newEmailCompany > .confirmNew,
+  .newPasswordCompany > .newPassword,
+  .newPasswordCompany > .confirmNew {
+    width: 50%;
+  }
 }

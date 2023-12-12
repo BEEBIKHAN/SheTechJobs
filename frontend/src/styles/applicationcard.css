@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.applicationCardb {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.offertitleb {
+  display: flex;
+  order: 1;
+  color: blue;
+  font-family: "Orelega One", serif;
+}
+.jobnameb {
+  display: flex;
+  margin: 5px;
+  color:#fb8500;
+  
+  order: 2;
+}
+.offerdateb {
+  display: flex;
+  margin: 5px;
+  color:black;
+  order: 3;
+}
+.contract_typeb {
+  display: flex;
+  margin: 2px;
+  order: 3;
+}
+.candidateb {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  order: 4;
+}
+.departementnameb {
+  display: flex;
+  order: 3;
+}
+.logodeptb {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+.dateiconb {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+.logocontractb {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+.wholeapplicationcardb{
+  margin-left: 10px;
+}
