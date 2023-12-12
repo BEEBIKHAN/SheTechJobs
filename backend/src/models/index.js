@@ -67,6 +67,13 @@ models.application.setDatabase(pool);
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
+const NewsletterManager = require("./NewsletterManager");
+
+models.newsletter = new NewsletterManager();
+models.newsletter.setDatabase(pool);
+// bonus: use a proxy to personalize error message,
+// when asking for a non existing model
+
 const handler = {
   get(obj, prop) {
     if (prop in obj) {
