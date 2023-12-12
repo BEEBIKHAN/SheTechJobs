@@ -103,7 +103,6 @@ export default function UpdateContentOffer({ annonce }) {
         </div>
         <div className="annonce_details_date">{annonce.date}</div>
       </div>
-      coucou
       <div className="annonceDetailsBody">
         <div className="details">
           <h3>Qui sommes-nous?</h3>

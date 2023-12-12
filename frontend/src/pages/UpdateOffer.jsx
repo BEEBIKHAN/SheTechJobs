@@ -23,15 +23,6 @@ export default function AnnonceDetails() {
     getAnnonceDetails();
   }, []);
 
-  // const editOffer = (id) => {
-  //   axios
-  //     .put(`${import.meta.env.VITE_BACKEND_URL}/offers/${id}`)
-  //     .then((response) => {
-  //       console.info(response);
-  //     });
-  //   window.location.assign("/dashboardcompany");
-  // };
-
   return (
     <div className="updateContent">
       <h1>Modification de l'annonce</h1>

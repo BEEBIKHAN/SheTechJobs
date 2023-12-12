@@ -11,6 +11,13 @@
   padding: 1rem;
 }
 
+.navbarCompany {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
 .nav-menu {
   position: fixed;
   left: -100%;
@@ -103,6 +110,16 @@ li.nav-itemtop {
     padding: 0;
     background-color: white;
   }
+  .navbarCompany {
+    padding: 0;
+    background-color: white;
+    flex-direction: column;
+  }
+
+  .navbar-column {
+    display: flex;
+    flex-direction: column;
+  }
 
   .nav-menu {
     position: relative;
@@ -147,10 +164,9 @@ li.nav-itemtop {
   }
 
   .logonavbar > a > .logoSTJ {
-    margin-left: 50px;
-    margin-top: 16px;
-    padding-top: 6px;
-    width: 350%;
+    margin-left: 36px;
+    width: 20vh;
+    padding-top: 10px;
   }
 
   .navbartop {

@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import Homepage from "../pages/Homepage";
 import AnnonceDetails from "../pages/AnnonceDetails";
@@ -10,9 +11,12 @@ import LoginCompany from "../pages/LoginCompany";
 import AnnonceResearch from "../pages/AnnonceResearch";
 import UpdateOffer from "../pages/UpdateOffer";
 import SearchResult from "../pages/SearchResult";
+import PrivateRoute from "../../../backend/src/services/PrivateRoute";
+import ExportContext from "../contexts/Context";
 import Page404 from "../pages/Page404";
 
 export default function Content() {
+  const { info } = useContext(ExportContext.Context);
   return (
     <section className="content">
       <Routes>
@@ -22,8 +26,24 @@ export default function Content() {
         <Route path="/annonceDetails/:id" element={<AnnonceDetails />} />
         <Route path="/registercompany" element={<RegisterCompany />} />
         <Route path="/registercandidate" element={<RegisterCandidate />} />
-        <Route path="/dashboardcandidate" element={<DashboardCandidate />} />
-        <Route path="/dashboardcompany" element={<DashboardCompany />} />
+        <Route
+          path="/dashboardcandidate"
+          element={
+            <PrivateRoute isAllowed={info.Role === "candidate"}>
+              {" "}
+              <DashboardCandidate />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/dashboardcompany"
+          element={
+            <PrivateRoute isAllowed={info.Role === "company"}>
+              {" "}
+              <DashboardCompany />
+            </PrivateRoute>
+          }
+        />
         <Route path="/logincandidate" element={<LoginCandidate />} />
         <Route path="/logincompany" element={<LoginCompany />} />
         <Route path="/annonces" element={<AnnonceResearch />} />
