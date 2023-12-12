@@ -1,12 +1,12 @@
 import { useState, useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import ExportContext from "../contexts/Context";
 
 export default function CompanyAccountManagement() {
   const companyId = localStorage.getItem("id");
-  const { info } = useContext(ExportContext.Context);
+  const { info, resetInfo } = useContext(ExportContext.Context);
   const [updateEmail, setUpdateEmail] = useState("");
   const [updatePassword, setUpdatePassword] = useState("");
   const navigate = useNavigate();
@@ -59,7 +59,8 @@ export default function CompanyAccountManagement() {
       .delete(`${import.meta.env.VITE_BACKEND_URL}/company/${companyId}`)
       .then((response) => {
         console.info(response);
-        navigate("/");
+        resetInfo();
+        navigate("/registercompany");
       });
   };
 
@@ -133,13 +134,15 @@ export default function CompanyAccountManagement() {
         </form>
       </div>
       <div className="companyDeleteAccount">
-        <button
-          type="button"
-          className="btnAccountManagement btnDeleteAccount"
-          onClick={() => deleteCompany(companyId)}
-        >
-          Suppression du compte
-        </button>
+        <Link to="/registercompany">
+          <button
+            type="button"
+            className="btnAccountManagement btnDeleteAccount"
+            onClick={() => deleteCompany(companyId)}
+          >
+            Suppression du compte
+          </button>
+        </Link>
       </div>
     </div>
   );

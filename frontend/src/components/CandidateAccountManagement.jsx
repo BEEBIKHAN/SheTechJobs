@@ -6,7 +6,7 @@ import ExportContext from "../contexts/Context";
 
 export default function CompanyAccountManagement() {
   const candidateId = localStorage.getItem("id");
-  const { info } = useContext(ExportContext.Context);
+  const { info, resetInfo } = useContext(ExportContext.Context);
   const [updateEmail, setUpdateEmail] = useState("");
   const [updatePassword, setUpdatePassword] = useState("");
   const navigate = useNavigate();
@@ -62,6 +62,7 @@ export default function CompanyAccountManagement() {
       .delete(`${import.meta.env.VITE_BACKEND_URL}/candidate/${candidateId}`)
       .then((response) => {
         console.info(response);
+        resetInfo();
         navigate("/");
       });
   };
