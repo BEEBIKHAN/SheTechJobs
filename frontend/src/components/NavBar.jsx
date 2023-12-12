@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import ExportContext from "../contexts/Context";
 import LOGO from "../assets/images/LOGO.png";
@@ -12,8 +13,27 @@ import annonce from "../assets/images/annonce.png";
 function Navbar() {
   const [click, setClick] = useState(false);
 
-  const { info } = useContext(ExportContext.Context);
-  console.info("Info du rôle depuis la navbar :", info.Role);
+  const { info, resetInfo } = useContext(ExportContext.Context);
+
+  const navigate = useNavigate();
+  const deconnect = () => {
+    console.info("Before logout:", info);
+    axios
+      .post(
+        `${import.meta.env.VITE_BACKEND_URL}/logout`,
+        {},
+        { withCredentials: true }
+      )
+      .then((response) => {
+        console.info(response);
+        resetInfo();
+        console.info("After logout:", info);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   const displayLinkCandidate = () => {
     if (info.Role === "candidate") {
@@ -61,13 +81,22 @@ function Navbar() {
       }
     >
       <div className="logonavbar">
-        <a href="/">
+        <Link to="/">
           <img className="logoSTJ" src={LOGO} alt="" />
-        </a>
+        </Link>
       </div>
+
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         {info.Role === "candidate" || info.Role === null ? (
           <div className="navbartop">
+          <div className="logoutBtn">
+            <Link to="/">
+              <button className="logoutBtn" type="button" onClick={deconnect}>
+                Se deconnecter
+               </button>
+            </Link>
+          </div>
+            <div className="blueline" />
             <li className="nav-itemtop">
               <img className="imageiconCV" src={cv} alt="" />
               Mon CV
@@ -77,6 +106,13 @@ function Navbar() {
               <img className="imageicon" src={annonce} alt="" />
               Mes annonces
             </li>
+
+            <div className="blueline" />
+            <li className="nav-itemtop">{displayLinkCandidate()}</li>
+          </div>
+        ) : (
+          ""
+        )}
 
             <div className="blueline" />
             <li className="nav-itemtop">{displayLinkCandidate()}</li>

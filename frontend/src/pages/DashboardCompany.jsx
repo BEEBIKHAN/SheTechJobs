@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+/* eslint-disable no-unused-expressions */
+import React, { useState, useEffect, useContext } from "react";
 import PublishOffer from "../components/PublishOffer";
 import SpaceCompany from "../components/SpaceCompany";
 import MyOffers from "../components/MyOffers";
 import MyCandidatures from "../components/MyCandidatures";
 import CompanyAccountManagement from "../components/CompanyAccountManagement";
+import ExportContext from "../contexts/Context";
 
 export default function DashboardCompany() {
+  const { info } = useContext(ExportContext.Context);
   const [displaySpaceCompany, setDisplaySpaceCompany] = useState(1);
   const [displayPublishOffer, setDisplayPublishOffer] = useState(false);
   const [displayMyOffers, setDisplayMyOffers] = useState(false);
@@ -20,6 +23,10 @@ export default function DashboardCompany() {
     setDisplayMyCandidatures(componentNumber === 4);
     setDisplayAccountManagement(componentNumber === 5);
   };
+
+  useEffect(() => {
+    info;
+  }, [displaySpaceCompany]);
 
   return (
     <div className="dashboardcompany">

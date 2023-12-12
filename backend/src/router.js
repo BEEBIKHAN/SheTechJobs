@@ -11,6 +11,7 @@ const departementControllers = require("./controllers/departementControllers");
 const contractControllers = require("./controllers/contractControllers");
 const jobControllers = require("./controllers/jobControllers");
 const applicationControllers = require("./controllers/applicationControllers");
+const authControllers = require("./controllers/authControllers");
 const newsletterControllers = require("./controllers/newsletterControllers");
 
 // CANDIDATE :
@@ -53,6 +54,10 @@ router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);
 // APPLICATIONS :
 router.get("/applications", applicationControllers.getAllApplications);
 router.get("/application/:id", applicationControllers.getAllApplicationsById);
+router.get(
+  "/applications-by-candidate/:candidateId",
+  applicationControllers.getListApplicationsByCandidate
+);
 router.post("/application", applicationControllers.postApplication);
 router.post(
   "/application-motivations",
@@ -72,6 +77,8 @@ router.post(
   auth.hashPassword,
   companyControllers.postCompany
 );
+
+router.post("/logout", authControllers.logout);
 
 router.put("/company/:id", auth.hashPassword, companyControllers.updateCompany);
 
@@ -93,12 +100,11 @@ router.get(
 // OFFERS :
 router.get("/offers", offerControllers.getAllOffers);
 router.get("/offers/:id", offerControllers.getAllOffersById);
+router.get("/offers-by-company/:companyId", offerControllers.getListOfferByCompany);
+
 router.get("/offer/:companyId", offerControllers.getListOfferByCompany);
 router.get("/offers/search/:title", offerControllers.findAllOffersByWord);
-router.get(
-  "/offers/search/type/:type",
-  offerControllers.findAllOffersByContract
-);
+router.get("/offers/search/type/:type", offerControllers.findAllOffersByContract);
 
 router.post("/offers", offerControllers.addOffer);
 router.put("/offers/:id", offerControllers.editOffer);

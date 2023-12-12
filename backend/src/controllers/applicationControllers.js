@@ -96,10 +96,28 @@ const getListApplicationsByOffer = (req, res) => {
     });
 };
 
+const getListApplicationsByCandidate = (req, res) => {
+  const { candidateId } = req.params;
+  models.application
+    .ListApplicationsByCandidate(candidateId)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   postApplication,
   postApplicationWithMotivations,
   getAllApplications,
   getAllApplicationsById,
+  getListApplicationsByCandidate,
   getListApplicationsByOffer,
 };

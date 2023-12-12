@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import MonEspace from "../components/MonEspace";
 import MonCv from "../components/MonCv";
 import CandidateAccountManagement from "../components/CandidateAccountManagement";
-import MyApplications from "../components/MyApplications";
+import CandidateMyApplications from "../components/CandidateMyApplications";
 
 export default function DashboardCandidate() {
   const [displayMonespace, setDisplayMonespace] = useState(1);
@@ -64,7 +64,7 @@ export default function DashboardCandidate() {
       <div className="centered-dashcandidatecomponents">
         {displayMonespace && <MonEspace />}
         {displayMonCv && <MonCv />}
-        {displayMyApplications && <MyApplications />}
+        {displayMyApplications && <CandidateMyApplications />}
         {displayAccountManagement && <CandidateAccountManagement />}
       </div>
     </div>
