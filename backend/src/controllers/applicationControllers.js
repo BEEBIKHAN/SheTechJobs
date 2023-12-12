@@ -76,10 +76,30 @@ const getAllApplicationsById = (req, res) => {
       res.sendStatus(500).send("Erreur lors du chargemernt de la candidature");
     });
 };
+const getListApplicationsByOffer = (req, res) => {
+  console.info("applications by offer route ");
+  const { id } = req.params;
+
+  models.application
+    .findListApplicationsByOffer(id)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+        console.info("success ");
+      } else {
+        res.send(rows);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500).send("Erreur lors du chargemernt de la candidature");
+    });
+};
 
 module.exports = {
   postApplication,
   postApplicationWithMotivations,
   getAllApplications,
   getAllApplicationsById,
+  getListApplicationsByOffer,
 };

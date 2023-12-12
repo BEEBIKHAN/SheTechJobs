@@ -147,7 +147,6 @@ const destroyCompany = (req, res) => {
     }
   });
 };
-
 module.exports = {
   getAllCompanies,
   postCompany,

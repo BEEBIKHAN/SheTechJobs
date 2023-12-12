@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import PublishOffer from "../components/PublishOffer";
 import SpaceCompany from "../components/SpaceCompany";
 import MyOffers from "../components/MyOffers";
+import MyCandidatures from "../components/MyCandidatures";
 import CompanyAccountManagement from "../components/CompanyAccountManagement";
 
 export default function DashboardCompany() {
   const [displaySpaceCompany, setDisplaySpaceCompany] = useState(1);
   const [displayPublishOffer, setDisplayPublishOffer] = useState(false);
   const [displayMyOffers, setDisplayMyOffers] = useState(false);
+  const [displayMyCandidatures, setDisplayMyCandidatures] = useState(false);
   const [displayAccountManagement, setDisplayAccountManagement] =
     useState(false);
 
@@ -15,6 +17,7 @@ export default function DashboardCompany() {
     setDisplaySpaceCompany(componentNumber === 1);
     setDisplayPublishOffer(componentNumber === 2);
     setDisplayMyOffers(componentNumber === 3);
+    setDisplayMyCandidatures(componentNumber === 4);
     setDisplayAccountManagement(componentNumber === 5);
   };
 
@@ -50,7 +53,11 @@ export default function DashboardCompany() {
             </button>
           </li>
           <li className="middle">
-            <button type="button" className="btnDashCompany">
+            <button
+              type="button"
+              className="btnDashCompany"
+              onClick={() => handleButtonClick(4)}
+            >
               Candidatures
             </button>
           </li>
@@ -69,6 +76,7 @@ export default function DashboardCompany() {
         {displaySpaceCompany && <SpaceCompany />}
         {displayPublishOffer && <PublishOffer />}
         {displayMyOffers && <MyOffers />}
+        {displayMyCandidatures && <MyCandidatures />}
         {displayAccountManagement && <CompanyAccountManagement />}
       </div>
     </div>
