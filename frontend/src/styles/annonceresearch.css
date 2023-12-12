@@ -1,40 +1,55 @@
-.filters, #annonce_h2 {
-    padding: 8px;
+.filters,
+#annonce_h2 {
+  padding: 8px;
 }
 
 .searchBar_offersResults {
-    background-color: #EBAF00;
-    padding: 1.2rem 1rem;
+  background-color: #ebaf00;
+  padding: 1.2rem 1rem;
 }
 
 .searchBar_offersResults > .search_bar {
-    width: 70%;
-    padding: 2px 4px;
-    border-radius: 32px;
+  width: 70%;
+  padding: 2px 4px;
+  border-radius: 32px;
 }
 
 @media (min-width: 620px) {
-    .filters {
-        display: flex;
-    }
+  .filters {
+    display: flex;
+  }
 
-    .filter {
-        padding: 8px;
-    }
+  .filter {
+    padding: 8px;
+  }
 
-    .searchBar_offersResults {
-        padding: 3rem;
-    }
+  .searchBar_offersResults {
+    padding: 3rem;
+    display: flex;
+  }
 
-    .searchBar_offersResults > .search_bar {
-        margin-top: -475px;
-        margin-left: -20px;
-        padding: 6px;
-        width: 30%;
-    }
+  .searchBar_offersResults > .search_bar {
+    margin-top: -460px;
+    margin-left: -20px;
+    padding: 6px;
+    width: 40%;
+    /* position: absolute; */
+    padding: 0px;
+    /* border: solid 2px red; */
+  }
 
-    .searchBar_offersResults > .search_bar > #search_btn {
-        margin-right: 0;
-        padding: 10px 8px;
-    }
+  .searchBar_offersResults > .search_bar > ::placeholder {
+    /* color: blue; */
+    font-size: 1em;
+    font-weight: lighter;
+    text-align: left;
+    padding: 10px;
+  }
+
+  .searchBar_offersResults > .search_bar > #search_btn {
+    margin: 6px;
+    width: 45%;
+    border: none;
+    font-size: 0.9rem;
+  }
 }

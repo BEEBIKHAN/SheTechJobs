@@ -12,6 +12,7 @@ const contractControllers = require("./controllers/contractControllers");
 const jobControllers = require("./controllers/jobControllers");
 const applicationControllers = require("./controllers/applicationControllers");
 const authControllers = require("./controllers/authControllers");
+const newsletterControllers = require("./controllers/newsletterControllers");
 
 // CANDIDATE :
 
@@ -91,16 +92,22 @@ router.put("/company-email/:id", companyControllers.UpdateEmailCompany);
 router.put("/company-password/:id", companyControllers.UpdatePasswordCompany);
 router.delete("/company/:id", companyControllers.destroyCompany);
 
+router.get(
+  "/offers/:id/applications",
+  applicationControllers.getListApplicationsByOffer
+);
+
 // OFFERS :
 router.get("/offers", offerControllers.getAllOffers);
 router.get("/offers/:id", offerControllers.getAllOffersById);
-router.get("/offers/search/:title", offerControllers.searchOfferByWord);
-router.get(
-  "/offers-by-company/:companyId",
-  offerControllers.getListOfferByCompany
-);
+router.get("/offers-by-company/:companyId", offerControllers.getListOfferByCompany);
+
+router.get("/offer/:companyId", offerControllers.getListOfferByCompany);
+router.get("/offers/search/:title", offerControllers.findAllOffersByWord);
+router.get("/offers/search/type/:type", offerControllers.findAllOffersByContract);
 
 router.post("/offers", offerControllers.addOffer);
+router.put("/offers/:id", offerControllers.editOffer);
 router.delete("/offers/:id", offerControllers.deleteOffer);
 
 // DEPARTEMENTS, CONTRACTS AND JOBS :
@@ -110,7 +117,8 @@ router.get("/contract", contractControllers.getAllContract);
 
 router.get("/job", jobControllers.getAllJob);
 
-// LOGOUT :
-// router.post("/logout", authControllers.logout);
+router.get("/newsletter", newsletterControllers.getUsers);
+router.post("/newsletter", newsletterControllers.registerUser);
+router.post("/send-newsletter", newsletterControllers.sendNewsletter);
 
 module.exports = router;

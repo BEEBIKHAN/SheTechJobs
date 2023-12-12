@@ -31,8 +31,7 @@
 }
 .Nom,
 .Prenom,
-.email,
-.telephone .localisation {
+.email {
   margin-bottom: 20px;
 }
 .btn_monespace {

@@ -14,7 +14,6 @@ function Navbar() {
   const [click, setClick] = useState(false);
 
   const { info, resetInfo } = useContext(ExportContext.Context);
-  // console.info("Info company du context :", infoCompany);
 
   const navigate = useNavigate();
   const deconnect = () => {
@@ -74,7 +73,13 @@ function Navbar() {
   const handleClick = () => setClick(!click);
 
   return (
-    <div className="navbar">
+    <div
+      className={
+        info.Role === "candidate" || info.Role === null
+          ? "navbar"
+          : "navbarCompany"
+      }
+    >
       <div className="logonavbar">
         <Link to="/">
           <img className="logoSTJ" src={LOGO} alt="" />
@@ -82,42 +87,66 @@ function Navbar() {
       </div>
 
       <ul className={click ? "nav-menu active" : "nav-menu"}>
-        <div className="navbartop">
+        {info.Role === "candidate" || info.Role === null ? (
+          <div className="navbartop">
           <div className="logoutBtn">
             <Link to="/">
               <button className="logoutBtn" type="button" onClick={deconnect}>
                 Se deconnecter
-              </button>
+               </button>
             </Link>
           </div>
-          <div className="blueline" />
-          <li className="nav-itemtop">
-            <img className="imageiconCV" src={cv} alt="" />
-            Mon CV
-          </li>
-          <div className="blueline" />
-          <li className="nav-itemtop">
-            <img className="imageicon" src={annonce} alt="" />
-            Mes annonces
-          </li>
+            <div className="blueline" />
+            <li className="nav-itemtop">
+              <img className="imageiconCV" src={cv} alt="" />
+              Mon CV
+            </li>
+            <div className="blueline" />
+            <li className="nav-itemtop">
+              <img className="imageicon" src={annonce} alt="" />
+              Mes annonces
+            </li>
 
-          <div className="blueline" />
-          <li className="nav-itemtop">{displayLinkCandidate()}</li>
-        </div>
+            <div className="blueline" />
+            <li className="nav-itemtop">{displayLinkCandidate()}</li>
+          </div>
+        ) : (
+          ""
+        )}
+
+            <div className="blueline" />
+            <li className="nav-itemtop">{displayLinkCandidate()}</li>
+          </div>
+        ) : (
+          ""
+        )}
         <div className="navbarbottom">
           <ul className="nav2">
-            <li className="nav-itembottom">Emplois en CDI</li>
-            <li className="nav-itembottom"> Emplois en CDD</li>
-            <li className="nav-itembottom">Contrats pro / alternance</li>
-            <li className="nav-itembottom">Stages</li>
+            <li className="nav-itembottom">
+              <a href="/search/type/cdi">Emplois en CDI</a>
+            </li>
+            <li className="nav-itembottom">
+              <a href="/search/type/cdd"> Emplois en CDD </a>
+            </li>
+            <li className="nav-itembottom">
+              <a href="/search/type/alternance"> Contrats pro / alternance </a>
+            </li>
+            <li className="nav-itembottom">
+              <a href="/search/type/stages"> Stages </a>
+            </li>
           </ul>
-          <div className="btn">
-            <button type="button" className="btnEspaceEntreprise">
-              {displayLinkCompany()}
-            </button>
-          </div>
+          {info.Role === "company" || info.Role === null ? (
+            <div className="btn">
+              <button type="button" className="btnEspaceEntreprise">
+                {displayLinkCompany()}
+              </button>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </ul>
+
       <div className="hamburger" onClick={handleClick}>
         {click ? <FaTimes size={30} /> : <FaBars size={30} />}
       </div>

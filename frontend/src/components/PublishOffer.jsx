@@ -15,6 +15,7 @@ export default function PublishOffer() {
   const [requiredProfil, setRequiredProfil] = useState("");
   const companyId = localStorage.getItem("id");
   const [success, setSuccess] = useState(false);
+  const companyId = localStorage.getItem("id");
 
   const handleChangeTitlePoste = (event) => {
     setTitlePoste(event.target.value);

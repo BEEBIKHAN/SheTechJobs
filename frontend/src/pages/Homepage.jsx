@@ -48,8 +48,8 @@ export default function Homepage() {
           <div className="img">
             <img src={frame} alt="fille au clavier" />
           </div>
+          <SearchBar />
         </div>
-        <SearchBar />
       </section>
       <div className="bodyGeneral">
         <div className="Title">

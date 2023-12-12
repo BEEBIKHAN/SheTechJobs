@@ -56,7 +56,37 @@ class ApplicationManager extends AbstractManager {
   ListApplicationsByCandidate(candidateId) {
     return this.database.query(
       `SELECT c.name as company_name, a.id as application_id, a.date as application_date, a.application_status, a.motivations, a.candidate_id, a.offer_id, o.title, o.profile_required, departement.name AS localisation, job.name AS métier FROM application AS a JOIN offer AS o ON a.offer_id = o.id JOIN company AS c ON o.company_id = c.id JOIN departement ON o.departement_id = departement.id JOIN job ON o.job_id = job.id WHERE a.candidate_id = ? ORDER BY a.date ASC`,
-      [candidateId]
+      [candidateId]);
+  }     
+      
+  findListApplicationsByOffer(id) {
+    return this.database.query(
+      `SELECT
+      application.*,
+      candidate.firstname,
+      candidate.lastname,
+      candidate.cv_link,
+      o.title AS offertitle,
+      contract.type,
+      d.name AS departementname,
+      j.name AS jobname
+  FROM
+      application
+  JOIN
+      offer o ON application.offer_id = o.id
+  JOIN
+      contract ON o.contract_id = contract.id
+  JOIN
+      departement d ON o.departement_id = d.id
+  JOIN
+      job j ON o.job_id = j.id
+  JOIN
+      company ON o.company_id = company.id
+  JOIN
+      candidate ON application.candidate_id = candidate.id
+  WHERE
+      company.id = ?`,
+      [id]
     );
   }
 }
