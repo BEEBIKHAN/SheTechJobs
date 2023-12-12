@@ -45,6 +45,7 @@ export default function LoginCompany() {
         localStorage.setItem("Email", response.data.email);
         localStorage.setItem("Siret", response.data.siret);
         localStorage.setItem("id", response.data.id);
+        // window.location.href = "/dashboardcompany";
         setError(false);
       })
       .catch((err) => {

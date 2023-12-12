@@ -11,6 +11,7 @@ const departementControllers = require("./controllers/departementControllers");
 const contractControllers = require("./controllers/contractControllers");
 const jobControllers = require("./controllers/jobControllers");
 const applicationControllers = require("./controllers/applicationControllers");
+const newsletterControllers = require("./controllers/newsletterControllers");
 
 // CANDIDATE :
 
@@ -32,6 +33,14 @@ router.put(
   auth.hashPassword,
   candidateControllers.updateCandidate
 );
+
+router.put("/candidate-email/:id", candidateControllers.UpdateEmailCandidate);
+router.put(
+  "/candidate-password/:id",
+  candidateControllers.UpdatePasswordCandidate
+);
+router.delete("/candidate/:id", candidateControllers.destroyCandidate);
+
 // cv is here
 router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);
 // application from here
@@ -72,6 +81,15 @@ router.post(
   companyControllers.verifyPassword
 );
 
+router.put("/company-email/:id", companyControllers.UpdateEmailCompany);
+router.put("/company-password/:id", companyControllers.UpdatePasswordCompany);
+router.delete("/company/:id", companyControllers.destroyCompany);
+
+router.get(
+  "/offers/:id/applications",
+  applicationControllers.getListApplicationsByOffer
+);
+
 // OFFERS :
 router.get("/offers", offerControllers.getAllOffers);
 router.get("/offers/:id", offerControllers.getAllOffersById);
@@ -92,5 +110,9 @@ router.get("/departement", departementControllers.getAllDepartement);
 router.get("/contract", contractControllers.getAllContract);
 
 router.get("/job", jobControllers.getAllJob);
+
+router.get("/newsletter", newsletterControllers.getUsers);
+router.post("/newsletter", newsletterControllers.registerUser);
+router.post("/send-newsletter", newsletterControllers.sendNewsletter);
 
 module.exports = router;

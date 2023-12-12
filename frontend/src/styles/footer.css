@@ -98,6 +98,7 @@
   font-size: 10px;
   padding-left: 3px;
   background-color: var(--color-text-clair);
+  color: var(--color-text);
 }
 
 .valider {

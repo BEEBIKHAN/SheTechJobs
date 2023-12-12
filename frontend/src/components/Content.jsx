@@ -13,6 +13,7 @@ import UpdateOffer from "../pages/UpdateOffer";
 import SearchResult from "../pages/SearchResult";
 import PrivateRoute from "../../../backend/src/services/PrivateRoute";
 import ExportContext from "../contexts/Context";
+import Page404 from "../pages/Page404";
 
 export default function Content() {
   const { info } = useContext(ExportContext.Context);
@@ -47,6 +48,7 @@ export default function Content() {
         <Route path="/logincompany" element={<LoginCompany />} />
         <Route path="/annonces" element={<AnnonceResearch />} />
         <Route path="/updateoffer/:id" element={<UpdateOffer />} />
+        <Route path="/*" element={<Page404 />} />
       </Routes>
     </section>
   );

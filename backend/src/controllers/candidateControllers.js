@@ -108,10 +108,65 @@ const verifyPassword = (req, res) => {
     });
 };
 
+const UpdateEmailCandidate = (req, res) => {
+  const { id } = req.params;
+  const { email } = req.body;
+  console.info("Req.body de l'update email :", req.body);
+  models.candidate
+    .updateEmail(email, id)
+    .then(([result]) => {
+      console.info(result);
+      res.status(200).json({
+        Message: "L'email de la candidate a été modifié avec succès",
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+      res
+        .status(500)
+        .json({ Message: "Erreur lors de la modification de l'email" });
+    });
+};
+
+const UpdatePasswordCandidate = (req, res) => {
+  const { id } = req.params;
+  const { hashedPassword } = req.body;
+  console.info("Req.body du mot de passe :", req.body);
+  models.candidate
+    .updatePassword(hashedPassword, id)
+    .then(([result]) => {
+      console.info(result);
+      res.status(200).json({
+        Message: "Le mot de passe de la candidate a été modifié avec succès",
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+      res
+        .status(500)
+        .json({ Message: "Erreur lors de la modification du mot de passe" });
+    });
+};
+
+const destroyCandidate = (req, res) => {
+  const { id } = req.params;
+
+  models.candidate.delete(id).then(([result]) => {
+    if (result.affectedRows === 0) {
+      res.sendStatus(404);
+    } else {
+      res.status(200).send("Candidate supprimée avec succès");
+    }
+  });
+};
+
 module.exports = {
   getAllCandidates,
   postCandidate,
   updateCandidate,
   verifyPassword,
   sendCv,
+  UpdateEmailCandidate,
+  UpdatePasswordCandidate,
+  destroyCandidate,
 };

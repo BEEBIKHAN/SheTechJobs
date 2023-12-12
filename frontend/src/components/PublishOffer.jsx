@@ -13,6 +13,7 @@ export default function PublishOffer() {
   const [whoWeAre, setwhoWeAre] = useState("");
   const [descriptionPoste, setDescriptionPoste] = useState("");
   const [requiredProfil, setRequiredProfil] = useState("");
+  const companyId = localStorage.getItem("id");
   const [success, setSuccess] = useState(false);
   const companyId = localStorage.getItem("id");
 
