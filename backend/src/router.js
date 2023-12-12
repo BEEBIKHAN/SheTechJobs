@@ -84,6 +84,11 @@ router.put("/company-email/:id", companyControllers.UpdateEmailCompany);
 router.put("/company-password/:id", companyControllers.UpdatePasswordCompany);
 router.delete("/company/:id", companyControllers.destroyCompany);
 
+router.get(
+  "/offers/:id/applications",
+  applicationControllers.getListApplicationsByOffer
+);
+
 // OFFERS :
 router.get("/offers", offerControllers.getAllOffers);
 router.get("/offers/:id", offerControllers.getAllOffersById);
