@@ -10,6 +10,7 @@ import LoginCompany from "../pages/LoginCompany";
 import AnnonceResearch from "../pages/AnnonceResearch";
 import UpdateOffer from "../pages/UpdateOffer";
 import SearchResult from "../pages/SearchResult";
+import Page404 from "../pages/Page404";
 
 export default function Content() {
   return (
@@ -27,6 +28,7 @@ export default function Content() {
         <Route path="/logincompany" element={<LoginCompany />} />
         <Route path="/annonces" element={<AnnonceResearch />} />
         <Route path="/updateoffer/:id" element={<UpdateOffer />} />
+        <Route path="/*" element={<Page404 />} />
       </Routes>
     </section>
   );

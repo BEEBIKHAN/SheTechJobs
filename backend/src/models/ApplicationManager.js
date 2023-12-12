@@ -52,6 +52,37 @@ class ApplicationManager extends AbstractManager {
       [id]
     );
   }
+
+  findListApplicationsByOffer(id) {
+    return this.database.query(
+      `SELECT
+      application.*,
+      candidate.firstname,
+      candidate.lastname,
+      candidate.cv_link,
+      o.title AS offertitle,
+      contract.type,
+      d.name AS departementname,
+      j.name AS jobname
+  FROM
+      application
+  JOIN
+      offer o ON application.offer_id = o.id
+  JOIN
+      contract ON o.contract_id = contract.id
+  JOIN
+      departement d ON o.departement_id = d.id
+  JOIN
+      job j ON o.job_id = j.id
+  JOIN
+      company ON o.company_id = company.id
+  JOIN
+      candidate ON application.candidate_id = candidate.id
+  WHERE
+      company.id = ?`,
+      [id]
+    );
+  }
 }
 
 module.exports = ApplicationManager;
