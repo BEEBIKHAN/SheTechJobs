@@ -75,7 +75,7 @@ function Navbar() {
   return (
     <div
       className={
-        info.Role === "candidate" || info.Role === null
+        info.Role === "candidate" || info.Role === "null"
           ? "navbar"
           : "navbarCompany"
       }
@@ -87,15 +87,15 @@ function Navbar() {
       </div>
 
       <ul className={click ? "nav-menu active" : "nav-menu"}>
-        {info.Role === "candidate" || info.Role === null ? (
+        {info.Role === "candidate" || info.Role === "null" ? (
           <div className="navbartop">
-          <div className="logoutBtn">
-            <Link to="/">
-              <button className="logoutBtn" type="button" onClick={deconnect}>
-                Se deconnecter
-               </button>
-            </Link>
-          </div>
+            <div className="logoutBtn">
+              <Link to="/">
+                <button className="logoutBtn" type="button" onClick={deconnect}>
+                  Se deconnecter
+                </button>
+              </Link>
+            </div>
             <div className="blueline" />
             <li className="nav-itemtop">
               <img className="imageiconCV" src={cv} alt="" />
@@ -114,12 +114,6 @@ function Navbar() {
           ""
         )}
 
-            <div className="blueline" />
-            <li className="nav-itemtop">{displayLinkCandidate()}</li>
-          </div>
-        ) : (
-          ""
-        )}
         <div className="navbarbottom">
           <ul className="nav2">
             <li className="nav-itembottom">
@@ -135,7 +129,7 @@ function Navbar() {
               <a href="/search/type/stages"> Stages </a>
             </li>
           </ul>
-          {info.Role === "company" || info.Role === null ? (
+          {info.Role === "company" || info.Role === "null" ? (
             <div className="btn">
               <button type="button" className="btnEspaceEntreprise">
                 {displayLinkCompany()}
