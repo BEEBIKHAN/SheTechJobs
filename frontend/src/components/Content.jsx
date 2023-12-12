@@ -28,7 +28,7 @@ export default function Content() {
         <Route path="/logincompany" element={<LoginCompany />} />
         <Route path="/annonces" element={<AnnonceResearch />} />
         <Route path="/updateoffer/:id" element={<UpdateOffer />} />
-        <Route path="/page404" element={<Page404 />} />
+        <Route path="/*" element={<Page404 />} />
       </Routes>
     </section>
   );
