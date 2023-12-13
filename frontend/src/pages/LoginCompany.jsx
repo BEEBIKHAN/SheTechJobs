@@ -47,7 +47,7 @@ export default function LoginCompany() {
         localStorage.setItem("id", response.data.id);
         navigate("/dashboardcompany");
         info();
-        // window.location.href = "/dashboardcompany";
+        window.location.href = "/dashboardcompany";
         setError(false);
       })
       .catch((err) => {
