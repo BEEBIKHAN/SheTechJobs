@@ -48,7 +48,9 @@ export default function Homepage() {
           <div className="img">
             <img src={frame} alt="fille au clavier" />
           </div>
-          <SearchBar />
+          <div className="searchBarHome">
+            <SearchBar />
+          </div>
         </div>
       </section>
       <div className="bodyGeneral">

@@ -1,13 +1,15 @@
 /*     body_middle      */
-*{
+* {
   font-family: var(--font-family-1);
 }
+
 .Title > p {
   margin-top: 15px;
   font-size: 20px;
   text-align: center;
-  font-family: var(  --font-family-1);
+  font-family: var(--font-family-1);
 }
+
 .iconsContainer {
   width: 90%;
   margin: 0 auto;
@@ -31,7 +33,6 @@
   color: var(--color-bleu-inter);
   padding: 10px;
 }
-
 
 .rocket {
   margin: 30px;
@@ -104,7 +105,7 @@
   font-size: 1.2rem;
   font-weight: bolder;
   letter-spacing: 1px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .img {
@@ -118,38 +119,12 @@
   margin-right: 30px;
   margin-bottom: 60px;
 }
-
-.search_bar {
+.searchBarHome {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-background-gris);
-  border-radius: 20px;
-  width: 90%;
-  margin: 0 auto;
-  margin-bottom: 30px;
 }
 
-#search_input {
-  border: none;
-  background-color: var(--color-background-gris);
-  border-radius: 20px;
-  text-align: center;
-  font-size: 12px;
-  color: var(--color-text);
-}
-
-#search_btn {
-  color: var(--color-text);
-  border-radius: 20px;
-  background-color: var(--color-bleu-clair);
-  padding: 8px 10px;
-  font-weight: 600;
-  margin-right: 6px;
-  border: none;
-  width: 150px;
-  cursor: pointer;
-}
 
 @media (min-width: 620px) {
   .header_general {
@@ -166,7 +141,6 @@
     align-items: center;
     margin-top: 20px;
     background-color: var(--color-background-gris);
-    margin-top: 100px;
   }
 
   .img {
@@ -188,9 +162,9 @@
   .title > h3 {
     font-size: 50px;
     padding-bottom: 20px;
-  letter-spacing: 3px;
+    letter-spacing: 3px;
   }
-  .left_side{
+  .left_side {
     margin-left: 50px;
   }
 
@@ -199,23 +173,16 @@
     flex-direction: row;
   }
 
-  .search_bar {
+  .searchBarHome {
     display: flex;
     justify-content: flex-start;
-    background-color: var(--color-background-gris);
-    border-radius: 30px;
-    padding: 10px 0;
-    width: 45%;
-    justify-content: space-between;
-    font-weight: 200;
-    margin: 0;
-    margin-left: 40px;
-    padding-right: 6px;
-    margin-top: -200px;
-    text-align: right;
+    align-items: flex-start;
+    margin-left: 120px;
+    margin-top: -150px;
   }
-  #search_input{
+
+  .searchBarHome > .search_bar {
     text-align: left;
-    padding-left: 40px;
+    padding: 8px;
   }
 }
