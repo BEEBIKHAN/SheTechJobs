@@ -105,7 +105,7 @@ export default function AnnonceResearch() {
   };
 
   return (
-    <>
+    <div className="AnnonceSearchPage">
       <div className="searchBar_offersResults">
         <SearchBar />
       </div>
@@ -155,6 +155,6 @@ export default function AnnonceResearch() {
             </div>
           ))}
       </div>
-    </>
+    </div>
   );
 }
