@@ -4,11 +4,17 @@
   padding: 0;
 }
 
+
 .navbar {
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-text-clair);
+  z-index: 999;
+  
 }
 
 .nav-menu {
