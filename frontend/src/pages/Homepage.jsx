@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import loop from "../assets/icons/loop.png";
 import rocket from "../assets/icons/rocket.png";
 import girl from "../assets/icons/girl.png";
@@ -14,6 +15,7 @@ export default function Homepage() {
       description:
         "Sur shetechjobs, vous aurez accès à une grande variété d’offres aussi bien pour les profils juniors que seniors.",
       action: "Accéder aux offres",
+      lien: "/annonces",
     },
     {
       id: "rocket",
@@ -22,6 +24,7 @@ export default function Homepage() {
       description:
         "Donnez un nouvel élan à votre entreprise en recrutant des candidates plus déterminées que jamais.",
       action: "Déposer une annonce",
+      lien: "/logincompany",
     },
     {
       id: "girl",
@@ -30,6 +33,7 @@ export default function Homepage() {
       description:
         "Intégrez une entreprise qui est en total accord avec votre vision du monde professionnel inspirant et épanouissant.",
       action: "Enregistrez votre CV",
+      lien: "/logincandidate",
     },
   ];
 
@@ -63,7 +67,9 @@ export default function Homepage() {
               </figure>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
-              <h4>{item.action}</h4>
+              <Link to={item.lien}>
+                <h4>{item.action}</h4>
+              </Link>
             </div>
           ))}
         </div>

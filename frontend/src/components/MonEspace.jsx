@@ -1,40 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import ExportContext from "../contexts/Context";
 
 export default function MonEspace() {
   const { info } = useContext(ExportContext.Context);
-  const data = {
-    Nom: "",
-    Prenom: "",
-    email: "",
-  };
-  const [inputData, setInputData] = useState(data);
-
-  useEffect(() => {
-    console.info("", inputData);
-  }, []);
-
-  function handleData(e) {
-    setInputData({ ...inputData, [e.target.name]: e.target.value });
-    console.info(inputData);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (!inputData.Nom || !inputData.Prenom || !inputData.email) {
-      // eslint-disable-next-line no-alert
-      alert("Tous les champs sont obligatoires");
-    } else {
-      console.info("Enregistrer les modifications");
-      setInputData(data);
-    }
-  }
 
   return (
     <div className="principal_monespace">
-      <span> Hello👋 {info.firstname}</span>
+      <span> Hello👋 {info.firstName}</span>
       <div className="fcontainer">
-        <form className="container" onSubmit={handleSubmit}>
+        <form className="container">
           <div className="fmonespace">
             <div className="comb_nom">
               <div className="Nom">
@@ -42,8 +16,7 @@ export default function MonEspace() {
                   type="text"
                   placeholder="Nom*"
                   name="Nom"
-                  value={inputData.Nom}
-                  onChange={handleData}
+                  value={info.lastName}
                 />
               </div>
               <div className="Prenom">
@@ -51,8 +24,7 @@ export default function MonEspace() {
                   type="text"
                   placeholder="Prenom*"
                   name="Prenom"
-                  value={inputData.Prenom}
-                  onChange={handleData}
+                  value={info.firstName}
                 />
               </div>
             </div>
@@ -61,8 +33,7 @@ export default function MonEspace() {
                 type="email"
                 placeholder="E-mail*"
                 name="email"
-                value={inputData.email}
-                onChange={handleData}
+                value={info.email}
               />
             </div>
             <div className="button_monespace">

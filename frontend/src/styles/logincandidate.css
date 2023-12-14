@@ -12,6 +12,11 @@
   width: 100%;
 }
 
+/* .imglogincandidate {
+  width: 100%;
+  height: auto;
+} */
+
 .formConnectionCandidate {
   display: flex;
   flex-direction: column;
@@ -20,6 +25,8 @@
   margin-bottom: 30px;
   background-color: var(--color-background-gris);
   width: 80%;
+  margin-right: 50px;
+
 }
 
 .formConnectionCandidate > h2 {
@@ -79,6 +86,13 @@
   font-weight: bolder;
 }
 
+.loginBtn {
+  padding: 8px 16px;
+  margin: 0px 0px 24px 110px;
+  background-color: var(--color-bleu-foncé);
+  color: white;
+}
+
 @media (min-width: 620px) {
   .connectionCandidate {
     background-image: url(../assets/images/woman.png);
@@ -91,8 +105,9 @@
     background-image: none;
   }
 
-  .formConnectionrCandidate {
+  .formConnectionCandidate {
     width: 50%;
+    margin-right: 100px;
   }
 
   .formConnectionCandidate > .login_form_candidate > button {

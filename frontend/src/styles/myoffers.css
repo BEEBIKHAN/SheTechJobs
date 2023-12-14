@@ -32,6 +32,7 @@
   width: 40%;
   height: 2rem;
   margin: 6px 6px;
+  cursor: pointer;
 }
 
 .btnMyOffers > a {

@@ -111,14 +111,10 @@ export default function PublishOffer() {
     console.info("Profil recherché", requiredProfil);
   }, [requiredProfil]);
 
-  console.info("titre du poste:", titlePoste);
-  console.info("métier selectionné:", jobSelect);
-  console.info("Type de contract:", typeDeContrat);
-
   return (
     <div className="content_publish_offer">
-      <form onSubmit={addOffer}>
-        <div className="publish_form_input" action="">
+      <form onSubmit={addOffer} className="formAddOffer">
+        <div className="publish_form_input">
           <div className="input_wrapper">
             <label htmlFor="name">Titre du poste *</label>
             <input

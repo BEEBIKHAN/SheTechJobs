@@ -11,8 +11,8 @@ function Provider({ children }) {
     companyName: localStorage.getItem("companyName"),
     email: localStorage.getItem("Email"),
     siret: localStorage.getItem("Siret"),
-    firstName: localStorage.getItem("firstName"),
-    lastName: localStorage.getItem("lastName"),
+    firstName: localStorage.getItem("firstname"),
+    lastName: localStorage.getItem("lastname"),
     offertitle: localStorage.getItem("title"),
     company_description: localStorage.getItem("company_description"),
     job_description: localStorage.getItem("job_description"),
@@ -26,7 +26,7 @@ function Provider({ children }) {
     localStorage.setItem("companyName");
     localStorage.setItem("Email", null);
     localStorage.setItem("Siret");
-    localStorage.setItem("firstname", null);
+    localStorage.setItem("firstname");
     localStorage.setItem("lastname", null);
   };
 
