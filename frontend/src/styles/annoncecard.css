@@ -14,6 +14,10 @@
   align-items: flex-start;
 }
 
+.annonce_snippet > button {
+border: none;
+}
+
 .annonce_card {
   width: 95%;
   display: flex;
@@ -48,6 +52,9 @@
   font-size: 8px;
   margin: 0px 2px 0 16px;
   text-align: center;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
 }
 
 .profil_required {

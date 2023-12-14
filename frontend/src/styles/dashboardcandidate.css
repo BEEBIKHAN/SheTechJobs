@@ -1,6 +1,6 @@
 .dashboard_Candidate {
   display: flex;
-  background-color: #efefef; /*var(--color-background-gris);*/
+  background-color:var(--color-background-gris);
   width: 100%;
 }
 .btn_DashCandidate {
@@ -19,14 +19,14 @@
 }
 
 .nav_candidate a {
-  color: #122529; /*var(--color-text);*/
+  color: var(--color-text);
   padding: 5px;
   line-height: 10px;
 }
 
 .nav_candidate a:hover {
   font-weight: bolder;
-  color: #122529; /*var(--color-text)*/
+  color:var(--color-text)
 }
 
 .option:hover {
@@ -39,7 +39,7 @@
   bottom: -3px;
   right: 70%;
   width: 30%;
-  border-bottom: 3px solid #fb8500; /*var(--color-orange-foncé);*/
+  border-bottom:var(--color-orange-foncé);
 }
 
 @media (min-width: 620px) {
@@ -52,13 +52,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background-color: #efefef; /*var(--color-background-gris);*/
+    background-color:var(--color-background-gris);
     height: 95vh;
     width: 100%;
   }
   .principal_dasboard {
     display: flex;
-    /* Add any additional styles you need for the container */
   }
   .mon_espace {
     padding-bottom: 50px;
@@ -67,7 +66,7 @@
     margin-top: 50px;
   }
   .option:hover {
-    border-left: 3px solid #fb8500; /*var(--color-orange-foncé);*/
+    border-left:var(--color-orange-foncé);
   }
   .option:hover::after {
     border-bottom: none;

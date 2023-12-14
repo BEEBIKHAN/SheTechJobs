@@ -29,10 +29,11 @@
   margin-bottom: 20px;
 }
 .btn_monespace {
-  background-color: #f5b800;
+  background-color: var(--color-orange );
   border-radius: 20px;
   padding: 5px;
   cursor: pointer;
+  border: none;
 }
 .button_monespace {
   display: flex;

@@ -11,6 +11,7 @@
 margin-left: 20px;
 }
 
+
 @media (min-width: 620px) {
   .filters {
     display: flex;
@@ -32,28 +33,4 @@ margin-left: 20px;
     margin: none;
   }
 
-  /*.searchBar_offersResults > .search_bar {
-    margin-top: -460px;
-    margin-left: -20px;
-    padding: 6px;
-    width: 40%;
-    padding: 0px;
-    /* border: solid 2px red; */
-
-  /*.searchBar_offersResults > .search_bar > ::placeholder {
-  
-    font-size: 1em;
-    font-weight: lighter;
-    text-align: left;
-    padding: 10px;
-  }
-
-  .searchBar_offersResults > .search_bar > #search_btn {
-    margin: 6px;
-    width: 45%;
-    border: none;
-    font-size: 0.9rem;
-  }
-  searchBar_offersResults{}
-}*/
 }

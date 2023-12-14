@@ -27,12 +27,13 @@
   margin-top: 2rem;
   background-color: white;
 }
+
 .btn_cv {
   background-color: var(--color-orange);
   border-radius: 20px;
   padding: 5px;
 }
-.btn_upload {
+.btn_upload  {
   background-color: var(--color-orange);
   border-radius: 20px;
   padding: 5px;
@@ -42,10 +43,17 @@
   justify-content: left;
   margin-top: 40%;
 }
-.buttonupload {
+.buttonupload > button{
   display: flex;
   justify-content: left;
   margin-top: 20%;
+  background-color: var(--color-orange );
+  border-radius: 20px;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+ 
 }
 
 @media (min-width: 620px) {
