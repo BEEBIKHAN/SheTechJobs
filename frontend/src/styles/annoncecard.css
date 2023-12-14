@@ -20,13 +20,11 @@
   flex-direction: row;
   align-items: center;
   margin: 0 10px;
-  /* background: #ffffff; */
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
 
 .annonce_title > h2 {
-  /* background-color: white; */
   width: 100%;
   color: blue;
   text-align: left;
@@ -62,7 +60,6 @@
   }
   .boxannonce {
     width: 90%;
-    /* border: #ebaf00 solid 3px; */
   }
   .btnAnnonce {
     width: 50%;

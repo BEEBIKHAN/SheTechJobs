@@ -57,9 +57,24 @@
     width: 15%;
     justify-content: center;
     align-items: center;
-    margin: 10px 30px;
+    margin: 10px 20px;
+    border: none;
+    cursor: pointer;
   }
   .boutonOffer {
     margin: 10px;
+  }
+  .ul_bouton_myoffer {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .ul_bouton_myoffer > li {
+    padding: 16px;
+  }
+
+  .ul_bouton_myoffer > li {
+    border: none;
+    padding: 8px 80px;
   }
 }
