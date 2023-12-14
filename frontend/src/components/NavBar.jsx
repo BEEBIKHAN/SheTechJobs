@@ -49,10 +49,12 @@ function Navbar() {
 
   const handleClick = () => setClick(!click);
 
+  console.info(info);
+
   return (
     <div
       className={
-        info.Role === "candidate" || info.Role === "undefined"
+        info.Role === "candidate" || info.Role === "null"
           ? "navbar"
           : "navbarCompany"
       }
@@ -141,7 +143,7 @@ function Navbar() {
         ) : (
           ""
         )}
-        {info.Role === "undefined" ? (
+        {info.Role === "null" ? (
           <>
             <div className="genericNavbar">
               <div className="navbartop">
