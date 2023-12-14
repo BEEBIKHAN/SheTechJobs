@@ -1,6 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import ExportContext from "../contexts/Context";
 
 export default function MonEspace() {
+  const { info } = useContext(ExportContext.Context);
+  console.info("Etat de mon context", info);
+
   const data = {
     Nom: "",
     Prenom: "",
@@ -19,20 +23,9 @@ export default function MonEspace() {
     console.info(inputData);
   }
 
-  function handleTelephone(e) {
-    const inputValue = e.target.value;
-    const numericValue = inputValue.replace(/[^0-9]/, "");
-    setInputData({ ...inputData, telephone: numericValue });
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
-    if (
-      !inputData.Nom ||
-      !inputData.Prenom ||
-      !inputData.email ||
-      !inputData.telephone
-    ) {
+    if (!inputData.Nom || !inputData.Prenom || !inputData.email) {
       // eslint-disable-next-line no-alert
       alert("Tous les champs sont obligatoires");
     } else {
@@ -52,7 +45,7 @@ export default function MonEspace() {
                   type="text"
                   placeholder="Nom*"
                   name="Nom"
-                  value={inputData.Nom}
+                  value={info.lastname}
                   onChange={handleData}
                 />
               </div>
@@ -61,7 +54,7 @@ export default function MonEspace() {
                   type="text"
                   placeholder="Prenom*"
                   name="Prenom"
-                  value={inputData.Prenom}
+                  value={info.firstname}
                   onChange={handleData}
                 />
               </div>
@@ -71,32 +64,14 @@ export default function MonEspace() {
                 type="email"
                 placeholder="E-mail*"
                 name="email"
-                value={inputData.email}
-                onChange={handleData}
-              />
-            </div>
-            <div className="telephone">
-              <input
-                type="tel"
-                placeholder="Telephone*"
-                name="telephone"
-                value={inputData.telephone}
-                onChange={handleTelephone}
-              />
-            </div>
-            <div className="location">
-              <input
-                type="text"
-                placeholder="Localisation"
-                name="location"
-                value={inputData.location}
+                value={info.Email}
                 onChange={handleData}
               />
             </div>
             <div className="button_monespace">
-              <button className="btn_monespace" type="submit">
+              {/* <button className="btn_monespace" type="submit">
                 Enregistrer
-              </button>
+              </button> */}
             </div>
           </div>
         </form>

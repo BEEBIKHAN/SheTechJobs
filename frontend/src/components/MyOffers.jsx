@@ -15,7 +15,21 @@ export default function MyOffers() {
       .then((response) => {
         console.info(response);
       });
-    window.location.assign("/dashboardcompany");
+    // window.location.assign("/dashboardcompany");
+  };
+
+  const closeOffer = (offerId) => {
+    axios
+      .put(`${import.meta.env.VITE_BACKEND_URL}/offer/status/${offerId}`, {
+        status: 1,
+      })
+      .then((response) => {
+        setData((prevOffers) =>
+          prevOffers.map((offer) =>
+            offer.id === offerId ? response.data : offer
+          )
+        );
+      });
   };
 
   useEffect(() => {
@@ -44,11 +58,18 @@ export default function MyOffers() {
                   Modifier
                 </Link>
               </button>
-
-              <button type="submit" className="btnMyOffers">
-                Clôturer
-              </button>
-
+              <li key={offer.id}>
+                {offer.status === 1 ? "Published" : "Closed"}
+                <button
+                  type="submit"
+                  onClick={() => {
+                    closeOffer(offer.id);
+                  }}
+                  className="btnMyOffers"
+                >
+                  Clôturer
+                </button>
+              </li>
               <button
                 type="button"
                 onClick={() => deleteOffer(offer.id)}
