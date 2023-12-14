@@ -138,10 +138,6 @@ const deleteOffer = (req, res) => {
 const updateOfferStatus = (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
-  // const offer = req.body;
-  // offer.status = 2; // Set status to 2 (closed)
-
-  // console.error("test", status);
 
   models.offer
     .updateOfferStatus(status, id)

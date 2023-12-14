@@ -13,7 +13,6 @@ function Navbar() {
   const [click, setClick] = useState(false);
 
   const { info } = useContext(ExportContext.Context);
-  console.info("Info du rôle depuis la navbar :", info.Role);
 
   const displayLinkCandidate = () => {
     if (info.Role === "candidate") {
@@ -47,8 +46,6 @@ function Navbar() {
       </Link>
     );
   };
-
-  console.info(info);
 
   const handleClick = () => setClick(!click);
 
