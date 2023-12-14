@@ -24,3 +24,11 @@
   padding: 5%;
   margin: 30px 15px 15px 15px;
 }
+.attenteButton, .refuserButton, .attenteButton{
+  background-color: var(--color-bleu-foncé);
+  color: var(--color-text-clair);
+  border-radius: 20px;
+  width: 40%;
+  height: 2rem;
+  margin: 6px 6px;
+}

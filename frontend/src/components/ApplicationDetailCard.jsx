@@ -29,13 +29,25 @@ export default function ApplicationDetailCard({ application, onStatusChange }) {
       {/* Display application details */}
       <div>{/* Application details here */}</div>
       {/* Buttons for changing status */}
-      <button type="button" onClick={() => updateStatus(0)}>
+      <button
+        type="button"
+        className="acceptButton"
+        onClick={() => updateStatus(0)}
+      >
         Accept
       </button>
-      <button type="button" onClick={() => updateStatus(1)}>
-        Waiting
+      <button
+        type="button"
+        className="attenteButton"
+        onClick={() => updateStatus(1)}
+      >
+        Attente
       </button>
-      <button type="button" onClick={() => updateStatus(2)}>
+      <button
+        type="button"
+        className="refuserButton"
+        onClick={() => updateStatus(2)}
+      >
         Refuser
       </button>
     </div>
