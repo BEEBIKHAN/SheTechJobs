@@ -95,6 +95,25 @@ const getListApplicationsByOffer = (req, res) => {
       res.sendStatus(500).send("Erreur lors du chargemernt de la candidature");
     });
 };
+const updateApplicationStatus = (req, res) => {
+  const { id } = req.params;
+  const { application_status } = req.body;
+  console.info("Req.body de l'update application status :", req.body);
+  models.application
+    .updateStatus(application_status, id)
+    .then(([result]) => {
+      console.info(result);
+      res.status(200).json({
+        Message: "Le status de la candidate a été modifié avec succès",
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({
+        Message: "Erreur lors de la modification de application status",
+      });
+    });
+};
 
 module.exports = {
   postApplication,
@@ -102,4 +121,5 @@ module.exports = {
   getAllApplications,
   getAllApplicationsById,
   getListApplicationsByOffer,
+  updateApplicationStatus,
 };
