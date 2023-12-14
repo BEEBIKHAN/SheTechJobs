@@ -27,6 +27,7 @@ import "./styles/applicationsbycandidate.css";
 import "./styles/page404.css";
 import "./styles/mycandidatures.css";
 import "./styles/applicationcard.css";
+import "./styles/candidaturesstatus.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

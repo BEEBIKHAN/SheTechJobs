@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
 import React from "react";
@@ -6,10 +8,10 @@ import { Link } from "react-router-dom";
 import contracticon from "../assets/icons/contracticon.png";
 import depticon from "../assets/icons/depticon.png";
 
-export default function ApplicationCard({ application }) {
+export default function ApplicationCard({ application, onSelect }) {
   console.info(application);
   return (
-    <div className="applicationCardb">
+    <div className="applicationCardb" onClick={() => onSelect(application)}>
       <div className="wholeapplicationcardb">
         <div className="offertitleb">
           <h3>{application.offertitle}</h3>

@@ -47,6 +47,10 @@ router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);
 // application from here
 router.get("/application", applicationControllers.getAllApplications);
 router.get("/application/:id", applicationControllers.getAllApplicationsById);
+router.put(
+  "/applicationstatus/:id",
+  applicationControllers.updateApplicationStatus
+);
 
 // CV :
 router.post("/moncv", uploadMiddleware.uploadFile, candidateControllers.sendCv);
