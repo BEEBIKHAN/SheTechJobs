@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
 export default function ApplicationByCandidate({ applicationCard }) {
-// eslint-disable-next-line consistent-return
+  // eslint-disable-next-line consistent-return
   const displayStatus = () => {
     if (applicationCard.application_status === 2) {
       return (
@@ -25,7 +25,6 @@ export default function ApplicationByCandidate({ applicationCard }) {
       );
     }
   };
-  const status = displayStatus();
 
   return (
     applicationCard && (
@@ -33,10 +32,9 @@ export default function ApplicationByCandidate({ applicationCard }) {
         <div className="application_snippet">
           <div className="annonce_title">
             <h2>{applicationCard.title}</h2>
-            {displayApplicationStatut()}
           </div>
           <div className="companyName">
-            {status}
+            {displayStatus()}
             <h3>{applicationCard.company_name}</h3>
           </div>
           <div className="annonce_localisation">
