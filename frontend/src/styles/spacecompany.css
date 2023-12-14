@@ -21,6 +21,12 @@
   margin: 30px 15px 15px 15px;
 }
 
+.contentspacecompany > span {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
 .publish_form_input {
   display: flex;
   flex-direction: column;
@@ -61,6 +67,11 @@
     margin: 30px 30px 30px 0px;
   }
 
+  .contentspacecompany > span {
+    justify-content: end;
+    margin-bottom: 80px;
+  }
+
   .btnSpaceCompany {
     margin-top: 20px;
     height: 2rem;
@@ -69,6 +80,5 @@
 
   .btnUpdateOffer {
     margin: 20px 0px 20px 0px;
-   
   }
 }

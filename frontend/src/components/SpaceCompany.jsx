@@ -3,9 +3,10 @@ import ExportContext from "../contexts/Context";
 
 export default function SpaceCompany() {
   const { info } = useContext(ExportContext.Context);
-  console.info("Etat de mon context", info);
+
   return (
     <div className="contentspacecompany">
+      <span> Hello👋 {info.companyName}</span>
       <form action="">
         <div className="publish_form_input">
           <div className="input_wrapper">

@@ -15,7 +15,7 @@
   margin: 0 70px;
 }
 
-.companyDeleteAccount > .btnAccountManagement {
+.companyDeleteAccount > a > .btnAccountManagement {
   margin: 10px 70px;
 }
 
@@ -50,7 +50,7 @@
 
 .companyEmailFormContent > .email_form > .btnAccountManagement,
 .companyPasswordFormContent > .password_form > .btnAccountManagement,
-.companyDeleteAccount > .btnAccountManagement {
+.companyDeleteAccount > a > .btnAccountManagement {
   color: white;
   background-color: #023047;
   border-radius: 16px;

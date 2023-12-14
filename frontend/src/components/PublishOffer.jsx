@@ -113,8 +113,8 @@ export default function PublishOffer() {
 
   return (
     <div className="content_publish_offer">
-      <form onSubmit={addOffer}>
-        <div className="publish_form_input" action="">
+      <form onSubmit={addOffer} className="formAddOffer">
+        <div className="publish_form_input">
           <div className="input_wrapper">
             <label htmlFor="name">Titre du poste *</label>
             <input

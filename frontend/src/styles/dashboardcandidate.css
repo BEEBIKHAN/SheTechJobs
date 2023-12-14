@@ -42,6 +42,10 @@
   border-bottom: 3px solid #fb8500; /*var(--color-orange-foncé);*/
 }
 
+.logoutBtn {
+  padding: 8px 16px;
+}
+
 @media (min-width: 620px) {
   .dashboard_Candidate {
     justify-content: center;

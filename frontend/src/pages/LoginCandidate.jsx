@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import ExportContext from "../contexts/Context";
 
@@ -73,6 +73,12 @@ export default function LoginCandidate() {
           />
 
           <button type="submit">Se connecter</button>
+          <p>Vous êtes une entrprise ?</p>
+          <Link to="/logincompany">
+            <button className="loginBtn" type="button">
+              Connection entreprise
+            </button>
+          </Link>
           {success ? <p>{success}</p> : ""}
           {error ? "Email ou mot de passe incorrect" : ""}
         </form>

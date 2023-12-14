@@ -51,6 +51,15 @@
   padding: 70px 20px;
 }
 
+.genericNavbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  padding: 70px 20px;
+}
+
 .nav-itembottom {
   padding: 10px 0px 10px;
   font-size: 1rem;
@@ -113,7 +122,7 @@ li.nav-itemtop {
   .navbarCompany {
     padding: 0;
     background-color: white;
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 
   .navbar-column {
@@ -143,6 +152,15 @@ li.nav-itemtop {
     align-items: center;
   }
 
+  .loginDiv {
+    margin-top: 10px;
+  }
+
+  .loginBtn {
+    padding: 4px 16px;
+    margin-top: 12px;
+  }
+
   .imageicon {
     margin-right: 9px;
     width: 20px;
@@ -170,6 +188,13 @@ li.nav-itemtop {
   }
 
   .navbartop {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 20px 20px;
+  }
+
+  .genericNavbar {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;

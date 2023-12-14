@@ -23,9 +23,11 @@ import "./styles/myoffers.css";
 import "./styles/companyaccountmanagement.css";
 import "./styles/candidateaccountmanagement.css";
 import "./styles/myapplications.css";
+import "./styles/applicationsbycandidate.css";
 import "./styles/page404.css";
 import "./styles/mycandidatures.css";
 import "./styles/applicationcard.css";
+import "./styles/candidaturesstatus.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

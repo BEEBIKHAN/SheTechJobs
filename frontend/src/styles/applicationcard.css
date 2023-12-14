@@ -19,14 +19,14 @@
 .jobnameb {
   display: flex;
   margin: 5px;
-  color:#fb8500;
-  
+  color: #fb8500;
+
   order: 2;
 }
 .offerdateb {
   display: flex;
   margin: 5px;
-  color:black;
+  color: black;
   order: 3;
 }
 .contract_typeb {
@@ -59,6 +59,6 @@
   height: 20px;
   margin-left: 5px;
 }
-.wholeapplicationcardb{
+.wholeapplicationcardb {
   margin-left: 10px;
 }

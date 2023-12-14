@@ -3,7 +3,6 @@ import ExportContext from "../contexts/Context";
 
 export default function MonEspace() {
   const { info } = useContext(ExportContext.Context);
-  console.info("Etat de mon context", info);
 
   const data = {
     Nom: "",
@@ -12,6 +11,7 @@ export default function MonEspace() {
     telephone: "",
     location: "",
   };
+  
   const [inputData, setInputData] = useState(data);
 
   useEffect(() => {
@@ -36,8 +36,9 @@ export default function MonEspace() {
 
   return (
     <div className="principal_monespace">
+      <span> Hello👋 {info.firstName}</span>
       <div className="fcontainer">
-        <form className="container" onSubmit={handleSubmit}>
+        <form className="container">
           <div className="fmonespace">
             <div className="comb_nom">
               <div className="Nom">
@@ -69,9 +70,6 @@ export default function MonEspace() {
               />
             </div>
             <div className="button_monespace">
-              {/* <button className="btn_monespace" type="submit">
-                Enregistrer
-              </button> */}
             </div>
           </div>
         </form>

@@ -53,7 +53,8 @@
     padding-top: 100px;
     width: 130vh;
     height: 100vh;
-    margin: 30px 30px 30px 0px;
+    /* margin: 30px 30px 30px 0px; */
+    margin: 30px auto;
   }
   .file-input-container {
     display: flex;
