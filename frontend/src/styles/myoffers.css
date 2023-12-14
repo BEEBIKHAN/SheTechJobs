@@ -39,7 +39,6 @@
   color: white;
 }
 
-
 @media (min-width: 620px) {
   .annonce_listOffer {
     display: flex;
@@ -75,7 +74,7 @@
   }
 
   .ul_bouton_myoffer > li {
-
-border: none;
-padding: 8px 80px }
+    border: none;
+    padding: 8px 80px;
+  }
 }
