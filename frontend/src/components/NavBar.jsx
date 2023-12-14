@@ -64,6 +64,18 @@ function Navbar() {
           <img className="logoSTJ" src={LOGO} alt="" />
         </Link>
       </div>
+      <ul className={click ? "nav-menu active" : "nav-menu"}>
+        {info.Role === "candidate" || info.Role === null ? (
+          <div className="navbartop">
+            <li className="nav-itemtop">
+              <img className="imageiconCV" src={cv} alt="" />
+              Mon CV
+            </li>
+            <div className="blueline" />
+            <li className="nav-itemtop">
+              <img className="imageicon" src={annonce} alt="" />
+              Mes candidatures
+            </li>
 
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         {info.Role === "candidate" ? (

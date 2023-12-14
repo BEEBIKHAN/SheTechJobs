@@ -1,8 +1,38 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ExportContext from "../contexts/Context";
 
 export default function MonEspace() {
   const { info } = useContext(ExportContext.Context);
+
+  const data = {
+    Nom: "",
+    Prenom: "",
+    email: "",
+    telephone: "",
+    location: "",
+  };
+  
+  const [inputData, setInputData] = useState(data);
+
+  useEffect(() => {
+    console.info("Enregistrer");
+  }, []);
+
+  function handleData(e) {
+    setInputData({ ...inputData, [e.target.name]: e.target.value });
+    console.info(inputData);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!inputData.Nom || !inputData.Prenom || !inputData.email) {
+      // eslint-disable-next-line no-alert
+      alert("Tous les champs sont obligatoires");
+    } else {
+      console.info("Enregistrer les modifications");
+      setInputData(data);
+    }
+  }
 
   return (
     <div className="principal_monespace">
@@ -16,7 +46,8 @@ export default function MonEspace() {
                   type="text"
                   placeholder="Nom*"
                   name="Nom"
-                  value={info.lastName}
+                  value={info.lastname}
+                  onChange={handleData}
                 />
               </div>
               <div className="Prenom">
@@ -24,7 +55,8 @@ export default function MonEspace() {
                   type="text"
                   placeholder="Prenom*"
                   name="Prenom"
-                  value={info.firstName}
+                  value={info.firstname}
+                  onChange={handleData}
                 />
               </div>
             </div>
@@ -33,13 +65,11 @@ export default function MonEspace() {
                 type="email"
                 placeholder="E-mail*"
                 name="email"
-                value={info.email}
+                value={info.Email}
+                onChange={handleData}
               />
             </div>
             <div className="button_monespace">
-              <button className="btn_monespace" type="submit">
-                Enregistrer
-              </button>
             </div>
           </div>
         </form>
