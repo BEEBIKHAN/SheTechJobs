@@ -1,20 +1,31 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
 export default function ApplicationByCandidate({ applicationCard }) {
-  console.info("aplication card :", applicationCard);
-
-  // eslint-disable-next-line consistent-return
-  const displayApplicationStatut = () => {
+// eslint-disable-next-line consistent-return
+  const displayStatus = () => {
     if (applicationCard.application_status === 2) {
-      return <h1>Refusé</h1>;
-    }
-    if (applicationCard.application_status === 1) {
-      return <h1>En attente</h1>;
+      return (
+        <div className="refuse_application">
+          <h2>Refusé</h2>
+        </div>
+      );
     }
     if (applicationCard.application_status === 0) {
-      return <h1>Accepté</h1>;
+      return (
+        <div className="accept_application">
+          <h2>Accepté</h2>
+        </div>
+      );
+    }
+    if (applicationCard.application_status === 1) {
+      return (
+        <div className="wait_application">
+          <h2>En attente</h2>
+        </div>
+      );
     }
   };
+  const status = displayStatus();
 
   return (
     applicationCard && (
@@ -25,6 +36,7 @@ export default function ApplicationByCandidate({ applicationCard }) {
             {displayApplicationStatut()}
           </div>
           <div className="companyName">
+            {status}
             <h3>{applicationCard.company_name}</h3>
           </div>
           <div className="annonce_localisation">
@@ -36,20 +48,6 @@ export default function ApplicationByCandidate({ applicationCard }) {
           <div className="profil_required">
             {applicationCard.profile_required}
           </div>
-        </div>
-        <div className="btnsApplication">
-          <button
-            type="button"
-            className="btnMyApplications btnEnAttente active"
-          >
-            En attente
-          </button>
-          <button type="button" className="btnMyApplications btnAcceptee">
-            Acceptée
-          </button>
-          <button type="button" className="btnMyApplications btnRefusee">
-            Refusée
-          </button>
         </div>
       </div>
     )
