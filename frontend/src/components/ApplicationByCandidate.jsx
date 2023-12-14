@@ -4,13 +4,25 @@ export default function ApplicationByCandidate({ applicationCard }) {
   // eslint-disable-next-line consistent-return
   const displayStatus = () => {
     if (applicationCard.application_status === 2) {
-      return "Refusé";
-    }
-    if (applicationCard.application_status === 1) {
-      return "Accepté";
+      return (
+        <div className="refuse_application">
+          <h2>Refusé</h2>
+        </div>
+      );
     }
     if (applicationCard.application_status === 0) {
-      return "Attente";
+      return (
+        <div className="accept_application">
+          <h2>Accepté</h2>
+        </div>
+      );
+    }
+    if (applicationCard.application_status === 1) {
+      return (
+        <div className="wait_application">
+          <h2>En attente</h2>
+        </div>
+      );
     }
   };
   const status = displayStatus();
@@ -22,7 +34,7 @@ export default function ApplicationByCandidate({ applicationCard }) {
             <h2>{applicationCard.title}</h2>
           </div>
           <div className="companyName">
-            <h2>{status}</h2>
+            {status}
             <h3>{applicationCard.company_name}</h3>
           </div>
           <div className="annonce_localisation">
@@ -34,20 +46,6 @@ export default function ApplicationByCandidate({ applicationCard }) {
           <div className="profil_required">
             {applicationCard.profile_required}
           </div>
-        </div>
-        <div className="btnsApplication">
-          <button
-            type="button"
-            className="btnMyApplications btnEnAttente active"
-          >
-            En attente
-          </button>
-          <button type="button" className="btnMyApplications btnAcceptee">
-            Acceptée
-          </button>
-          <button type="button" className="btnMyApplications btnRefusee">
-            Refusée
-          </button>
         </div>
       </div>
     )

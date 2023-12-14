@@ -12,6 +12,20 @@
   align-items: center;
   margin: 0 10px;
 }
+.companyName > .refuse_application > h2 {
+  color:red;
+  margin-left: 35rem;
+}
+
+.companyName > .accept_application > h2 {
+  color:green;
+  margin-left: 35rem;
+}
+
+.companyName > .wait_application > h2 {
+  color:orange;
+  margin-left: 35rem;
+}
 
 .application_snippet {
   width: 100%;

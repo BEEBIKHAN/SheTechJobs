@@ -26,9 +26,6 @@ export default function ApplicationDetailCard({ application, onStatusChange }) {
 
   return (
     <div className="applicationDetailCard">
-      {/* Display application details */}
-      <div>{/* Application details here */}</div>
-      {/* Buttons for changing status */}
       <button
         type="button"
         className="acceptButton"
