@@ -11,7 +11,7 @@ export default function MonEspace() {
     telephone: "",
     location: "",
   };
-  
+
   const [inputData, setInputData] = useState(data);
 
   useEffect(() => {
@@ -23,16 +23,16 @@ export default function MonEspace() {
     console.info(inputData);
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (!inputData.Nom || !inputData.Prenom || !inputData.email) {
-      // eslint-disable-next-line no-alert
-      alert("Tous les champs sont obligatoires");
-    } else {
-      console.info("Enregistrer les modifications");
-      setInputData(data);
-    }
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   if (!inputData.Nom || !inputData.Prenom || !inputData.email) {
+  //     // eslint-disable-next-line no-alert
+  //     alert("Tous les champs sont obligatoires");
+  //   } else {
+  //     console.info("Enregistrer les modifications");
+  //     setInputData(data);
+  //   }
+  // }
 
   return (
     <div className="principal_monespace">
@@ -69,8 +69,7 @@ export default function MonEspace() {
                 onChange={handleData}
               />
             </div>
-            <div className="button_monespace">
-            </div>
+            <div className="button_monespace" />
           </div>
         </form>
       </div>

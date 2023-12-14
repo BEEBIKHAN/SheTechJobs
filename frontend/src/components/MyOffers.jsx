@@ -5,7 +5,7 @@ import AnnonceByCompany from "./AnnonceByCompany";
 
 export default function MyOffers() {
   const [data, setData] = useState([]);
-  const [buttonStatus, setButtonStatus] = useState("");
+  // const [buttonStatus, setButtonStatus] = useState("");
   const companyId = localStorage.getItem("id");
 
   console.info("Voici l'id de l'entreprise", companyId);
@@ -19,37 +19,37 @@ export default function MyOffers() {
     window.location.assign("/dashboardcompany");
   };
 
-  const closeOffer = (offerId, offer) => {
-    const newStatus = offer.status === 0 ? 1 : 0;
+  // const closeOffer = (offerId, offer) => {
+  //   const newStatus = offer.status === 0 ? 1 : 0;
 
-    axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/offer/status/${offerId}`, {
-        status: newStatus,
-      })
-      .then((response) => {
-        console.info("réponse après mon update", response);
-        setButtonStatus(newStatus);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
+  //   axios
+  //     .put(`${import.meta.env.VITE_BACKEND_URL}/offer/status/${offerId}`, {
+  //       status: newStatus,
+  //     })
+  //     .then((response) => {
+  //       console.info("réponse après mon update", response);
+  //       setButtonStatus(newStatus);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // };
 
-  const republishOffer = (offerId, offer) => {
-    const newStatus = offer.status === 0 ? 1 : 0;
+  // const republishOffer = (offerId, offer) => {
+  //   const newStatus = offer.status === 0 ? 1 : 0;
 
-    axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/offer/status/${offerId}`, {
-        status: newStatus,
-      })
-      .then((response) => {
-        console.info("réponse après mon update", response);
-        setButtonStatus(newStatus);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
+  //   axios
+  //     .put(`${import.meta.env.VITE_BACKEND_URL}/offer/status/${offerId}`, {
+  //       status: newStatus,
+  //     })
+  //     .then((response) => {
+  //       console.info("réponse après mon update", response);
+  //       setButtonStatus(newStatus);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // };
 
   useEffect(() => {
     axios
@@ -57,9 +57,7 @@ export default function MyOffers() {
       .then((response) => {
         setData(response.data);
       });
-  }, [buttonStatus]);
-  console.info("data :", data);
-  console.info("Le statut du bouton", buttonStatus);
+  }, []);
 
   return (
     <div className="contentmyoffers">
@@ -78,7 +76,7 @@ export default function MyOffers() {
                   Modifier
                 </Link>
               </button>
-              <ul className="ul_bouton_myoffer">
+              {/* <ul className="ul_bouton_myoffer">
                 <li className="btnMyOffers" key={offer.id}>
                   {offer.status === 0 ? "Clôturer" : ""}
                   <button
@@ -102,7 +100,7 @@ export default function MyOffers() {
                     }}
                   />
                 </li>
-              </ul>
+              </ul> */}
               <button
                 type="button"
                 onClick={() => deleteOffer(offer.id)}
