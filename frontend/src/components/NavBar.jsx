@@ -141,7 +141,7 @@ function Navbar() {
         ) : (
           ""
         )}
-        {info.Role === "undefined" && (
+        {info.Role === "undefined" ? (
           <>
             <div className="genericNavbar">
               <div className="navbartop">
@@ -192,6 +192,8 @@ function Navbar() {
               </div>
             </div>
           </>
+        ) : (
+          ""
         )}
       </ul>
 
