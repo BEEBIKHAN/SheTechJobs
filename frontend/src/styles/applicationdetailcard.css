@@ -23,8 +23,9 @@
   margin-top: 30px;
   padding: 5%;
   margin: 30px 15px 15px 15px;
+  align-items: center;
 }
-.applicationDetailCard > button{
+.applicationDetailCard > button {
   background-color: var(--color-bleu-foncé);
   color: var(--color-text-clair);
   border-radius: 20px;
