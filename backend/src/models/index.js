@@ -29,11 +29,48 @@ pool.getConnection().catch(() => {
 
 const models = {};
 
-const ItemManager = require("./ItemManager");
+const CandidateManager = require("./CandidateManager");
 
-models.item = new ItemManager();
-models.item.setDatabase(pool);
+models.candidate = new CandidateManager();
+models.candidate.setDatabase(pool);
 
+const CompanyManager = require("./CompanyManager");
+
+models.company = new CompanyManager();
+models.company.setDatabase(pool);
+
+const OfferManager = require("./OfferManager");
+
+models.offer = new OfferManager();
+models.offer.setDatabase(pool);
+
+const DepartementManager = require("./DepartementManager");
+
+models.departement = new DepartementManager();
+models.departement.setDatabase(pool);
+
+const ContractManager = require("./ContractManager");
+
+models.contract = new ContractManager();
+models.contract.setDatabase(pool);
+
+const JobManager = require("./JobManager");
+
+models.job = new JobManager();
+models.job.setDatabase(pool);
+
+const ApplicationManager = require("./ApplicationManager");
+
+models.application = new ApplicationManager();
+models.application.setDatabase(pool);
+
+// bonus: use a proxy to personalize error message,
+// when asking for a non existing model
+
+const NewsletterManager = require("./NewsletterManager");
+
+models.newsletter = new NewsletterManager();
+models.newsletter.setDatabase(pool);
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 

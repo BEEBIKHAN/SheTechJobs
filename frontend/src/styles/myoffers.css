@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.dashbord_company {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.contentmyoffers {
+  flex-direction: column;
+  display: flex;
+  background-color: var(--color-background-gris);
+  margin-top: 30px;
+  padding: 5%;
+  margin: 30px 15px 15px 15px;
+}
+.boutonOffer {
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
+}
+.btnMyOffers {
+  background-color: var(--color-bleu-foncé);
+  color: var(--color-text-clair);
+  border-radius: 20px;
+  width: 40%;
+  height: 2rem;
+  margin: 6px 6px;
+  cursor: pointer;
+}
+
+.btnMyOffers > a {
+  color: white;
+}
+
+@media (min-width: 620px) {
+  .annonce_listOffer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contentmyoffers {
+    display: flex;
+    width: 130vh;
+    padding: 3%;
+    margin: 30px 30px 30px 0px;
+  }
+
+  .btnMyOffers {
+    display: flex;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  .boutonOffer {
+    margin: 10px;
+  }
+  .ul_bouton_myoffer {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .ul_bouton_myoffer > li {
+    padding: 16px;
+  }
+
+  .ul_bouton_myoffer > li {
+    border: none;
+    padding: 8px 80px;
+  }
+}

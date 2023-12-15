@@ -1,0 +1,115 @@
+.connectionCandidate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-family-1);
+}
+
+.imgConnectionWoman {
+  background-image: url(../assets/images/woman.png);
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+}
+
+/* .imglogincandidate {
+  width: 100%;
+  height: auto;
+} */
+
+.formConnectionCandidate {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: var(--color-background-gris);
+  width: 80%;
+  margin-right: 50px;
+}
+
+.formConnectionCandidate > h2 {
+  margin: 0 auto;
+  padding: 1.3rem;
+  font-size: 1.5rem;
+  font-weight: 1200;
+}
+
+.formConnectionCandidate > .login_form_candidate {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.formConnectionCandidate > .login_form_candidate > label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.formConnectionCandidate > .login_form_candidate > input {
+  padding: 10px;
+  border: none;
+  font-style: italic;
+  margin-bottom: 25px;
+  background-color: white;
+  color: var(--color-text);
+}
+
+.formConnectionCandidate > form > p {
+  font-size: 0.8rem;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 0.7rem;
+}
+
+.formConnectionCandidate > .login_form_candidate > p > span {
+  color: var(--color-bleu-inter);
+}
+
+.formConnectionCandidate > .login_form_candidate > button {
+  background-color: var(--color-orange);
+  color: var(--color-text);
+  font-weight: bolder;
+  border-radius: 20px;
+  padding: 10px;
+  border: none;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.formConnectionCandidate > .login_form_candidate > label {
+  padding-left: 5px;
+}
+.messages {
+  font-weight: bolder;
+}
+
+.loginBtn {
+  padding: 8px 16px;
+  margin: 0px 0px 24px 110px;
+  background-color: var(--color-bleu-foncé);
+  color: white;
+}
+
+@media (min-width: 620px) {
+  .connectionCandidate {
+    background-image: url(../assets/images/woman.png);
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .imgConnectionWoman {
+    background-image: none;
+  }
+
+  .formConnectionCandidate {
+    width: 50%;
+    margin-right: 100px;
+  }
+
+  .formConnectionCandidate > .login_form_candidate > button {
+    padding: 10px;
+  }
+}

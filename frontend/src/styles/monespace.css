@@ -1,0 +1,101 @@
+.principal_monespace {
+  flex-direction: column;
+  display: flex;
+  background-color: var(--color-background-gris);
+  margin-top: 30px;
+  padding: 5%;
+  margin: 30px 15px 15px 15px;
+  font-style: italic;
+}
+
+.principal_monespace > span {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.fmonespace {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px 0 0 20px;
+  font-style: italic;
+  text-align: left;
+  background-color: #efefef;
+}
+.fmonespace input {
+  padding: 5px;
+  border: none;
+  margin-top: 2rem;
+  background-color: white;
+}
+.Nom,
+.Prenom,
+.email {
+  margin-bottom: 20px;
+}
+.btn_monespace {
+  background-color: #f5b800;
+  border-radius: 20px;
+  padding: 5px;
+  cursor: pointer;
+}
+.button_monespace {
+  display: flex;
+  justify-content: left;
+  margin-top: 10px;
+}
+@media (min-width: 620px) {
+  .principal_monespace {
+    padding-top: 100px;
+    width: 130vh;
+    height: 100vh;
+    margin: 30px 30px 30px 0px;
+  }
+
+  .principal_monespace > span {
+    justify-content: end;
+    margin-bottom: 16px;
+  }
+  .fmonespace {
+    display: flex;
+    flex-direction: column;
+    background-color: #efefef;
+    width: 150%;
+    padding: 20px;
+  }
+  .fmonespace input {
+    padding: 10px;
+    width: 80%;
+    border: none;
+
+    background-color: white;
+    border-radius: 8px;
+  }
+  .comb_nom {
+    display: flex;
+    justify-content: space-between;
+  }
+  .Nom {
+    width: 70%;
+  }
+  .Prenom {
+    width: 70%;
+  }
+  .btn_monespace {
+    background-color: #f5b800;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 3rem;
+    width: 30%;
+  }
+  .fcontainer {
+    display: flex;
+    flex-direction: row;
+  }
+  .button_monespace {
+    display: flex;
+    justify-content: left;
+    border-radius: 20px;
+  }
+}
