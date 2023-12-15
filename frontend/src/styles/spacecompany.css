@@ -35,14 +35,14 @@
   font-style: italic;
 }
 
-.btnSpaceCompany {
+/*.btnSpaceCompany {
   background-color: var(--color-bleu-foncé);
   color: var(--color-text-clair);
   border-radius: 20px;
   width: 70%;
   height: 2rem;
   margin: 15px 40px;
-}
+}*/
 
 .btnUpdateOffer {
   background-color: var(--color-bleu-foncé);

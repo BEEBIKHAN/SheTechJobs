@@ -47,6 +47,18 @@
   justify-content: left;
   margin-top: 20%;
 }
+.buttonupload > button{
+  display: flex;
+  justify-content: left;
+  margin-top: 20%;
+  background-color: var(--color-orange );
+  border-radius: 20px;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+ 
+}
 
 @media (min-width: 620px) {
   .mon-cv-container {
