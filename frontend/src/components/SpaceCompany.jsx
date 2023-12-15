@@ -17,9 +17,6 @@ export default function SpaceCompany() {
             <label htmlFor="name">Numéro de Siret*</label>
             <input type="text" value={info.siret} />
           </div>
-          <button type="submit" className="btnSpaceCompany">
-            Enregister les modifications
-          </button>
         </div>
       </form>
     </div>

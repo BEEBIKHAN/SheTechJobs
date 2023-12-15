@@ -19,12 +19,12 @@
 }
 
 .nav-menu {
-  position: fixed;
+ position: absolute;
   left: -100%;
   top: 80px;
   flex-direction: column;
   justify-content: center;
-  background-color: #8ecae6;
+  background-color:var( --color-bleu-clair) ;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -41,6 +41,7 @@
   margin: 6px;
   cursor: pointer;
 }
+
 
 .navbartop {
   display: flex;
@@ -113,8 +114,10 @@ li.nav-itemtop {
 }
 .btnEspaceEntreprise > a {
   color: var(--color-background-gris-clair);
+  
 }
 @media (min-width: 620px) {
+
   .navbar {
     padding: 0;
     background-color: white;

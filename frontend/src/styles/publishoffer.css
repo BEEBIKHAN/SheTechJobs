@@ -57,6 +57,7 @@
   width: 70%;
   height: 2rem;
   margin: 0 auto;
+  border: none;
 }
 
 .input_wrapper > select {
@@ -104,5 +105,8 @@
     margin-top: 3px;
     height: 2rem;
     width: 30%;
+  }
+  .publish_form_label .big_label  {
+    height: 6.33rem;
   }
 }
