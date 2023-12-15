@@ -13,6 +13,7 @@ function Navbar() {
   const [click, setClick] = useState(false);
 
   const { info } = useContext(ExportContext.Context);
+  console.info(info);
 
   const displayLinkCandidate = () => {
     if (info.Role === "candidate") {
@@ -143,7 +144,7 @@ function Navbar() {
         ) : (
           ""
         )}
-        {info.Role === "null" ? (
+        {info.Role === null ? (
           <>
             <div className="genericNavbar">
               <div className="navbartop">
