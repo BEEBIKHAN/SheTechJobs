@@ -29,7 +29,7 @@
   }
 
   .searchBar_offersResults > .search_bar {
-    margin-top: -460px;
+    margin-top: 0px;
     margin-left: -20px;
     padding: 6px;
     width: 40%;

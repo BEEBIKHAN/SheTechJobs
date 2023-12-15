@@ -50,12 +50,13 @@
 .candidateEmailFormContent > .email_form > .btnAccountManagement,
 .candidatePasswordFormContent > .password_form > .btnAccountManagement,
 .candidateDeleteAccount > .btnAccountManagement {
-  color: white;
-  background-color: #023047;
+  color: var(--color-text-clair);
+  background-color: var(--color-bleu-foncé);
   border-radius: 16px;
   padding: 6px 32px;
   margin-top: 20px;
   cursor: pointer;
+  border: none;
 }
 
 @media screen and (min-width: 620px) {
