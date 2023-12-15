@@ -51,8 +51,8 @@
 .companyEmailFormContent > .email_form > .btnAccountManagement,
 .companyPasswordFormContent > .password_form > .btnAccountManagement,
 .companyDeleteAccount > a > .btnAccountManagement {
-  color: white;
-  background-color: #023047;
+  color: var(--color-text-clair);
+  background-color: var(--color-bleu-foncé);
   border-radius: 16px;
   padding: 6px 32px;
   cursor: pointer;
