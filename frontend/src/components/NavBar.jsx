@@ -100,7 +100,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li className="nav-itembottom">
-                  <a href="/search/type/stages"> Stages </a>
+                  <a href="/search/type/stage"> Stages </a>
                 </li>
               </ul>
             </div>
