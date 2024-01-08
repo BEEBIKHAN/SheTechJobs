@@ -31,14 +31,14 @@ export default function ApplicationDetailCard({ application, onStatusChange }) {
         className="acceptButton"
         onClick={() => updateStatus(0)}
       >
-        Accept
+        Accepter
       </button>
       <button
         type="button"
         className="attenteButton"
         onClick={() => updateStatus(1)}
       >
-        Attente
+        En attente
       </button>
       <button
         type="button"

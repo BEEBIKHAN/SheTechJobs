@@ -14,6 +14,9 @@ export default function LoginCompany() {
   const { info } = useContext(ExportContext.Context);
 
   const navigate = useNavigate();
+  const navigateToDashboard = () => {
+    navigate("/dashboardcompany");
+  };
 
   const handleChangeEmail = (event) => {
     setEmail(event.target.value);
@@ -37,7 +40,6 @@ export default function LoginCompany() {
         }
       )
       .then((response) => {
-        setSuccess(console.info(response.data));
         toast.success("Connexion réussi. Hello! 👋");
         console.info(response);
         localStorage.setItem("Role", response.data.role);
@@ -45,9 +47,9 @@ export default function LoginCompany() {
         localStorage.setItem("Email", response.data.email);
         localStorage.setItem("Siret", response.data.siret);
         localStorage.setItem("id", response.data.id);
-        navigate("/dashboardcompany");
-        info();
-        window.location.href = "/dashboardcompany";
+        setSuccess(console.info(response.data));
+        navigateToDashboard();
+        window.location.reload();
         setError(false);
       })
       .catch((err) => {

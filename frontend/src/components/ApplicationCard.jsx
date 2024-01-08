@@ -40,7 +40,7 @@ export default function ApplicationCard({ application, onSelect }) {
       </div>
       <div className="candidateb">
         <p>
-          <strong>Candidate Name:</strong> {application.firstname}
+          <strong>Nom de la candidate :</strong> {application.firstname}
         </p>
         <div className="cvlinkb">
           <Link
@@ -48,12 +48,12 @@ export default function ApplicationCard({ application, onSelect }) {
               application.cv_link
             }`}
           >
-            Click here to Download Cv
+            Télécharger le CV
           </Link>
         </div>
         <div className="motivationsb">
           <p>
-            <strong>Motivations: </strong> {application.motivations}
+            <strong>Motivations : </strong> {application.motivations}
           </p>
         </div>
       </div>
