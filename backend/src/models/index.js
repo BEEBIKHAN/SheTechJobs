@@ -74,6 +74,13 @@ models.newsletter.setDatabase(pool);
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
+const AdminManager = require("./AdminManager");
+
+models.admin = new AdminManager();
+models.admin.setDatabase(pool);
+// bonus: use a proxy to personalize error message,
+// when asking for a non existing model
+
 const handler = {
   get(obj, prop) {
     if (prop in obj) {

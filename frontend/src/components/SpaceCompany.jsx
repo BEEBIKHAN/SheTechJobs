@@ -6,7 +6,7 @@ export default function SpaceCompany() {
 
   return (
     <div className="contentspacecompany">
-      <span> Hello👋 {info.companyName}</span>
+      <span> Bienvenue 👋 {info.companyName}</span>
       <form action="">
         <div className="publish_form_input">
           <div className="input_wrapper">

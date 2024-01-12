@@ -1,56 +1,56 @@
 CREATE TABLE `admin` (
  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
- `email` VARCHAR(255) NOT NULL,
- `password` VARCHAR(255) NOT NULL
+ `email` VARCHAR(40) NOT NULL,
+ `password` VARCHAR(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `newsletter` (
  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
- `email` VARCHAR(255) NOT NULL
+ `email` VARCHAR(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `company` (
  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
- `name` VARCHAR(255) NOT NULL,
- `email` VARCHAR(255) NOT NULL,
- `password` VARCHAR(255) NOT NULL,
+ `name` VARCHAR(100) NOT NULL,
+ `email` VARCHAR(40) NOT NULL,
+ `password` VARCHAR(100) NOT NULL,
  `siret` BIGINT(14) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `candidate` (
  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
- `firstname` VARCHAR(255) NOT NULL,
- `lastname` VARCHAR(255) NOT NULL,
- `email` VARCHAR(255) UNIQUE NOT NULL,
- `hashedPassword` VARCHAR(255) NOT NULL,
- `cv_link` VARCHAR(255)
+ `firstname` VARCHAR(50) NOT NULL,
+ `lastname` VARCHAR(50) NOT NULL,
+ `email` VARCHAR(40) UNIQUE NOT NULL,
+ `password` VARCHAR(100) NOT NULL,
+ `cv_link` VARCHAR(100)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `contract` (
  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
- `type` VARCHAR(255) NOT NULL
+ `type` VARCHAR(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `departement` (
  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
- `name` VARCHAR(255) NOT NULL
+ `name` VARCHAR(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `job` (
  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
- `name` VARCHAR(255) NOT NULL
+ `name` VARCHAR(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `offer` (
  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
- `title` VARCHAR(255) NOT NULL,
+ `title` VARCHAR(100) NOT NULL,
  `company_description` TEXT NOT NULL,
  `job_description` TEXT NOT NULL,
  `profile_required` TEXT NOT NULL,
@@ -85,7 +85,7 @@ VALUES
 ('Wild Code School', 'wcs@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$QltwaNxSn8XMDuZCKanrCw$1PNyH80lxpQ0sZxXXlDoLxNMSBsOzDeRuzX1osWlj2M', 64879909700544);
  
  
- INSERT INTO `candidate` (`firstname`, `lastname`, `email`, `hashedPassword`, `cv_link`)
+ INSERT INTO `candidate` (`firstname`, `lastname`, `email`, `password`, `cv_link`)
     VALUES
     ('John', 'Doe', 'john.doe@email.com', '$argon2id$v=19$m=65536,t=5,p=1$JwWcvuajHV12uaWJVE2/XQ$dVEuVeiFt/DHQE5soahtnqNZ3v4MANuOHvDfKSeRGgo', 'cv_link_1'),
      ('Jane', 'Smith', 'jane.smith@email.com', '$argon2id$v=19$m=65536,t=5,p=1$KwWcvuajHV12uaWJVE2/XQ$dVEuVeiFt/DHQE5soahtnqNZ3v4MANuOHvDfKSeRGgo', 'cv_link_2'),

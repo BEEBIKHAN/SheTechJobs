@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
 import ExportContext from "../contexts/Context";
 import entrepreneurs from "../assets/images/inscription_entreprise.png";
 import "../styles/logincompany.css";
@@ -40,7 +39,6 @@ export default function LoginCompany() {
         }
       )
       .then((response) => {
-        toast.success("Connexion réussi. Hello! 👋");
         console.info(response);
         localStorage.setItem("Role", response.data.role);
         localStorage.setItem("companyName", response.data.companyName);

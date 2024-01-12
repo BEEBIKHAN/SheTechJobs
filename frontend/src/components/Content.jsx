@@ -16,6 +16,7 @@ import ExportContext from "../contexts/Context";
 import Page404 from "../pages/Page404";
 import CandidateMyApplications from "./CandidateMyApplications";
 import MonCV from "./MonCv";
+import RegisterAdmin from "../pages/RegisterAdmin";
 
 export default function Content() {
   const { info } = useContext(ExportContext.Context);
@@ -28,6 +29,7 @@ export default function Content() {
         <Route path="/annonceDetails/:id" element={<AnnonceDetails />} />
         <Route path="/registercompany" element={<RegisterCompany />} />
         <Route path="/registercandidate" element={<RegisterCandidate />} />
+        <Route path="/registeradmin" element={<RegisterAdmin />} />
         <Route
           path="/dashboardcandidate"
           element={

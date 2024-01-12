@@ -143,7 +143,7 @@ function Navbar() {
         ) : (
           ""
         )}
-        {info.Role === "null" ? (
+        {info.Role === "null" || info.Role == null ? (
           <>
             <div className="genericNavbar">
               <div className="navbartop">

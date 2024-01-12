@@ -36,7 +36,7 @@ export default function MonEspace() {
 
   return (
     <div className="principal_monespace">
-      <span> Hello👋 {info.firstname}</span>
+      <span> Bienvenue 👋 {info.firstname}</span>
       <div className="fcontainer">
         <form className="container">
           <div className="fmonespace">

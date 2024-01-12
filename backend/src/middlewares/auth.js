@@ -44,6 +44,11 @@ const companySchema = Joi.object({
   siret: Joi.number().integer().min(14).required(),
 });
 
+const adminSchema = Joi.object({
+  email: Joi.string().email().required(),
+  password: Joi.string().min(8).required(),
+});
+
 const validateCandidate = (req, res, next) => {
   const { error } = candidateSchema.validate(req.body);
 
@@ -56,6 +61,15 @@ const validateCandidate = (req, res, next) => {
 
 const validateCompany = (req, res, next) => {
   const { error } = companySchema.validate(req.body);
+  if (error) {
+    res.status(400).json({ error: error.details[0].message });
+  } else {
+    next();
+  }
+};
+
+const validateAdmin = (req, res, next) => {
+  const { error } = adminSchema.validate(req.body);
   if (error) {
     res.status(400).json({ error: error.details[0].message });
   } else {
@@ -92,6 +106,18 @@ const checkEmailCompanyIfExist = (req, res, next) => {
     }
   });
 };
+const checkEmailAdminIfExist = (req, res, next) => {
+  const { email } = req.body;
+  models.admin.searchByEmail(email).then(([admin]) => {
+    if (admin.length !== 0) {
+      // eslint-disable-next-line prefer-destructuring
+      req.admin = admin[0];
+      next();
+    } else {
+      res.sendStatus(401);
+    }
+  });
+};
 
 const checkIfIsAllowed = (req, res, next) => {
   try {
@@ -120,4 +146,6 @@ module.exports = {
   checkEmailCompanyIfExist,
   validateCompany,
   checkIfIsAllowed,
+  validateAdmin,
+  checkEmailAdminIfExist,
 };

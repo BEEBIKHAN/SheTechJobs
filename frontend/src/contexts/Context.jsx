@@ -20,7 +20,15 @@ function Provider({ children }) {
   });
 
   const resetInfo = () => {
-    setInfo({});
+    setInfo({
+      id: null,
+      Role: null,
+      companyName: null,
+      Email: null,
+      siret: null,
+      firstname: null,
+      lastname: null,
+    });
     localStorage.setItem("id", null);
     localStorage.setItem("Role", null);
     localStorage.setItem("companyName");
@@ -34,10 +42,10 @@ function Provider({ children }) {
     localStorage.setItem("id", info.id);
     localStorage.setItem("Role", info.Role);
     localStorage.setItem("companyName", info.companyName);
-    localStorage.setItem("Email", info.email);
+    localStorage.setItem("Email", info.Email);
     localStorage.setItem("Siret", info.siret);
-    localStorage.setItem("firstname", info.firstName);
-    localStorage.setItem("lastname", info.lastName);
+    localStorage.setItem("firstname", info.firstname);
+    localStorage.setItem("lastname", info.lastname);
   }, [info]);
 
   return (

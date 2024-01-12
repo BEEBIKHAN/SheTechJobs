@@ -7,17 +7,17 @@ class CandidateManager extends AbstractManager {
 
   // C'EST ICI QU'ON VA METTRE TOUTES NOS METHODES DE REQUETES
 
-  insert(firstname, lastname, email, hashedPassword) {
+  insert(firstname, lastname, email, password) {
     return this.database.query(
-      `INSERT INTO candidate (firstname, lastname, email, hashedPassword) VALUES (?, ?, ?, ?)`,
-      [firstname, lastname, email, hashedPassword]
+      `INSERT INTO candidate (firstname, lastname, email, password) VALUES (?, ?, ?, ?)`,
+      [firstname, lastname, email, password]
     );
   }
 
-  update(firstname, lastname, email, hashedPassword, id) {
+  update(firstname, lastname, email, password, id) {
     return this.database.query(
-      `UPDATE candidate SET firstname = ?, lastname = ?, email = ?, hashedPassword = ? WHERE id = ?`,
-      [firstname, lastname, email, hashedPassword, id]
+      `UPDATE candidate SET firstname = ?, lastname = ?, email = ?, password = ? WHERE id = ?`,
+      [firstname, lastname, email, password, id]
     );
   }
 
@@ -41,10 +41,10 @@ class CandidateManager extends AbstractManager {
     ]);
   }
 
-  updatePassword(hashedPassword, id) {
+  updatePassword(password, id) {
     return this.database.query(
-      `UPDATE candidate SET hashedPassword = ? WHERE id = ?`,
-      [hashedPassword, id]
+      `UPDATE candidate SET password = ? WHERE id = ?`,
+      [password, id]
     );
   }
 }

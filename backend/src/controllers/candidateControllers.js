@@ -78,7 +78,7 @@ const sendCv = (req, res) => {
 
 const verifyPassword = (req, res) => {
   argon2
-    .verify(req.candidate.hashedPassword, req.body.password)
+    .verify(req.candidate.password, req.body.password)
     .then((isVerified) => {
       if (isVerified) {
         const payload = {
@@ -130,10 +130,10 @@ const UpdateEmailCandidate = (req, res) => {
 
 const UpdatePasswordCandidate = (req, res) => {
   const { id } = req.params;
-  const { hashedPassword } = req.body;
+  const { password } = req.body;
   console.info("Req.body du mot de passe :", req.body);
   models.candidate
-    .updatePassword(hashedPassword, id)
+    .updatePassword(password, id)
     .then(([result]) => {
       console.info(result);
       res.status(200).json({

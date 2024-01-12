@@ -41,7 +41,7 @@ export default function CompanyAccountManagement() {
       .put(
         `${import.meta.env.VITE_BACKEND_URL}/candidate-password/${candidateId}`,
         {
-          hashedPassword: updatePassword,
+          password: updatePassword,
         }
       )
       .then((response) => {

@@ -91,7 +91,7 @@ export default function DashboardCandidate() {
           <div className="logoutBtn">
             <Link to="/">
               <button className="logoutBtn" type="button" onClick={deconnect}>
-                Se deconnecter
+                Se déconnecter
               </button>
             </Link>
           </div>

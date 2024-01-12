@@ -13,6 +13,7 @@ const jobControllers = require("./controllers/jobControllers");
 const applicationControllers = require("./controllers/applicationControllers");
 const authControllers = require("./controllers/authControllers");
 const newsletterControllers = require("./controllers/newsletterControllers");
+const adminControllers = require("./controllers/adminControllers");
 
 // CANDIDATE :
 
@@ -96,12 +97,27 @@ router.put("/company-email/:id", companyControllers.UpdateEmailCompany);
 router.put("/company-password/:id", companyControllers.UpdatePasswordCompany);
 router.delete("/company/:id", companyControllers.destroyCompany);
 
+// ADMIN :
+
+router.get("/admin", adminControllers.getAdmin);
+router.post(
+  "/admin",
+  auth.validateAdmin,
+  auth.hashPassword,
+  adminControllers.postAdmin
+);
+
+router.post(
+  "/login-company",
+  auth.checkEmailAdminIfExist,
+  adminControllers.verifyPassword
+);
+
+// OFFERS :
 router.get(
   "/offers/:id/applications",
   applicationControllers.getListApplicationsByOffer
 );
-
-// OFFERS :
 router.get("/offers", offerControllers.getAllOffers);
 router.get("/offers/:id", offerControllers.getAllOffersById);
 router.get(
