@@ -67,15 +67,21 @@ export default function LoginCompany() {
       <img
         className="imglogincompany"
         src={entrepreneurs}
-        alt="Beautiful entrepreuneurs chatting and walking down the street while smiling"
+        alt="Beautiful women entrepreneurs chatting and walking down the street while smiling"
       />
       <form className="login_form" onSubmit={sendCredentials}>
         <h2>Espace connexion</h2>
-        <p>Email</p>
-        <input type="text" placeholder="Email" onChange={handleChangeEmail} />
-        <p>Mot de passe</p>
+        <label htmlFor={email}>Email</label>
+        <input
+          type="text"
+          id={email}
+          placeholder="Email"
+          onChange={handleChangeEmail}
+        />
+        <label htmlFor={password}>Mot de passe</label>
         <input
           type="password"
+          id={password}
           placeholder="Mot de passe"
           onChange={handleChangePassword}
         />

@@ -60,6 +60,7 @@ class ApplicationManager extends AbstractManager {
     );
   }
 
+  // Affichage des candidatures par offre d'emploi :
   findListApplicationsByOffer(id) {
     return this.database.query(
       `SELECT

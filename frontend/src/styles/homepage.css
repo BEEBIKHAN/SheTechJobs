@@ -98,22 +98,23 @@
   margin-left: 1rem;
   font-weight: bolder;
 }
-.title > h3 {
+.title > h1 {
   margin-top: 5px;
-  font-size: 1.2rem;
-  font-weight: bolder;
+  font-size: 3rem;
+  font-weight: 700;
   letter-spacing: 1px;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: var(--font-family-1);
 }
 
-.img {
+.img_girl_keyboard {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  /* width: 50%; */
 }
-.img > img {
+.img_girl_keyboard > img {
   width: 45%;
-  margin-top: -95px;
+  margin-top: -120px;
   margin-right: 30px;
   margin-bottom: 60px;
 }

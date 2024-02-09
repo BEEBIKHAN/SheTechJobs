@@ -1,7 +1,9 @@
+// NPM packages
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
 const models = require("../models");
 
+// Chargement des entreprises
 const getAllCompanies = (req, res) => {
   models.company
     .findAll()
@@ -14,6 +16,7 @@ const getAllCompanies = (req, res) => {
     });
 };
 
+// Création entreprise
 const postCompany = (req, res) => {
   const { companyName, email, hashedPassword, siret } = req.body;
 
@@ -35,6 +38,7 @@ const postCompany = (req, res) => {
     });
 };
 
+// Modification entreprise
 const updateCompany = (req, res) => {
   const { id } = req.params;
   console.info("ID qui est dans mes params :", id);

@@ -10,6 +10,7 @@ export default function AnnonceCard({ snippet }) {
             <div className="annonce_title">
               <h2>{snippet.title}</h2>
             </div>
+            <h3 className="annonce_localisation">{snippet.companyName}</h3>
             <div className="annonce_localisation">{snippet.localisation}</div>
             <div className="annonce_date">Publiée le {snippet.date}</div>
             <div className="profil_required">{snippet.profile_required}</div>

@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 const models = require("../models");
 
+// Candidatures avec CV uniquement :
 const postApplication = (req, res) => {
   const { application_status, candidate_id, offer_id } = req.body;
 
@@ -22,6 +23,7 @@ const postApplication = (req, res) => {
     });
 };
 
+// Candidatures avec CV et motivations :
 const postApplicationWithMotivations = (req, res) => {
   const { application_status, motivations, candidate_id, offer_id } = req.body;
 

@@ -1,8 +1,10 @@
+// Import de packages npm :
 const argon2 = require("argon2");
 const Joi = require("joi");
 const jwt = require("jsonwebtoken");
 const models = require("../models");
 
+// options d'hachage :
 const hashingOptions = {
   type: argon2.argon2id,
   memoryCost: 2 ** 16,
@@ -10,6 +12,7 @@ const hashingOptions = {
   parallelism: 1,
 };
 
+// Hachage des mot de passe :
 const hashPassword = (req, res, next) => {
   argon2
     .hash(req.body.password, hashingOptions)

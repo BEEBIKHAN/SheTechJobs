@@ -43,13 +43,13 @@ export default function Homepage() {
         <div className="header_general">
           <div className="left_side">
             <div className="title">
-              <h3>
+              <h1>
                 Votre talent <br /> au service <br /> de la tech
-              </h3>
+              </h1>
             </div>
-            <br />
+            {/* <br /> */}
           </div>
-          <div className="img">
+          <div className="img_girl_keyboard">
             <img src={frame} alt="fille au clavier" />
           </div>
           <SearchBar />

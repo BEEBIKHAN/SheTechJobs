@@ -7,6 +7,7 @@ class CandidateManager extends AbstractManager {
 
   // C'EST ICI QU'ON VA METTRE TOUTES NOS METHODES DE REQUETES
 
+  // Création de candidate :
   insert(firstname, lastname, email, hashedPassword) {
     return this.database.query(
       `INSERT INTO candidate (firstname, lastname, email, hashedPassword) VALUES (?, ?, ?, ?)`,
@@ -14,6 +15,7 @@ class CandidateManager extends AbstractManager {
     );
   }
 
+  // Modification de candidate :
   update(firstname, lastname, email, hashedPassword, id) {
     return this.database.query(
       `UPDATE candidate SET firstname = ?, lastname = ?, email = ?, hashedPassword = ? WHERE id = ?`,

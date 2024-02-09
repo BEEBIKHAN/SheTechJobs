@@ -8,9 +8,14 @@ export default function RegisterCompany() {
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [siret, setSiret] = useState("");
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  // Expression régulière pour le mot de passe (au moins 8 caractères, avec au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial)
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   const handleChangeCompanyName = (event) => {
     setCompanyName(event.target.value);
@@ -28,8 +33,28 @@ export default function RegisterCompany() {
     setSiret(event.target.value);
   };
 
+  const handleChangeConfirmPassword = (event) => {
+    setConfirmPassword(event.target.value);
+  };
+
+  const validatePassword = (passwordReg) => {
+    return passwordRegex.test(passwordReg);
+  };
+
   const sendRegisterData = (event) => {
     event.preventDefault();
+    if (!validatePassword(password)) {
+      setError(
+        "Le mot de passe doit faire au moins 8 caractères et inclure au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial."
+      );
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError("Les mots de passe ne correspondent pas");
+      return;
+    }
+
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/company`, {
         companyName,
@@ -117,7 +142,7 @@ export default function RegisterCompany() {
         <input
           type="password"
           placeholder="Confirmation du mot de passe"
-          onChange={handleChangePassword}
+          onChange={handleChangeConfirmPassword}
         />
         <input
           type="text"
@@ -133,6 +158,7 @@ export default function RegisterCompany() {
             fontWeight: "bolder",
             fontSize: "16px",
             margin: "16px 0px",
+            cursor: "pointer",
           }}
           className="btn"
           type="submit"

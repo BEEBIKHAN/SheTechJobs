@@ -12,6 +12,9 @@ export default function RegisterCandidate() {
   const [checkedPassword, setCheckedPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [passwordRegex] = useState(
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+  );
 
   const { info } = useContext(ExportContext.Context);
   const navigate = useNavigate();
@@ -36,10 +39,21 @@ export default function RegisterCandidate() {
     setCheckedPassword(event.target.value);
   };
 
+  const validatePassword = (passwordReg) => {
+    return passwordRegex.test(passwordReg);
+  };
+
   const sendCandidateData = (event) => {
     event.preventDefault();
 
     if (password === checkedPassword) {
+      if (!validatePassword(password)) {
+        setError(
+          "Le mot de passe doit faire au moins 8 caractères et inclure au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial."
+        );
+        return;
+      }
+
       axios
         .post(`${import.meta.env.VITE_BACKEND_URL}/candidate`, {
           firstname,
@@ -82,7 +96,7 @@ export default function RegisterCandidate() {
         });
     } else {
       setError("Les mots de passe ne correspondent pas");
-      console.error("Les mots de passe ne correspondent pas ;(");
+      console.error("Les mots de passe ne correspondent pas");
     }
   };
 

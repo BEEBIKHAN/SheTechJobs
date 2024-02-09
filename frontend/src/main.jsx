@@ -19,15 +19,15 @@ import "./styles/annoncedetails.css";
 import "./styles/monespace.css";
 import "./styles/annonceresearch.css";
 import "./styles/moncv.css";
+import "./styles/mycandidatures.css";
+import "./styles/candidaturesstatus.css";
 import "./styles/myoffers.css";
 import "./styles/companyaccountmanagement.css";
 import "./styles/candidateaccountmanagement.css";
 import "./styles/myapplications.css";
 import "./styles/applicationsbycandidate.css";
 import "./styles/page404.css";
-import "./styles/mycandidatures.css";
 import "./styles/applicationcard.css";
-import "./styles/candidaturesstatus.css";
 import "./styles/applicationdetailcard.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

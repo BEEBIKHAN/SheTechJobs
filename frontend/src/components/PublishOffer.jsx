@@ -1,6 +1,7 @@
-import axios from "axios";
+import axios from "axios"; // import de la librairie pour faire des requêtes HTTP
+// import des hook pour gestion d'état du composant et effet après affichage du composant
 import { useState, useEffect } from "react";
-import { toast } from "react-toastify";
+import { toast } from "react-toastify"; // Hook en bannière après soumission formulaire
 
 export default function PublishOffer() {
   const [titlePoste, setTitlePoste] = useState("");

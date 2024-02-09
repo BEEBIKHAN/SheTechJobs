@@ -36,13 +36,13 @@ function Navbar() {
       return (
         <Link to="/dashboardcompany" className="navbar-link">
           {" "}
-          Espace Entreprises
+          Employeurs
         </Link>
       );
     }
     return (
       <Link to="/registercompany" className="navbar-link">
-        Espace Entreprises
+        Employeurs
       </Link>
     );
   };
@@ -94,13 +94,10 @@ function Navbar() {
                   <a href="/search/type/cdd"> Emplois en CDD </a>
                 </li>
                 <li className="nav-itembottom">
-                  <a href="/search/type/alternance">
-                    {" "}
-                    Contrats pro / alternance{" "}
-                  </a>
+                  <a href="/search/type/alternance"> Alternances </a>
                 </li>
                 <li className="nav-itembottom">
-                  <a href="/search/type/stages"> Stages </a>
+                  <a href="/search/type/stage"> Stages </a>
                 </li>
               </ul>
             </div>
@@ -124,10 +121,7 @@ function Navbar() {
                   <a href="/search/type/cdd"> Emplois en CDD </a>
                 </li>
                 <li className="nav-itembottom">
-                  <a href="/search/type/alternance">
-                    {" "}
-                    Contrats pro / alternance{" "}
-                  </a>
+                  <a href="/search/type/alternance"> Alternances </a>
                 </li>
                 <li className="nav-itembottom">
                   <a href="/search/type/stages"> Stages </a>
@@ -143,30 +137,17 @@ function Navbar() {
         ) : (
           ""
         )}
-        {info.Role === "null" ? (
+        {info.Role === "null" || info.Role == null ? (
           <>
             <div className="genericNavbar">
               <div className="navbartop">
                 <div className="loginDiv">
-                  <Link to="/logincandidate">
-                    <button className="loginBtn" type="button">
-                      Se connecter
+                  <Link to="/registercandidate">
+                    <button className="loginBtnCandidate" type="button">
+                      Espace candidate
                     </button>
                   </Link>
                 </div>
-                <div className="blueline" />
-                <li className="nav-itemtop">
-                  <img className="imageiconCV" src={cv} alt="" />
-                  Mon CV
-                </li>
-                <div className="blueline" />
-                <li className="nav-itemtop">
-                  <img className="imageicon" src={annonce} alt="" />
-                  Mes candidatures
-                </li>
-
-                <div className="blueline" />
-                <li className="nav-itemtop">{displayLinkCandidate()}</li>
               </div>
             </div>
             <div className="navbarbottom">
@@ -178,10 +159,7 @@ function Navbar() {
                   <a href="/search/type/cdd"> Emplois en CDD </a>
                 </li>
                 <li className="nav-itembottom">
-                  <a href="/search/type/alternance">
-                    {" "}
-                    Contrats pro / alternance{" "}
-                  </a>
+                  <a href="/search/type/alternance"> Alternances </a>
                 </li>
                 <li className="nav-itembottom">
                   <a href="/search/type/stages"> Stages </a>

@@ -60,26 +60,28 @@ export default function AnnonceContent({ annonce }) {
           <img src={trait} alt="trait-jaune" />
           <p>{annonce.profile_required}</p>
         </div>
-        <div className="motivationText">
-          <h3>TechNova Solutions</h3>
-          <form onSubmit={sendApplicationWithMotivations}>
-            <p id="offre">
-              Si cette offre vous intéresse, veuillez cliquer sur le bouton
-              ci-dessus. Vous augmenterez vos chances si vous écrivez ce qui
-              vous motive dans l’offre.
-            </p>
-            <p id="optionnel">Vos motivations (optionnel) :</p>
-            <textarea
-              name="motivations"
-              id="motivations"
-              cols="50"
-              rows="22"
-              onChange={handleChangeMotivations}
-            />
-            <br />
-            <input type="submit" value="Postuler" />
-          </form>
-        </div>
+        {info.Role === "candidate" && (
+          <div className="motivationText">
+            <h3>{annonce.title}</h3>
+            <form onSubmit={sendApplicationWithMotivations}>
+              <p id="offre">
+                Postuler en un clic, votre CV sera directement envoyé à
+                l'entreprise et augmentez vos chances en écrivant vos
+                motivations !.
+              </p>
+              <p id="optionnel">Vos motivations (optionnel) :</p>
+              <textarea
+                name="motivations"
+                id="motivations"
+                cols="50"
+                rows="22"
+                onChange={handleChangeMotivations}
+              />
+              <br />
+              <input type="submit" value="Postuler" />
+            </form>
+          </div>
+        )}
       </div>
       {success ? <p>{success}</p> : ""}
     </>
